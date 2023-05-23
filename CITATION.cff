@@ -13,7 +13,16 @@ authors:
 repository-code: >-
   https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-bib
 abstract: >-
-  Longer description.
+  The extension provides a data model for bibliographic
+  data. It is modelled after the biblStruct element in TEI
+  XML as produced by Zotero. The data can be listed as a
+  bibliography, entries and contributors can be grouped via
+  labels, and other data models can reference and elaborate
+  on individual entries using the EntryRelation class. A
+  flexible SameAs class adds options to identify, for
+  example, authors via their OrcIDs in linked-data
+  scenarios. A TYPO3 task can be activated to periodically
+  and automatically import data from a Zotero library.
 keywords:
   - TYPO3
   - Bibliography
@@ -24,5 +33,5 @@ keywords:
   - Academia
   - Academic
 license: GPL 3
-version: 0.0.1
-date-released: '2023-04-12'
+version: 0.0.2
+date-released: '2023-05-23'
