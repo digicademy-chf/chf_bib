@@ -21,7 +21,10 @@ abstract: >-
   on individual entries using the EntryRelation class. A
   flexible SameAs class adds options to identify, for
   example, authors via their OrcIDs in linked-data
-  scenarios. A TYPO3 task can be activated to periodically
+  scenarios. A frontend plugin provides options to display
+  selections of the bibliography, and a few common
+  serialisations of bibliographic data are included out of
+  the box. A TYPO3 task can be activated to periodically
   and automatically import data from a Zotero library.
 keywords:
   - TYPO3
