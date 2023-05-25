@@ -6,7 +6,7 @@
 - License: GPL 3
 - Version: 0.0.2
 
-The extension provides a data model for bibliographic data. It is modelled after the [`biblStruct` element in TEI XML](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-biblStruct.html) as [produced by Zotero](https://github.com/zotero/translators/blob/master/TEI.js). The data can be listed as a bibliography, entries and contributors can be grouped via labels, and other data models can reference and elaborate on individual entries using the `EntryRelation` class. A flexible `SameAs` class adds options to identify, for example, authors via their OrcIDs in linked-data scenarios. A frontend plugin provides options to display selections of the bibliography, and a few common serialisations of bibliographic data are included out of the box. A TYPO3 task can be activated to periodically and automatically import data from a Zotero library.
+The extension provides a data model for bibliographic data. It is modelled after the `biblStruct` [element in TEI XML](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-biblStruct.html) as [produced by Zotero](https://github.com/zotero/translators/blob/master/TEI.js). The data can be listed as a bibliography, entries and contributors can be grouped via labels, and other data models can reference and elaborate on individual entries using the `EntryRelation` class. A flexible `SameAs` class adds options to identify, for example, authors via their OrcIDs in linked-data scenarios. A frontend plugin provides options to display selections of the bibliography, and a few common serialisations of bibliographic data are included out of the box. A TYPO3 task can be activated to periodically and automatically import data from a Zotero library.
 
 ## Setup
 
