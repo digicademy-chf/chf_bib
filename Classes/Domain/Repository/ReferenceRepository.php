@@ -10,21 +10,20 @@ declare(strict_types=1);
 
 namespace Digicademy\DABib\Domain\Repository;
 
-use Digicademy\DABib\Domain\Model\Tag;
+use Digicademy\DABib\Domain\Model\Reference;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository to provide generic tags that can group entities together
+ * Repository to provide a reference to a bibliographic entry
  * 
- * @extends Repository<Tag>
+ * @extends Repository<Reference>
  */
-class TagRepository extends Repository
+class ReferenceRepository extends Repository
 {
     protected $defaultOrderings = [
-        'name'        => QueryInterface::ORDER_ASCENDING,
-        'description' => QueryInterface::ORDER_ASCENDING,
-        'type'        => QueryInterface::ORDER_ASCENDING,
+        'elaboration' => QueryInterface::ORDER_ASCENDING,
+        'entry'       => QueryInterface::ORDER_ASCENDING,
     ];
 }
 
