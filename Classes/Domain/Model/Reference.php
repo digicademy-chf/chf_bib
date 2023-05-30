@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of the extension DA Bib for TYPO3.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- */
+# This file is part of the extension DA Bib for TYPO3.
+#
+# For the full copyright and license information, please read the
+# LICENSE.txt file that was distributed with this source code.
+
 
 namespace Digicademy\DABib\Domain\Model;
 
@@ -19,9 +18,9 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 defined('TYPO3') or die();
 
 /**
- * Model to show a relation to a bibliographic entry
+ * Model to provide a reference to a bibliographic entry
  */
-class EntryRelation extends AbstractEntity
+class Reference extends AbstractEntity
 {
     #[Lazy()]
     /**

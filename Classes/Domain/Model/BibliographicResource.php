@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of the extension DA Bib for TYPO3.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- */
+# This file is part of the extension DA Bib for TYPO3.
+#
+# For the full copyright and license information, please read the
+# LICENSE.txt file that was distributed with this source code.
+
 
 namespace Digicademy\DABib\Domain\Model;
 
@@ -19,26 +18,33 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 defined('TYPO3') or die();
 
 /**
- * Model to provide generic tags that can group entities together
+ * Model to provide bibliographic resources
  */
 class BibliographicResource extends AbstractEntity
 {
     /**
-     * Title of the bibliographic resource
+     * Name of the bibliography
      * 
      * @var string
      */
     protected string $title = '';
 
     /**
-     * Description of the bibliographic resource
+     * Language of the bibliography
+     * 
+     * @var string
+     */
+    protected string $language = '';
+
+    /**
+     * Brief information about the bibliography
      * 
      * @var string
      */
     protected string $description = '';
 
     /**
-     * URI of the bibliograhic resource
+     * Web address of the bibliography
      * 
      * @var string
      */
@@ -47,7 +53,7 @@ class BibliographicResource extends AbstractEntity
     #[Lazy()]
     #[Cascade('remove')]
     /**
-     * List of URIs describing the same entity
+     * External web address to identify the bibliography across the web
      * 
      * @var ObjectStorage<SameAs>
      */
@@ -81,6 +87,26 @@ class BibliographicResource extends AbstractEntity
     public function setTitle(string $title): void
     {
         $this->title = $title;
+    }
+
+    /**
+     * Get language
+     *
+     * @return string
+     */
+    public function getLanguage(): string
+    {
+        return $this->language;
+    }
+
+    /**
+     * Set language
+     *
+     * @param string $language
+     */
+    public function setLanguage(string $language): void
+    {
+        $this->language = $language;
     }
 
     /**

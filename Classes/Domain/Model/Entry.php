@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of the extension DA Bib for TYPO3.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- */
+# This file is part of the extension DA Bib for TYPO3.
+#
+# For the full copyright and license information, please read the
+# LICENSE.txt file that was distributed with this source code.
+
 
 namespace Digicademy\DABib\Domain\Model;
 
@@ -29,7 +28,7 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
-    protected string $uri = '';
+    protected string $zoteroUri = '';
 
     /**
      * Type of bibliographic entry
@@ -46,6 +45,20 @@ class Entry extends AbstractEntity
      */
     protected $label;
 
+    /**
+     * Identifier of the publication (e.g. URL)
+     * 
+     * @var string
+     */
+    protected string $identifier = '';
+
+    /**
+     * Type of identifier of the publication (e.g. URL)
+     * 
+     * @var string
+     */
+    protected string $identifierType = '';
+
     #[Lazy()]
     #[Cascade('remove')]
     /**
@@ -55,14 +68,6 @@ class Entry extends AbstractEntity
      */
     protected $sameAs;
 
-    #[Lazy()]
-    /**
-     * Contributor to non-independent publication (e.g. paper)
-     * 
-     * @var ObjectStorage<ContributorRelation>
-     */
-    protected $itemContributorRelation;
-
     /**
      * Title of non-independent publication (e.g. paper)
      * 
@@ -71,47 +76,11 @@ class Entry extends AbstractEntity
     protected string $itemTitle = '';
 
     /**
-     * Identifier of non-independent publication (e.g. paper)
-     * 
-     * @var string
-     */
-    protected string $itemIdentifier = '';
-
-    /**
-     * Type of identifier for non-independent publication (e.g. paper)
-     * 
-     * @var string
-     */
-    protected string $itemIdentifierType = '';
-
-    #[Lazy()]
-    /**
-     * Contributor to independent publication (e.g. edited volume or monograph)
-     * 
-     * @var ObjectStorage<ContributorRelation>
-     */
-    protected $publicationContributorRelation;
-
-    /**
      * Title of independent publication (e.g. edited volume or monograph)
      * 
      * @var string
      */
     protected string $publicationTitle = '';
-
-    /**
-     * Edition of independent publication (e.g. edited volume or monograph)
-     * 
-     * @var string
-     */
-    protected string $publicationEdition = '';
-
-    /**
-     * Type of edition of independent publication (e.g. edited volume or monograph)
-     * 
-     * @var string
-     */
-    protected string $publicationEditionType = '';
 
     /**
      * Place of independent publication (e.g. edited volume or monograph)
@@ -135,23 +104,55 @@ class Entry extends AbstractEntity
     protected $publicationDate;
 
     #[Lazy()]
+    /**
+     * Author of the entry
+     * 
+     * @var ObjectStorage<Contributor>
+     */
+    protected $contributorAuthor;
+
+    #[Lazy()]
+    /**
+     * Editor of to the entry
+     * 
+     * @var ObjectStorage<Contributor>
+     */
+    protected $contributorEditor;
+
+    #[Lazy()]
+    /**
+     * Translator of the entry
+     * 
+     * @var ObjectStorage<Contributor>
+     */
+    protected $contributorTranslator;
+
+    #[Lazy()]
+    /**
+     * Generic contributor to the entry
+     * 
+     * @var ObjectStorage<Contributor>
+     */
+    protected $contributorGeneric;
+
+    #[Lazy()]
     #[Cascade('remove')]
     /**
-     * Scope related to the published entity (e.g. page range, volume)
+     * Scope related to the published entity (e.g. volume)
      * 
      * @var ObjectStorage<Scope>
      */
     protected $scope;
 
     /**
-     * Extent of the published entity (e.g. volumes)
+     * Extent of the published entity (e.g. page range)
      * 
      * @var string
      */
     protected string $extent = '';
 
     /**
-     * Type of extent of the published entity (e.g. volumes)
+     * Type of extent of the published entity (e.g. page range)
      * 
      * @var string
      */
@@ -172,51 +173,39 @@ class Entry extends AbstractEntity
     protected string $meetingTitle = '';
 
     /**
-     * Identifier of the publication (e.g. URL)
-     * 
-     * @var string
-     */
-    protected string $identifier = '';
-
-    /**
-     * Type of identifier of the publication (e.g. URL)
-     * 
-     * @var string
-     */
-    protected string $identifierType = '';
-
-    /**
      * Initialize label, contributors, and scope
      *
      * @return Entry
      */
     public function __construct()
     {
-        $this->label                          = new ObjectStorage();
-        $this->sameAs                         = new ObjectStorage();
-        $this->itemContributorRelation        = new ObjectStorage();
-        $this->publicationContributorRelation = new ObjectStorage();
-        $this->scope                          = new ObjectStorage();
+        $this->label                 = new ObjectStorage();
+        $this->sameAs                = new ObjectStorage();
+        $this->contributorAuthor     = new ObjectStorage();
+        $this->contributorEditor     = new ObjectStorage();
+        $this->contributorTranslator = new ObjectStorage();
+        $this->contributorGeneric    = new ObjectStorage();
+        $this->scope                 = new ObjectStorage();
     }
 
     /**
-     * Get URI
+     * Get Zotero URI
      *
      * @return string
      */
-    public function getUri(): string
+    public function getZoteroUri(): string
     {
-        return $this->uri;
+        return $this->zoteroUri;
     }
 
     /**
-     * Set URI
+     * Set Zotero URI
      *
-     * @param string $uri
+     * @param string $zoteroUri
      */
-    public function setUri(string $uri): void
+    public function setZoteroUri(string $zoteroUri): void
     {
-        $this->uri = $uri;
+        $this->zoteroUri = $zoteroUri;
     }
 
     /**
@@ -280,6 +269,46 @@ class Entry extends AbstractEntity
     }*/
 
     /**
+     * Get identifier
+     *
+     * @return string
+     */
+    public function getIdentifier(): string
+    {
+        return $this->identifier;
+    }
+
+    /**
+     * Set identifier
+     *
+     * @param string $identifier
+     */
+    public function setIdentifier(string $identifier): void
+    {
+        $this->identifier = $identifier;
+    }
+
+    /**
+     * Get identifier type
+     *
+     * @return string
+     */
+    public function getIdentifierType(): string
+    {
+        return $this->identifierType;
+    }
+
+    /**
+     * Set identifier type
+     *
+     * @param string $identifierType
+     */
+    public function setIdentifierType(string $identifierType): void
+    {
+        $this->identifierType = $identifierType;
+    }
+
+    /**
      * Get sameAs URI
      *
      * @return ObjectStorage|null
@@ -320,46 +349,6 @@ class Entry extends AbstractEntity
     }*/
 
     /**
-     * Get item contributor
-     *
-     * @return ObjectStorage|null
-     */
-    public function getItemContributorRelation(): ?ObjectStorage
-    {
-        return $this->itemContributorRelation;
-    }
-
-    /**
-     * Set item contributor
-     *
-     * @param ObjectStorage $itemContributorRelation
-     */
-    public function setItemContributorRelation($itemContributorRelation): void
-    {
-        $this->itemContributorRelation = $itemContributorRelation;
-    }
-
-    /**
-     * Add item contributor
-     *
-     * @param ContributorRelation $itemContributorRelation
-     */
-    /*public function addItemContributorRelation(ContributorRelation $itemContributorRelation): void
-    {
-        $this->itemContributorRelation->attach($itemContributorRelation);
-    }*/
-
-    /**
-     * Remove item contributor
-     *
-     * @param ContributorRelation $itemContributorRelation
-     */
-    /*public function removeItemContributorRelation(ContributorRelation $itemContributorRelation): void
-    {
-        $this->itemContributorRelation->detach($itemContributorRelation);
-    }*/
-
-    /**
      * Get item title
      *
      * @return string
@@ -380,86 +369,6 @@ class Entry extends AbstractEntity
     }
 
     /**
-     * Get item identifier
-     *
-     * @return string
-     */
-    public function getItemIdentifier(): string
-    {
-        return $this->itemIdentifier;
-    }
-
-    /**
-     * Set item identifier
-     *
-     * @param string $itemIdentifier
-     */
-    public function setItemIdentifier(string $itemIdentifier): void
-    {
-        $this->itemIdentifier = $itemIdentifier;
-    }
-
-    /**
-     * Get item identifier type
-     *
-     * @return string
-     */
-    public function getItemIdentifierType(): string
-    {
-        return $this->itemIdentifierType;
-    }
-
-    /**
-     * Set item identifier type
-     *
-     * @param string $itemIdentifierType
-     */
-    public function setItemIdentifierType(string $itemIdentifierType): void
-    {
-        $this->itemIdentifierType = $itemIdentifierType;
-    }
-
-    /**
-     * Get publication contributor
-     *
-     * @return ObjectStorage|null
-     */
-    public function getPublicationContributorRelation(): ?ObjectStorage
-    {
-        return $this->publicationContributorRelation;
-    }
-
-    /**
-     * Set publication contributor
-     *
-     * @param ObjectStorage $publicationContributorRelation
-     */
-    public function setPublicationContributorRelation($publicationContributorRelation): void
-    {
-        $this->publicationContributorRelation = $publicationContributorRelation;
-    }
-
-    /**
-     * Add publication contributor
-     *
-     * @param ContributorRelation $publicationContributorRelation
-     */
-    /*public function addPublicationContributorRelation(ContributorRelation $publicationContributorRelation): void
-    {
-        $this->publicationContributorRelation->attach($publicationContributorRelation);
-    }*/
-
-    /**
-     * Remove publication contributor
-     *
-     * @param ContributorRelation $publicationContributorRelation
-     */
-    /*public function removePublicationContributorRelation(ContributorRelation $publicationContributorRelation): void
-    {
-        $this->publicationContributorRelation->detach($publicationContributorRelation);
-    }*/
-
-    /**
      * Get publication title
      *
      * @return string
@@ -477,46 +386,6 @@ class Entry extends AbstractEntity
     public function setPublicationTitle(string $publicationTitle): void
     {
         $this->publicationTitle = $publicationTitle;
-    }
-
-    /**
-     * Get publication edition
-     *
-     * @return string
-     */
-    public function getPublicationEdition(): string
-    {
-        return $this->publicationEdition;
-    }
-
-    /**
-     * Set publication edition
-     *
-     * @param string $publicationEdition
-     */
-    public function setPublicationEdition(string $publicationEdition): void
-    {
-        $this->publicationEdition = $publicationEdition;
-    }
-
-    /**
-     * Get publication-edition type
-     *
-     * @return string
-     */
-    public function getPublicationEditionType(): string
-    {
-        return $this->publicationEditionType;
-    }
-
-    /**
-     * Set publication-edition type
-     *
-     * @param string $publicationEditionType
-     */
-    public function setPublicationEditionType(string $publicationEditionType): void
-    {
-        $this->publicationEditionType = $publicationEditionType;
     }
 
     /**
@@ -580,6 +449,166 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Get author
+     *
+     * @return ObjectStorage|null
+     */
+    public function getContributorAuthor(): ?ObjectStorage
+    {
+        return $this->contributorAuthor;
+    }
+
+    /**
+     * Set author
+     *
+     * @param ObjectStorage $contributorAuthor
+     */
+    public function setContributorAuthor($contributorAuthor): void
+    {
+        $this->contributorAuthor = $contributorAuthor;
+    }
+
+    /**
+     * Add author
+     *
+     * @param Contributor $contributorAuthor
+     */
+    /*public function addContributorAuthor(Contributor $contributorAuthor): void
+    {
+        $this->contributorAuthor->attach($contributorAuthor);
+    }*/
+
+    /**
+     * Remove author
+     *
+     * @param Contributor $contributorAuthor
+     */
+    /*public function removeContributorAuthor(Contributor $contributorAuthor): void
+    {
+        $this->contributorAuthor->detach($contributorAuthor);
+    }*/
+
+    /**
+     * Get editor
+     *
+     * @return ObjectStorage|null
+     */
+    public function getContributorEditor(): ?ObjectStorage
+    {
+        return $this->contributorEditor;
+    }
+
+    /**
+     * Set editor
+     *
+     * @param ObjectStorage $contributorEditor
+     */
+    public function setContributorEditor($contributorEditor): void
+    {
+        $this->contributorEditor = $contributorEditor;
+    }
+
+    /**
+     * Add editor
+     *
+     * @param Contributor $contributorEditor
+     */
+    /*public function addContributorEditor(Contributor $contributorEditor): void
+    {
+        $this->contributorEditor->attach($contributorEditor);
+    }*/
+
+    /**
+     * Remove editor
+     *
+     * @param Contributor $contributorEditor
+     */
+    /*public function removeContributorEditor(Contributor $contributorEditor): void
+    {
+        $this->contributorEditor->detach($contributorEditor);
+    }*/
+
+    /**
+     * Get translator
+     *
+     * @return ObjectStorage|null
+     */
+    public function getContributorTranslator(): ?ObjectStorage
+    {
+        return $this->contributorTranslator;
+    }
+
+    /**
+     * Set translator
+     *
+     * @param ObjectStorage $contributorTranslator
+     */
+    public function setContributorTranslator($contributorTranslator): void
+    {
+        $this->contributorTranslator = $contributorTranslator;
+    }
+
+    /**
+     * Add translator
+     *
+     * @param Contributor $contributorTranslator
+     */
+    /*public function addContributorTranslator(Contributor $contributorTranslator): void
+    {
+        $this->contributorTranslator->attach($contributorTranslator);
+    }*/
+
+    /**
+     * Remove translator
+     *
+     * @param Contributor $contributorTranslator
+     */
+    /*public function removeContributorTranslator(Contributor $contributorTranslator): void
+    {
+        $this->contributorTranslator->detach($contributorTranslator);
+    }*/
+
+    /**
+     * Get generic contributor
+     *
+     * @return ObjectStorage|null
+     */
+    public function getContributorGeneric(): ?ObjectStorage
+    {
+        return $this->contributorGeneric;
+    }
+
+    /**
+     * Set generic contributor
+     *
+     * @param ObjectStorage $contributorGeneric
+     */
+    public function setContributorGeneric($contributorGeneric): void
+    {
+        $this->contributorGeneric = $contributorGeneric;
+    }
+
+    /**
+     * Add generic contributor
+     *
+     * @param Contributor $contributorGeneric
+     */
+    /*public function addContributorGeneric(Contributor $contributorGeneric): void
+    {
+        $this->contributorGeneric->attach($contributorGeneric);
+    }*/
+
+    /**
+     * Remove generic contributor
+     *
+     * @param Contributor $contributorGeneric
+     */
+    /*public function removeContributorGeneric(Contributor $contributorGeneric): void
+    {
+        $this->contributorGeneric->detach($contributorGeneric);
+    }*/
+
+    /**
      * Get scope
      *
      * @return ObjectStorage|null
@@ -618,13 +647,6 @@ class Entry extends AbstractEntity
     {
         $this->scope->detach($scope);
     }*/
-
-
-
-
-
-
-
 
     /**
      * Get extent
@@ -704,46 +726,6 @@ class Entry extends AbstractEntity
     public function setMeetingTitle(string $meetingTitle): void
     {
         $this->meetingTitle = $meetingTitle;
-    }
-
-    /**
-     * Get identifier
-     *
-     * @return string
-     */
-    public function getIdentifier(): string
-    {
-        return $this->identifier;
-    }
-
-    /**
-     * Set identifier
-     *
-     * @param string $identifier
-     */
-    public function setIdentifier(string $identifier): void
-    {
-        $this->identifier = $identifier;
-    }
-
-    /**
-     * Get identifier type
-     *
-     * @return string
-     */
-    public function getIdentifierType(): string
-    {
-        return $this->identifierType;
-    }
-
-    /**
-     * Set identifier type
-     *
-     * @param string $identifierType
-     */
-    public function setIdentifierType(string $identifierType): void
-    {
-        $this->identifierType = $identifierType;
     }
 }
 
