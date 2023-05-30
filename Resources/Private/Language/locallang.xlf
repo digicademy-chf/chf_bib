@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="EXT:da_bib/Resources/Private/Language/locallang.xlf" date="2023-05-27T10:48:43Z" product-name="da_bib">
+        <header/>
+        <body>
+            <!-- Database: BibliographicResource -->
+            <trans-unit id="database.bibliographicResource" resname="database.bibliographicResource">
+                <source>Bibliography</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.title" resname="database.bibliographicResource.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.title.description" resname="database.bibliographicResource.title.description">
+                <source>Name of the bibliography</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.language" resname="database.bibliographicResource.language">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.language.description" resname="database.bibliographicResource.language.description">
+                <source>Language of the bibliography</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.description" resname="database.bibliographicResource.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.description.description" resname="database.bibliographicResource.description.description">
+                <source>Brief information about the bibliography</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.uri" resname="database.bibliographicResource.uri">
+                <source>URI</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.uri.description" resname="database.bibliographicResource.uri.description">
+                <source>Web address of the bibliography</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.sameAs" resname="database.bibliographicResource.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.bibliographicResource.sameAs.description" resname="database.bibliographicResource.sameAs.description">
+                <source>External web address to identify the bibliography across the web</source>
+            </trans-unit>
+            <!-- Database: Tag -->
+            <trans-unit id="database.tag" resname="database.tag">
+                <source>Tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.name" resname="database.tag.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="database.tag.name.description" resname="database.tag.name.description">
+                <source>Name of the tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type" resname="database.tag.type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.description" resname="database.tag.type.description">
+                <source>Type of tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.label" resname="database.tag.type.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.entryType" resname="database.tag.type.entryType">
+                <source>Entry type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.identifierType" resname="database.tag.type.identifierType">
+                <source>Identifier type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.scopeType" resname="database.tag.type.scopeType">
+                <source>Scope type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.extentType" resname="database.tag.type.extentType">
+                <source>Extent type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.elaborationType" resname="database.tag.type.elaborationType">
+                <source>Elaboration type</source>
+            </trans-unit>
+            <!-- Database: SameAs -->
+            <trans-unit id="database.sameAs" resname="database.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.sameAs.uri" resname="database.sameAs.uri">
+                <source>URI</source>
+            </trans-unit>
+            <trans-unit id="database.sameAs.uri.description" resname="database.sameAs.uri.description">
+                <source>External web address to identify an entity across the web</source>
+            </trans-unit>
+            <!-- Database: Scope -->
+            <trans-unit id="database.scope" resname="database.scope">
+                <source>Scope</source>
+            </trans-unit>
+            <trans-unit id="database.scope.scope" resname="database.scope.scope">
+                <source>Scope</source>
+            </trans-unit>
+            <trans-unit id="database.scope.scope.description" resname="database.scope.scope.description">
+                <source>Specific denotation of an edition, e.g., issue number or page numbers</source>
+            </trans-unit>
+            <trans-unit id="database.scope.scopeType" resname="database.scope.scopeType">
+                <source>Scope type</source>
+            </trans-unit>
+            <trans-unit id="database.scope.scopeType.description" resname="database.scope.scopeType.description">
+                <source>Type of edition denotation</source>
+            </trans-unit>
+            <!-- Database: Contributor -->
+            <trans-unit id="database.contributor" resname="database.contributor">
+                <source>Contributor</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.surname" resname="database.contributor.surname">
+                <source>Surname</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.surname.description" resname="database.contributor.surname.description">
+                <source>Surname of the contributor</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.forename" resname="database.contributor.forename">
+                <source>Forename</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.forename.description" resname="database.contributor.forename.description">
+                <source>Forename of the contributor</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.contributorName" resname="database.contributor.contributorName">
+                <source>Corporate name</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.contributorName.description" resname="database.contributor.contributorName.description">
+                <source>Name of a corporate body (e.g., an organisation) used instead of forename and surname</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.label" resname="database.contributor.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.label.description" resname="database.contributor.label.description">
+                <source>Label to group the contributor into</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.sameAs" resname="database.contributor.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.sameAs.description" resname="database.contributor.sameAs.description">
+                <source>External web address to identify the contributor across the web</source>
+            </trans-unit>
+            <!-- Database: Reference -->
+            <trans-unit id="database.reference" resname="database.reference">
+                <source>Reference</source>
+            </trans-unit>
+            <trans-unit id="database.reference.entry" resname="database.reference.entry">
+                <source>Entry</source>
+            </trans-unit>
+            <trans-unit id="database.reference.entry.description" resname="database.reference.entry.description">
+                <source>Bibliographic entry to reference</source>
+            </trans-unit>
+            <trans-unit id="database.reference.elaboration" resname="database.reference.elaboration">
+                <source>Elaboration</source>
+            </trans-unit>
+            <trans-unit id="database.reference.elaboration.description" resname="database.reference.elaboration.description">
+                <source>Detailed reference, e.g., a page number</source>
+            </trans-unit>
+            <trans-unit id="database.reference.elaborationType" resname="database.reference.elaborationType">
+                <source>Elaboration type</source>
+            </trans-unit>
+            <trans-unit id="database.reference.elaborationType.description" resname="database.reference.elaborationType.description">
+                <source>Type of detailed reference</source>
+            </trans-unit>
+            <trans-unit id="database.reference.lastChecked" resname="database.reference.lastChecked">
+                <source>Last checked</source>
+            </trans-unit>
+            <trans-unit id="database.reference.lastChecked.description" resname="database.reference.lastChecked.description">
+                <source>Date when the reference was last checked</source>
+            </trans-unit>
+            <!-- Database: Entry -->
+            <trans-unit id="database.entry" resname="database.entry">
+                <source>Entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publication" resname="database.entry.publication">
+                <source>Publication</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contributors" resname="database.entry.contributors">
+                <source>Contributors</source>
+            </trans-unit>
+            <trans-unit id="database.entry.scopesAndExtent" resname="database.entry.scopesAndExtent">
+                <source>Scopes and extent</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type" resname="database.entry.type">
+                <source>Entry type</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.description" resname="database.entry.type.description">
+                <source>Approximate taxonomy of the bibliographic entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.label" resname="database.entry.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.entry.label.description" resname="database.entry.label.description">
+                <source>Label to group the entry into</source>
+            </trans-unit>
+            <trans-unit id="database.entry.identifier" resname="database.entry.identifier">
+                <source>Identifier</source>
+            </trans-unit>
+            <trans-unit id="database.entry.identifier.description" resname="database.entry.identifier.description">
+                <source>Identifier of the entry as you would use it in a bibliography</source>
+            </trans-unit>
+            <trans-unit id="database.entry.identifierType" resname="database.entry.identifierType">
+                <source>Identifier type</source>
+            </trans-unit>
+            <trans-unit id="database.entry.identifierType.description" resname="database.entry.identifierType.description">
+                <source>Classification of the identifier, e.g., a DOI</source>
+            </trans-unit>
+            <trans-unit id="database.entry.zoteroUri" resname="database.entry.zoteroUri">
+                <source>Zotero URI</source>
+            </trans-unit>
+            <trans-unit id="database.entry.zoteroUri.description" resname="database.entry.zoteroUri.description">
+                <source>External web address to identify an entry in Zotero</source>
+            </trans-unit>
+            <trans-unit id="database.entry.sameAs" resname="database.entry.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.entry.sameAs.description" resname="database.entry.sameAs.description">
+                <source>External web address to identify the bibliographic entry across the web</source>
+            </trans-unit>
+            <trans-unit id="database.entry.itemTitle" resname="database.entry.itemTitle">
+                <source>Item title</source>
+            </trans-unit>
+            <trans-unit id="database.entry.itemTitle.description" resname="database.entry.itemTitle.description">
+                <source>Title of the non-independent publication, e.g., a paper</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationTitle" resname="database.entry.publicationTitle">
+                <source>Publication title</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationTitle.description" resname="database.entry.publicationTitle.description">
+                <source>Title of the independent publication, e.g., a monograph</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationPlace" resname="database.entry.publicationPlace">
+                <source>Publication place</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationPlace.description" resname="database.entry.publicationPlace.description">
+                <source>City or town where the publication was produced</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationPublisher" resname="database.entry.publicationPublisher">
+                <source>Publisher</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationPublisher.description" resname="database.entry.publicationPublisher.description">
+                <source>Name of the publisher</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationDate" resname="database.entry.publicationDate">
+                <source>Publication date</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationDate.description" resname="database.entry.publicationDate.description">
+                <source>Date when the publication was published</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contributorAuthor" resname="database.entry.contributorAuthor">
+                <source>Author</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contributorAuthor.description" resname="database.entry.contributorAuthor.description">
+                <source>List all authors of the entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contributorEditor" resname="database.entry.contributorEditor">
+                <source>Editor</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contributorEditor.description" resname="database.entry.contributorEditor.description">
+                <source>List all editors of the entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contributorTranslator" resname="database.entry.contributorTranslator">
+                <source>Translator</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contributorTranslator.description" resname="database.entry.contributorTranslator.description">
+                <source>List all translators of the entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contributorGeneric" resname="database.entry.contributorGeneric">
+                <source>Other contributor</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contributorGeneric.description" resname="database.entry.contributorGeneric.description">
+                <source>List all further contributors of the entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.scope" resname="database.entry.scope">
+                <source>Scope</source>
+            </trans-unit>
+            <trans-unit id="database.entry.scope.description" resname="database.entry.scope.description">
+                <source>Information on the specific edition of the publication</source>
+            </trans-unit>
+            <trans-unit id="database.entry.extent" resname="database.entry.extent">
+                <source>Extent</source>
+            </trans-unit>
+            <trans-unit id="database.entry.extent.description" resname="database.entry.extent.description">
+                <source>Extent of an item in the publication</source>
+            </trans-unit>
+            <trans-unit id="database.entry.extentType" resname="database.entry.extentType">
+                <source>Extent type</source>
+            </trans-unit>
+            <trans-unit id="database.entry.extentType.description" resname="database.entry.extentType.description">
+                <source>Clarification of the type of extent, e.g., a page range</source>
+            </trans-unit>
+            <trans-unit id="database.entry.seriesTitle" resname="database.entry.seriesTitle">
+                <source>Title of the publication series</source>
+            </trans-unit>
+            <trans-unit id="database.entry.seriesTitle.description" resname="database.entry.seriesTitle.description">
+                <source>Name of a series this publication is part of</source>
+            </trans-unit>
+            <trans-unit id="database.entry.meetingTitle" resname="database.entry.meetingTitle">
+                <source>Meeting name</source>
+            </trans-unit>
+            <trans-unit id="database.entry.meetingTitle.description" resname="database.entry.meetingTitle.description">
+                <source>Name of the meeting the publication was presented at</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
