@@ -15,8 +15,6 @@ use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
-defined('TYPO3') or die();
-
 /**
  * Model to provide a reference to a bibliographic entry
  */

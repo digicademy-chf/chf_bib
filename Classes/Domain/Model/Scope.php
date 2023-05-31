@@ -12,8 +12,6 @@ namespace Digicademy\DABib\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-defined('TYPO3') or die();
-
 /**
  * Model to provide scope (e.g. volume or issue) for bibliographic entries
  */

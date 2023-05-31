@@ -12,8 +12,6 @@ namespace Digicademy\DABib\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-defined('TYPO3') or die();
-
 /**
  * Model to provide a link to the same entity at a different URI
  */

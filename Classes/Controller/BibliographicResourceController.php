@@ -15,8 +15,6 @@ use Digicademy\DABib\Domain\Model\BibliographicResource;
 use Digicademy\DABib\Domain\Repository\BibliographicResourceRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-defined('TYPO3') or die();
-
 /**
  * Controller to provide bibliographic resources
  */

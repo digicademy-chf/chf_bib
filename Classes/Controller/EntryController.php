@@ -15,8 +15,6 @@ use Digicademy\DABib\Domain\Model\Entry;
 use Digicademy\DABib\Domain\Repository\EntryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-defined('TYPO3') or die();
-
 /**
  * Controller for bibliographic entries
  */
