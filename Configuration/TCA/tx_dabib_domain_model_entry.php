@@ -18,7 +18,7 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry',
         'label'                    => 'itemTitle',
-        'label_alt'                => 'pubicationTitle,seriesTitle,meetingTitle',
+        'label_alt'                => 'publicationTitle,seriesTitle,meetingTitle',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',

@@ -17,7 +17,7 @@
 return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag',
-        'label'                    => 'name',
+        'label'                    => 'tag',
         'label_alt'                => 'description,type',
         'descriptionColumn'        => 'description',
         'tstamp'                   => 'tstamp',
@@ -33,7 +33,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'name,type,description',
+        'searchFields'             => 'tag,type,description',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -118,9 +118,9 @@ return [
                 'default' => '',
             ],
         ],
-        'name' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.name',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.name.description',
+        'tag' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.tag',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.tag.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -197,13 +197,13 @@ return [
         ],
     ],
     'palettes' => [
-        'nameType' => [
-            'showitem' => 'name,type,',
+        'tagType' => [
+            'showitem' => 'tag,type,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,nameType,description,sameAs,',
+            'showitem' => 'hidden,tagType,description,sameAs,',
         ],
     ],
 ];

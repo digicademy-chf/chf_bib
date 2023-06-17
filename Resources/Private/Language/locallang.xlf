@@ -41,10 +41,10 @@
             <trans-unit id="database.tag" resname="database.tag">
                 <source>Tag</source>
             </trans-unit>
-            <trans-unit id="database.tag.name" resname="database.tag.name">
+            <trans-unit id="database.tag.tag" resname="database.tag.tag">
                 <source>Name</source>
             </trans-unit>
-            <trans-unit id="database.tag.name.description" resname="database.tag.name.description">
+            <trans-unit id="database.tag.tag.description" resname="database.tag.tag.description">
                 <source>Name of the tag</source>
             </trans-unit>
             <trans-unit id="database.tag.type" resname="database.tag.type">

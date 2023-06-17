@@ -23,7 +23,7 @@ class EntryRepository extends Repository
 {
     protected $defaultOrderings = [
         'itemTitle'       => QueryInterface::ORDER_ASCENDING,
-        'pubicationTitle' => QueryInterface::ORDER_ASCENDING,
+        'publicationTitle' => QueryInterface::ORDER_ASCENDING,
         'seriesTitle'     => QueryInterface::ORDER_ASCENDING,
         'meetingTitle'    => QueryInterface::ORDER_ASCENDING,
     ];

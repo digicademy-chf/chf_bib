@@ -53,11 +53,11 @@
                 <source>Tag</source>
                 <target>Schlagwort</target>
             </trans-unit>
-            <trans-unit id="database.tag.name" resname="database.tag.name" approved="yes">
-                <source>Name</source>
-                <target>Name</target>
+            <trans-unit id="database.tag.tag" resname="database.tag.tag" approved="yes">
+                <source>Tag</source>
+                <target>Schlagwort</target>
             </trans-unit>
-            <trans-unit id="database.tag.name.description" resname="database.tag.name.description" approved="yes">
+            <trans-unit id="database.tag.tag.description" resname="database.tag.tag.description" approved="yes">
                 <source>Name of the tag</source>
                 <target>Bezeichnung des Schlagworts</target>
             </trans-unit>

@@ -25,7 +25,7 @@ class Tag extends AbstractEntity
      * 
      * @var string
      */
-    protected string $name = '';
+    protected string $tag = '';
 
     /**
      * Description of the tag
@@ -54,23 +54,23 @@ class Tag extends AbstractEntity
     }
 
     /**
-     * Get name
+     * Get tag
      *
      * @return string
      */
-    public function getName(): string
+    public function getTag(): string
     {
-        return $this->name;
+        return $this->tag;
     }
 
     /**
-     * Set name
+     * Set tag
      *
-     * @param string $name
+     * @param string $tag
      */
-    public function setName(string $name): void
+    public function setTag(string $tag): void
     {
-        $this->name = $name;
+        $this->tag = $tag;
     }
 
     /**
