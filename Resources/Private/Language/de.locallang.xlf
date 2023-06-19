@@ -201,6 +201,14 @@
                 <source>Type of detailed reference</source>
                 <target>Art der detaillierten Referenz</target>
             </trans-unit>
+            <trans-unit id="database.reference.label" resname="database.reference.label" approved="yes">
+                <source>Label</source>
+                <target>Label</target>
+            </trans-unit>
+            <trans-unit id="database.reference.label.description" resname="database.reference.label.description" approved="yes">
+                <source>Label to group the reference into</source>
+                <target>Label zum Gliedern von Referenzen</target>
+            </trans-unit>
             <trans-unit id="database.reference.lastChecked" resname="database.reference.lastChecked" approved="yes">
                 <source>Last checked</source>
                 <target>Zuletzt überprüft</target>

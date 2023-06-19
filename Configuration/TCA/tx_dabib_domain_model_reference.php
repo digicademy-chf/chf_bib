@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'entry,elaboration,elaborationType,lastChecked',
+        'searchFields'             => 'entry,elaboration,elaborationType,label,lastChecked',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -166,6 +166,32 @@ return [
                 . ' ORDER BY name',
             ],
         ],
+        'label' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.label',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.label.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dabib_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'label\''
+                . ' ORDER BY name',
+                'MM'                  => 'tx_dabib_domain_model_reference_label_mm',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
         'lastChecked' => [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.lastChecked',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.lastChecked.description',
@@ -183,7 +209,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,entry,elaborationElaborationType,lastChecked,',
+            'showitem' => 'hidden,entry,elaborationElaborationType,label,lastChecked,',
         ],
     ],
 ];

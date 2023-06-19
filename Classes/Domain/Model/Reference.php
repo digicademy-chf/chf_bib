@@ -42,6 +42,14 @@ class Reference extends AbstractEntity
      */
     protected string $elaborationType = '';
 
+    #[Lazy()]
+    /**
+     * Tags that can be used to group references together
+     * 
+     * @var ObjectStorage<Tag>
+     */
+    protected $label;
+
     /**
      * Date when the source was last checked
      * 
@@ -50,13 +58,14 @@ class Reference extends AbstractEntity
     protected $lastChecked;
 
     /**
-     * Initialize entries
+     * Initialize entries and labels
      *
      * @return EntryRelation
      */
     public function __construct()
     {
         $this->entry = new ObjectStorage();
+        $this->label  = new ObjectStorage();
     }
 
     /**
@@ -138,6 +147,46 @@ class Reference extends AbstractEntity
     {
         $this->elaborationType = $elaborationType;
     }
+
+    /**
+     * Get label
+     *
+     * @return ObjectStorage|null
+     */
+    public function getLabel(): ?ObjectStorage
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set label
+     *
+     * @param ObjectStorage $label
+     */
+    public function setLabel($label): void
+    {
+        $this->label = $label;
+    }
+
+    /**
+     * Add label
+     *
+     * @param Tag $label
+     */
+    /*public function addLabel(Tag $label): void
+    {
+        $this->label->attach($label);
+    }*/
+
+    /**
+     * Remove label
+     *
+     * @param Tag $label
+     */
+    /*public function removeLabel(Tag $label): void
+    {
+        $this->label->detach($label);
+    }*/
 
     /**
      * Get last checked date

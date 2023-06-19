@@ -153,6 +153,12 @@
             <trans-unit id="database.reference.elaborationType.description" resname="database.reference.elaborationType.description">
                 <source>Type of detailed reference</source>
             </trans-unit>
+            <trans-unit id="database.reference.label" resname="database.reference.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.reference.label.description" resname="database.reference.label.description">
+                <source>Label to group the reference into</source>
+            </trans-unit>
             <trans-unit id="database.reference.lastChecked" resname="database.reference.lastChecked">
                 <source>Last checked</source>
             </trans-unit>
