@@ -16,7 +16,7 @@ use Digicademy\DABib\Domain\Repository\ScopeRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller to provide scope (e.g. volume or issue) for bibliographic entries
+ * Controller for scopes
  */
 class ScopeController extends ActionController
 {

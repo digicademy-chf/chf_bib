@@ -16,7 +16,7 @@ use Digicademy\DABib\Domain\Repository\SameAsRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller to provide a link to the same entity at a different URI
+ * Controller for same as
  */
 class SameAsController extends ActionController
 {
@@ -29,13 +29,13 @@ class SameAsController extends ActionController
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('sameass', $this->sameAsRepository->findAll());
+        $this->view->assign('sameAss', $this->sameAsRepository->findAll());
         return $this->htmlResponse();
     }
 
     public function showAction(SameAs $sameAs): ResponseInterface
     {
-        $this->view->assign('sameas', $sameAs);
+        $this->view->assign('sameAs', $sameAs);
         return $this->htmlResponse();
     }
 }

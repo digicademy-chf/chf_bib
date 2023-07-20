@@ -16,7 +16,7 @@ use Digicademy\DABib\Domain\Repository\ReferenceRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller to provide a reference to a bibliographic entry
+ * Controller for references
  */
 class ReferenceController extends ActionController
 {

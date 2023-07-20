@@ -16,7 +16,7 @@ use Digicademy\DABib\Domain\Repository\ContributorRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller to provide contributor data for bibliographic entries
+ * Controller for contributors
  */
 class ContributorController extends ActionController
 {

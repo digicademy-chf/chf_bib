@@ -16,7 +16,7 @@ use Digicademy\DABib\Domain\Repository\EntryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for bibliographic entries
+ * Controller for entries
  */
 class EntryController extends ActionController
 {

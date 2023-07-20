@@ -16,7 +16,7 @@ use Digicademy\DABib\Domain\Repository\TagRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller to provide generic tags that can group entities together
+ * Controller for tags
  */
 class TagController extends ActionController
 {

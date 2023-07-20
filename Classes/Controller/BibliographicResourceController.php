@@ -16,7 +16,7 @@ use Digicademy\DABib\Domain\Repository\BibliographicResourceRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller to provide bibliographic resources
+ * Controller for bibliographic resources
  */
 class BibliographicResourceController extends ActionController
 {
@@ -29,13 +29,13 @@ class BibliographicResourceController extends ActionController
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('bibliographies', $this->bibliographicResourceRepository->findAll());
+        $this->view->assign('bibliographicResources', $this->bibliographicResourceRepository->findAll());
         return $this->htmlResponse();
     }
 
     public function showAction(BibliographicResource $bibliographicResource): ResponseInterface
     {
-        $this->view->assign('bibliography', $bibliographicResource);
+        $this->view->assign('bibliographicResource', $bibliographicResource);
         return $this->htmlResponse();
     }
 }
