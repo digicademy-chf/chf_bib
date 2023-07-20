@@ -211,6 +211,9 @@
             <trans-unit id="database.entry.scopesAndExtent" resname="database.entry.scopesAndExtent">
                 <source>Scopes and extent</source>
             </trans-unit>
+            <trans-unit id="database.entry.original" resname="database.entry.original">
+                <source>Original</source>
+            </trans-unit>
             <trans-unit id="database.entry.uuid" resname="database.entry.uuid">
                 <source>UUID</source>
             </trans-unit>
@@ -474,6 +477,12 @@
             </trans-unit>
             <trans-unit id="database.entry.meetingTitle.description" resname="database.entry.meetingTitle.description">
                 <source>Name of the meeting the publication was presented at</source>
+            </trans-unit>
+            <trans-unit id="database.entry.import" resname="database.entry.import">
+                <source>Imported file</source>
+            </trans-unit>
+            <trans-unit id="database.entry.import.description" resname="database.entry.import.description">
+                <source>Content of the file used to populate this record</source>
             </trans-unit>
         </body>
     </file>

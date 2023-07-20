@@ -278,6 +278,10 @@
                 <source>Scopes and extent</source>
                 <target>Ausgaben und Umfang</target>
             </trans-unit>
+            <trans-unit id="database.entry.original" resname="database.entry.original" approved="yes">
+                <source>Original</source>
+                <target>Original</target>
+            </trans-unit>
             <trans-unit id="database.entry.uuid" resname="database.entry.uuid" approved="yes">
                 <source>UUID</source>
                 <target>UUID</target>
@@ -629,6 +633,14 @@
             <trans-unit id="database.entry.meetingTitle.description" resname="database.entry.meetingTitle.description" approved="yes">
                 <source>Name of the meeting the publication was presented at</source>
                 <target>Titel der Veranstaltung, bei der die Publikation vorgestellt wurde</target>
+            </trans-unit>
+            <trans-unit id="database.entry.import" resname="database.entry.import" approved="yes">
+                <source>Imported file</source>
+                <target>Importierte Datei</target>
+            </trans-unit>
+            <trans-unit id="database.entry.import.description" resname="database.entry.import.description" approved="yes">
+                <source>Content of the file used to populate this record</source>
+                <target>Inhalt der Datei, die zum Befüllen dieses Datensatzes genutzt wurde</target>
             </trans-unit>
         </body>
     </file>

@@ -607,6 +607,18 @@ return [
                 'richtextConfiguration' => 'da_bib',
             ],
         ],
+        'import' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.import',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.import.description',
+            'config'      => [
+                'type'     => 'text',
+                'cols'     => 40,
+                'rows'     => 15,
+                'max'      => 100000,
+                'eval'     => 'trim',
+                'required' => true,
+            ],
+        ],
     ],
     'palettes' => [
         'uuidType' => [
@@ -633,7 +645,8 @@ return [
             'showitem' => 'hidden,uuidType,label,identifierIdentifierType,zoteroUri,sameAs,
             --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.publication,itemTitlePublicationTitle,publicationPlacePublicationDate,publisher,
             --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributors,author,editor,translator,genericContributor,
-            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.scopesAndExtent,scope,extentExtentType,seriesTitleMeetingTitle,',
+            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.scopesAndExtent,scope,extentExtentType,seriesTitleMeetingTitle,
+            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.original,import,',
         ],
     ],
 ];

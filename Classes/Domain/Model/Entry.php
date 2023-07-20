@@ -178,6 +178,13 @@ class Entry extends AbstractEntity
     protected string $meetingTitle = '';
 
     /**
+     * Content of the file used to populate this record
+     * 
+     * @var string
+     */
+    protected string $import = '';
+
+    /**
      * Initialize object
      *
      * @return Entry
@@ -751,6 +758,26 @@ class Entry extends AbstractEntity
     public function setMeetingTitle(string $meetingTitle): void
     {
         $this->meetingTitle = $meetingTitle;
+    }
+
+    /**
+     * Get import
+     *
+     * @return string
+     */
+    public function getImport(): string
+    {
+        return $this->import;
+    }
+
+    /**
+     * Set import
+     *
+     * @param string $import
+     */
+    public function setImport(string $import): void
+    {
+        $this->import = $import;
     }
 }
 
