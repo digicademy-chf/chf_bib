@@ -15,13 +15,14 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository to provide scope (e.g. volume or issue) for bibliographic entries
+ * Repository for scopes
  * 
  * @extends Repository<Scope>
  */
 class ScopeRepository extends Repository
 {
     protected $defaultOrderings = [
+        'sorting'   => QueryInterface::ORDER_ASCENDING,
         'scope'     => QueryInterface::ORDER_ASCENDING,
         'scopeType' => QueryInterface::ORDER_ASCENDING,
     ];

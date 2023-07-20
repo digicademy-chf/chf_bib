@@ -15,14 +15,15 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository to provide a link to the same entity at a different URI
+ * Repository for same as
  * 
  * @extends Repository<SameAs>
  */
 class SameAsRepository extends Repository
 {
     protected $defaultOrderings = [
-        'uri' => QueryInterface::ORDER_ASCENDING,
+        'sorting' => QueryInterface::ORDER_ASCENDING,
+        'uri'     => QueryInterface::ORDER_ASCENDING,
     ];
 }
 

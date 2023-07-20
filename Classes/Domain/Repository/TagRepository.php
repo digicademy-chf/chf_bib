@@ -15,16 +15,16 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository to provide generic tags that can group entities together
+ * Repository for tags
  * 
  * @extends Repository<Tag>
  */
 class TagRepository extends Repository
 {
     protected $defaultOrderings = [
-        'name'        => QueryInterface::ORDER_ASCENDING,
-        'description' => QueryInterface::ORDER_ASCENDING,
-        'type'        => QueryInterface::ORDER_ASCENDING,
+        'sorting' => QueryInterface::ORDER_ASCENDING,
+        'tag'     => QueryInterface::ORDER_ASCENDING,
+        'type'    => QueryInterface::ORDER_ASCENDING,
     ];
 }
 

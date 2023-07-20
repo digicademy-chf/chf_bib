@@ -15,14 +15,16 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository to provide bibliographic resources
+ * Repository for bibliographic resources
  * 
  * @extends Repository<BibliographicResource>
  */
 class BibliographicResourceRepository extends Repository
 {
     protected $defaultOrderings = [
-        'title' => QueryInterface::ORDER_ASCENDING,
+        'sorting' => QueryInterface::ORDER_ASCENDING,
+        'title'   => QueryInterface::ORDER_ASCENDING,
+        'uri'     => QueryInterface::ORDER_ASCENDING,
     ];
 }
 

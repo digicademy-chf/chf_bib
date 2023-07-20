@@ -15,17 +15,18 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository for bibliographic entries
+ * Repository for entries
  * 
  * @extends Repository<Entry>
  */
 class EntryRepository extends Repository
 {
     protected $defaultOrderings = [
-        'itemTitle'       => QueryInterface::ORDER_ASCENDING,
+        'sorting'          => QueryInterface::ORDER_ASCENDING,
+        'itemTitle'        => QueryInterface::ORDER_ASCENDING,
         'publicationTitle' => QueryInterface::ORDER_ASCENDING,
-        'seriesTitle'     => QueryInterface::ORDER_ASCENDING,
-        'meetingTitle'    => QueryInterface::ORDER_ASCENDING,
+        'seriesTitle'      => QueryInterface::ORDER_ASCENDING,
+        'meetingTitle'     => QueryInterface::ORDER_ASCENDING,
     ];
 }
 

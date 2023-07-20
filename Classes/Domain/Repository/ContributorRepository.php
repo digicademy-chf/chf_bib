@@ -15,13 +15,14 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository to provide contributor data for bibliographic entries
+ * Repository for contributors
  * 
  * @extends Repository<Contributor>
  */
 class ContributorRepository extends Repository
 {
     protected $defaultOrderings = [
+        'sorting'       => QueryInterface::ORDER_ASCENDING,
         'surname'       => QueryInterface::ORDER_ASCENDING,
         'forename'      => QueryInterface::ORDER_ASCENDING,
         'corporateName' => QueryInterface::ORDER_ASCENDING,

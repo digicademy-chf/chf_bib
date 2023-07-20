@@ -15,15 +15,17 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository to provide a reference to a bibliographic entry
+ * Repository for references
  * 
  * @extends Repository<Reference>
  */
 class ReferenceRepository extends Repository
 {
     protected $defaultOrderings = [
-        'elaboration' => QueryInterface::ORDER_ASCENDING,
-        'entry'       => QueryInterface::ORDER_ASCENDING,
+        'sorting'         => QueryInterface::ORDER_ASCENDING,
+        'lastChecked'     => QueryInterface::ORDER_ASCENDING,
+        'elaboration'     => QueryInterface::ORDER_ASCENDING,
+        'elaborationType' => QueryInterface::ORDER_ASCENDING,
     ];
 }
 
