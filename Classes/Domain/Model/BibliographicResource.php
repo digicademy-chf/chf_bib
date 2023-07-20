@@ -16,7 +16,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Model to provide bibliographic resources
+ * Model for bibliographic resources
  */
 class BibliographicResource extends AbstractEntity
 {
@@ -58,7 +58,7 @@ class BibliographicResource extends AbstractEntity
     protected $sameAs;
 
     /**
-     * Initialize sameAs
+     * Initialize object
      *
      * @return BibliographicResource
      */
@@ -172,20 +172,20 @@ class BibliographicResource extends AbstractEntity
      *
      * @param SameAs $sameAs
      */
-    /*public function addSameAs(SameAs $sameAs): void
+    public function addSameAs(SameAs $sameAs): void
     {
         $this->sameAs->attach($sameAs);
-    }*/
+    }
 
     /**
      * Remove sameAs URI
      *
      * @param SameAs $sameAs
      */
-    /*public function removeSameAs(SameAs $sameAs): void
+    public function removeSameAs(SameAs $sameAs): void
     {
         $this->sameAs->detach($sameAs);
-    }*/
+    }
 }
 
 ?>

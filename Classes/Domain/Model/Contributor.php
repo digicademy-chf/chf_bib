@@ -16,16 +16,16 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Model to provide contributor data for bibliographic entries
+ * Model for contributors
  */
 class Contributor extends AbstractEntity
 {
     /**
-     * Forename of the contributor
+     * Unique contributor identifier
      * 
      * @var string
      */
-    protected string $forename = '';
+    protected $uuid;
 
     /**
      * Surname of the contributor
@@ -35,7 +35,14 @@ class Contributor extends AbstractEntity
     protected string $surname = '';
 
     /**
-     * Name of a corporate contributor
+     * Forename of the contributor
+     * 
+     * @var string
+     */
+    protected string $forename = '';
+
+    /**
+     * Name of a corporate body (e.g., an organisation) used instead of forename and surname
      * 
      * @var string
      */
@@ -43,7 +50,7 @@ class Contributor extends AbstractEntity
 
     #[Lazy()]
     /**
-     * Tags that can be used to group contributors together
+     * Label to group the contributor into
      * 
      * @var ObjectStorage<Tag>
      */
@@ -52,14 +59,14 @@ class Contributor extends AbstractEntity
     #[Lazy()]
     #[Cascade('remove')]
     /**
-     * List of URIs describing the same entity
+     * External web address to identify the contributor across the web
      * 
      * @var ObjectStorage<SameAs>
      */
     protected $sameAs;
 
     /**
-     * Initialize labels and sameAs
+     * Initialize object
      *
      * @return Contributor
      */
@@ -67,6 +74,26 @@ class Contributor extends AbstractEntity
     {
         $this->label  = new ObjectStorage();
         $this->sameAs = new ObjectStorage();
+    }
+
+    /**
+     * Get UUID
+     *
+     * @return string
+     */
+    public function getUuid(): string
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * Set UUID
+     *
+     * @param string $uuid
+     */
+    public function setUuid(string $uuid): void
+    {
+        $this->uuid = $uuid;
     }
 
     /**
@@ -154,20 +181,20 @@ class Contributor extends AbstractEntity
      *
      * @param Tag $label
      */
-    /*public function addLabel(Tag $label): void
+    public function addLabel(Tag $label): void
     {
         $this->label->attach($label);
-    }*/
+    }
 
     /**
      * Remove label
      *
      * @param Tag $label
      */
-    /*public function removeLabel(Tag $label): void
+    public function removeLabel(Tag $label): void
     {
         $this->label->detach($label);
-    }*/
+    }
 
     /**
      * Get sameAs URI
@@ -194,20 +221,20 @@ class Contributor extends AbstractEntity
      *
      * @param SameAs $sameAs
      */
-    /*public function addSameAs(SameAs $sameAs): void
+    public function addSameAs(SameAs $sameAs): void
     {
         $this->sameAs->attach($sameAs);
-    }*/
+    }
 
     /**
      * Remove sameAs URI
      *
      * @param SameAs $sameAs
      */
-    /*public function removeSameAs(SameAs $sameAs): void
+    public function removeSameAs(SameAs $sameAs): void
     {
         $this->sameAs->detach($sameAs);
-    }*/
+    }
 }
 
 ?>

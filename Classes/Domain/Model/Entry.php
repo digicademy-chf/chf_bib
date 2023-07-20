@@ -17,19 +17,19 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Model for bibliographic entries
+ * Model for entries
  */
 class Entry extends AbstractEntity
 {
     /**
-     * Zotero URI of the entry
+     * Unique entry identifier
      * 
      * @var string
      */
-    protected string $zoteroUri = '';
+    protected $uuid;
 
     /**
-     * Type of bibliographic entry
+     * Approximate taxonomy of the bibliographic entry
      * 
      * @var string
      */
@@ -37,173 +37,180 @@ class Entry extends AbstractEntity
 
     #[Lazy()]
     /**
-     * Tag that can be used to group entries
+     * Label to group the entry into
      * 
      * @var ObjectStorage<Tag>
      */
     protected $label;
 
     /**
-     * Identifier of the publication (e.g. URL)
+     * Identifier of the entry as you would use it in a bibliography
      * 
      * @var string
      */
     protected string $identifier = '';
 
     /**
-     * Type of identifier of the publication (e.g. URL)
+     * Classification of the identifier, e.g., a DOI
      * 
      * @var string
      */
     protected string $identifierType = '';
 
+    /**
+     * External web address to identify an entry in Zotero
+     * 
+     * @var string
+     */
+    protected string $zoteroUri = '';
+
     #[Lazy()]
     #[Cascade('remove')]
     /**
-     * List of URIs describing the same entity
+     * External web address to identify the bibliographic entry across the web
      * 
      * @var ObjectStorage<SameAs>
      */
     protected $sameAs;
 
     /**
-     * Title of non-independent publication (e.g. paper)
+     * Title of the non-independent publication, e.g., a paper
      * 
      * @var string
      */
     protected string $itemTitle = '';
 
     /**
-     * Title of independent publication (e.g. edited volume or monograph)
+     * Title of the independent publication, e.g., a monograph
      * 
      * @var string
      */
     protected string $publicationTitle = '';
 
     /**
-     * Place of independent publication (e.g. edited volume or monograph)
+     * City or town where the publication was produced
      * 
      * @var string
      */
     protected string $publicationPlace = '';
 
     /**
-     * Publisher of independent publication (e.g. edited volume or monograph)
-     * 
-     * @var string
-     */
-    protected string $publicationPublisher = '';
-
-    /**
-     * Date of independent publication (e.g. edited volume or monograph)
+     * Date when the publication was published
      * 
      * @var DateTime
      */
     protected $publicationDate;
 
-    #[Lazy()]
     /**
-     * Author of the entry
+     * Name of the publisher
      * 
-     * @var ObjectStorage<Contributor>
+     * @var string
      */
-    protected $contributorAuthor;
+    protected string $publisher = '';
 
     #[Lazy()]
     /**
-     * Editor of to the entry
+     * List all authors of the entry
      * 
      * @var ObjectStorage<Contributor>
      */
-    protected $contributorEditor;
+    protected $author;
 
     #[Lazy()]
     /**
-     * Translator of the entry
+     * List all editors of the entry
      * 
      * @var ObjectStorage<Contributor>
      */
-    protected $contributorTranslator;
+    protected $editor;
 
     #[Lazy()]
     /**
-     * Generic contributor to the entry
+     * List all translators of the entry
      * 
      * @var ObjectStorage<Contributor>
      */
-    protected $contributorGeneric;
+    protected $translator;
+
+    #[Lazy()]
+    /**
+     * List all further contributors of the entry
+     * 
+     * @var ObjectStorage<Contributor>
+     */
+    protected $genericContributor;
 
     #[Lazy()]
     #[Cascade('remove')]
     /**
-     * Scope related to the published entity (e.g. volume)
+     * Information on the specific edition of the publication
      * 
      * @var ObjectStorage<Scope>
      */
     protected $scope;
 
     /**
-     * Extent of the published entity (e.g. page range)
+     * Extent of an item in the publication
      * 
      * @var string
      */
     protected string $extent = '';
 
     /**
-     * Type of extent of the published entity (e.g. page range)
+     * Clarification of the type of extent, e.g., page numbers
      * 
      * @var string
      */
     protected string $extentType = '';
 
     /**
-     * Title of the series the entity is part of
+     * Name of a series this publication is part of
      * 
      * @var string
      */
     protected string $seriesTitle = '';
 
     /**
-     * Name of the meeting the entity was presented at
+     * Name of the meeting the publication was presented at
      * 
      * @var string
      */
     protected string $meetingTitle = '';
 
     /**
-     * Initialize label, contributors, and scope
+     * Initialize object
      *
      * @return Entry
      */
     public function __construct()
     {
-        $this->label                 = new ObjectStorage();
-        $this->sameAs                = new ObjectStorage();
-        $this->contributorAuthor     = new ObjectStorage();
-        $this->contributorEditor     = new ObjectStorage();
-        $this->contributorTranslator = new ObjectStorage();
-        $this->contributorGeneric    = new ObjectStorage();
-        $this->scope                 = new ObjectStorage();
+        $this->label              = new ObjectStorage();
+        $this->sameAs             = new ObjectStorage();
+        $this->author             = new ObjectStorage();
+        $this->editor             = new ObjectStorage();
+        $this->translator         = new ObjectStorage();
+        $this->genericContributor = new ObjectStorage();
+        $this->scope              = new ObjectStorage();
     }
 
     /**
-     * Get Zotero URI
+     * Get UUID
      *
      * @return string
      */
-    public function getZoteroUri(): string
+    public function getUuid(): string
     {
-        return $this->zoteroUri;
+        return $this->uuid;
     }
 
     /**
-     * Set Zotero URI
+     * Set UUID
      *
-     * @param string $zoteroUri
+     * @param string $uuid
      */
-    public function setZoteroUri(string $zoteroUri): void
+    public function setUuid(string $uuid): void
     {
-        $this->zoteroUri = $zoteroUri;
+        $this->uuid = $uuid;
     }
 
     /**
@@ -251,20 +258,20 @@ class Entry extends AbstractEntity
      *
      * @param Tag $label
      */
-    /*public function addLabel(Tag $label): void
+    public function addLabel(Tag $label): void
     {
         $this->label->attach($label);
-    }*/
+    }
 
     /**
      * Remove label
      *
      * @param Tag $label
      */
-    /*public function removeLabel(Tag $label): void
+    public function removeLabel(Tag $label): void
     {
         $this->label->detach($label);
-    }*/
+    }
 
     /**
      * Get identifier
@@ -307,6 +314,26 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Get Zotero URI
+     *
+     * @return string
+     */
+    public function getZoteroUri(): string
+    {
+        return $this->zoteroUri;
+    }
+
+    /**
+     * Set Zotero URI
+     *
+     * @param string $zoteroUri
+     */
+    public function setZoteroUri(string $zoteroUri): void
+    {
+        $this->zoteroUri = $zoteroUri;
+    }
+
+    /**
      * Get sameAs URI
      *
      * @return ObjectStorage|null
@@ -331,20 +358,20 @@ class Entry extends AbstractEntity
      *
      * @param SameAs $sameAs
      */
-    /*public function addSameAs(SameAs $sameAs): void
+    public function addSameAs(SameAs $sameAs): void
     {
         $this->sameAs->attach($sameAs);
-    }*/
+    }
 
     /**
      * Remove sameAs URI
      *
      * @param SameAs $sameAs
      */
-    /*public function removeSameAs(SameAs $sameAs): void
+    public function removeSameAs(SameAs $sameAs): void
     {
         $this->sameAs->detach($sameAs);
-    }*/
+    }
 
     /**
      * Get item title
@@ -407,26 +434,6 @@ class Entry extends AbstractEntity
     }
 
     /**
-     * Get publication publisher
-     *
-     * @return string
-     */
-    public function getPublicationPublisher(): string
-    {
-        return $this->publicationPublisher;
-    }
-
-    /**
-     * Set publication publisher
-     *
-     * @param string $publicationPublisher
-     */
-    public function setPublicationPublisher(string $publicationPublisher): void
-    {
-        $this->publicationPublisher = $publicationPublisher;
-    }
-
-    /**
      * Get publication date
      *
      * @return DateTime
@@ -447,164 +454,184 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Get publisher
+     *
+     * @return string
+     */
+    public function getPublisher(): string
+    {
+        return $this->publisher;
+    }
+
+    /**
+     * Set publisher
+     *
+     * @param string $publisher
+     */
+    public function setPublisher(string $publisher): void
+    {
+        $this->publisher = $publisher;
+    }
+
+    /**
      * Get author
      *
      * @return ObjectStorage|null
      */
-    public function getContributorAuthor(): ?ObjectStorage
+    public function getAuthor(): ?ObjectStorage
     {
-        return $this->contributorAuthor;
+        return $this->author;
     }
 
     /**
      * Set author
      *
-     * @param ObjectStorage $contributorAuthor
+     * @param ObjectStorage $author
      */
-    public function setContributorAuthor($contributorAuthor): void
+    public function setAuthor($author): void
     {
-        $this->contributorAuthor = $contributorAuthor;
+        $this->author = $author;
     }
 
     /**
      * Add author
      *
-     * @param Contributor $contributorAuthor
+     * @param Contributor $author
      */
-    /*public function addContributorAuthor(Contributor $contributorAuthor): void
+    public function addAuthor(Contributor $author): void
     {
-        $this->contributorAuthor->attach($contributorAuthor);
-    }*/
+        $this->author->attach($author);
+    }
 
     /**
      * Remove author
      *
-     * @param Contributor $contributorAuthor
+     * @param Contributor $author
      */
-    /*public function removeContributorAuthor(Contributor $contributorAuthor): void
+    public function removeAuthor(Contributor $author): void
     {
-        $this->contributorAuthor->detach($contributorAuthor);
-    }*/
+        $this->author->detach($author);
+    }
 
     /**
      * Get editor
      *
      * @return ObjectStorage|null
      */
-    public function getContributorEditor(): ?ObjectStorage
+    public function getEditor(): ?ObjectStorage
     {
-        return $this->contributorEditor;
+        return $this->editor;
     }
 
     /**
      * Set editor
      *
-     * @param ObjectStorage $contributorEditor
+     * @param ObjectStorage $editor
      */
-    public function setContributorEditor($contributorEditor): void
+    public function setEditor($editor): void
     {
-        $this->contributorEditor = $contributorEditor;
+        $this->editor = $editor;
     }
 
     /**
      * Add editor
      *
-     * @param Contributor $contributorEditor
+     * @param Contributor $editor
      */
-    /*public function addContributorEditor(Contributor $contributorEditor): void
+    public function addEditor(Contributor $editor): void
     {
-        $this->contributorEditor->attach($contributorEditor);
-    }*/
+        $this->editor->attach($editor);
+    }
 
     /**
      * Remove editor
      *
-     * @param Contributor $contributorEditor
+     * @param Contributor $editor
      */
-    /*public function removeContributorEditor(Contributor $contributorEditor): void
+    public function removeEditor(Contributor $editor): void
     {
-        $this->contributorEditor->detach($contributorEditor);
-    }*/
+        $this->editor->detach($editor);
+    }
 
     /**
      * Get translator
      *
      * @return ObjectStorage|null
      */
-    public function getContributorTranslator(): ?ObjectStorage
+    public function getTranslator(): ?ObjectStorage
     {
-        return $this->contributorTranslator;
+        return $this->translator;
     }
 
     /**
      * Set translator
      *
-     * @param ObjectStorage $contributorTranslator
+     * @param ObjectStorage $translator
      */
-    public function setContributorTranslator($contributorTranslator): void
+    public function setTranslator($translator): void
     {
-        $this->contributorTranslator = $contributorTranslator;
+        $this->translator = $translator;
     }
 
     /**
      * Add translator
      *
-     * @param Contributor $contributorTranslator
+     * @param Contributor $translator
      */
-    /*public function addContributorTranslator(Contributor $contributorTranslator): void
+    public function addTranslator(Contributor $translator): void
     {
-        $this->contributorTranslator->attach($contributorTranslator);
-    }*/
+        $this->translator->attach($translator);
+    }
 
     /**
      * Remove translator
      *
-     * @param Contributor $contributorTranslator
+     * @param Contributor $translator
      */
-    /*public function removeContributorTranslator(Contributor $contributorTranslator): void
+    public function removeTranslator(Contributor $translator): void
     {
-        $this->contributorTranslator->detach($contributorTranslator);
-    }*/
+        $this->translator->detach($translator);
+    }
 
     /**
      * Get generic contributor
      *
      * @return ObjectStorage|null
      */
-    public function getContributorGeneric(): ?ObjectStorage
+    public function getGenericContributor(): ?ObjectStorage
     {
-        return $this->contributorGeneric;
+        return $this->genericContributor;
     }
 
     /**
      * Set generic contributor
      *
-     * @param ObjectStorage $contributorGeneric
+     * @param ObjectStorage $genericContributor
      */
-    public function setContributorGeneric($contributorGeneric): void
+    public function setGenericContributor($genericContributor): void
     {
-        $this->contributorGeneric = $contributorGeneric;
+        $this->genericContributor = $genericContributor;
     }
 
     /**
      * Add generic contributor
      *
-     * @param Contributor $contributorGeneric
+     * @param Contributor $genericContributor
      */
-    /*public function addContributorGeneric(Contributor $contributorGeneric): void
+    public function addGenericContributor(Contributor $genericContributor): void
     {
-        $this->contributorGeneric->attach($contributorGeneric);
-    }*/
+        $this->genericContributor->attach($genericContributor);
+    }
 
     /**
      * Remove generic contributor
      *
-     * @param Contributor $contributorGeneric
+     * @param Contributor $genericContributor
      */
-    /*public function removeContributorGeneric(Contributor $contributorGeneric): void
+    public function removeGenericContributor(Contributor $genericContributor): void
     {
-        $this->contributorGeneric->detach($contributorGeneric);
-    }*/
+        $this->genericContributor->detach($genericContributor);
+    }
 
     /**
      * Get scope
@@ -631,20 +658,20 @@ class Entry extends AbstractEntity
      *
      * @param Scope $scope
      */
-    /*public function addScope(Scope $scope): void
+    public function addScope(Scope $scope): void
     {
         $this->scope->attach($scope);
-    }*/
+    }
 
     /**
      * Remove scope
      *
      * @param Scope $scope
      */
-    /*public function removeScope(Scope $scope): void
+    public function removeScope(Scope $scope): void
     {
         $this->scope->detach($scope);
-    }*/
+    }
 
     /**
      * Get extent

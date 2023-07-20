@@ -16,27 +16,34 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Model to provide a reference to a bibliographic entry
+ * Model for references
  */
 class Reference extends AbstractEntity
 {
+    /**
+     * Unique reference identifier
+     * 
+     * @var string
+     */
+    protected $uuid;
+
     #[Lazy()]
     /**
-     * Bibliographic entry the relation refers to
+     * Bibliographic entry to reference
      * 
      * @var ObjectStorage<Entry>
      */
     protected $entry;
 
     /**
-     * Specific location of the reference
+     * Detailed reference, e.g., a page number
      * 
      * @var string
      */
     protected string $elaboration = '';
 
     /**
-     * Specific location type of the reference
+     * Type of detailed reference
      * 
      * @var string
      */
@@ -44,28 +51,48 @@ class Reference extends AbstractEntity
 
     #[Lazy()]
     /**
-     * Tags that can be used to group references together
+     * Label to group the reference into
      * 
      * @var ObjectStorage<Tag>
      */
     protected $label;
 
     /**
-     * Date when the source was last checked
+     * Date when the reference was last checked
      * 
      * @var DateTime
      */
     protected $lastChecked;
 
     /**
-     * Initialize entries and labels
+     * Initialize object
      *
      * @return EntryRelation
      */
     public function __construct()
     {
         $this->entry = new ObjectStorage();
-        $this->label  = new ObjectStorage();
+        $this->label = new ObjectStorage();
+    }
+
+    /**
+     * Get UUID
+     *
+     * @return string
+     */
+    public function getUuid(): string
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * Set UUID
+     *
+     * @param string $uuid
+     */
+    public function setUuid(string $uuid): void
+    {
+        $this->uuid = $uuid;
     }
 
     /**
@@ -93,20 +120,20 @@ class Reference extends AbstractEntity
      *
      * @param Entry $entry
      */
-    /*public function addEntry(Entry $entry): void
+    public function addEntry(Entry $entry): void
     {
         $this->entry->attach($entry);
-    }*/
+    }
 
     /**
      * Remove entry
      *
      * @param Entry $entry
      */
-    /*public function removeEntry(Entry $entry): void
+    public function removeEntry(Entry $entry): void
     {
         $this->entry->detach($entry);
-    }*/
+    }
 
     /**
      * Get elaboration
@@ -121,7 +148,7 @@ class Reference extends AbstractEntity
     /**
      * Set elaboration
      *
-     * @param string $laboration
+     * @param string $elaboration
      */
     public function setElaboration(string $elaboration): void
     {
@@ -173,20 +200,20 @@ class Reference extends AbstractEntity
      *
      * @param Tag $label
      */
-    /*public function addLabel(Tag $label): void
+    public function addLabel(Tag $label): void
     {
         $this->label->attach($label);
-    }*/
+    }
 
     /**
      * Remove label
      *
      * @param Tag $label
      */
-    /*public function removeLabel(Tag $label): void
+    public function removeLabel(Tag $label): void
     {
         $this->label->detach($label);
-    }*/
+    }
 
     /**
      * Get last checked date

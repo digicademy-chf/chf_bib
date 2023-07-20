@@ -16,7 +16,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Model to provide generic tags that can group entities together
+ * Model for tags
  */
 class Tag extends AbstractEntity
 {
@@ -28,7 +28,14 @@ class Tag extends AbstractEntity
     protected string $tag = '';
 
     /**
-     * Description of the tag
+     * Type of tag
+     * 
+     * @var string
+     */
+    protected string $type = '';
+
+    /**
+     * Brief information about the tag
      * 
      * @var string
      */
@@ -37,14 +44,14 @@ class Tag extends AbstractEntity
     #[Lazy()]
     #[Cascade('remove')]
     /**
-     * List of URIs describing the same entity
+     * External web address to identify the tag across the web
      * 
      * @var ObjectStorage<SameAs>
      */
     protected $sameAs;
 
     /**
-     * Initialize sameAs
+     * Initialize object
      *
      * @return Tag
      */
@@ -71,6 +78,26 @@ class Tag extends AbstractEntity
     public function setTag(string $tag): void
     {
         $this->tag = $tag;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
     }
 
     /**
@@ -118,20 +145,20 @@ class Tag extends AbstractEntity
      *
      * @param SameAs $sameAs
      */
-    /*public function addSameAs(SameAs $sameAs): void
+    public function addSameAs(SameAs $sameAs): void
     {
         $this->sameAs->attach($sameAs);
-    }*/
+    }
 
     /**
      * Remove sameAs URI
      *
      * @param SameAs $sameAs
      */
-    /*public function removeSameAs(SameAs $sameAs): void
+    public function removeSameAs(SameAs $sameAs): void
     {
         $this->sameAs->detach($sameAs);
-    }*/
+    }
 }
 
 ?>

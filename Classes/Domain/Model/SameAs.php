@@ -13,7 +13,7 @@ namespace Digicademy\DABib\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Model to provide a link to the same entity at a different URI
+ * Model for same as
  */
 class SameAs extends AbstractEntity
 {

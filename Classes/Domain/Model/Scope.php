@@ -13,19 +13,19 @@ namespace Digicademy\DABib\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Model to provide scope (e.g. volume or issue) for bibliographic entries
+ * Model for scopes
  */
 class Scope extends AbstractEntity
 {
     /**
-     * Particular range of a bibliographic entry
+     * Specific denotation of an edition, e.g., volume, issue, or another number
      * 
      * @var string
      */
     protected string $scope = '';
 
     /**
-     * Type of range specified in the scope
+     * Type of edition denotation
      * 
      * @var string
      */
