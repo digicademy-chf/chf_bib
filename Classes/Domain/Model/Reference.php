@@ -216,7 +216,7 @@ class Reference extends AbstractEntity
     }
 
     /**
-     * Get last checked date
+     * Get last checked
      *
      * @return DateTime
      */
@@ -226,7 +226,7 @@ class Reference extends AbstractEntity
     }
 
     /**
-     * Set last checked date
+     * Set last checked
      *
      * @param DateTime $lastChecked
      */

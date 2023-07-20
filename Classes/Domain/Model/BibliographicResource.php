@@ -148,7 +148,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Get sameAs URI
+     * Get same as
      *
      * @return ObjectStorage|null
      */
@@ -158,7 +158,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Set sameAs URI
+     * Set same as
      *
      * @param ObjectStorage $sameAs
      */
@@ -168,7 +168,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Add sameAs URI
+     * Add same as
      *
      * @param SameAs $sameAs
      */
@@ -178,7 +178,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Remove sameAs URI
+     * Remove same as
      *
      * @param SameAs $sameAs
      */
