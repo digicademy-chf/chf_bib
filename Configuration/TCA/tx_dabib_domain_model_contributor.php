@@ -23,7 +23,7 @@ return [
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'surname',
+        'default_sortby'           => 'surname ASC,forename ASC,corporateName ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Contributor.svg',
         'origUid'                  => 't3_origuid',
@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'surname,forename,corporateName,label',
+        'searchFields'             => 'uuid,surname,forename,corporateName',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -117,6 +117,15 @@ return [
                 'default' => '',
             ],
         ],
+        'uuid' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.uuid',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.uuid.description',
+            'config'      => [
+                'type'     => 'uuid',
+                'size'     => 40,
+                'required' => true,
+            ],
+        ],
         'surname' => [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.surname',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.surname.description',
@@ -156,7 +165,7 @@ return [
                 'foreign_table'       => 'tx_dabib_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
                 . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'label\''
-                . ' ORDER BY name',
+                . ' ORDER BY tag',
                 'MM'                  => 'tx_dabib_domain_model_contributor_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -201,7 +210,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,surnameForename,corporateName,label,sameAs,',
+            'showitem' => 'hidden,uuid,surnameForename,corporateName,label,sameAs,',
         ],
     ],
 ];

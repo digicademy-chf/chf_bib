@@ -18,13 +18,13 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag',
         'label'                    => 'tag',
-        'label_alt'                => 'description,type',
+        'label_alt'                => 'type',
         'descriptionColumn'        => 'description',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'title',
+        'default_sortby'           => 'tag ASC,type ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Tag.svg',
         'origUid'                  => 't3_origuid',
@@ -139,26 +139,6 @@ return [
                     [
                         'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.type.label',
                         'value' => 'label',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.type.entryType',
-                        'value' => 'entryType',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.type.identifierType',
-                        'value' => 'identifierType',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.type.scopeType',
-                        'value' => 'scopeType',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.type.extentType',
-                        'value' => 'extentType',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.type.elaborationType',
-                        'value' => 'elaborationType',
                     ],
                 ],
                 'required'   => true,

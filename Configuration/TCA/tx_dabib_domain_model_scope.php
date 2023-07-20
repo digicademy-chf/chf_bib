@@ -23,7 +23,7 @@ return [
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'scope',
+        'default_sortby'           => 'scope ASC,scopeType ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Scope.svg',
         'origUid'                  => 't3_origuid',
@@ -132,13 +132,26 @@ return [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dabib_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'scopeType\''
-                . ' ORDER BY name',
-                'required'            => true,
+                'type'       => 'select',
+                'renderType' => 'selectSingle',
+                'items'      => [
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.volume',
+                        'value' => 'volume',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.issue',
+                        'value' => 'issue',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.edition',
+                        'value' => 'edition',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.version',
+                        'value' => 'version',
+                    ],
+                ],
             ],
         ],
     ],

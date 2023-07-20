@@ -17,13 +17,13 @@
 return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference',
-        'label'                    => 'elaboration',
-        'label_alt'                => 'entry',
+        'label'                    => 'lastChecked',
+        'label_alt'                => 'elaboration,elaborationType',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'elaboration',
+        'default_sortby'           => 'lastChecked ASC,elaboration ASC,elaborationType ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Reference.svg',
         'origUid'                  => 't3_origuid',
@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'entry,elaboration,elaborationType,label,lastChecked',
+        'searchFields'             => 'uuid,elaboration,elaborationType,lastChecked',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -117,9 +117,18 @@ return [
                 'default' => '',
             ],
         ],
+        'uuid' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.uuid',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.uuid.description',
+            'config'      => [
+                'type'     => 'uuid',
+                'size'     => 40,
+                'required' => true,
+            ],
+        ],
         'entry' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.entry',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.entry.description',
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.entry',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.entry.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
@@ -158,12 +167,26 @@ return [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dabib_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#type}=\'elaborationType\''
-                # PID restriction removed here to allow use of Reference in datasets other than the bibliography
-                . ' ORDER BY name',
+                'type'       => 'select',
+                'renderType' => 'selectSingle',
+                'items'      => [
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.pageNumbers',
+                        'value' => 'pageNumbers',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.paragraphNumbers',
+                        'value' => 'paragraphNumbers',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.columnNumbers',
+                        'value' => 'columnNumbers',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.chapterNumbers',
+                        'value' => 'chapterNumbers',
+                    ],
+                ],
             ],
         ],
         'label' => [
@@ -175,7 +198,7 @@ return [
                 'foreign_table'       => 'tx_dabib_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
                 . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'label\''
-                . ' ORDER BY name',
+                . ' ORDER BY tag',
                 'MM'                  => 'tx_dabib_domain_model_reference_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -209,7 +232,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,entry,elaborationElaborationType,label,lastChecked,',
+            'showitem' => 'hidden,uuid,entry,elaborationElaborationType,label,lastChecked,',
         ],
     ],
 ];

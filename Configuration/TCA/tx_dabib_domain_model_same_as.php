@@ -16,13 +16,13 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.SameAs',
+        'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.sameAs',
         'label'                    => 'uri',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'uri',
+        'default_sortby'           => 'uri ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/SameAs.svg',
         'origUid'                  => 't3_origuid',

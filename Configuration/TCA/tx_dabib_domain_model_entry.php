@@ -23,7 +23,7 @@ return [
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'itemTitle',
+        'default_sortby'           => 'itemTitle ASC,publicationTitle ASC,seriesTitle ASC,meetingTitle ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Entry.svg',
         'origUid'                  => 't3_origuid',
@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'zoteroUri,label,identifier,identifierType,itemTitle,publicationTitle,publicationPlace,publicationPublisher,publicationDate,contributorAuthor,contributorEditor,contributorTranslator,contributorGeneric,scope,extent,extentType,seriesTitle,meetingTitle',
+        'searchFields'             => 'uuid,type,identifier,identifierType,zoteroUri,itemTitle,publicationTitle,publicationPlace,publicationDate,publisher,author,editor,translator,genericContributor,extent,extentType,seriesTitle,meetingTitle',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -117,16 +117,171 @@ return [
                 'default' => '',
             ],
         ],
+        'uuid' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.uuid',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.uuid.description',
+            'config'      => [
+                'type'     => 'uuid',
+                'size'     => 40,
+                'required' => true,
+            ],
+        ],
         'type' => [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dabib_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'entryType\''
-                . ' ORDER BY name',
+                'type'       => 'select',
+                'renderType' => 'selectSingle',
+                'items'      => [
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.artwork',
+                        'value' => 'artwork',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.audioRecording',
+                        'value' => 'audioRecording',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.bill',
+                        'value' => 'bill',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.blogPost',
+                        'value' => 'blogPost',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.book',
+                        'value' => 'book',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.bookSection',
+                        'value' => 'bookSection',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.case',
+                        'value' => 'case',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.computerProgram',
+                        'value' => 'computerProgram',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.conferencePaper',
+                        'value' => 'conferencePaper',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.dataset',
+                        'value' => 'dataset',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.dictionaryEntry',
+                        'value' => 'dictionaryEntry',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.document',
+                        'value' => 'document',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.email',
+                        'value' => 'email',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.encyclopediaArticle',
+                        'value' => 'encyclopediaArticle',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.film',
+                        'value' => 'film',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.forumPost',
+                        'value' => 'forumPost',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.hearing',
+                        'value' => 'hearing',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.instantMessage',
+                        'value' => 'instantMessage',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.interview',
+                        'value' => 'interview',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.journalArticle',
+                        'value' => 'journalArticle',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.letter',
+                        'value' => 'letter',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.magazineArticle',
+                        'value' => 'magazineArticle',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.manuscript',
+                        'value' => 'manuscript',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.map',
+                        'value' => 'map',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.newspaperArticle',
+                        'value' => 'newspaperArticle',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.patent',
+                        'value' => 'patent',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.podcast',
+                        'value' => 'podcast',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.preprint',
+                        'value' => 'preprint',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.presentation',
+                        'value' => 'presentation',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.radioBroadcast',
+                        'value' => 'radioBroadcast',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.report',
+                        'value' => 'report',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.standard',
+                        'value' => 'standard',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.statute',
+                        'value' => 'statute',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.thesis',
+                        'value' => 'thesis',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.tvBroadcast',
+                        'value' => 'tvBroadcast',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.videoRecording',
+                        'value' => 'videoRecording',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.type.webpage',
+                        'value' => 'webpage',
+                    ],
+                ],
             ],
         ],
         'label' => [
@@ -138,7 +293,7 @@ return [
                 'foreign_table'       => 'tx_dabib_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
                 . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'label\''
-                . ' ORDER BY name',
+                . ' ORDER BY tag',
                 'MM'                  => 'tx_dabib_domain_model_entry_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -169,12 +324,30 @@ return [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.identifierType',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.identifierType.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dabib_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'identifierType\''
-                . ' ORDER BY name',
+                'type'       => 'select',
+                'renderType' => 'selectSingle',
+                'items'      => [
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.identifierType.urn',
+                        'value' => 'urn',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.identifierType.url',
+                        'value' => 'url',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.identifierType.issn',
+                        'value' => 'issn',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.identifierType.isbn',
+                        'value' => 'isbn',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.identifierType.callNumber',
+                        'value' => 'callNumber',
+                    ],
+                ],
             ],
         ],
         'zoteroUri' => [
@@ -241,16 +414,6 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'publicationPublisher' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.publicationPublisher',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.publicationPublisher.description',
-            'config'      => [
-                'type' => 'input',
-                'size' => 40,
-                'max'  => 255,
-                'eval' => 'trim',
-            ],
-        ],
         'publicationDate' => [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.publicationDate',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.publicationDate.description',
@@ -260,16 +423,26 @@ return [
                 'nullable' => true,
             ],
         ],
-        'contributorAuthor' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributorAuthor',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributorAuthor.description',
+        'publisher' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.publisher',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.publisher.description',
+            'config'      => [
+                'type' => 'input',
+                'size' => 40,
+                'max'  => 255,
+                'eval' => 'trim',
+            ],
+        ],
+        'author' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.author',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.author.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_contributor',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_contributor}.{#pid}=###CURRENT_PID###'
                 . ' ORDER BY surname, forename, corporateName',
-                'MM'                  => 'tx_dabib_domain_model_entry_contributor_author_mm',
+                'MM'                  => 'tx_dabib_domain_model_entry_author_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -285,16 +458,16 @@ return [
                 ],
             ],
         ],
-        'contributorEditor' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributorEditor',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributorEditor.description',
+        'editor' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.editor',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.editor.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_contributor',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_contributor}.{#pid}=###CURRENT_PID###'
                 . ' ORDER BY surname, forename, corporateName',
-                'MM'                  => 'tx_dabib_domain_model_entry_contributor_editor_mm',
+                'MM'                  => 'tx_dabib_domain_model_entry_editor_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -310,16 +483,16 @@ return [
                 ],
             ],
         ],
-        'contributorTranslator' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributorTranslator',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributorTranslator.description',
+        'translator' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.translator',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.translator.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_contributor',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_contributor}.{#pid}=###CURRENT_PID###'
                 . ' ORDER BY surname, forename, corporateName',
-                'MM'                  => 'tx_dabib_domain_model_entry_contributor_translator_mm',
+                'MM'                  => 'tx_dabib_domain_model_entry_translator_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -335,16 +508,16 @@ return [
                 ],
             ],
         ],
-        'contributorGeneric' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributorGeneric',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributorGeneric.description',
+        'genericContributor' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.genericContributor',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.genericContributor.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_contributor',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_contributor}.{#pid}=###CURRENT_PID###'
                 . ' ORDER BY surname, forename, corporateName',
-                'MM'                  => 'tx_dabib_domain_model_entry_contributor_generic_mm',
+                'MM'                  => 'tx_dabib_domain_model_entry_genericcontributor_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -394,12 +567,26 @@ return [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.extentType',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.extentType.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dabib_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'extentType\''
-                . ' ORDER BY name',
+                'type'       => 'select',
+                'renderType' => 'selectSingle',
+                'items'      => [
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.extentType.pageNumbers',
+                        'value' => 'pageNumbers',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.extentType.paragraphNumbers',
+                        'value' => 'paragraphNumbers',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.extentType.columnNumbers',
+                        'value' => 'columnNumbers',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.extentType.chapterNumbers',
+                        'value' => 'chapterNumbers',
+                    ],
+                ],
             ],
         ],
         'seriesTitle' => [
@@ -422,14 +609,17 @@ return [
         ],
     ],
     'palettes' => [
+        'uuidType' => [
+            'showitem' => 'uuid,type,',
+        ],
         'identifierIdentifierType' => [
             'showitem' => 'identifier,identifierType,',
         ],
         'itemTitlePublicationTitle' => [
             'showitem' => 'itemTitle,publicationTitle,',
         ],
-        'publicationPlacePublicationPublisher' => [
-            'showitem' => 'publicationPlace,publicationPublisher,',
+        'publicationPlacePublicationDate' => [
+            'showitem' => 'publicationPlace,publicationDate,',
         ],
         'extentExtentType' => [
             'showitem' => 'extent,extentType,',
@@ -440,9 +630,9 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,type,label,identifierIdentifierType,zoteroUri,sameAs,
-            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.publication,itemTitlePublicationTitle,publicationPlacePublicationPublisher,publicationDate,
-            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributors,contributorAuthor,contributorEditor,contributorTranslator,contributorGeneric,
+            'showitem' => 'hidden,uuidType,label,identifierIdentifierType,zoteroUri,sameAs,
+            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.publication,itemTitlePublicationTitle,publicationPlacePublicationDate,publisher,
+            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributors,author,editor,translator,genericContributor,
             --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.scopesAndExtent,scope,extentExtentType,seriesTitleMeetingTitle,',
         ],
     ],
