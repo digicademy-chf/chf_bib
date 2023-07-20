@@ -56,20 +56,17 @@
             <trans-unit id="database.tag.type.label" resname="database.tag.type.label">
                 <source>Label</source>
             </trans-unit>
-            <trans-unit id="database.tag.type.entryType" resname="database.tag.type.entryType">
-                <source>Entry type</source>
+            <trans-unit id="database.tag.description" resname="database.tag.description">
+                <source>Description</source>
             </trans-unit>
-            <trans-unit id="database.tag.type.identifierType" resname="database.tag.type.identifierType">
-                <source>Identifier type</source>
+            <trans-unit id="database.tag.description.description" resname="database.tag.description.description">
+                <source>Brief information about the tag</source>
             </trans-unit>
-            <trans-unit id="database.tag.type.scopeType" resname="database.tag.type.scopeType">
-                <source>Scope type</source>
+            <trans-unit id="database.tag.sameAs" resname="database.tag.sameAs">
+                <source>Reference URI</source>
             </trans-unit>
-            <trans-unit id="database.tag.type.extentType" resname="database.tag.type.extentType">
-                <source>Extent type</source>
-            </trans-unit>
-            <trans-unit id="database.tag.type.elaborationType" resname="database.tag.type.elaborationType">
-                <source>Elaboration type</source>
+            <trans-unit id="database.tag.sameAs.description" resname="database.tag.sameAs.description">
+                <source>External web address to identify the tag across the web</source>
             </trans-unit>
             <!-- Database: SameAs -->
             <trans-unit id="database.sameAs" resname="database.sameAs">
@@ -89,7 +86,7 @@
                 <source>Scope</source>
             </trans-unit>
             <trans-unit id="database.scope.scope.description" resname="database.scope.scope.description">
-                <source>Specific denotation of an edition, e.g., issue number or page numbers</source>
+                <source>Specific denotation of an edition, e.g., volume, issue, or another number</source>
             </trans-unit>
             <trans-unit id="database.scope.scopeType" resname="database.scope.scopeType">
                 <source>Scope type</source>
@@ -97,9 +94,27 @@
             <trans-unit id="database.scope.scopeType.description" resname="database.scope.scopeType.description">
                 <source>Type of edition denotation</source>
             </trans-unit>
+            <trans-unit id="database.scope.scopeType.volume" resname="database.scope.scopeType.volume">
+                <source>Volume</source>
+            </trans-unit>
+            <trans-unit id="database.scope.scopeType.issue" resname="database.scope.scopeType.issue">
+                <source>Issue</source>
+            </trans-unit>
+            <trans-unit id="database.scope.scopeType.edition" resname="database.scope.scopeType.edition">
+                <source>Edition</source>
+            </trans-unit>
+            <trans-unit id="database.scope.scopeType.version" resname="database.scope.scopeType.version">
+                <source>Version</source>
+            </trans-unit>
             <!-- Database: Contributor -->
             <trans-unit id="database.contributor" resname="database.contributor">
                 <source>Contributor</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.uuid" resname="database.contributor.uuid">
+                <source>UUID</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.uuid.description" resname="database.contributor.uuid.description">
+                <source>Unique contributor identifier</source>
             </trans-unit>
             <trans-unit id="database.contributor.surname" resname="database.contributor.surname">
                 <source>Surname</source>
@@ -113,10 +128,10 @@
             <trans-unit id="database.contributor.forename.description" resname="database.contributor.forename.description">
                 <source>Forename of the contributor</source>
             </trans-unit>
-            <trans-unit id="database.contributor.contributorName" resname="database.contributor.contributorName">
+            <trans-unit id="database.contributor.corporateName" resname="database.contributor.corporateName">
                 <source>Corporate name</source>
             </trans-unit>
-            <trans-unit id="database.contributor.contributorName.description" resname="database.contributor.contributorName.description">
+            <trans-unit id="database.contributor.corporateName.description" resname="database.contributor.corporateName.description">
                 <source>Name of a corporate body (e.g., an organisation) used instead of forename and surname</source>
             </trans-unit>
             <trans-unit id="database.contributor.label" resname="database.contributor.label">
@@ -135,6 +150,12 @@
             <trans-unit id="database.reference" resname="database.reference">
                 <source>Reference</source>
             </trans-unit>
+            <trans-unit id="database.reference.uuid" resname="database.reference.uuid">
+                <source>UUID</source>
+            </trans-unit>
+            <trans-unit id="database.reference.uuid.description" resname="database.reference.uuid.description">
+                <source>Unique reference identifier</source>
+            </trans-unit>
             <trans-unit id="database.reference.entry" resname="database.reference.entry">
                 <source>Entry</source>
             </trans-unit>
@@ -152,6 +173,18 @@
             </trans-unit>
             <trans-unit id="database.reference.elaborationType.description" resname="database.reference.elaborationType.description">
                 <source>Type of detailed reference</source>
+            </trans-unit>
+            <trans-unit id="database.reference.elaborationType.pageNumbers" resname="database.reference.elaborationType.pageNumbers">
+                <source>Page numbers</source>
+            </trans-unit>
+            <trans-unit id="database.reference.elaborationType.paragraphNumbers" resname="database.reference.elaborationType.paragraphNumbers">
+                <source>Paragraph numbers</source>
+            </trans-unit>
+            <trans-unit id="database.reference.elaborationType.columnNumbers" resname="database.reference.elaborationType.columnNumbers">
+                <source>Column numbers</source>
+            </trans-unit>
+            <trans-unit id="database.reference.elaborationType.chapterNumbers" resname="database.reference.elaborationType.chapterNumbers">
+                <source>Chapter numbers</source>
             </trans-unit>
             <trans-unit id="database.reference.label" resname="database.reference.label">
                 <source>Label</source>
@@ -178,11 +211,128 @@
             <trans-unit id="database.entry.scopesAndExtent" resname="database.entry.scopesAndExtent">
                 <source>Scopes and extent</source>
             </trans-unit>
+            <trans-unit id="database.entry.uuid" resname="database.entry.uuid">
+                <source>UUID</source>
+            </trans-unit>
+            <trans-unit id="database.entry.uuid.description" resname="database.entry.uuid.description">
+                <source>Unique entry identifier</source>
+            </trans-unit>
             <trans-unit id="database.entry.type" resname="database.entry.type">
                 <source>Entry type</source>
             </trans-unit>
             <trans-unit id="database.entry.type.description" resname="database.entry.type.description">
                 <source>Approximate taxonomy of the bibliographic entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.artwork" resname="database.entry.type.artwork">
+                <source>Artwork</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.audioRecording" resname="database.entry.type.audioRecording">
+                <source>Audio recording</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.bill" resname="database.entry.type.bill">
+                <source>Bill</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.blogPost" resname="database.entry.type.blogPost">
+                <source>Blog post</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.book" resname="database.entry.type.book">
+                <source>Book</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.bookSection" resname="database.entry.type.bookSection">
+                <source>Book section</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.case" resname="database.entry.type.case">
+                <source>Case</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.computerProgram" resname="database.entry.type.computerProgram">
+                <source>Software</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.conferencePaper" resname="database.entry.type.conferencePaper">
+                <source>Conference paper</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.dataset" resname="database.entry.type.dataset">
+                <source>Dataset</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.dictionaryEntry" resname="database.entry.type.dictionaryEntry">
+                <source>Dictionary entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.document" resname="database.entry.type.document">
+                <source>Document</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.email" resname="database.entry.type.email">
+                <source>Email</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.encyclopediaArticle" resname="database.entry.type.encyclopediaArticle">
+                <source>Encyclopedia article</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.film" resname="database.entry.type.film">
+                <source>Film</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.forumPost" resname="database.entry.type.forumPost">
+                <source>Forum post</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.hearing" resname="database.entry.type.hearing">
+                <source>Hearing</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.instantMessage" resname="database.entry.type.instantMessage">
+                <source>Instant message</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.interview" resname="database.entry.type.interview">
+                <source>Interview</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.journalArticle" resname="database.entry.type.journalArticle">
+                <source>Journal article</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.letter" resname="database.entry.type.letter">
+                <source>Letter</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.magazineArticle" resname="database.entry.type.magazineArticle">
+                <source>Magazine article</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.manuscript" resname="database.entry.type.manuscript">
+                <source>Manuscript</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.map" resname="database.entry.type.map">
+                <source>Map</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.newspaperArticle" resname="database.entry.type.newspaperArticle">
+                <source>Newspaper article</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.patent" resname="database.entry.type.patent">
+                <source>Patent</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.podcast" resname="database.entry.type.podcast">
+                <source>Podcast</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.preprint" resname="database.entry.type.preprint">
+                <source>Preprint</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.presentation" resname="database.entry.type.presentation">
+                <source>Presentation</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.radioBroadcast" resname="database.entry.type.radioBroadcast">
+                <source>Radio broadcast</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.report" resname="database.entry.type.report">
+                <source>Report</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.standard" resname="database.entry.type.standard">
+                <source>Standard</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.statute" resname="database.entry.type.statute">
+                <source>Statute</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.thesis" resname="database.entry.type.thesis">
+                <source>Thesis</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.tvBroadcast" resname="database.entry.type.tvBroadcast">
+                <source>TV broadcast</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.videoRecording" resname="database.entry.type.videoRecording">
+                <source>Video recording</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.webpage" resname="database.entry.type.webpage">
+                <source>Web page</source>
             </trans-unit>
             <trans-unit id="database.entry.label" resname="database.entry.label">
                 <source>Label</source>
@@ -201,6 +351,21 @@
             </trans-unit>
             <trans-unit id="database.entry.identifierType.description" resname="database.entry.identifierType.description">
                 <source>Classification of the identifier, e.g., a DOI</source>
+            </trans-unit>
+            <trans-unit id="database.entry.identifierType.urn" resname="database.entry.identifierType.urn">
+                <source>URN (includes DOI and Handle)</source>
+            </trans-unit>
+            <trans-unit id="database.entry.identifierType.url" resname="database.entry.identifierType.url">
+                <source>URL (web address)</source>
+            </trans-unit>
+            <trans-unit id="database.entry.identifierType.issn" resname="database.entry.identifierType.issn">
+                <source>ISSN</source>
+            </trans-unit>
+            <trans-unit id="database.entry.identifierType.isbn" resname="database.entry.identifierType.isbn">
+                <source>ISBN</source>
+            </trans-unit>
+            <trans-unit id="database.entry.identifierType.callNumber" resname="database.entry.identifierType.callNumber">
+                <source>Call number</source>
             </trans-unit>
             <trans-unit id="database.entry.zoteroUri" resname="database.entry.zoteroUri">
                 <source>Zotero URI</source>
@@ -232,40 +397,40 @@
             <trans-unit id="database.entry.publicationPlace.description" resname="database.entry.publicationPlace.description">
                 <source>City or town where the publication was produced</source>
             </trans-unit>
-            <trans-unit id="database.entry.publicationPublisher" resname="database.entry.publicationPublisher">
-                <source>Publisher</source>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationPublisher.description" resname="database.entry.publicationPublisher.description">
-                <source>Name of the publisher</source>
-            </trans-unit>
             <trans-unit id="database.entry.publicationDate" resname="database.entry.publicationDate">
                 <source>Publication date</source>
             </trans-unit>
             <trans-unit id="database.entry.publicationDate.description" resname="database.entry.publicationDate.description">
                 <source>Date when the publication was published</source>
             </trans-unit>
-            <trans-unit id="database.entry.contributorAuthor" resname="database.entry.contributorAuthor">
+            <trans-unit id="database.entry.publisher" resname="database.entry.publisher">
+                <source>Publisher</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publisher.description" resname="database.entry.publisher.description">
+                <source>Name of the publisher</source>
+            </trans-unit>
+            <trans-unit id="database.entry.author" resname="database.entry.author">
                 <source>Author</source>
             </trans-unit>
-            <trans-unit id="database.entry.contributorAuthor.description" resname="database.entry.contributorAuthor.description">
+            <trans-unit id="database.entry.author.description" resname="database.entry.author.description">
                 <source>List all authors of the entry</source>
             </trans-unit>
-            <trans-unit id="database.entry.contributorEditor" resname="database.entry.contributorEditor">
+            <trans-unit id="database.entry.editor" resname="database.entry.editor">
                 <source>Editor</source>
             </trans-unit>
-            <trans-unit id="database.entry.contributorEditor.description" resname="database.entry.contributorEditor.description">
+            <trans-unit id="database.entry.editor.description" resname="database.entry.editor.description">
                 <source>List all editors of the entry</source>
             </trans-unit>
-            <trans-unit id="database.entry.contributorTranslator" resname="database.entry.contributorTranslator">
+            <trans-unit id="database.entry.translator" resname="database.entry.translator">
                 <source>Translator</source>
             </trans-unit>
-            <trans-unit id="database.entry.contributorTranslator.description" resname="database.entry.contributorTranslator.description">
+            <trans-unit id="database.entry.translator.description" resname="database.entry.translator.description">
                 <source>List all translators of the entry</source>
             </trans-unit>
-            <trans-unit id="database.entry.contributorGeneric" resname="database.entry.contributorGeneric">
+            <trans-unit id="database.entry.genericContributor" resname="database.entry.genericContributor">
                 <source>Other contributor</source>
             </trans-unit>
-            <trans-unit id="database.entry.contributorGeneric.description" resname="database.entry.contributorGeneric.description">
+            <trans-unit id="database.entry.genericContributor.description" resname="database.entry.genericContributor.description">
                 <source>List all further contributors of the entry</source>
             </trans-unit>
             <trans-unit id="database.entry.scope" resname="database.entry.scope">
@@ -284,7 +449,19 @@
                 <source>Extent type</source>
             </trans-unit>
             <trans-unit id="database.entry.extentType.description" resname="database.entry.extentType.description">
-                <source>Clarification of the type of extent, e.g., a page range</source>
+                <source>Clarification of the type of extent, e.g., page numbers</source>
+            </trans-unit>
+            <trans-unit id="database.entry.extentType.pageNumbers" resname="database.entry.extentType.pageNumbers">
+                <source>Page numbers</source>
+            </trans-unit>
+            <trans-unit id="database.entry.extentType.paragraphNumbers" resname="database.entry.extentType.paragraphNumbers">
+                <source>Paragraph numbers</source>
+            </trans-unit>
+            <trans-unit id="database.entry.extentType.columnNumbers" resname="database.entry.extentType.columnNumbers">
+                <source>Column numbers</source>
+            </trans-unit>
+            <trans-unit id="database.entry.extentType.chapterNumbers" resname="database.entry.extentType.chapterNumbers">
+                <source>Chapter numbers</source>
             </trans-unit>
             <trans-unit id="database.entry.seriesTitle" resname="database.entry.seriesTitle">
                 <source>Title of the publication series</source>
