@@ -1,5 +1,11 @@
 <?php
 
+# This file is part of the extension DA Bib for TYPO3.
+#
+# For the full copyright and license information, please read the
+# LICENSE.txt file that was distributed with this source code.
+
+
 $EM_CONF[$_EXTKEY] = [
     'title'          => 'DA Bib',
     'description'    => 'Generic or annotated bibliographies in TYPO3',

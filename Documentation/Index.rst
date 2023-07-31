@@ -19,8 +19,7 @@ DA Bib
     en
 
 :Author:
-    `Jonatan Jalle Steller <mailto:jonatan.steller@adwmainz.de>`__
-
+    `Jonatan Jalle Steller <mailto:jonatan.steller@adwmainz.de>`__,
     DA Bib contributors
 
 :License:

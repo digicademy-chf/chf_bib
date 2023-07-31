@@ -33,6 +33,8 @@ library.
 Roadmap
 =======
 
+This is a pre-release version. The following steps are required for the software to move out of beta:
+
 **Version 0.7.0**
 
 - TCA and model work as expected
@@ -46,7 +48,7 @@ Roadmap
 
 **Version 0.9.0**
 
-- Make import generic
+- Make Zotero import generic
 - Make serialisation(s) generic
 
 **Version 1.0.0**
