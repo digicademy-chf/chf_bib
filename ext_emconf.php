@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title'          => 'DA Bib',
-    'description'    => 'Provide bibliographies for research data in TYPO3',
+    'description'    => 'Generic or annotated bibliographies in TYPO3',
     'category'       => 'misc',
     'author'         => 'Jonatan Jalle Steller',
     'author_email'   => 'jonatan.steller@adwmainz.de',

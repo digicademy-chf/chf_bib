@@ -1,13 +1,16 @@
 {
     "name": "digicademy/da-bib",
     "type": "typo3-cms-extension",
-    "description": "Provide bibliographies for research data in TYPO3",
+    "description": "Provide generic or annotated bibliographies in TYPO3",
     "authors": [
         {
             "name": "Jonatan Jalle Steller",
             "email": "jonatan.steller@adwmainz.de",
             "role": "Developer",
             "homepage": "https://www.adwmainz.de"
+        },
+        {
+            "name": "DA Bib contributors"
         }
     ],
     "license": "GPL-2.0-or-later",

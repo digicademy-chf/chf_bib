@@ -10,21 +10,23 @@ authors:
     email: jonatan.steller@adwmainz.de
     affiliation: Academy of Sciences and Literature Mainz
     orcid: 'https://orcid.org/0000-0002-5101-5275'
+  - name: "DA Bib contributors"
 repository-code: >-
   https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-bib
 abstract: >-
-  The extension provides a data model for bibliographic
-  data. It is modelled after the biblStruct element in TEI
-  XML as produced by Zotero. The data can be listed as a
-  bibliography, entries and contributors can be grouped via
-  labels, and other data models may reference and elaborate
-  on individual entries. A flexible SameAs class adds
-  options to identify, for example, authors via their
-  OrcIDs in linked-data scenarios. A frontend plugin
-  provides options to display selections of the
-  bibliography, and a few common serialisations of
-  bibliographic data are included out of the box. A TYPO3
-  task can be activated to periodically and automatically
+  The extension provides a data model for bibliographic data. It is
+  largely modelled after the biblStruct element in TEI XML as
+  produced by Zotero. In addition, entries may carry descriptions,
+  summaries, (cover) images, and other files to put together
+  annotated bibliographies. The data can be listed as a full
+  bibliography, but entries and contributors may also be grouped via
+  labels, and other data models can reference and elaborate on
+  individual entries using a Reference class. A flexible SameAs class
+  adds options to identify, for example, authors via their OrcIDs in
+  linked-data scenarios. A frontend plugin provides options to
+  display selections of the bibliography, and a few common
+  serialisations of bibliographic data are included out of the box. A
+  TYPO3 task can be activated to periodically and automatically
   import data from a Zotero library.
 keywords:
   - TYPO3
