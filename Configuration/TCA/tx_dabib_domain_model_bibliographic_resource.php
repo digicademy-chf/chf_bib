@@ -33,7 +33,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'title,description,uri',
+        'searchFields'             => 'title,syncId,syncState,description,uri',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -101,8 +101,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dabib_domain_model_bibliographic_resource',
-                'foreign_table_where' =>
-                    'AND {#tx_dabib_domain_model_bibliographic_resource}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_bibliographic_resource}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dabib_domain_model_bibliographic_resource}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -134,6 +133,32 @@ return [
             'config'      => [
                 'type'     => 'language',
                 'required' => true,
+            ],
+        ],
+        'syncId' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncId',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncId.description',
+            'config' => [
+                'type'           => 'link',
+                'allowedTypes'   => ['url'],
+                'allowedOptions' => [],
+                'mode'           => 'prepend',
+                'valuePicker'    => [
+                   'items' => [
+                      ['HTTPS', 'https://'],
+                      ['HTTP', 'http://'],
+                   ],
+                ],
+            ],
+        ],
+        'syncState' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncState',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncState.description',
+            'config'      => [
+                'type' => 'input',
+                'size' => 40,
+                'max'  => 255,
+                'eval' => 'trim',
             ],
         ],
         'description' => [
@@ -183,15 +208,82 @@ return [
                 ],
             ],
         ],
+        'entry' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.entry',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.entry.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_dabib_domain_model_entry',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'foreign_sortby'      => 'sorting',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => false,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+            ],
+        ],
+        'contributor' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.contributor',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.contributor.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_dabib_domain_model_contributor',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'foreign_sortby'      => 'sorting',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => false,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+            ],
+        ],
+        'tag' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.tag',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.tag.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_dabib_domain_model_tag',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'foreign_sortby'      => 'sorting',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => false,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+            ],
+        ],
     ],
     'palettes' => [
         'titleLanguage' => [
             'showitem' => 'title,language,',
         ],
+        'syncIdSyncState' => [
+            'showitem' => 'syncId,syncState,',
+        ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,titleLanguage,description,uri,sameAs,',
+            'showitem' => 'hidden,titleLanguage,syncIdSyncState,description,uri,sameAs,
+            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.content,entry,contributor,tag,',
         ],
     ],
 ];

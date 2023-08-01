@@ -101,8 +101,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dabib_domain_model_tag',
-                'foreign_table_where' =>
-                    'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dabib_domain_model_tag}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -116,6 +115,16 @@ return [
             'config' => [
                 'type'    => 'passthrough',
                 'default' => '',
+            ],
+        ],
+        'parent_id' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.parent_id',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.parent_id.description',
+            'config'      => [
+                'type'          => 'select',
+                'renderType'    => 'selectSingle',
+                'foreign_table' => 'tx_dabib_domain_model_bibliographic_resource',
+                'maxitems'      => 1,
             ],
         ],
         'tag' => [
@@ -175,15 +184,91 @@ return [
                 ],
             ],
         ],
+        'asLabelOfEntry' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dabib_domain_model_entry',
+                'MM'                  => 'tx_dabib_domain_model_entry_tag_label_mm',
+                'MM_opposite_field'   => 'label',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
+        'asLabelOfContributor' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dabib_domain_model_contributor',
+                'MM'                  => 'tx_dabib_domain_model_contributor_tag_label_mm',
+                'MM_opposite_field'   => 'label',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
+        'asLabelOfReference' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfReference',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfReference.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dabib_domain_model_reference',
+                'MM'                  => 'tx_dabib_domain_model_reference_tag_label_mm',
+                'MM_opposite_field'   => 'label',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
     ],
     'palettes' => [
+        'hiddenParentId' => [
+            'showitem' => 'hidden,parent_id,',
+        ],
         'tagType' => [
             'showitem' => 'tag,type,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,tagType,description,sameAs,',
+            'showitem' => 'hiddenParentId,tagType,description,sameAs,
+            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.labelled,asLabelOfEntry,asLabelOfContributor,asLabelOfReference',
         ],
     ],
 ];

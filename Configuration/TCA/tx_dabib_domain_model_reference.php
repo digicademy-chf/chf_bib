@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'uuid,elaboration,elaborationType,lastChecked',
+        'searchFields'             => 'elaboration,elaborationType,lastChecked',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -100,8 +100,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dabib_domain_model_reference',
-                'foreign_table_where' =>
-                    'AND {#tx_dabib_domain_model_reference}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_reference}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dabib_domain_model_reference}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -117,15 +116,6 @@ return [
                 'default' => '',
             ],
         ],
-        'uuid' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.uuid',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.uuid.description',
-            'config'      => [
-                'type'     => 'uuid',
-                'size'     => 40,
-                'required' => true,
-            ],
-        ],
         'entry' => [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.entry',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.entry.description',
@@ -133,8 +123,7 @@ return [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_entry',
-                'foreign_table_where' => 'ORDER BY itemTitle, publicationTitle',
-                'MM'                  => 'tx_dabib_domain_model_reference_entry_mm',
+                'MM'                  => 'tx_dabib_domain_model_reference_entry_entry_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'minitems'            => 1,
@@ -197,9 +186,8 @@ return [
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'label\''
-                . ' ORDER BY tag',
-                'MM'                  => 'tx_dabib_domain_model_reference_label_mm',
+                    . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_dabib_domain_model_reference_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -232,7 +220,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,uuid,entry,elaborationElaborationType,label,lastChecked,',
+            'showitem' => 'hidden,entry,elaborationElaborationType,label,lastChecked,',
         ],
     ],
 ];

@@ -99,8 +99,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dabib_domain_model_same_as',
-                'foreign_table_where' =>
-                    'AND {#tx_dabib_domain_model_same_as}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_same_as}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dabib_domain_model_same_as}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],

@@ -18,7 +18,7 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor',
         'label'                    => 'surname',
-        'label_alt'                => 'forename,corporateName',
+        'label_alt'                => 'forename,corporateName,id',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'uuid,surname,forename,corporateName',
+        'searchFields'             => 'id,surname,forename,corporateName',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -100,8 +100,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dabib_domain_model_contributor',
-                'foreign_table_where' =>
-                    'AND {#tx_dabib_domain_model_contributor}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_contributor}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dabib_domain_model_contributor}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -117,9 +116,19 @@ return [
                 'default' => '',
             ],
         ],
-        'uuid' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.uuid',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.uuid.description',
+        'parent_id' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.parent_id',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.parent_id.description',
+            'config'      => [
+                'type'          => 'select',
+                'renderType'    => 'selectSingle',
+                'foreign_table' => 'tx_dabib_domain_model_bibliographic_resource',
+                'maxitems'      => 1,
+            ],
+        ],
+        'id' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.id',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.id.description',
             'config'      => [
                 'type'     => 'uuid',
                 'size'     => 40,
@@ -164,9 +173,8 @@ return [
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'label\''
-                . ' ORDER BY tag',
-                'MM'                  => 'tx_dabib_domain_model_contributor_label_mm',
+                    . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_dabib_domain_model_contributor_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -202,15 +210,115 @@ return [
                 ],
             ],
         ],
+        'asAuthor' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.asAuthor',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.asAuthor.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dabib_domain_model_entry',
+                'MM'                  => 'tx_dabib_domain_model_entry_contributor_author_mm',
+                'MM_opposite_field'   => 'author',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
+        'asEditor' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.asEditor',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.asEditor.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dabib_domain_model_entry',
+                'MM'                  => 'tx_dabib_domain_model_entry_contributor_editor_mm',
+                'MM_opposite_field'   => 'editor',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
+        'asTranslator' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.asTranslator',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.asTranslator.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dabib_domain_model_entry',
+                'MM'                  => 'tx_dabib_domain_model_entry_contributor_translator_mm',
+                'MM_opposite_field'   => 'translator',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
+        'asGenericContributor' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.asGenericContributor',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.asGenericContributor.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dabib_domain_model_entry',
+                'MM'                  => 'tx_dabib_domain_model_entry_contributor_generic_mm',
+                'MM_opposite_field'   => 'genericContributor',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
     ],
     'palettes' => [
+        'hiddenParentId' => [
+            'showitem' => 'hidden,parent_id,',
+        ],
         'surnameForename' => [
             'showitem' => 'surname,forename,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,uuid,surnameForename,corporateName,label,sameAs,',
+            'showitem' => 'hiddenParentId,id,surnameForename,corporateName,label,sameAs,
+            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.contributions,asAuthor,asEditor,asTranslator,asGenericContributor,',
         ],
     ],
 ];
