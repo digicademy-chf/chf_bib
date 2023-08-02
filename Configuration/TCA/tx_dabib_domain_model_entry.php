@@ -126,6 +126,7 @@ return [
                 'foreign_table'       => 'tx_dabib_domain_model_bibliographic_resource',
                 'foreign_table_where' => 'AND {#tx_dabib_domain_model_bibliographic_resource}.{#pid}=###CURRENT_PID###',
                 'maxitems'            => 1,
+                'required'            => true,
             ],
         ],
         'id' => [
