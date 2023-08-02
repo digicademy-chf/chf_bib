@@ -16,7 +16,7 @@ Install and config
 2.  Set up a data folder
 
     In a blank folder in your page tree, add a ``BibliographicResource``.
-    Further data, such as entries, need to be located in the same data folder.
+    Further data, such as entries, needs to be located in the same data folder.
     ``Reference``s, however, are an exception as they only point towards
     entries and may be part of other data models.
 
