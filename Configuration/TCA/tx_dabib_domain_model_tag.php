@@ -121,10 +121,11 @@ return [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.parent_id',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.parent_id.description',
             'config'      => [
-                'type'          => 'select',
-                'renderType'    => 'selectSingle',
-                'foreign_table' => 'tx_dabib_domain_model_bibliographic_resource',
-                'maxitems'      => 1,
+                'type'                => 'select',
+                'renderType'          => 'selectSingle',
+                'foreign_table'       => 'tx_dabib_domain_model_bibliographic_resource',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_bibliographic_resource}.{#pid}=###CURRENT_PID###',
+                'maxitems'            => 1,
             ],
         ],
         'tag' => [
@@ -191,6 +192,7 @@ return [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_entry}.{#pid}=###CURRENT_PID###',
                 'MM'                  => 'tx_dabib_domain_model_entry_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
@@ -215,6 +217,7 @@ return [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_contributor',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_contributor}.{#pid}=###CURRENT_PID###',
                 'MM'                  => 'tx_dabib_domain_model_contributor_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
@@ -236,14 +239,15 @@ return [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfReference',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfReference.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dabib_domain_model_reference',
-                'MM'                  => 'tx_dabib_domain_model_reference_tag_label_mm',
-                'MM_opposite_field'   => 'label',
-                'size'                => 5,
-                'autoSizeMax'         => 10,
-                'fieldControl'        => [
+                'type'              => 'select',
+                'renderType'        => 'selectMultipleSideBySide',
+                'foreign_table'     => 'tx_dabib_domain_model_reference',
+                // Do not require the same PID here because references may be included in other data models living on other pages
+                'MM'                => 'tx_dabib_domain_model_reference_tag_label_mm',
+                'MM_opposite_field' => 'label',
+                'size'              => 5,
+                'autoSizeMax'       => 10,
+                'fieldControl'      => [
                     'editPopup'  => [
                         'disabled' => false,
                     ],

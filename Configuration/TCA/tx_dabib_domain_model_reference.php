@@ -185,8 +185,8 @@ return [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dabib_domain_model_tag}.{#type}=\'label\'',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#type}=\'label\'',
+                // Do not require the same PID here because references may be included in other data models living on other pages
                 'MM'                  => 'tx_dabib_domain_model_reference_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,

@@ -121,10 +121,11 @@ return [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.parent_id',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.parent_id.description',
             'config'      => [
-                'type'          => 'select',
-                'renderType'    => 'selectSingle',
-                'foreign_table' => 'tx_dabib_domain_model_bibliographic_resource',
-                'maxitems'      => 1,
+                'type'                => 'select',
+                'renderType'          => 'selectSingle',
+                'foreign_table'       => 'tx_dabib_domain_model_bibliographic_resource',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_bibliographic_resource}.{#pid}=###CURRENT_PID###',
+                'maxitems'            => 1,
             ],
         ],
         'id' => [
