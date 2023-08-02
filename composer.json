@@ -1,7 +1,7 @@
 {
     "name": "digicademy/da-bib",
     "type": "typo3-cms-extension",
-    "description": "Provide generic or annotated bibliographies in TYPO3",
+    "description": "Generic or annotated bibliographies in TYPO3",
     "authors": [
         {
             "name": "Jonatan Jalle Steller",

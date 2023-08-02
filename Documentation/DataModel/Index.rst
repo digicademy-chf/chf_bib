@@ -6,9 +6,9 @@
 Data model
 ==========
 
-All records of a single bibliography are held together by the main classes
-(``Entry``, ``Contributor``, and ``Tag``) being children of a single
-``BibliographicResource``. The core class ``Entry`` has a set of fields that
+All records of a bibliography are held together by a single
+``BibliographicResource`` which holds the main classes ``Entry``,
+``Contributor``, and ``Tag``. The class ``Entry`` has a set of fields that
 contain inforomation of non-independent items (e.g. papers in a journal) as
 well as independent publications (e.g. the journal itself). Entries may be
 connected to other data models, which may specify elaborations such as the

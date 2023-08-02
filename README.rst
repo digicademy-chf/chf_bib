@@ -1,3 +1,7 @@
+..  image:: https://img.shields.io/badge/PHP-8.1/8.2-blue.svg
+    :alt: PHP 8.1/8.2
+    :target: https://www.php.net/downloads
+
 ..  image:: https://img.shields.io/badge/TYPO3-12-orange.svg
     :alt: TYPO3 12
     :target: https://get.typo3.org/version/12
