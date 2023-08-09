@@ -18,7 +18,7 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor',
         'label'                    => 'surname',
-        'label_alt'                => 'forename,corporateName,id',
+        'label_alt'                => 'forename,corporateName',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'id,surname,forename,corporateName',
+        'searchFields'             => 'uuid,surname,forename,corporateName',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -128,9 +128,9 @@ return [
                 'required'            => true,
             ],
         ],
-        'id' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.id',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.id.description',
+        'uuid' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.uuid',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.uuid.description',
             'config'      => [
                 'type'     => 'uuid',
                 'size'     => 40,
@@ -323,7 +323,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hiddenParentId,id,surnameForename,corporateName,label,sameAs,
+            'showitem' => 'hiddenParentId,uuid,surnameForename,corporateName,label,sameAs,
             --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.contributor.contributions,asAuthor,asEditor,asTranslator,asGenericContributor,',
         ],
     ],

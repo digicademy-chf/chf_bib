@@ -83,10 +83,10 @@
             <trans-unit id="database.tag.parent_id.description" resname="database.tag.parent_id.description">
                 <source>Bibliography that this tag is attached to</source>
             </trans-unit>
-            <trans-unit id="database.tag.tag" resname="database.tag.tag">
+            <trans-unit id="database.tag.text" resname="database.tag.text">
                 <source>Name</source>
             </trans-unit>
-            <trans-unit id="database.tag.tag.description" resname="database.tag.tag.description">
+            <trans-unit id="database.tag.text.description" resname="database.tag.text.description">
                 <source>Name of the tag</source>
             </trans-unit>
             <trans-unit id="database.tag.type" resname="database.tag.type">
@@ -200,10 +200,10 @@
             <trans-unit id="database.contributor.parent_id.description" resname="database.contributor.parent_id.description">
                 <source>Bibliography that this contributor is attached to</source>
             </trans-unit>
-            <trans-unit id="database.contributor.id" resname="database.contributor.id">
+            <trans-unit id="database.contributor.uuid" resname="database.contributor.uuid">
                 <source>ID</source>
             </trans-unit>
-            <trans-unit id="database.contributor.id.description" resname="database.contributor.id.description">
+            <trans-unit id="database.contributor.uuid.description" resname="database.contributor.uuid.description">
                 <source>Unique identifier of the contributor</source>
             </trans-unit>
             <trans-unit id="database.contributor.surname" resname="database.contributor.surname">
@@ -334,10 +334,10 @@
             <trans-unit id="database.entry.parent_id.description" resname="database.entry.parent_id.description">
                 <source>Bibliography that this entry is attached to</source>
             </trans-unit>
-            <trans-unit id="database.entry.id" resname="database.entry.id">
+            <trans-unit id="database.entry.uuid" resname="database.entry.uuid">
                 <source>ID</source>
             </trans-unit>
-            <trans-unit id="database.entry.id.description" resname="database.entry.id.description">
+            <trans-unit id="database.entry.uuid.description" resname="database.entry.uuid.description">
                 <source>Unique identifier of the entry</source>
             </trans-unit>
             <trans-unit id="database.entry.type" resname="database.entry.type">

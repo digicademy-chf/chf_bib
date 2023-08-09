@@ -109,11 +109,11 @@
                 <source>Bibliography that this tag is attached to</source>
                 <target>Bibliografie, zu der dieses Schlagwort gehört</target>
             </trans-unit>
-            <trans-unit id="database.tag.tag" resname="database.tag.tag" approved="yes">
+            <trans-unit id="database.tag.text" resname="database.tag.text" approved="yes">
                 <source>Tag</source>
                 <target>Schlagwort</target>
             </trans-unit>
-            <trans-unit id="database.tag.tag.description" resname="database.tag.tag.description" approved="yes">
+            <trans-unit id="database.tag.text.description" resname="database.tag.text.description" approved="yes">
                 <source>Name of the tag</source>
                 <target>Bezeichnung des Schlagworts</target>
             </trans-unit>
@@ -264,11 +264,11 @@
                 <source>Bibliography that this contributor is attached to</source>
                 <target>Bibliografie, zu der diese:r Beitragende gehört</target>
             </trans-unit>
-            <trans-unit id="database.contributor.id" resname="database.contributor.id" approved="yes">
+            <trans-unit id="database.contributor.uuid" resname="database.contributor.uuid" approved="yes">
                 <source>ID</source>
                 <target>ID</target>
             </trans-unit>
-            <trans-unit id="database.contributor.id.description" resname="database.contributor.id.description" approved="yes">
+            <trans-unit id="database.contributor.uuid.description" resname="database.contributor.uuid.description" approved="yes">
                 <source>Unique identifier of the contributor</source>
                 <target>Einzigartiger Identifikator der oder des Beitragenden</target>
             </trans-unit>
@@ -442,11 +442,11 @@
                 <source>Bibliography that this entry is attached to</source>
                 <target>Bibliografie, zu der dieser Eintrag gehört</target>
             </trans-unit>
-            <trans-unit id="database.entry.id" resname="database.entry.id" approved="yes">
+            <trans-unit id="database.entry.uuid" resname="database.entry.uuid" approved="yes">
                 <source>ID</source>
                 <target>ID</target>
             </trans-unit>
-            <trans-unit id="database.entry.id.description" resname="database.entry.id.description" approved="yes">
+            <trans-unit id="database.entry.uuid.description" resname="database.entry.uuid.description" approved="yes">
                 <source>Unique identifier of the entry</source>
                 <target>Einzigartiger Identifikator des Eintrags</target>
             </trans-unit>

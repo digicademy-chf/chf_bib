@@ -17,14 +17,14 @@
 return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag',
-        'label'                    => 'tag',
+        'label'                    => 'text',
         'label_alt'                => 'type',
         'descriptionColumn'        => 'description',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'tag ASC,type ASC',
+        'default_sortby'           => 'text ASC,type ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Tag.svg',
         'origUid'                  => 't3_origuid',
@@ -33,7 +33,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'tag,type,description',
+        'searchFields'             => 'uuid,text,type,description',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -129,9 +129,18 @@ return [
                 'required'            => true,
             ],
         ],
-        'tag' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.tag',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.tag.description',
+        'uuid' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.uuid',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.uuid.description',
+            'config'      => [
+                'type'     => 'uuid',
+                'size'     => 40,
+                'required' => true,
+            ],
+        ],
+        'text' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.text',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.text.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -266,13 +275,13 @@ return [
         'hiddenParentId' => [
             'showitem' => 'hidden,parent_id,',
         ],
-        'tagType' => [
-            'showitem' => 'tag,type,',
+        'uuidText' => [
+            'showitem' => 'uuid,text,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hiddenParentId,tagType,description,sameAs,
+            'showitem' => 'hiddenParentId,uuidText,type,description,sameAs,
             --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.labelled,asLabelOfEntry,asLabelOfContributor,asLabelOfReference',
         ],
     ],

@@ -33,7 +33,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'id,type,syncId,itemTitle,publicationTitle,publicationPlace,publicationDateCirca,publicationDateStart,publicationDateEnd,publisher,extent,extentType,seriesTitle,meetingTitle,description,summary,import',
+        'searchFields'             => 'uuid,type,syncId,itemTitle,publicationTitle,publicationPlace,publicationDateCirca,publicationDateStart,publicationDateEnd,publisher,extent,extentType,seriesTitle,meetingTitle,description,summary,import',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -129,9 +129,9 @@ return [
                 'required'            => true,
             ],
         ],
-        'id' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.id',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.id.description',
+        'uuid' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.uuid',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.uuid.description',
             'config'      => [
                 'type'     => 'uuid',
                 'size'     => 40,
@@ -688,8 +688,8 @@ return [
         'hiddenParentId' => [
             'showitem' => 'hidden,parent_id,',
         ],
-        'idType' => [
-            'showitem' => 'id,type,',
+        'uuidType' => [
+            'showitem' => 'uuid,type,',
         ],
         'itemTitlePublicationTitle' => [
             'showitem' => 'itemTitle,publicationTitle,',
@@ -709,7 +709,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hiddenParentId,idType,syncId,identifier,label,sameAs,
+            'showitem' => 'hiddenParentId,uuidType,syncId,identifier,label,sameAs,
             --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.publication,itemTitlePublicationTitle,publicationPlacePublicationDateCirca,publicationDateStartPublicationDateEnd,publisher,
             --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.contributors,author,editor,translator,genericContributor,
             --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.scopesAndExtent,scope,extentExtentType,seriesTitleMeetingTitle,
