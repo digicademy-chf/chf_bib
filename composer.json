@@ -14,11 +14,11 @@
         }
     ],
     "license": "GPL-2.0-or-later",
-    "homepage": "https://extensions.typo3.org/extension/da-bib/",
+    "homepage": "https://extensions.typo3.org/extension/da-bib",
     "support": {
         "issues": "https://github.com/digicademy/da-bib/issues",
         "source": "https://github.com/digicademy/da-bib",
-        "docs": "https://docs.typo3.org/p/da-bib/main/en-us/"
+        "docs": "https://docs.typo3.org/p/da-bib/main/en-us"
     },
     "keywords": [
         "TYPO3",

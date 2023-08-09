@@ -31,8 +31,8 @@ can be activated to periodically and automatically import data from a Zotero
 library.
 
 :Repository:  https://github.com/digicademy/da-bib
-:Read online: https://docs.typo3.org/p/da-bib/main/en-us/
-:TER:         https://extensions.typo3.org/extension/da-bib/
+:Read online: https://docs.typo3.org/p/da-bib/main/en-us
+:TER:         https://extensions.typo3.org/extension/da-bib
 
 Roadmap
 =======
