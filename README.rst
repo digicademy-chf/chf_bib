@@ -30,7 +30,7 @@ serialisations of bibliographic data are included out of the box. A TYPO3 task
 can be activated to periodically and automatically import data from a Zotero
 library.
 
-:Repository:  https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-bib
+:Repository:  https://github.com/digicademy/da-bib
 :Read online: https://docs.typo3.org/p/da-bib/main/en-us/
 :TER:         https://extensions.typo3.org/extension/da-bib/
 
