@@ -22,9 +22,9 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class ScopeRepository extends Repository
 {
     protected $defaultOrderings = [
-        'sorting'   => QueryInterface::ORDER_ASCENDING,
-        'scope'     => QueryInterface::ORDER_ASCENDING,
-        'scopeType' => QueryInterface::ORDER_ASCENDING,
+        'sorting' => QueryInterface::ORDER_ASCENDING,
+        'text'    => QueryInterface::ORDER_ASCENDING,
+        'type'    => QueryInterface::ORDER_ASCENDING,
     ];
 }
 

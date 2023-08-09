@@ -187,63 +187,55 @@
                 <source>Scope</source>
                 <target>Ausgabe</target>
             </trans-unit>
-            <trans-unit id="database.scope.scope" resname="database.scope.scope" approved="yes">
-                <source>Scope</source>
-                <target>Ausgabe</target>
+            <trans-unit id="database.scope.text" resname="database.scope.text" approved="yes">
+                <source>Text</source>
+                <target>Text</target>
             </trans-unit>
-            <trans-unit id="database.scope.scope.description" resname="database.scope.scope.description" approved="yes">
-                <source>Specific denotation of an edition, e.g., volume, issue, or another number</source>
-                <target>Genauere Bezeichnung einer Ausgabe, z.B. Band, Heftnummer oder andere Nummer</target>
+            <trans-unit id="database.scope.text.description" resname="database.scope.text.description" approved="yes">
+                <source>Specific notation, e.g., URL, ISSN, volume, issue, or another number</source>
+                <target>Genauere Bezeichnung, z.B. URL, ISSN, Band, Heftnummer oder andere Nummer</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType" resname="database.scope.scopeType" approved="yes">
-                <source>Scope type</source>
-                <target>Ausgabenart</target>
+            <trans-unit id="database.scope.type" resname="database.scope.type" approved="yes">
+                <source>Type</source>
+                <target>Art</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.description" resname="database.scope.scopeType.description" approved="yes">
-                <source>Type of edition denotation</source>
-                <target>Art der Ausgabenbezeichnung</target>
+            <trans-unit id="database.scope.type.description" resname="database.scope.type.description" approved="yes">
+                <source>Type of notation</source>
+                <target>Art der Bezeichnung</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.identifier" resname="database.scope.scopeType.identifier" approved="yes">
-                <source>Identifiers</source>
-                <target>Identifikatoren</target>
-            </trans-unit>
-            <trans-unit id="database.scope.scopeType.scope" resname="database.scope.scopeType.scope" approved="yes">
-                <source>Scopes</source>
-                <target>Ausgaben</target>
-            </trans-unit>
-            <trans-unit id="database.scope.scopeType.urn" resname="database.scope.scopeType.urn" approved="yes">
+            <trans-unit id="database.scope.type.urn" resname="database.scope.type.urn" approved="yes">
                 <source>URN (includes DOI and Handle)</source>
                 <target>URN (inklusive DOI und Handle)</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.url" resname="database.scope.scopeType.url" approved="yes">
+            <trans-unit id="database.scope.type.url" resname="database.scope.type.url" approved="yes">
                 <source>URL (web address)</source>
                 <target>URL (Webadresse)</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.issn" resname="database.scope.scopeType.issn" approved="yes">
+            <trans-unit id="database.scope.type.issn" resname="database.scope.type.issn" approved="yes">
                 <source>ISSN</source>
                 <target>ISSN</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.isbn" resname="database.scope.scopeType.isbn" approved="yes">
+            <trans-unit id="database.scope.type.isbn" resname="database.scope.type.isbn" approved="yes">
                 <source>ISBN</source>
                 <target>ISBN</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.callNumber" resname="database.scope.scopeType.callNumber" approved="yes">
+            <trans-unit id="database.scope.type.callNumber" resname="database.scope.type.callNumber" approved="yes">
                 <source>Call number</source>
                 <target>Signatur</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.volume" resname="database.scope.scopeType.volume" approved="yes">
+            <trans-unit id="database.scope.type.volume" resname="database.scope.type.volume" approved="yes">
                 <source>Volume</source>
                 <target>Band</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.issue" resname="database.scope.scopeType.issue" approved="yes">
+            <trans-unit id="database.scope.type.issue" resname="database.scope.type.issue" approved="yes">
                 <source>Issue</source>
                 <target>Heftnummer</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.edition" resname="database.scope.scopeType.edition" approved="yes">
+            <trans-unit id="database.scope.type.edition" resname="database.scope.type.edition" approved="yes">
                 <source>Edition</source>
                 <target>Ausgabe</target>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.version" resname="database.scope.scopeType.version" approved="yes">
+            <trans-unit id="database.scope.type.version" resname="database.scope.type.version" approved="yes">
                 <source>Version</source>
                 <target>Version</target>
             </trans-unit>
@@ -613,14 +605,6 @@
             <trans-unit id="database.entry.label.description" resname="database.entry.label.description" approved="yes">
                 <source>Label to group the entry into</source>
                 <target>Label zum Gliedern von Einträgen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.identifier" resname="database.entry.identifier" approved="yes">
-                <source>Identifier</source>
-                <target>Identifikator</target>
-            </trans-unit>
-            <trans-unit id="database.entry.identifier.description" resname="database.entry.identifier.description" approved="yes">
-                <source>Identifier of the entry as you would use it in a bibliography</source>
-                <target>Identifikator des Eintrags wie man ihn in einer Bibliografie angeben würde</target>
             </trans-unit>
             <trans-unit id="database.entry.syncId" resname="database.entry.syncId" approved="yes">
                 <source>Zotero synchronisation URL</source>

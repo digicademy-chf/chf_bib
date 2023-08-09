@@ -123,6 +123,7 @@ return [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_entry',
+                // Do not require the same PID here because references may be included in other data models living on other pages
                 'MM'                  => 'tx_dabib_domain_model_reference_entry_entry_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,

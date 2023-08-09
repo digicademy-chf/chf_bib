@@ -312,26 +312,6 @@ return [
                 ],
             ],
         ],
-        'identifier' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.identifier',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.identifier.description',
-            'config'      => [
-                'type'                => 'inline',
-                'foreign_table'       => 'tx_dabib_domain_model_scope',
-                'foreign_field'       => 'parent_id',
-                'foreign_table_field' => 'parent_table',
-                'appearance'          => [
-                    'collapseAll'                     => true,
-                    'expandSingle'                    => true,
-                    'newRecordLinkAddTitle'           => true,
-                    'levelLinksPosition'              => 'top',
-                    'useSortable'                     => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showAllLocalizationLink'         => true,
-                    'showSynchronizationLink'         => true,
-                ],
-            ],
-        ],
         'label' => [
             'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.label',
             'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.entry.label.description',
@@ -666,6 +646,7 @@ return [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dabib_domain_model_reference',
+                // Do not require the same PID here because references may be included in other data models living on other pages
                 'MM'                  => 'tx_dabib_domain_model_reference_entry_entry_mm',
                 'MM_opposite_field'   => 'entry',
                 'size'                => 5,

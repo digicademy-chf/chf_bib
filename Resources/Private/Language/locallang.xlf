@@ -142,49 +142,43 @@
             <trans-unit id="database.scope" resname="database.scope">
                 <source>Scope</source>
             </trans-unit>
-            <trans-unit id="database.scope.scope" resname="database.scope.scope">
-                <source>Scope</source>
+            <trans-unit id="database.scope.text" resname="database.scope.text">
+                <source>Text</source>
             </trans-unit>
-            <trans-unit id="database.scope.scope.description" resname="database.scope.scope.description">
-                <source>Specific denotation of an edition, e.g., volume, issue, or another number</source>
+            <trans-unit id="database.scope.text.description" resname="database.scope.text.description">
+                <source>Specific notation, e.g., URL, ISSN, volume, issue, or another number</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType" resname="database.scope.scopeType">
-                <source>Scope type</source>
+            <trans-unit id="database.scope.type" resname="database.scope.type">
+                <source>Type</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.description" resname="database.scope.scopeType.description">
-                <source>Type of edition denotation</source>
+            <trans-unit id="database.scope.type.description" resname="database.scope.type.description">
+                <source>Type of notation</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.identifier" resname="database.scope.scopeType.identifier">
-                <source>Identifiers</source>
-            </trans-unit>
-            <trans-unit id="database.scope.scopeType.scope" resname="database.scope.scopeType.scope">
-                <source>Scopes</source>
-            </trans-unit>
-            <trans-unit id="database.scope.scopeType.urn" resname="database.scope.scopeType.urn">
+            <trans-unit id="database.scope.type.urn" resname="database.scope.type.urn">
                 <source>URN (includes DOI and Handle)</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.url" resname="database.scope.scopeType.url">
+            <trans-unit id="database.scope.type.url" resname="database.scope.type.url">
                 <source>URL (web address)</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.issn" resname="database.scope.scopeType.issn">
+            <trans-unit id="database.scope.type.issn" resname="database.scope.type.issn">
                 <source>ISSN</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.isbn" resname="database.scope.scopeType.isbn">
+            <trans-unit id="database.scope.type.isbn" resname="database.scope.type.isbn">
                 <source>ISBN</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.callNumber" resname="database.scope.scopeType.callNumber">
+            <trans-unit id="database.scope.type.callNumber" resname="database.scope.type.callNumber">
                 <source>Call number</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.volume" resname="database.scope.scopeType.volume">
+            <trans-unit id="database.scope.type.volume" resname="database.scope.type.volume">
                 <source>Volume</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.issue" resname="database.scope.scopeType.issue">
+            <trans-unit id="database.scope.type.issue" resname="database.scope.type.issue">
                 <source>Issue</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.edition" resname="database.scope.scopeType.edition">
+            <trans-unit id="database.scope.type.edition" resname="database.scope.type.edition">
                 <source>Edition</source>
             </trans-unit>
-            <trans-unit id="database.scope.scopeType.version" resname="database.scope.scopeType.version">
+            <trans-unit id="database.scope.type.version" resname="database.scope.type.version">
                 <source>Version</source>
             </trans-unit>
             <!-- Database: Contributor -->
@@ -462,12 +456,6 @@
             </trans-unit>
             <trans-unit id="database.entry.label.description" resname="database.entry.label.description">
                 <source>Label to group the entry into</source>
-            </trans-unit>
-            <trans-unit id="database.entry.identifier" resname="database.entry.identifier">
-                <source>Identifier</source>
-            </trans-unit>
-            <trans-unit id="database.entry.identifier.description" resname="database.entry.identifier.description">
-                <source>Identifier of the entry as you would use it in a bibliography</source>
             </trans-unit>
             <trans-unit id="database.entry.syncId" resname="database.entry.syncId">
                 <source>Zotero synchronisation URL</source>

@@ -17,13 +17,13 @@
 return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope',
-        'label'                    => 'scope',
-        'label_alt'                => 'scopeType',
+        'label'                    => 'text',
+        'label_alt'                => 'type',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'scope ASC,scopeType ASC',
+        'default_sortby'           => 'text ASC,type ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Scope.svg',
         'origUid'                  => 't3_origuid',
@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'scope,scopeType',
+        'searchFields'             => 'text,type',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -116,9 +116,9 @@ return [
                 'default' => '',
             ],
         ],
-        'scope' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scope',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scope.description',
+        'text' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.text',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.text.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -127,74 +127,61 @@ return [
                 'required' => true,
             ],
         ],
-        'scopeType' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.description',
+        'type' => [
+            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type',
+            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.description',
             'config'      => [
                 'type'       => 'select',
                 'renderType' => 'selectSingle',
                 'items'      => [
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.urn',
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.urn',
                         'value' => 'urn',
-                        'group' => 'identifier',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.url',
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.url',
                         'value' => 'url',
-                        'group' => 'identifier',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.issn',
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.issn',
                         'value' => 'issn',
-                        'group' => 'identifier',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.isbn',
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.isbn',
                         'value' => 'isbn',
-                        'group' => 'identifier',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.callNumber',
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.callNumber',
                         'value' => 'callNumber',
-                        'group' => 'identifier',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.volume',
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.volume',
                         'value' => 'volume',
-                        'group' => 'scope',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.issue',
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.issue',
                         'value' => 'issue',
-                        'group' => 'scope',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.edition',
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.edition',
                         'value' => 'edition',
-                        'group' => 'scope',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.version',
+                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.version',
                         'value' => 'version',
-                        'group' => 'scope',
                     ],
-                ],
-                'itemGroups' => [
-                    'identifier' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.identifier',
-                    'scope'      => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.scopeType.scope',
                 ],
             ],
         ],
     ],
     'palettes' => [
-        'scopeScopeType' => [
-            'showitem' => 'scope,scopeType,',
+        'textType' => [
+            'showitem' => 'text,type,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,scopeScopeType,',
+            'showitem' => 'hidden,textType,',
         ],
     ],
 ];
