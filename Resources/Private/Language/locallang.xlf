@@ -83,6 +83,12 @@
             <trans-unit id="database.tag.parent_id.description" resname="database.tag.parent_id.description">
                 <source>Bibliography that this tag is attached to</source>
             </trans-unit>
+            <trans-unit id="database.tag.uuid" resname="database.tag.uuid">
+                <source>UUID</source>
+            </trans-unit>
+            <trans-unit id="database.tag.uuid.description" resname="database.tag.uuid.description">
+                <source>Unique identifier of the tag</source>
+            </trans-unit>
             <trans-unit id="database.tag.text" resname="database.tag.text">
                 <source>Name</source>
             </trans-unit>
@@ -195,7 +201,7 @@
                 <source>Bibliography that this contributor is attached to</source>
             </trans-unit>
             <trans-unit id="database.contributor.uuid" resname="database.contributor.uuid">
-                <source>ID</source>
+                <source>UUID</source>
             </trans-unit>
             <trans-unit id="database.contributor.uuid.description" resname="database.contributor.uuid.description">
                 <source>Unique identifier of the contributor</source>
@@ -329,7 +335,7 @@
                 <source>Bibliography that this entry is attached to</source>
             </trans-unit>
             <trans-unit id="database.entry.uuid" resname="database.entry.uuid">
-                <source>ID</source>
+                <source>UUID</source>
             </trans-unit>
             <trans-unit id="database.entry.uuid.description" resname="database.entry.uuid.description">
                 <source>Unique identifier of the entry</source>
@@ -451,17 +457,17 @@
             <trans-unit id="database.entry.type.webpage" resname="database.entry.type.webpage">
                 <source>Web page</source>
             </trans-unit>
-            <trans-unit id="database.entry.label" resname="database.entry.label">
-                <source>Label</source>
-            </trans-unit>
-            <trans-unit id="database.entry.label.description" resname="database.entry.label.description">
-                <source>Label to group the entry into</source>
-            </trans-unit>
             <trans-unit id="database.entry.syncId" resname="database.entry.syncId">
                 <source>Zotero synchronisation URL</source>
             </trans-unit>
             <trans-unit id="database.entry.syncId.description" resname="database.entry.syncId.description">
                 <source>Web address of a Zotero entry to be set and used during automated imports via a TYPO3 task</source>
+            </trans-unit>
+            <trans-unit id="database.entry.label" resname="database.entry.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.entry.label.description" resname="database.entry.label.description">
+                <source>Label to group the entry into</source>
             </trans-unit>
             <trans-unit id="database.entry.sameAs" resname="database.entry.sameAs">
                 <source>Reference URI</source>
@@ -611,7 +617,21 @@
                 <source>As entry of a reference</source>
             </trans-unit>
             <trans-unit id="database.entry.asEntryOfReference.description" resname="database.entry.asEntryOfReference.description">
-                <source>List of References that refer to this entry</source>
+                <source>List of references that refer to this entry</source>
+            </trans-unit>
+            <!-- Validator: StringOptionsValidator -->
+            <trans-unit id="validator.stringOptions.allowedStringInvalid" resname="validator.stringOptions.allowedStringInvalid">
+                <source>One of the allowed options is not a string in the StringOptionsValidator.</source>
+            </trans-unit>
+            <trans-unit id="validator.stringOptions.invalidString" resname="validator.stringOptions.invalidString">
+                <source>The given value was not a valid string.</source>
+            </trans-unit>
+            <trans-unit id="validator.stringOptions.notAllowedValue" resname="validator.stringOptions.notAllowedValue">
+                <source>The given value was not in the list of allowed values.</source>
+            </trans-unit>
+            <!-- Validator: RegularExpressionValidator -->
+            <trans-unit id="validator.regularExpression.noUuid" resname="validator.regularExpression.noUuid">
+                <source>The given value was not a UUID.</source>
             </trans-unit>
         </body>
     </file>

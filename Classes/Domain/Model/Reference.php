@@ -12,6 +12,7 @@ namespace Digicademy\DABib\Domain\Model;
 
 use DateTime;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -21,25 +22,24 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Reference extends AbstractEntity
 {
     /**
-     * Unique reference identifier
-     * 
-     * @var string
-     */
-    protected $uuid;
-
-    #[Lazy()]
-    /**
      * Bibliographic entry to reference
      * 
      * @var ObjectStorage<Entry>
      */
-    protected $entry;
+    #[Lazy()]
+    protected ObjectStorage $entry;
 
     /**
      * Detailed reference, e.g., a page number
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $elaboration = '';
 
     /**
@@ -47,60 +47,57 @@ class Reference extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => StringOptionsValidator::class,
+        'options'   => [
+            'allowed' => [
+                'pageNumbers',
+                'paragraphNumbers',
+                'columnNumbers',
+                'chapterNumbers',
+            ],
+        ],
+    ])]
     protected string $elaborationType = '';
 
-    #[Lazy()]
     /**
      * Label to group the reference into
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $label;
+    #[Lazy()]
+    protected ObjectStorage $label;
 
     /**
      * Date when the reference was last checked
      * 
      * @var DateTime
      */
-    protected $lastChecked;
+    #[Validate([
+        'validator' => 'DateTime',
+    ])]
+    protected ?DateTime $lastChecked = null;
 
     /**
      * Initialize object
      *
-     * @return EntryRelation
+     * @param Entry $entry
+     * @return Reference
      */
-    public function __construct()
+    public function __construct(Entry $entry)
     {
         $this->entry = new ObjectStorage();
         $this->label = new ObjectStorage();
-    }
 
-    /**
-     * Get UUID
-     *
-     * @return string
-     */
-    public function getUuid(): string
-    {
-        return $this->uuid;
-    }
-
-    /**
-     * Set UUID
-     *
-     * @param string $uuid
-     */
-    public function setUuid(string $uuid): void
-    {
-        $this->uuid = $uuid;
+        $this->addEntry($entry);
     }
 
     /**
      * Get entry
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Entry>
      */
-    public function getEntry(): ?ObjectStorage
+    public function getEntry(): ObjectStorage
     {
         return $this->entry;
     }
@@ -108,9 +105,9 @@ class Reference extends AbstractEntity
     /**
      * Set entry
      *
-     * @param ObjectStorage $entry
+     * @param ObjectStorage<Entry> $entry
      */
-    public function setEntry($entry): void
+    public function setEntry(ObjectStorage $entry): void
     {
         $this->entry = $entry;
     }
@@ -133,6 +130,15 @@ class Reference extends AbstractEntity
     public function removeEntry(Entry $entry): void
     {
         $this->entry->detach($entry);
+    }
+
+    /**
+     * Remove all entries
+     */
+    public function removeAllEntries(): void
+    {
+        $entry = clone $this->entry;
+        $this->entry->removeAll($entry);
     }
 
     /**
@@ -178,9 +184,9 @@ class Reference extends AbstractEntity
     /**
      * Get label
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getLabel(): ?ObjectStorage
+    public function getLabel(): ObjectStorage
     {
         return $this->label;
     }
@@ -188,9 +194,9 @@ class Reference extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage $label
+     * @param ObjectStorage<Tag> $label
      */
-    public function setLabel($label): void
+    public function setLabel(ObjectStorage $label): void
     {
         $this->label = $label;
     }
@@ -213,6 +219,15 @@ class Reference extends AbstractEntity
     public function removeLabel(Tag $label): void
     {
         $this->label->detach($label);
+    }
+
+    /**
+     * Remove all entries
+     */
+    public function removeAllLabels(): void
+    {
+        $label = clone $this->label;
+        $this->label->removeAll($label);
     }
 
     /**

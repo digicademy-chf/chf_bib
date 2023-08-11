@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace Digicademy\DABib\Domain\Model;
 
+use Digicademy\DABib\Domain\Validator\StringOptionsValidator;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -18,57 +20,93 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class Scope extends AbstractEntity
 {
     /**
-     * Specific denotation of an edition, e.g., volume, issue, or another number
+     * Specific notation, e.g., URL, ISSN, volume, issue, or another number
      * 
      * @var string
      */
-    protected string $scope = '';
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'minimum' => 1,
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $text = '';
 
     /**
-     * Type of edition denotation
+     * Type of notation
      * 
      * @var string
      */
-    protected string $scopeType = '';
+    #[Validate([
+        'validator' => StringOptionsValidator::class,
+        'options'   => [
+            'allowed' => [
+                'urn',
+                'url',
+                'issn',
+                'isbn',
+                'callNumber',
+                'volume',
+                'issue',
+                'edition',
+                'version',
+            ],
+        ],
+    ])]
+    protected string $type = '';
 
     /**
-     * Get scope
+     * Initialize object
+     *
+     * @param string $text
+     * @param string $type
+     * @return Scope
+     */
+    public function __construct(string $text, string $type)
+    {
+        $this->setText($text);
+        $this->setType($type);
+    }
+
+    /**
+     * Get text
      *
      * @return string
      */
-    public function getScope(): string
+    public function getText(): string
     {
-        return $this->scope;
+        return $this->text;
     }
 
     /**
-     * Set scope
+     * Set text
      *
-     * @param string $scope
+     * @param string $text
      */
-    public function setScope(string $scope): void
+    public function setText(string $text): void
     {
-        $this->scope = $scope;
+        $this->text = $text;
     }
 
     /**
-     * Get scope type
+     * Get type
      *
      * @return string
      */
-    public function getScopeType(): string
+    public function getType(): string
     {
-        return $this->scopeType;
+        return $this->type;
     }
 
     /**
-     * Set scope type
+     * Set type
      *
-     * @param string $scopeType
+     * @param string $type
      */
-    public function setScopeType(string $scopeType): void
+    public function setType(string $type): void
     {
-        $this->scopeType = $scopeType;
+        $this->type = $type;
     }
 }
 

@@ -10,8 +10,10 @@ declare(strict_types=1);
 
 namespace Digicademy\DABib\Domain\Model;
 
+use Digicademy\DABib\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -21,17 +23,53 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Tag extends AbstractEntity
 {
     /**
+     * Bibliography that this tag is attached to
+     * 
+     * @var BibliographicResource
+     */
+    protected BibliographicResource $parent_id;
+
+    /**
+     * Unique identifier of the tag
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'RegularExpression',
+        'options'   => [
+            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
+            'errorMessage'      => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
+        ],
+    ])]
+    protected string $uuid = '';
+
+    /**
      * Name of the tag
      * 
      * @var string
      */
-    protected string $tag = '';
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'minimum' => 1,
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $text = '';
 
     /**
      * Type of tag
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => StringOptionsValidator::class,
+        'options'   => [
+            'allowed' => [
+                'label',
+            ],
+        ],
+    ])]
     protected string $type = '';
 
     /**
@@ -39,45 +77,127 @@ class Tag extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 2000,
+        ],
+    ])]
     protected string $description = '';
 
-    #[Lazy()]
-    #[Cascade('remove')]
     /**
      * External web address to identify the tag across the web
      * 
      * @var ObjectStorage<SameAs>
      */
-    protected $sameAs;
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $sameAs;
+
+    /**
+     * List of entries that use this tag as a label
+     * 
+     * @var ObjectStorage<Entry>
+     */
+    #[Lazy()]
+    protected ObjectStorage $asLabelOfEntry;
+
+    /**
+     * List of contributors that use this tag as a label
+     * 
+     * @var ObjectStorage<Contributor>
+     */
+    #[Lazy()]
+    protected ObjectStorage $asLabelOfContributor;
+
+    /**
+     * List of References that use this tag as a label
+     * 
+     * @var ObjectStorage<Reference>
+     */
+    #[Lazy()]
+    protected ObjectStorage $asLabelOfReference;
 
     /**
      * Initialize object
      *
+     * @param string $uuid
+     * @param string $text
+     * @param string $type
      * @return Tag
      */
-    public function __construct()
+    public function __construct(string $uuid, string $text, string $type)
     {
-        $this->sameAs = new ObjectStorage();
+        $this->sameAs               = new ObjectStorage();
+        $this->asLabelOfEntry       = new ObjectStorage();
+        $this->asLabelOfContributor = new ObjectStorage();
+        $this->asLabelOfReference   = new ObjectStorage();
+
+        $this->setUuid($uuid);
+        $this->setText($text);
+        $this->setType($type);
     }
 
     /**
-     * Get tag
+     * Get parent ID
+     * 
+     * @return BibliographicResource
+     */
+    public function getParentId(): BibliographicResource
+    {
+        return $this->parent_id;
+    }
+
+    /**
+     * Set parent ID
+     * 
+     * @param BibliographicResource $parent_id
+     */
+    public function setParentId(BibliographicResource $parent_id): void
+    {
+        $this->parent_id = $parent_id;
+    }
+
+    /**
+     * Get UUID
      *
      * @return string
      */
-    public function getTag(): string
+    public function getUuid(): string
     {
-        return $this->tag;
+        return $this->uuid;
     }
 
     /**
-     * Set tag
+     * Set UUID
      *
-     * @param string $tag
+     * @param string $uuid
      */
-    public function setTag(string $tag): void
+    public function setUuid(string $uuid): void
     {
-        $this->tag = $tag;
+        $this->uuid = $uuid;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string
+     */
+    public function getText(): string
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     */
+    public function setText(string $text): void
+    {
+        $this->text = $text;
     }
 
     /**
@@ -118,46 +238,200 @@ class Tag extends AbstractEntity
     public function setDescription(string $description): void
     {
         $this->description = $description;
+    }    /**
+    * Get same as
+    *
+    * @return ObjectStorage<SameAs>
+    */
+   public function getSameAs(): ObjectStorage
+   {
+       return $this->sameAs;
+   }
+
+   /**
+    * Set same as
+    *
+    * @param ObjectStorage<SameAs> $sameAs
+    */
+   public function setSameAs(ObjectStorage $sameAs): void
+   {
+       $this->sameAs = $sameAs;
+   }
+
+   /**
+    * Add same as
+    *
+    * @param SameAs $sameAs
+    */
+   public function addSameAs(SameAs $sameAs): void
+   {
+       $this->sameAs->attach($sameAs);
+   }
+
+   /**
+    * Remove same as
+    *
+    * @param SameAs $sameAs
+    */
+   public function removeSameAs(SameAs $sameAs): void
+   {
+       $this->sameAs->detach($sameAs);
+   }
+
+   /**
+    * Remove all same as
+    */
+   public function removeAllSameAs(): void
+   {
+       $sameAs = clone $this->sameAs;
+       $this->sameAs->removeAll($sameAs);
+   }
+
+    /**
+     * Get as label of entry
+     *
+     * @return ObjectStorage<Entry>
+     */
+    public function getAsLabelOfEntry(): ObjectStorage
+    {
+        return $this->asLabelOfEntry;
     }
 
     /**
-     * Get same as
+     * Set as label of entry
      *
-     * @return ObjectStorage|null
+     * @param ObjectStorage<Entry> $asLabelOfEntry
      */
-    public function getSameAs(): ?ObjectStorage
+    public function setAsLabelOfEntry(ObjectStorage $asLabelOfEntry): void
     {
-        return $this->sameAs;
+        $this->asLabelOfEntry = $asLabelOfEntry;
     }
 
     /**
-     * Set same as
+     * Add as label of entry
      *
-     * @param ObjectStorage $sameAs
+     * @param Entry $asLabelOfEntry
      */
-    public function setSameAs($sameAs): void
+    public function addAsLabelOfEntry(Entry $asLabelOfEntry): void
     {
-        $this->sameAs = $sameAs;
+        $this->asLabelOfEntry->attach($asLabelOfEntry);
     }
 
     /**
-     * Add same as
+     * Remove as label of entry
      *
-     * @param SameAs $sameAs
+     * @param Entry $asLabelOfEntry
      */
-    public function addSameAs(SameAs $sameAs): void
+    public function removeAsLabelOfEntry(Entry $asLabelOfEntry): void
     {
-        $this->sameAs->attach($sameAs);
+        $this->asLabelOfEntry->detach($asLabelOfEntry);
     }
 
     /**
-     * Remove same as
-     *
-     * @param SameAs $sameAs
+     * Remove all as label of entries
      */
-    public function removeSameAs(SameAs $sameAs): void
+    public function removeAllAsLabelOfEntries(): void
     {
-        $this->sameAs->detach($sameAs);
+        $asLabelOfEntry = clone $this->asLabelOfEntry;
+        $this->asLabelOfEntry->removeAll($asLabelOfEntry);
+    }
+
+    /**
+     * Get as label of contributor
+     *
+     * @return ObjectStorage<Contributor>
+     */
+    public function getAsLabelOfContributor(): ObjectStorage
+    {
+        return $this->asLabelOfContributor;
+    }
+
+    /**
+     * Set as label of contributor
+     *
+     * @param ObjectStorage<Contributor> $asLabelOfContributor
+     */
+    public function setAsLabelOfContributor(ObjectStorage $asLabelOfContributor): void
+    {
+        $this->asLabelOfContributor = $asLabelOfContributor;
+    }
+
+    /**
+     * Add as label of contributor
+     *
+     * @param Contributor $asLabelOfContributor
+     */
+    public function addAsLabelOfContributor(Contributor $asLabelOfContributor): void
+    {
+        $this->asLabelOfContributor->attach($asLabelOfContributor);
+    }
+
+    /**
+     * Remove as label of contributor
+     *
+     * @param Contributor $asLabelOfContributor
+     */
+    public function removeAsLabelOfContributor(Contributor $asLabelOfContributor): void
+    {
+        $this->asLabelOfContributor->detach($asLabelOfContributor);
+    }
+
+    /**
+     * Remove all as label of contributors
+     */
+    public function removeAllAsLabelOfContributors(): void
+    {
+        $asLabelOfContributor = clone $this->asLabelOfContributor;
+        $this->asLabelOfContributor->removeAll($asLabelOfContributor);
+    }
+
+    /**
+     * Get as label of reference
+     *
+     * @return ObjectStorage<Reference>
+     */
+    public function getAsLabelOfReference(): ObjectStorage
+    {
+        return $this->asLabelOfReference;
+    }
+
+    /**
+     * Set as label of reference
+     *
+     * @param ObjectStorage<Reference> $asLabelOfReference
+     */
+    public function setAsLabelOfReference(ObjectStorage $asLabelOfReference): void
+    {
+        $this->asLabelOfReference = $asLabelOfReference;
+    }
+
+    /**
+     * Add as label of reference
+     *
+     * @param Reference $asLabelOfReference
+     */
+    public function addAsLabelOfReference(Reference $asLabelOfReference): void
+    {
+        $this->asLabelOfReference->attach($asLabelOfReference);
+    }
+
+    /**
+     * Remove as label of reference
+     *
+     * @param Reference $asLabelOfReference
+     */
+    public function removeAsLabelOfReference(Reference $asLabelOfReference): void
+    {
+        $this->asLabelOfReference->detach($asLabelOfReference);
+    }
+
+    /**
+     * Remove all as label of references
+     */
+    public function removeAllAsLabelOfReferences(): void
+    {
+        $asLabelOfReference = clone $this->asLabelOfReference;
+        $this->asLabelOfReference->removeAll($asLabelOfReference);
     }
 }
 

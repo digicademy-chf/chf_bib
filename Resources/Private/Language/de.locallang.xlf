@@ -109,6 +109,14 @@
                 <source>Bibliography that this tag is attached to</source>
                 <target>Bibliografie, zu der dieses Schlagwort gehört</target>
             </trans-unit>
+            <trans-unit id="database.tag.uuid" resname="database.tag.uuid" approved="yes">
+                <source>UUID</source>
+                <target>UUID</target>
+            </trans-unit>
+            <trans-unit id="database.tag.uuid.description" resname="database.tag.uuid.description" approved="yes">
+                <source>Unique identifier of the tag</source>
+                <target>Einzigartiger Identifikator des Schlagworts</target>
+            </trans-unit>
             <trans-unit id="database.tag.text" resname="database.tag.text" approved="yes">
                 <source>Tag</source>
                 <target>Schlagwort</target>
@@ -257,8 +265,8 @@
                 <target>Bibliografie, zu der diese:r Beitragende gehört</target>
             </trans-unit>
             <trans-unit id="database.contributor.uuid" resname="database.contributor.uuid" approved="yes">
-                <source>ID</source>
-                <target>ID</target>
+                <source>UUID</source>
+                <target>UUID</target>
             </trans-unit>
             <trans-unit id="database.contributor.uuid.description" resname="database.contributor.uuid.description" approved="yes">
                 <source>Unique identifier of the contributor</source>
@@ -435,8 +443,8 @@
                 <target>Bibliografie, zu der dieser Eintrag gehört</target>
             </trans-unit>
             <trans-unit id="database.entry.uuid" resname="database.entry.uuid" approved="yes">
-                <source>ID</source>
-                <target>ID</target>
+                <source>UUID</source>
+                <target>UUID</target>
             </trans-unit>
             <trans-unit id="database.entry.uuid.description" resname="database.entry.uuid.description" approved="yes">
                 <source>Unique identifier of the entry</source>
@@ -598,14 +606,6 @@
                 <source>Web page</source>
                 <target>Webseite</target>
             </trans-unit>
-            <trans-unit id="database.entry.label" resname="database.entry.label" approved="yes">
-                <source>Label</source>
-                <target>Label</target>
-            </trans-unit>
-            <trans-unit id="database.entry.label.description" resname="database.entry.label.description" approved="yes">
-                <source>Label to group the entry into</source>
-                <target>Label zum Gliedern von Einträgen</target>
-            </trans-unit>
             <trans-unit id="database.entry.syncId" resname="database.entry.syncId" approved="yes">
                 <source>Zotero synchronisation URL</source>
                 <target>URL für die Zotero-Synchronisierung</target>
@@ -613,6 +613,14 @@
             <trans-unit id="database.entry.syncId.description" resname="database.entry.syncId.description" approved="yes">
                 <source>Web address of a Zotero entry to be set and used during automated imports via a TYPO3 task</source>
                 <target>Webadresse eines Zoteroeintrags, die bei automatisierten Imports per TYPO3-Aufgabe gesetzt und genutzt werden kann</target>
+            </trans-unit>
+            <trans-unit id="database.entry.label" resname="database.entry.label" approved="yes">
+                <source>Label</source>
+                <target>Label</target>
+            </trans-unit>
+            <trans-unit id="database.entry.label.description" resname="database.entry.label.description" approved="yes">
+                <source>Label to group the entry into</source>
+                <target>Label zum Gliedern von Einträgen</target>
             </trans-unit>
             <trans-unit id="database.entry.sameAs" resname="database.entry.sameAs" approved="yes">
                 <source>Reference URI</source>
@@ -811,8 +819,26 @@
                 <target>Als Eintrag bei einer Referenz</target>
             </trans-unit>
             <trans-unit id="database.entry.asEntryOfReference.description" resname="database.entry.asEntryOfReference.description" approved="yes">
-                <source>List of References that refer to this entry</source>
+                <source>List of references that refer to this entry</source>
                 <target>Liste der Referenzen, die auf diesen Eintrag verweisen</target>
+            </trans-unit>
+            <!-- Validator: StringOptionsValidator -->
+            <trans-unit id="validator.stringOptions.validator.stringOptions.allowedStringInvalid" resname="validator.stringOptions.allowedStringInvalid" approved="yes">
+                <source>One of the allowed options is not a string in the StringOptionsValidator.</source>
+                <target>Eine der erlaubten Optionen im StringOptionsValidator ist kein String.</target>
+            </trans-unit>
+            <trans-unit id="validator.stringOptions.invalidString" resname="validator.stringOptions.invalidString" approved="yes">
+                <source>The given value was not a valid string.</source>
+                <target>Der Wert war kein richtiger String.</target>
+            </trans-unit>
+            <trans-unit id="validator.stringOptions.notAllowedValue" resname="validator.stringOptions.notAllowedValue" approved="yes">
+                <source>The given value was not in the list of allowed values.</source>
+                <target>Der Wert war nicht in der Liste erlaubter Werte.</target>
+            </trans-unit>
+            <!-- Validator: RegularExpressionValidator -->
+            <trans-unit id="validator.regularExpression.noUuid" resname="validator.regularExpression.noUuid" approved="yes">
+                <source>The given value was not a UUID.</source>
+                <target>Der Wert war keine UUID.</target>
             </trans-unit>
         </body>
     </file>

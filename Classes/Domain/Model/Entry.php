@@ -11,8 +11,11 @@ declare(strict_types=1);
 namespace Digicademy\DABib\Domain\Model;
 
 use DateTime;
+use Digicademy\DABib\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -22,62 +25,114 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Entry extends AbstractEntity
 {
     /**
-     * Unique entry identifier
+     * Bibliography that this entry is attached to
+     * 
+     * @var BibliographicResource
+     */
+    protected BibliographicResource $parent_id;
+
+    /**
+     * Unique identifier of the entry
      * 
      * @var string
      */
-    protected $uuid;
+    #[Validate([
+        'validator' => 'RegularExpression',
+        'options'   => [
+            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
+            'errorMessage'      => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
+        ],
+    ])]
+    protected string $uuid = '';
 
     /**
      * Approximate taxonomy of the bibliographic entry
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => StringOptionsValidator::class,
+        'options'   => [
+            'allowed' => [
+                'artwork',
+                'audioRecording',
+                'bill',
+                'blogPost',
+                'book',
+                'bookSection',
+                'case',
+                'computerProgram',
+                'conferencePaper',
+                'dataset',
+                'dictionaryEntry',
+                'document',
+                'email',
+                'encyclopediaArticle',
+                'film',
+                'forumPost',
+                'hearing',
+                'instantMessage',
+                'interview',
+                'journalArticle',
+                'letter',
+                'magazineArticle',
+                'manuscript',
+                'map',
+                'newspaperArticle',
+                'patent',
+                'podcast',
+                'preprint',
+                'presentation',
+                'radioBroadcast',
+                'report',
+                'standard',
+                'statute',
+                'thesis',
+                'tvBroadcast',
+                'videoRecording',
+                'webpage',
+            ],
+        ],
+    ])]
     protected string $type = '';
 
-    #[Lazy()]
+    /**
+     * Web address of a Zotero entry to be set and used during automated imports via a TYPO3 task
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'Url',
+    ])]
+    protected string $syncId = '';
+
     /**
      * Label to group the entry into
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $label;
-
-    /**
-     * Identifier of the entry as you would use it in a bibliography
-     * 
-     * @var string
-     */
-    protected string $identifier = '';
-
-    /**
-     * Classification of the identifier, e.g., a DOI
-     * 
-     * @var string
-     */
-    protected string $identifierType = '';
-
-    /**
-     * External web address to identify an entry in Zotero
-     * 
-     * @var string
-     */
-    protected string $zoteroUri = '';
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $label;
+
     /**
      * External web address to identify the bibliographic entry across the web
      * 
      * @var ObjectStorage<SameAs>
      */
-    protected $sameAs;
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $sameAs;
 
     /**
      * Title of the non-independent publication, e.g., a paper
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'String',
+    ])]
     protected string $itemTitle = '';
 
     /**
@@ -85,6 +140,9 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'String',
+    ])]
     protected string $publicationTitle = '';
 
     /**
@@ -92,68 +150,114 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $publicationPlace = '';
 
     /**
-     * Date when the publication was published
+     * Approximate date when the publication was published, usually a year
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $publicationDateCirca = '';
+
+    /**
+     * Exact onset of the known period the publication was published in
      * 
      * @var DateTime
      */
-    protected $publicationDate;
+    #[Validate([
+        'validator' => 'DateTime',
+    ])]
+    protected ?DateTime $publicationDateStart = null;
+
+    /**
+     * Exact end of the known period the publication was published in
+     * 
+     * @var DateTime
+     */
+    #[Validate([
+        'validator' => 'DateTime',
+    ])]
+    protected ?DateTime $publicationDateEnd = null;
 
     /**
      * Name of the publisher
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $publisher = '';
 
-    #[Lazy()]
     /**
      * List all authors of the entry
      * 
      * @var ObjectStorage<Contributor>
      */
-    protected $author;
-
     #[Lazy()]
+    protected ObjectStorage $author;
+
     /**
      * List all editors of the entry
      * 
      * @var ObjectStorage<Contributor>
      */
-    protected $editor;
-
     #[Lazy()]
+    protected ObjectStorage $editor;
+
     /**
      * List all translators of the entry
      * 
      * @var ObjectStorage<Contributor>
      */
-    protected $translator;
-
     #[Lazy()]
+    protected ObjectStorage $translator;
+
     /**
      * List all further contributors of the entry
      * 
      * @var ObjectStorage<Contributor>
      */
-    protected $genericContributor;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $genericContributor;
+
     /**
      * Information on the specific edition of the publication
      * 
      * @var ObjectStorage<Scope>
      */
-    protected $scope;
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $scope;
 
     /**
      * Extent of an item in the publication
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $extent = '';
 
     /**
@@ -161,6 +265,17 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => StringOptionsValidator::class,
+        'options'   => [
+            'allowed' => [
+                'pageNumbers',
+                'paragraphNumbers',
+                'columnNumbers',
+                'chapterNumbers',
+            ],
+        ],
+    ])]
     protected string $extentType = '';
 
     /**
@@ -168,6 +283,9 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'String',
+    ])]
     protected string $seriesTitle = '';
 
     /**
@@ -175,21 +293,75 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'String',
+    ])]
     protected string $meetingTitle = '';
+
+    /**
+     * Brief information about the entry
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'String',
+    ])]
+    protected string $description = '';
+
+    /**
+     * Brief summary of the entry
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'String',
+    ])]
+    protected string $summary = '';
+
+    /**
+     * Images depicting the entry, such as a cover or a digitisation
+     * 
+     * @var ObjectStorage<FileReference>
+     */
+    #[Lazy()]
+    protected ObjectStorage $image;
+
+    /**
+     * Files that contains, for example, the content of the entry
+     * 
+     * @var ObjectStorage<FileReference>
+     */
+    #[Lazy()]
+    protected ObjectStorage $file;
 
     /**
      * Content of the file used to populate this record
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 100000,
+        ],
+    ])]
     protected string $import = '';
+
+    /**
+     * List of references that refer to this entry
+     * 
+     * @var ObjectStorage<Reference>
+     */
+    #[Lazy()]
+    protected ObjectStorage $asEntryOfReference;
 
     /**
      * Initialize object
      *
+     * @param string $uuid
      * @return Entry
      */
-    public function __construct()
+    public function __construct(string $uuid)
     {
         $this->label              = new ObjectStorage();
         $this->sameAs             = new ObjectStorage();
@@ -198,6 +370,31 @@ class Entry extends AbstractEntity
         $this->translator         = new ObjectStorage();
         $this->genericContributor = new ObjectStorage();
         $this->scope              = new ObjectStorage();
+        $this->image              = new ObjectStorage();
+        $this->file               = new ObjectStorage();
+        $this->asEntryOfReference = new ObjectStorage();
+
+        $this->setUuid($uuid);
+    }
+
+    /**
+     * Get parent ID
+     * 
+     * @return BibliographicResource
+     */
+    public function getParentId(): BibliographicResource
+    {
+        return $this->parent_id;
+    }
+
+    /**
+     * Set parent ID
+     * 
+     * @param BibliographicResource $parent_id
+     */
+    public function setParentId(BibliographicResource $parent_id): void
+    {
+        $this->parent_id = $parent_id;
     }
 
     /**
@@ -241,11 +438,31 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Get sync ID
+     *
+     * @return string
+     */
+    public function getSyncId(): string
+    {
+        return $this->syncId;
+    }
+
+    /**
+     * Set sync ID
+     *
+     * @param string $syncId
+     */
+    public function setSyncId(string $syncId): void
+    {
+        $this->syncId = $syncId;
+    }
+
+    /**
      * Get label
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getLabel(): ?ObjectStorage
+    public function getLabel(): ObjectStorage
     {
         return $this->label;
     }
@@ -253,9 +470,9 @@ class Entry extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage $label
+     * @param ObjectStorage<Tag> $label
      */
-    public function setLabel($label): void
+    public function setLabel(ObjectStorage $label): void
     {
         $this->label = $label;
     }
@@ -281,71 +498,20 @@ class Entry extends AbstractEntity
     }
 
     /**
-     * Get identifier
-     *
-     * @return string
+     * Remove all labels
      */
-    public function getIdentifier(): string
+    public function removeAllLabels(): void
     {
-        return $this->identifier;
-    }
-
-    /**
-     * Set identifier
-     *
-     * @param string $identifier
-     */
-    public function setIdentifier(string $identifier): void
-    {
-        $this->identifier = $identifier;
-    }
-
-    /**
-     * Get identifier type
-     *
-     * @return string
-     */
-    public function getIdentifierType(): string
-    {
-        return $this->identifierType;
-    }
-
-    /**
-     * Set identifier type
-     *
-     * @param string $identifierType
-     */
-    public function setIdentifierType(string $identifierType): void
-    {
-        $this->identifierType = $identifierType;
-    }
-
-    /**
-     * Get Zotero URI
-     *
-     * @return string
-     */
-    public function getZoteroUri(): string
-    {
-        return $this->zoteroUri;
-    }
-
-    /**
-     * Set Zotero URI
-     *
-     * @param string $zoteroUri
-     */
-    public function setZoteroUri(string $zoteroUri): void
-    {
-        $this->zoteroUri = $zoteroUri;
+        $label = clone $this->label;
+        $this->label->removeAll($label);
     }
 
     /**
      * Get same as
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<SameAs>
      */
-    public function getSameAs(): ?ObjectStorage
+    public function getSameAs(): ObjectStorage
     {
         return $this->sameAs;
     }
@@ -353,9 +519,9 @@ class Entry extends AbstractEntity
     /**
      * Set same as
      *
-     * @param ObjectStorage $sameAs
+     * @param ObjectStorage<SameAs> $sameAs
      */
-    public function setSameAs($sameAs): void
+    public function setSameAs(ObjectStorage $sameAs): void
     {
         $this->sameAs = $sameAs;
     }
@@ -378,6 +544,15 @@ class Entry extends AbstractEntity
     public function removeSameAs(SameAs $sameAs): void
     {
         $this->sameAs->detach($sameAs);
+    }
+
+    /**
+     * Remove all same as
+     */
+    public function removeAllSameAs(): void
+    {
+        $sameAs = clone $this->sameAs;
+        $this->sameAs->removeAll($sameAs);
     }
 
     /**
@@ -441,7 +616,27 @@ class Entry extends AbstractEntity
     }
 
     /**
-     * Get publication date
+     * Get publication date circa
+     *
+     * @return string
+     */
+    public function getPublicationDateCirca(): string
+    {
+        return $this->publicationDateCirca;
+    }
+
+    /**
+     * Set publication date circa
+     *
+     * @param string $publicationDateCirca
+     */
+    public function setPublicationDateCirca(string $publicationDateCirca): void
+    {
+        $this->publicationDateCirca = $publicationDateCirca;
+    }
+
+    /**
+     * Get publication date start
      *
      * @return DateTime
      */
@@ -451,13 +646,33 @@ class Entry extends AbstractEntity
     }
 
     /**
-     * Set publication date
+     * Set publication date start
      *
-     * @param DateTime $publicationDate
+     * @param DateTime $publicationDateStart
      */
-    public function setPublicationDate(DateTime $publicationDate): void
+    public function setPublicationDateStart(DateTime $publicationDateStart): void
     {
-        $this->publicationDate = $publicationDate;
+        $this->publicationDateStart = $publicationDateStart;
+    }
+
+    /**
+     * Get publication date end
+     *
+     * @return DateTime
+     */
+    public function getPublicationDateEnd(): DateTime
+    {
+        return $this->publicationDateEnd;
+    }
+
+    /**
+     * Set publication date end
+     *
+     * @param DateTime $publicationDateEnd
+     */
+    public function setPublicationDateEnd(DateTime $publicationDateEnd): void
+    {
+        $this->publicationDateEnd = $publicationDateEnd;
     }
 
     /**
@@ -483,9 +698,9 @@ class Entry extends AbstractEntity
     /**
      * Get author
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Contributor>
      */
-    public function getAuthor(): ?ObjectStorage
+    public function getAuthor(): ObjectStorage
     {
         return $this->author;
     }
@@ -493,9 +708,9 @@ class Entry extends AbstractEntity
     /**
      * Set author
      *
-     * @param ObjectStorage $author
+     * @param ObjectStorage<Contributor> $author
      */
-    public function setAuthor($author): void
+    public function setAuthor(ObjectStorage $author): void
     {
         $this->author = $author;
     }
@@ -521,11 +736,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all authors
+     */
+    public function removeAllAuthors(): void
+    {
+        $author = clone $this->author;
+        $this->author->removeAll($author);
+    }
+
+    /**
      * Get editor
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Contributor>
      */
-    public function getEditor(): ?ObjectStorage
+    public function getEditor(): ObjectStorage
     {
         return $this->editor;
     }
@@ -533,9 +757,9 @@ class Entry extends AbstractEntity
     /**
      * Set editor
      *
-     * @param ObjectStorage $editor
+     * @param ObjectStorage<Contributor> $editor
      */
-    public function setEditor($editor): void
+    public function setEditor(ObjectStorage $editor): void
     {
         $this->editor = $editor;
     }
@@ -561,11 +785,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all editors
+     */
+    public function removeAllEditors(): void
+    {
+        $editor = clone $this->editor;
+        $this->editor->removeAll($editor);
+    }
+
+    /**
      * Get translator
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Contributor>
      */
-    public function getTranslator(): ?ObjectStorage
+    public function getTranslator(): ObjectStorage
     {
         return $this->translator;
     }
@@ -573,9 +806,9 @@ class Entry extends AbstractEntity
     /**
      * Set translator
      *
-     * @param ObjectStorage $translator
+     * @param ObjectStorage<Contributor> $translator
      */
-    public function setTranslator($translator): void
+    public function setTranslator(ObjectStorage $translator): void
     {
         $this->translator = $translator;
     }
@@ -601,11 +834,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all translators
+     */
+    public function removeAllTranslators(): void
+    {
+        $translator = clone $this->translator;
+        $this->translator->removeAll($translator);
+    }
+
+    /**
      * Get generic contributor
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Contributor>
      */
-    public function getGenericContributor(): ?ObjectStorage
+    public function getGenericContributor(): ObjectStorage
     {
         return $this->genericContributor;
     }
@@ -613,9 +855,9 @@ class Entry extends AbstractEntity
     /**
      * Set generic contributor
      *
-     * @param ObjectStorage $genericContributor
+     * @param ObjectStorage<Contributor> $genericContributor
      */
-    public function setGenericContributor($genericContributor): void
+    public function setGenericContributor(ObjectStorage $genericContributor): void
     {
         $this->genericContributor = $genericContributor;
     }
@@ -641,11 +883,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all generic contributors
+     */
+    public function removeAllGenericContributors(): void
+    {
+        $genericContributor = clone $this->genericContributor;
+        $this->genericContributor->removeAll($genericContributor);
+    }
+
+    /**
      * Get scope
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Scope>
      */
-    public function getScope(): ?ObjectStorage
+    public function getScope(): ObjectStorage
     {
         return $this->scope;
     }
@@ -653,9 +904,9 @@ class Entry extends AbstractEntity
     /**
      * Set scope
      *
-     * @param ObjectStorage $scope
+     * @param ObjectStorage<Scope> $scope
      */
-    public function setScope($scope): void
+    public function setScope(ObjectStorage $scope): void
     {
         $this->scope = $scope;
     }
@@ -678,6 +929,15 @@ class Entry extends AbstractEntity
     public function removeScope(Scope $scope): void
     {
         $this->scope->detach($scope);
+    }
+
+    /**
+     * Remove all scopes
+     */
+    public function removeAllScopes(): void
+    {
+        $scope = clone $this->scope;
+        $this->scope->removeAll($scope);
     }
 
     /**
@@ -761,6 +1021,144 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     */
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Get summary
+     *
+     * @return string
+     */
+    public function getSummary(): string
+    {
+        return $this->summary;
+    }
+
+    /**
+     * Set summary
+     *
+     * @param string $summary
+     */
+    public function setSummary(string $summary): void
+    {
+        $this->summary = $summary;
+    }
+
+    /**
+     * Get image
+     *
+     * @return ObjectStorage<FileReference>
+     */
+    public function getImage(): ObjectStorage
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set image
+     *
+     * @param ObjectStorage<FileReference> $image
+     */
+    public function setImage(ObjectStorage $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * Add image
+     *
+     * @param FileReference $image
+     */
+    public function addImage(FileReference $image): void
+    {
+        $this->image->attach($image);
+    }
+
+    /**
+     * Remove image
+     *
+     * @param FileReference $image
+     */
+    public function removeImage(FileReference $image): void
+    {
+        $this->image->detach($image);
+    }
+
+    /**
+     * Remove all images
+     */
+    public function removeAllImage(): void
+    {
+        $image = clone $this->image;
+        $this->image->removeAll($image);
+    }
+
+    /**
+     * Get file
+     *
+     * @return ObjectStorage<FileReference>
+     */
+    public function getFile(): ObjectStorage
+    {
+        return $this->file;
+    }
+
+    /**
+     * Set file
+     *
+     * @param ObjectStorage<FileReference> $file
+     */
+    public function setFile(ObjectStorage $file): void
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Add file
+     *
+     * @param FileReference $file
+     */
+    public function addFile(FileReference $file): void
+    {
+        $this->file->attach($file);
+    }
+
+    /**
+     * Remove file
+     *
+     * @param FileReference $file
+     */
+    public function removeFile(FileReference $file): void
+    {
+        $this->file->detach($file);
+    }
+
+    /**
+     * Remove all files
+     */
+    public function removeAllFile(): void
+    {
+        $file = clone $this->file;
+        $this->file->removeAll($file);
+    }
+
+    /**
      * Get import
      *
      * @return string
@@ -778,6 +1176,55 @@ class Entry extends AbstractEntity
     public function setImport(string $import): void
     {
         $this->import = $import;
+    }
+
+    /**
+     * Get as entry of reference
+     *
+     * @return ObjectStorage<Reference>
+     */
+    public function getAsEntryOfReference(): ObjectStorage
+    {
+        return $this->asEntryOfReference;
+    }
+
+    /**
+     * Set as entry of reference
+     *
+     * @param ObjectStorage<Reference> $asEntryOfReference
+     */
+    public function setAsEntryOfReference(ObjectStorage $asEntryOfReference): void
+    {
+        $this->asEntryOfReference = $asEntryOfReference;
+    }
+
+    /**
+     * Add as entry of reference
+     *
+     * @param Reference $asEntryOfReference
+     */
+    public function addAsEntryOfReference(Reference $asEntryOfReference): void
+    {
+        $this->asEntryOfReference->attach($asEntryOfReference);
+    }
+
+    /**
+     * Remove as entry of reference
+     *
+     * @param Reference $asEntryOfReference
+     */
+    public function removeAsEntryOfReference(Reference $asEntryOfReference): void
+    {
+        $this->asEntryOfReference->detach($asEntryOfReference);
+    }
+
+    /**
+     * Remove all as entry of references
+     */
+    public function removeAllAsEntryOfReferences(): void
+    {
+        $asEntryOfReference = clone $this->asEntryOfReference;
+        $this->asEntryOfReference->removeAll($asEntryOfReference);
     }
 }
 

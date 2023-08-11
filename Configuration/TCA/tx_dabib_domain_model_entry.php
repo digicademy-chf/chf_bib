@@ -599,7 +599,6 @@ return [
             'config'      => [
                 'type'                  => 'text',
                 'enableRichtext'        => true,
-                'richtextConfiguration' => 'da_bib',
             ],
         ],
         'summary' => [
@@ -608,7 +607,6 @@ return [
             'config'      => [
                 'type'                  => 'text',
                 'enableRichtext'        => true,
-                'richtextConfiguration' => 'da_bib',
             ],
         ],
         'image' => [
