@@ -138,19 +138,27 @@ class BibliographicResource extends AbstractEntity
     protected ObjectStorage $tag;
 
     /**
-     * Initialize object
+     * Construct object
      *
      * @param string $language
      * @return BibliographicResource
      */
     public function __construct(string $language)
     {
+        $this->initializeObject();
+
+        $this->setLanguage($language);
+    }
+
+    /**
+     * Initialize object
+     */
+    public function initializeObject(): void
+    {
         $this->sameAs      = new ObjectStorage();
         $this->entry       = new ObjectStorage();
         $this->contributor = new ObjectStorage();
         $this->tag         = new ObjectStorage();
-
-        $this->setLanguage($language);
     }
 
     /**
@@ -382,7 +390,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Set same as
+     * Set contributor
      *
      * @param ObjectStorage<Contributor> $contributor
      */
@@ -392,7 +400,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Add same as
+     * Add contributor
      *
      * @param Contributor $contributor
      */
@@ -402,7 +410,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Remove same as
+     * Remove contributor
      *
      * @param Contributor $contributor
      */
@@ -412,7 +420,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Remove all same as
+     * Remove all contributors
      */
     public function removeAllContributors(): void
     {
@@ -431,7 +439,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Set same as
+     * Set tag
      *
      * @param ObjectStorage<Tag> $tag
      */
@@ -441,7 +449,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Add same as
+     * Add tag
      *
      * @param Tag $tag
      */
@@ -451,7 +459,7 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Remove same as
+     * Remove tag
      *
      * @param Tag $tag
      */
@@ -461,9 +469,9 @@ class BibliographicResource extends AbstractEntity
     }
 
     /**
-     * Remove all same as
+     * Remove all tags
      */
-    public function removeAllTag(): void
+    public function removeAllTags(): void
     {
         $tag = clone $this->tag;
         $this->tag->removeAll($tag);

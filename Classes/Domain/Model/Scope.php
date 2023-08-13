@@ -57,7 +57,7 @@ class Scope extends AbstractEntity
     protected string $type = '';
 
     /**
-     * Initialize object
+     * Construct object
      *
      * @param string $text
      * @param string $type

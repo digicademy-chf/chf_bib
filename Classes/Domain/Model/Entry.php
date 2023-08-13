@@ -17,6 +17,7 @@ use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
@@ -27,9 +28,10 @@ class Entry extends AbstractEntity
     /**
      * Bibliography that this entry is attached to
      * 
-     * @var BibliographicResource
+     * @var LazyLoadingProxy|BibliographicResource
      */
-    protected BibliographicResource $parent_id;
+    #[Lazy()]
+    protected LazyLoadingProxy|BibliographicResource $parent_id;
 
     /**
      * Unique identifier of the entry
@@ -174,7 +176,7 @@ class Entry extends AbstractEntity
     /**
      * Exact onset of the known period the publication was published in
      * 
-     * @var DateTime
+     * @var DateTime|null
      */
     #[Validate([
         'validator' => 'DateTime',
@@ -184,7 +186,7 @@ class Entry extends AbstractEntity
     /**
      * Exact end of the known period the publication was published in
      * 
-     * @var DateTime
+     * @var DateTime|null
      */
     #[Validate([
         'validator' => 'DateTime',
@@ -356,12 +358,24 @@ class Entry extends AbstractEntity
     protected ObjectStorage $asEntryOfReference;
 
     /**
-     * Initialize object
+     * Construct object
      *
+     * @param BibliographicResource $parent_id
      * @param string $uuid
      * @return Entry
      */
-    public function __construct(string $uuid)
+    public function __construct(BibliographicResource $parent_id, string $uuid)
+    {
+        $this->initializeObject();
+
+        $this->setParentId($parent_id);
+        $this->setUuid($uuid);
+    }
+
+    /**
+     * Initialize object
+     */
+    public function initializeObject(): void
     {
         $this->label              = new ObjectStorage();
         $this->sameAs             = new ObjectStorage();
@@ -373,8 +387,6 @@ class Entry extends AbstractEntity
         $this->image              = new ObjectStorage();
         $this->file               = new ObjectStorage();
         $this->asEntryOfReference = new ObjectStorage();
-
-        $this->setUuid($uuid);
     }
 
     /**
@@ -384,6 +396,9 @@ class Entry extends AbstractEntity
      */
     public function getParentId(): BibliographicResource
     {
+        if ($this->parent_id instanceof LazyLoadingProxy) {
+            $this->parent_id->_loadRealInstance();
+        }
         return $this->parent_id;
     }
 
@@ -1103,7 +1118,7 @@ class Entry extends AbstractEntity
     /**
      * Remove all images
      */
-    public function removeAllImage(): void
+    public function removeAllImages(): void
     {
         $image = clone $this->image;
         $this->image->removeAll($image);
@@ -1152,7 +1167,7 @@ class Entry extends AbstractEntity
     /**
      * Remove all files
      */
-    public function removeAllFile(): void
+    public function removeAllFiles(): void
     {
         $file = clone $this->file;
         $this->file->removeAll($file);

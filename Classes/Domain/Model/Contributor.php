@@ -14,6 +14,7 @@ use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
@@ -24,9 +25,10 @@ class Contributor extends AbstractEntity
     /**
      * Bibliography that this contributor is attached to
      * 
-     * @var BibliographicResource
+     * @var LazyLoadingProxy|BibliographicResource
      */
-    protected BibliographicResource $parent_id;
+    #[Lazy()]
+    protected LazyLoadingProxy|BibliographicResource $parent_id;
 
     /**
      * Unique identifier of the contributor
@@ -133,12 +135,24 @@ class Contributor extends AbstractEntity
     protected ObjectStorage $asGenericContributor;
 
     /**
-     * Initialize object
+     * Construct object
      *
+     * @param BibliographicResource $parent_id
      * @param string $uuid
      * @return Contributor
      */
-    public function __construct(string $uuid)
+    public function __construct(BibliographicResource $parent_id, string $uuid)
+    {
+        $this->initializeObject();
+
+        $this->setParentId($parent_id);
+        $this->setUuid($uuid);
+    }
+
+    /**
+     * Initialize object
+     */
+    public function initializeObject(): void
     {
         $this->label                = new ObjectStorage();
         $this->sameAs               = new ObjectStorage();
@@ -146,8 +160,6 @@ class Contributor extends AbstractEntity
         $this->asEditor             = new ObjectStorage();
         $this->asTranslator         = new ObjectStorage();
         $this->asGenericContributor = new ObjectStorage();
-
-        $this->setUuid($uuid);
     }
 
     /**
@@ -157,6 +169,9 @@ class Contributor extends AbstractEntity
      */
     public function getParentId(): BibliographicResource
     {
+        if ($this->parent_id instanceof LazyLoadingProxy) {
+            $this->parent_id->_loadRealInstance();
+        }
         return $this->parent_id;
     }
 

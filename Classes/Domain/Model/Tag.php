@@ -15,6 +15,7 @@ use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
@@ -25,9 +26,10 @@ class Tag extends AbstractEntity
     /**
      * Bibliography that this tag is attached to
      * 
-     * @var BibliographicResource
+     * @var LazyLoadingProxy|BibliographicResource
      */
-    protected BibliographicResource $parent_id;
+    #[Lazy()]
+    protected LazyLoadingProxy|BibliographicResource $parent_id;
 
     /**
      * Unique identifier of the tag
@@ -121,23 +123,33 @@ class Tag extends AbstractEntity
     protected ObjectStorage $asLabelOfReference;
 
     /**
-     * Initialize object
+     * Construct object
      *
+     * @param BibliographicResource $parent_id
      * @param string $uuid
      * @param string $text
      * @param string $type
      * @return Tag
      */
-    public function __construct(string $uuid, string $text, string $type)
+    public function __construct(BibliographicResource $parent_id, string $uuid, string $text, string $type)
+    {
+        $this->initializeObject();
+
+        $this->setParentId($parent_id);
+        $this->setUuid($uuid);
+        $this->setText($text);
+        $this->setType($type);
+    }
+
+    /**
+     * Initialize object
+     */
+    public function initializeObject(): void
     {
         $this->sameAs               = new ObjectStorage();
         $this->asLabelOfEntry       = new ObjectStorage();
         $this->asLabelOfContributor = new ObjectStorage();
         $this->asLabelOfReference   = new ObjectStorage();
-
-        $this->setUuid($uuid);
-        $this->setText($text);
-        $this->setType($type);
     }
 
     /**
@@ -147,6 +159,9 @@ class Tag extends AbstractEntity
      */
     public function getParentId(): BibliographicResource
     {
+        if ($this->parent_id instanceof LazyLoadingProxy) {
+            $this->parent_id->_loadRealInstance();
+        }
         return $this->parent_id;
     }
 
@@ -238,54 +253,56 @@ class Tag extends AbstractEntity
     public function setDescription(string $description): void
     {
         $this->description = $description;
-    }    /**
-    * Get same as
-    *
-    * @return ObjectStorage<SameAs>
-    */
-   public function getSameAs(): ObjectStorage
-   {
-       return $this->sameAs;
-   }
+    }
 
-   /**
-    * Set same as
-    *
-    * @param ObjectStorage<SameAs> $sameAs
-    */
-   public function setSameAs(ObjectStorage $sameAs): void
-   {
-       $this->sameAs = $sameAs;
-   }
+    /**
+     * Get same as
+     *
+     * @return ObjectStorage<SameAs>
+     */
+    public function getSameAs(): ObjectStorage
+    {
+        return $this->sameAs;
+    }
 
-   /**
-    * Add same as
-    *
-    * @param SameAs $sameAs
-    */
-   public function addSameAs(SameAs $sameAs): void
-   {
-       $this->sameAs->attach($sameAs);
-   }
+    /**
+     * Set same as
+     *
+     * @param ObjectStorage<SameAs> $sameAs
+     */
+    public function setSameAs(ObjectStorage $sameAs): void
+    {
+        $this->sameAs = $sameAs;
+    }
 
-   /**
-    * Remove same as
-    *
-    * @param SameAs $sameAs
-    */
-   public function removeSameAs(SameAs $sameAs): void
-   {
-       $this->sameAs->detach($sameAs);
-   }
+    /**
+     * Add same as
+     *
+     * @param SameAs $sameAs
+     */
+    public function addSameAs(SameAs $sameAs): void
+    {
+        $this->sameAs->attach($sameAs);
+    }
 
-   /**
-    * Remove all same as
-    */
-   public function removeAllSameAs(): void
-   {
-       $sameAs = clone $this->sameAs;
-       $this->sameAs->removeAll($sameAs);
-   }
+    /**
+     * Remove same as
+     *
+     * @param SameAs $sameAs
+     */
+    public function removeSameAs(SameAs $sameAs): void
+    {
+        $this->sameAs->detach($sameAs);
+    }
+
+    /**
+     * Remove all same as
+     */
+    public function removeAllSameAs(): void
+    {
+        $sameAs = clone $this->sameAs;
+        $this->sameAs->removeAll($sameAs);
+    }
 
     /**
      * Get as label of entry

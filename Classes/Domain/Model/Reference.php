@@ -71,7 +71,7 @@ class Reference extends AbstractEntity
     /**
      * Date when the reference was last checked
      * 
-     * @var DateTime
+     * @var DateTime|null
      */
     #[Validate([
         'validator' => 'DateTime',
@@ -79,17 +79,25 @@ class Reference extends AbstractEntity
     protected ?DateTime $lastChecked = null;
 
     /**
-     * Initialize object
+     * Construct object
      *
      * @param Entry $entry
      * @return Reference
      */
     public function __construct(Entry $entry)
     {
-        $this->entry = new ObjectStorage();
-        $this->label = new ObjectStorage();
+        $this->initializeObject();
 
         $this->addEntry($entry);
+    }
+
+    /**
+     * Initialize object
+     */
+    public function initializeObject(): void
+    {
+        $this->entry = new ObjectStorage();
+        $this->label = new ObjectStorage();
     }
 
     /**
