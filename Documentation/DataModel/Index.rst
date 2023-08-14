@@ -35,4 +35,11 @@ Graphical overview
     :target: /DataModel/DataModel.png
     :class: with-shadow
 
-    Overview of the extension's data model. Check the :ref:`api-reference` for further details.
+    Overview of the extension's data model. Check the :ref:`api-reference`
+    for further details.
+
+It may become useful to use the 'type' property of ``Entry`` to simplify the
+available properties in the future. This would be adapted for the data model
+in the form of object variants. The author initially decided against this to
+avoid artificially limiting, for example, the option to add the name of a
+conference.
