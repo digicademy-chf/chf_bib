@@ -326,6 +326,9 @@ class Entry extends AbstractEntity
      * @var ObjectStorage<FileReference>
      */
     #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
     protected ObjectStorage $image;
 
     /**
@@ -334,6 +337,9 @@ class Entry extends AbstractEntity
      * @var ObjectStorage<FileReference>
      */
     #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
     protected ObjectStorage $file;
 
     /**
