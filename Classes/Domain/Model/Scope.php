@@ -20,6 +20,16 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class Scope extends AbstractEntity
 {
     /**
+     * Whether the record should be visisible or not
+     * 
+     * @var bool
+     */
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $hidden = false;
+
+    /**
      * Specific notation, e.g., URL, ISSN, volume, issue, or another number
      * 
      * @var string
@@ -67,6 +77,26 @@ class Scope extends AbstractEntity
     {
         $this->setText($text);
         $this->setType($type);
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return bool
+     */
+    public function getHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**

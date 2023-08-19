@@ -26,6 +26,16 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Entry extends AbstractEntity
 {
     /**
+     * Whether the record should be visisible or not
+     * 
+     * @var bool
+     */
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $hidden = false;
+
+    /**
      * Bibliography that this entry is attached to
      * 
      * @var LazyLoadingProxy|BibliographicResource
@@ -393,6 +403,26 @@ class Entry extends AbstractEntity
         $this->image              = new ObjectStorage();
         $this->file               = new ObjectStorage();
         $this->asEntryOfReference = new ObjectStorage();
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return bool
+     */
+    public function getHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**

@@ -23,6 +23,16 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Contributor extends AbstractEntity
 {
     /**
+     * Whether the record should be visisible or not
+     * 
+     * @var bool
+     */
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $hidden = false;
+
+    /**
      * Bibliography that this contributor is attached to
      * 
      * @var LazyLoadingProxy|BibliographicResource
@@ -160,6 +170,26 @@ class Contributor extends AbstractEntity
         $this->asEditor             = new ObjectStorage();
         $this->asTranslator         = new ObjectStorage();
         $this->asGenericContributor = new ObjectStorage();
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return bool
+     */
+    public function getHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**
