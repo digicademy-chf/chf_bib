@@ -62,6 +62,7 @@ library.
     Templates/Index
     DataModel/Index
     ApiReference/Index
+    Maintenance/Index
 
 ..  Meta Menu
 
