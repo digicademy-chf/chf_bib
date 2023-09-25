@@ -3,14 +3,14 @@
 .. _start:
 
 ======
-DA Bib
+CHF Bib
 ======
 
 :Extension key:
-    da_bib
+    chf_bib
 
 :Package name:
-    digicademy/da-bib
+    digicademy/chf_bib
 
 :Version:
     |release|
@@ -20,7 +20,7 @@ DA Bib
 
 :Author:
     `Jonatan Jalle Steller <mailto:jonatan.steller@adwmainz.de>`__,
-    DA Bib contributors
+    CHF Bib contributors
 
 :License:
     This document is published under the
@@ -32,8 +32,9 @@ DA Bib
 
 ----
 
-The extension provides a data model for bibliographic data. It is largely
-modelled after the ``biblStruct`` `element in TEI XML
+The extension provides a data model for bibliographic data, as part of the
+Cultural Heritage Framework (CHF). It is largely modelled after the
+``biblStruct`` `element in TEI XML
 <https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-biblStruct.html>`__
 as `produced by Zotero
 <https://github.com/zotero/translators/blob/master/TEI.js>`__. In addition,

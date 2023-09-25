@@ -1,7 +1,7 @@
 {
-    "name": "digicademy/da-bib",
+    "name": "digicademy/chf_bib",
     "type": "typo3-cms-extension",
-    "description": "Generic or annotated bibliographies in TYPO3",
+    "description": "Generic or annotated bibliographies in TYPO3 as part of the CHF",
     "authors": [
         {
             "name": "Jonatan Jalle Steller",
@@ -10,15 +10,15 @@
             "homepage": "https://www.adwmainz.de"
         },
         {
-            "name": "DA Bib contributors"
+            "name": "CHF Bib contributors"
         }
     ],
     "license": "GPL-2.0-or-later",
-    "homepage": "https://extensions.typo3.org/extension/da-bib",
+    "homepage": "https://extensions.typo3.org/extension/chf_bib",
     "support": {
-        "issues": "https://github.com/digicademy/da-bib/issues",
-        "source": "https://github.com/digicademy/da-bib",
-        "docs": "https://docs.typo3.org/p/da-bib/main/en-us"
+        "issues": "https://github.com/digicademy-chf/chf_bib/issues",
+        "source": "https://github.com/digicademy-chf/chf_bib",
+        "docs": "https://digicademy-chf.github.io/chf_bib"
     },
     "keywords": [
         "TYPO3",
@@ -36,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Digicademy\\DABib\\": "Classes/"
+            "Digicademy\\CHFBib\\": "Classes/"
         }
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "da_bib"
+            "extension-key": "chf_bib"
         }
     }
 }

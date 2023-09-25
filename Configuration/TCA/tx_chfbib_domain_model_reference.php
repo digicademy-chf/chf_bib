@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Bib for TYPO3.
+# This file is part of the extension CHF Bib for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference',
+        'title'                    => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference',
         'label'                    => 'lastChecked',
         'label_alt'                => 'elaboration,elaborationType',
         'tstamp'                   => 'tstamp',
@@ -25,7 +25,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'lastChecked ASC,elaboration ASC,elaborationType ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Reference.svg',
+        'iconfile'                 => 'EXT:chf_bib/Resources/Public/Icons/Reference.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -99,9 +99,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dabib_domain_model_reference',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_reference}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dabib_domain_model_reference}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chfbib_domain_model_reference',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_reference}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbib_domain_model_reference}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -117,14 +117,14 @@ return [
             ],
         ],
         'entry' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.entry',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.entry.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.entry',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.entry.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dabib_domain_model_entry',
+                'foreign_table'       => 'tx_chfbib_domain_model_entry',
                 // Do not require the same PID here because references may be included in other data models living on other pages
-                'MM'                  => 'tx_dabib_domain_model_reference_entry_entry_mm',
+                'MM'                  => 'tx_chfbib_domain_model_reference_entry_entry_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'minitems'            => 1,
@@ -144,8 +144,8 @@ return [
             ],
         ],
         'elaboration' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaboration',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaboration.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.elaboration',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.elaboration.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -154,41 +154,41 @@ return [
             ],
         ],
         'elaborationType' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.description',
             'config'      => [
                 'type'       => 'select',
                 'renderType' => 'selectSingle',
                 'items'      => [
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.pageNumbers',
+                        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.pageNumbers',
                         'value' => 'pageNumbers',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.paragraphNumbers',
+                        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.paragraphNumbers',
                         'value' => 'paragraphNumbers',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.columnNumbers',
+                        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.columnNumbers',
                         'value' => 'columnNumbers',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.chapterNumbers',
+                        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.elaborationType.chapterNumbers',
                         'value' => 'chapterNumbers',
                     ],
                 ],
             ],
         ],
         'label' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.label',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.label.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.label',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.label.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dabib_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#type}=\'label\'',
+                'foreign_table'       => 'tx_chfbib_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_tag}.{#type}=\'label\'',
                 // Do not require the same PID here because references may be included in other data models living on other pages
-                'MM'                  => 'tx_dabib_domain_model_reference_tag_label_mm',
+                'MM'                  => 'tx_chfbib_domain_model_reference_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -205,8 +205,8 @@ return [
             ],
         ],
         'lastChecked' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.lastChecked',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.reference.lastChecked.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.lastChecked',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.reference.lastChecked.description',
             'config'      => [
                 'type'     => 'datetime',
                 'format'   => 'date',

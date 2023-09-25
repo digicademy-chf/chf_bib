@@ -38,8 +38,8 @@ Graphical overview
     Overview of the extension's data model. Check the :ref:`api-reference`
     for further details.
 
-It may become useful to use the 'type' property of ``Entry`` to simplify the
-available properties in the future. This would be adapted for the data model
-in the form of object variants. The author initially decided against this to
-avoid artificially limiting, for example, the option to add the name of a
-conference.
+It may become useful in the future to use the 'type' property of ``Entry`` TCA
+to simplify its available properties. The data model itself would need to be
+adapted in the form of class inheritance. The extension author initially
+decided against this to avoid artificially limiting, for example, the option
+to add the name of a conference to any type of entry.

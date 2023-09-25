@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Bib for TYPO3.
+# This file is part of the extension CHF Bib for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource',
+        'title'                    => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource',
         'label'                    => 'title',
         'label_alt'                => 'uri',
         'descriptionColumn'        => 'description',
@@ -26,7 +26,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'title ASC,uri ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/BibliographicResource.svg',
+        'iconfile'                 => 'EXT:chf_bib/Resources/Public/Icons/BibliographicResource.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -100,9 +100,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dabib_domain_model_bibliographic_resource',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_bibliographic_resource}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dabib_domain_model_bibliographic_resource}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chfbib_domain_model_bibliographic_resource',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographic_resource}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbib_domain_model_bibliographic_resource}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -118,8 +118,8 @@ return [
             ],
         ],
         'title' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.title',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.title.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.title',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.title.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -128,16 +128,16 @@ return [
             ],
         ],
         'language' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.language',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.language.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.language',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.language.description',
             'config'      => [
                 'type'     => 'language',
                 'required' => true,
             ],
         ],
         'syncId' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncId',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncId.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncId',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncId.description',
             'config' => [
                 'type'           => 'link',
                 'allowedTypes'   => ['url'],
@@ -152,8 +152,8 @@ return [
             ],
         ],
         'syncState' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncState',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncState.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncState',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.syncState.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -162,8 +162,8 @@ return [
             ],
         ],
         'description' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.description',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.description.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.description',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.description.description',
             'config'      => [
                 'type' => 'text',
                 'cols' => 40,
@@ -173,8 +173,8 @@ return [
             ],
         ],
         'uri' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.uri',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.uri.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.uri',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.uri.description',
             'config' => [
                 'type'           => 'link',
                 'allowedTypes'   => ['page', 'url', 'record'],
@@ -189,11 +189,11 @@ return [
             ],
         ],
         'sameAs' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.sameAs',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.sameAs.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.sameAs',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.sameAs.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dabib_domain_model_same_as',
+                'foreign_table'       => 'tx_chfbib_domain_model_same_as',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -209,11 +209,11 @@ return [
             ],
         ],
         'entry' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.entry',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.entry.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.entry',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.entry.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dabib_domain_model_entry',
+                'foreign_table'       => 'tx_chfbib_domain_model_entry',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'foreign_sortby'      => 'sorting',
@@ -230,11 +230,11 @@ return [
             ],
         ],
         'contributor' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.contributor',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.contributor.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.contributor',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.contributor.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dabib_domain_model_contributor',
+                'foreign_table'       => 'tx_chfbib_domain_model_contributor',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'foreign_sortby'      => 'sorting',
@@ -251,11 +251,11 @@ return [
             ],
         ],
         'tag' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.tag',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.tag.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.tag',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.tag.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dabib_domain_model_tag',
+                'foreign_table'       => 'tx_chfbib_domain_model_tag',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'foreign_sortby'      => 'sorting',
@@ -283,7 +283,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => 'hidden,titleLanguage,syncIdSyncState,description,uri,sameAs,
-            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.content,entry,contributor,tag,',
+            --div--;LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.bibliographicResource.content,entry,contributor,tag,',
         ],
     ],
 ];

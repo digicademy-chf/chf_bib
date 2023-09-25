@@ -1,14 +1,14 @@
 <?php
 
-# This file is part of the extension DA Bib for TYPO3.
+# This file is part of the extension CHF Bib for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
 $EM_CONF[$_EXTKEY] = [
-    'title'          => 'DA Bib',
-    'description'    => 'Generic or annotated bibliographies in TYPO3',
+    'title'          => 'CHF Bib',
+    'description'    => 'Generic or annotated bibliographies in TYPO3 as part of the CHF',
     'category'       => 'misc',
     'author'         => 'Jonatan Jalle Steller',
     'author_email'   => 'jonatan.steller@adwmainz.de',
@@ -27,7 +27,7 @@ $EM_CONF[$_EXTKEY] = [
     ],
     'autoload'       => [
         'psr-4' => [
-           'Digicademy\\DABib\\' => 'Classes/'
+           'Digicademy\\CHFBib\\' => 'Classes/'
         ]
      ]
 ];

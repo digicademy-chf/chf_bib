@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-# This file is part of the extension DA Bib for TYPO3.
+# This file is part of the extension CHF Bib for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
-namespace Digicademy\DABib\Domain\Model;
+namespace Digicademy\CHFBib\Domain\Model;
 
-use Digicademy\DABib\Domain\Validator\StringOptionsValidator;
+use Digicademy\CHFBib\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;

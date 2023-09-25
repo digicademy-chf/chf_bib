@@ -4,6 +4,6 @@ services:
     autoconfigure: true
     public: false
 
-  Digicademy\DABib\:
+  Digicademy\CHFBib\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'

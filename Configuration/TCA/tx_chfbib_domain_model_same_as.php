@@ -1,13 +1,13 @@
 <?php
 
-# This file is part of the extension DA Bib for TYPO3.
+# This file is part of the extension CHF Bib for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
 /**
- * Scope and its properties
+ * SameAs and its properties
  * 
  * Configuration of a database table and its editing interface in the
  * TYPO3 backend. This also serves as the basis for the Extbase
@@ -16,23 +16,22 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope',
-        'label'                    => 'text',
-        'label_alt'                => 'type',
+        'title'                    => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.sameAs',
+        'label'                    => 'uri',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'text ASC,type ASC',
+        'default_sortby'           => 'uri ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Scope.svg',
+        'iconfile'                 => 'EXT:chf_bib/Resources/Public/Icons/SameAs.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'text,type',
+        'searchFields'             => 'uri',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -99,9 +98,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dabib_domain_model_scope',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_scope}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dabib_domain_model_scope}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chfbib_domain_model_same_as',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_same_as}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbib_domain_model_same_as}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -116,72 +115,28 @@ return [
                 'default' => '',
             ],
         ],
-        'text' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.text',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.text.description',
-            'config'      => [
-                'type' => 'input',
-                'size' => 40,
-                'max'  => 255,
-                'eval' => 'trim',
+        'uri' => [
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.sameAs.uri',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.sameAs.uri.description',
+            'config' => [
+                'type'           => 'link',
+                'allowedTypes'   => ['url'],
+                'allowedOptions' => [],
+                'mode'           => 'prepend',
+                'valuePicker'    => [
+                   'items' => [
+                      ['HTTPS', 'https://'],
+                      ['HTTP', 'http://'],
+                   ],
+                ],
                 'required' => true,
             ],
         ],
-        'type' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.description',
-            'config'      => [
-                'type'       => 'select',
-                'renderType' => 'selectSingle',
-                'items'      => [
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.urn',
-                        'value' => 'urn',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.url',
-                        'value' => 'url',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.issn',
-                        'value' => 'issn',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.isbn',
-                        'value' => 'isbn',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.callNumber',
-                        'value' => 'callNumber',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.volume',
-                        'value' => 'volume',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.issue',
-                        'value' => 'issue',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.edition',
-                        'value' => 'edition',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.scope.type.version',
-                        'value' => 'version',
-                    ],
-                ],
-            ],
-        ],
     ],
-    'palettes' => [
-        'textType' => [
-            'showitem' => 'text,type,',
-        ],
-    ],
+    'palettes' => [],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,textType,',
+            'showitem' => 'hidden,uri,',
         ],
     ],
 ];

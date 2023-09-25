@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Bib for TYPO3.
+# This file is part of the extension CHF Bib for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag',
+        'title'                    => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag',
         'label'                    => 'text',
         'label_alt'                => 'type',
         'descriptionColumn'        => 'description',
@@ -26,7 +26,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'text ASC,type ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_bib/Resources/Public/Icons/Tag.svg',
+        'iconfile'                 => 'EXT:chf_bib/Resources/Public/Icons/Tag.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -100,9 +100,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dabib_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dabib_domain_model_tag}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chfbib_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbib_domain_model_tag}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -118,20 +118,20 @@ return [
             ],
         ],
         'parent_id' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.parent_id',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.parent_id.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.parent_id',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.parent_id.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dabib_domain_model_bibliographic_resource',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_bibliographic_resource}.{#pid}=###CURRENT_PID###',
+                'foreign_table'       => 'tx_chfbib_domain_model_bibliographic_resource',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographic_resource}.{#pid}=###CURRENT_PID###',
                 'maxitems'            => 1,
                 'required'            => true,
             ],
         ],
         'uuid' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.uuid',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.uuid.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.uuid',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.uuid.description',
             'config'      => [
                 'type'     => 'uuid',
                 'size'     => 40,
@@ -139,8 +139,8 @@ return [
             ],
         ],
         'text' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.text',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.text.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.text',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.text.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -150,14 +150,14 @@ return [
             ],
         ],
         'type' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.type',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.type.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.type',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.type.description',
             'config'      => [
                 'type'       => 'select',
                 'renderType' => 'selectSingle',
                 'items'      => [
                     [
-                        'label' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.type.label',
+                        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.type.label',
                         'value' => 'label',
                     ],
                 ],
@@ -165,8 +165,8 @@ return [
             ],
         ],
         'description' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.description',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.description.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.description',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.description.description',
             'config'      => [
                 'type' => 'text',
                 'cols' => 40,
@@ -176,11 +176,11 @@ return [
             ],
         ],
         'sameAs' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.sameAs',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.sameAs.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.sameAs',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.sameAs.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dabib_domain_model_same_as',
+                'foreign_table'       => 'tx_chfbib_domain_model_same_as',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -196,14 +196,14 @@ return [
             ],
         ],
         'asLabelOfEntry' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dabib_domain_model_entry',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_entry}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dabib_domain_model_entry_tag_label_mm',
+                'foreign_table'       => 'tx_chfbib_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chfbib_domain_model_entry_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -221,14 +221,14 @@ return [
             ],
         ],
         'asLabelOfContributor' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dabib_domain_model_contributor',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_contributor}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dabib_domain_model_contributor_tag_label_mm',
+                'foreign_table'       => 'tx_chfbib_domain_model_contributor',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_contributor}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chfbib_domain_model_contributor_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -246,14 +246,14 @@ return [
             ],
         ],
         'asLabelOfReference' => [
-            'label'       => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfReference',
-            'description' => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfReference.description',
+            'label'       => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfReference',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfReference.description',
             'config'      => [
                 'type'              => 'select',
                 'renderType'        => 'selectMultipleSideBySide',
-                'foreign_table'     => 'tx_dabib_domain_model_reference',
+                'foreign_table'     => 'tx_chfbib_domain_model_reference',
                 // Do not require the same PID here because references may be included in other data models living on other pages
-                'MM'                => 'tx_dabib_domain_model_reference_tag_label_mm',
+                'MM'                => 'tx_chfbib_domain_model_reference_tag_label_mm',
                 'MM_opposite_field' => 'label',
                 'size'              => 5,
                 'autoSizeMax'       => 10,
@@ -282,7 +282,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => 'hiddenParentId,uuidText,type,description,sameAs,
-            --div--;LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:database.tag.labelled,asLabelOfEntry,asLabelOfContributor,asLabelOfReference',
+            --div--;LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:database.tag.labelled,asLabelOfEntry,asLabelOfContributor,asLabelOfReference',
         ],
     ],
 ];

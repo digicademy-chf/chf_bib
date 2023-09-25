@@ -10,12 +10,13 @@
     :alt: License: GPL v3
     :target: https://www.gnu.org/licenses/gpl-3.0
 
-======
-DA Bib
-======
+=======
+CHF Bib
+=======
 
-The extension provides a data model for bibliographic data. It is largely
-modelled after the ``biblStruct`` `element in TEI XML
+The extension provides a data model for bibliographic data, as part of the
+Cultural Heritage Framework (CHF). It is largely modelled after the
+``biblStruct`` `element in TEI XML
 <https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-biblStruct.html>`__
 as `produced by Zotero
 <https://github.com/zotero/translators/blob/master/TEI.js>`__. In addition,
@@ -30,9 +31,9 @@ serialisations of bibliographic data are included out of the box. A TYPO3 task
 can be activated to periodically and automatically import data from a Zotero
 library.
 
-:Repository:  https://github.com/digicademy/da-bib
-:Read online: https://docs.typo3.org/p/da-bib/main/en-us
-:TER:         https://extensions.typo3.org/extension/da-bib
+:Repository:  https://github.com/digicademy-chf/chf_bib
+:Read online: https://digicademy-chf.github.io/chf_bib
+:TER:         https://extensions.typo3.org/extension/chf_bib
 
 Roadmap
 =======

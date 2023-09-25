@@ -12,13 +12,14 @@ TYPO3 backend. In case you are building an annotated bibliography, entries may
 also contain summary and description texts, (cover) images, and files. The
 extension was originally designed for academic projects in the Digital
 Humanities, but should work just as well for any other academic and
-non-academic domain.
+non-academic domain. The extension is part of the Cultural Heritage Framework
+(CHF), which provides additional functionality such as glossary entries,
+geodata, and various additional data models.
 
 ..  attention::
 
-    The extension does not currently include a generic frontend template. To
-    use it, you may thus need (someone with) knowledge of how templating works
-    in TYPO3.
+    The extension is not final yet. A lot of things may still change over the
+    coming months.
 
 ..  _screenshots:
 

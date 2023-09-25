@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-# This file is part of the extension DA Bib for TYPO3.
+# This file is part of the extension CHF Bib for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
-namespace Digicademy\DABib\Controller;
+namespace Digicademy\CHFBib\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use Digicademy\DABib\Domain\Model\Tag;
-use Digicademy\DABib\Domain\Repository\TagRepository;
+use Digicademy\CHFBib\Domain\Model\Tag;
+use Digicademy\CHFBib\Domain\Repository\TagRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
