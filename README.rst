@@ -25,7 +25,7 @@ put together annotated bibliographies. The data can be listed as a full
 bibliography, but entries and contributors may also be grouped via labels, and
 other data models can reference and elaborate on individual entries using a
 ``Reference`` class. A flexible ``SameAs`` class adds options to identify, for
-example, authors via their OrcIDs in linked-data scenarios. A frontend plugin
+example, authors via their ORCIDs in linked-data scenarios. A frontend plugin
 provides options to display selections of the bibliography, and a few common
 serialisations of bibliographic data are included out of the box. A TYPO3 task
 can be activated to periodically and automatically import data from a Zotero
