@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFBib\Domain\Model;
 
-use Digicademy\CHFBib\Domain\Validator\StringOptionsValidator;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
