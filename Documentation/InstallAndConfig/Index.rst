@@ -17,7 +17,7 @@ Install and config
 
     In a blank folder in your page tree, add a ``BibliographicResource``.
     Further data, such as entries, needs to be located in the same data folder.
-    ``Reference``s, however, are an exception as they only point towards
+    ``SourceRelation``s, however, are an exception as they only point towards
     entries and may be part of other data models.
 
 3.  Optionally add a Zotero task

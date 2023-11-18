@@ -7,6 +7,6 @@ Editing content
 ===============
 
 Editors need access to the data folder in order to make changes. They may add
-and edit entries, contributors, and tags here.
+and edit entries, agents, and tags here.
 
 TBD

@@ -24,9 +24,9 @@ entries may carry descriptions, summaries, (cover) images, and other files to
 put together annotated bibliographies. The data can be listed as a full
 bibliography, but entries and contributors may also be grouped via labels, and
 other data models can reference and elaborate on individual entries using a
-``Reference`` class. A flexible ``SameAs`` class adds options to identify, for
-example, authors via their ORCIDs in linked-data scenarios. A frontend plugin
-provides options to display selections of the bibliography, and a few common
+``Reference`` class. A ``SameAs`` class may be used to identify, for example,
+authors via their ORCIDs in linked-data scenarios. A frontend plugin provides
+options to display selections of the bibliography, and a few common
 serialisations of bibliographic data are included out of the box. A TYPO3 task
 can be activated to periodically and automatically import data from a Zotero
 library.
@@ -40,31 +40,16 @@ Roadmap
 
 This is a pre-release version. The following steps are required for the software to move out of beta:
 
-**Version 0.6.0**
-
-- Move some classes/tables to CHF Base
-
-**Version 0.7.0**
-
 - TCA and model work as expected
 - Frontend plugin and templates
-
-**Version 0.8.0**
-
 - Import of *Namenforschung* data
 - Embedded metadata
-
-**Version 0.9.0**
-
 - First set of serialisations
 - Search configuration
-
-**Version 2.0.0**
-
 - Generic Zotero import
 - Add API documentation
 
-**Version 2.1.0**
+**Beyond 2.0.0**
 
 - Add testing
 - Additional serialisations

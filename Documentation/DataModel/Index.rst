@@ -7,23 +7,23 @@ Data model
 ==========
 
 All records of a bibliography are held together by a single
-``BibliographicResource`` which holds the main classes ``Entry``,
-``Contributor``, and ``Tag``. The class ``Entry`` has a set of fields that
-contain inforomation of non-independent items (e.g. papers in a journal) as
-well as independent publications (e.g. the journal itself). Entries may be
+``BibliographicResource`` which holds the main classes ``BibliographicEntry``,
+``Agent``, and ``Tag``. The class ``BibliographicEntry`` has a set of fields
+that contain inforomation of non-independent items (e.g. papers in a journal)
+as well as independent publications (e.g. the journal itself). Entries may be
 connected to other data models, which may specify elaborations such as the
-specific page number of a citation, by using the class ``Reference``.
+specific page number of a citation, by using the class ``SourceRelation``.
 
-``Scope``s may be used several times in a bibliographic entry to provide, for
+``Extent``s may be used several times in a bibliographic entry to provide, for
 example, volume and number of the journal an article is published in. The same
-class is used to enable providing multiple identifiers. ``Contributors`` were
-also pulled into their own class because they may occur multiple times per
-publication, but they have their role (e.g., author or editor) specified by
-being added to the right property of an ``Entry``.
+class is used to enable providing multiple identifiers. ``Agents`` use their
+own class because they may occur multiple times per publication, and their
+role (e.g., author or editor) can be specified by being added via an
+``AuthorshipRelation``.
 
-In addition, the model knows flexible ``Tag``s and ``SameAs`` classes, which
-can be used to group entries and contributors via labels and to connect
-entities to Linked Open Data.
+In addition, the model knows flexible ``LabelTag``s and ``SameAs`` classes,
+which can be used to group entries and agents via labels and to connect
+entities to authority files.
 
 ..  _graphical-overview:
 
@@ -37,9 +37,3 @@ Graphical overview
 
     Overview of the extension's data model. Check the :ref:`api-reference`
     for further details.
-
-It may become useful in the future to use the 'type' property of ``Entry`` TCA
-to simplify its available properties. The data model itself would need to be
-adapted in the form of class inheritance. The extension author initially
-decided against this to avoid artificially limiting, for example, the option
-to add the name of a conference to any type of entry.
