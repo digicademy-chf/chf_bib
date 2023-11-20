@@ -10,16 +10,16 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFBib\Domain\Repository;
 
-use Digicademy\CHFBib\Domain\Model\Entry;
+use Digicademy\CHFBib\Domain\Model\BibliographicEntry;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository for entries
+ * Repository for BibliographicEntry
  * 
- * @extends Repository<Entry>
+ * @extends Repository<BibliographicEntry>
  */
-class EntryRepository extends Repository
+class BibliographicEntryRepository extends Repository
 {
     protected $defaultOrderings = [
         'sorting'          => QueryInterface::ORDER_ASCENDING,
