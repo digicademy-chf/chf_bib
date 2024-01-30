@@ -822,11 +822,6 @@
                 <source>List of references that refer to this entry</source>
                 <target>Liste der Referenzen, die auf diesen Eintrag verweisen</target>
             </trans-unit>
-            <!-- Validator: RegularExpressionValidator -->
-            <trans-unit id="validator.regularExpression.noUuid" resname="validator.regularExpression.noUuid" approved="yes">
-                <source>The given value was not a UUID.</source>
-                <target>Der Wert war keine UUID.</target>
-            </trans-unit>
         </body>
     </file>
 </xliff>

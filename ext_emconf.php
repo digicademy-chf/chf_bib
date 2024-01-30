@@ -1,4 +1,5 @@
 <?php
+defined('TYPO3') or die();
 
 # This file is part of the extension CHF Bib for TYPO3.
 #
@@ -30,5 +31,3 @@ $EM_CONF[$_EXTKEY] = [
         ]
      ]
 ];
-
-?>
