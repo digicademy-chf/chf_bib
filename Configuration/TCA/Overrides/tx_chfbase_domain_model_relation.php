@@ -79,15 +79,19 @@ defined('TYPO3') or die();
                 'items' => [
                     [
                         'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.pageNumber',
-                        'value' => 'pageNumber',
+                        'value' => 'pageNumbers',
                     ],
                     [
                         'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.paragraphNumber',
-                        'value' => 'paragraphNumber',
+                        'value' => 'paragraphNumbers',
                     ],
                     [
                         'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.columnNumber',
-                        'value' => 'columnNumber',
+                        'value' => 'columnNumbers',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.chapterNumbers',
+                        'value' => 'chapterNumbers',
                     ],
                 ],
                 'required' => true,
