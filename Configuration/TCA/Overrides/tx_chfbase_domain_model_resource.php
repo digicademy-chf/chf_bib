@@ -24,7 +24,7 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add columns 'allBibliographicEntries'
+// Add column 'allBibliographicEntries'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_resource',
     [
         'allBibliographicEntries' => [

@@ -16,6 +16,47 @@
                 <source>List of all bibliographic entries compiled in this resource</source>
                 <target>Liste aller bibliografischen Einträge, die in dieser Ressource verzeichnet sind</target>
             </trans-unit>
+            <!-- Object: SourceRelation -->
+            <trans-unit id="object.sourceRelation.type.sourceRelation" resname="object.sourceRelation.type.sourceRelation" approved="yes">
+                <source>Source relation</source>
+                <target>Quellenrelation</target>
+            </trans-unit>
+            <trans-unit id="object.sourceRelation.bibliographicEntry" resname="object.sourceRelation.bibliographicEntry" approved="yes">
+                <source>Bibliographic entry</source>
+                <target>Bibliografieeintrag</target>
+            </trans-unit>
+            <trans-unit id="object.sourceRelation.bibliographicEntry.description" resname="object.sourceRelation.bibliographicEntry.description" approved="yes">
+                <source>Bibliographic entry to relate to the record</source>
+                <target>Bibliografieeintrag, der mit dem Eintrag verknüpft werden soll</target>
+            </trans-unit>
+            <trans-unit id="object.sourceRelation.elaborationType" resname="object.sourceRelation.elaborationType" approved="yes">
+                <source>Elaboration type</source>
+                <target>Art der Stelle</target>
+            </trans-unit>
+            <trans-unit id="object.sourceRelation.elaborationType.description" resname="object.sourceRelation.elaborationType.description" approved="yes">
+                <source>Type of elaboration in this bibliographic entry to relate to</source>
+                <target>Art der Stelle in diesem Bibliografieeintrag, auf die verwiesen wird</target>
+            </trans-unit>
+            <trans-unit id="object.sourceRelation.elaborationType.pageNumber" resname="object.sourceRelation.elaborationType.pageNumber" approved="yes">
+                <source>Page number</source>
+                <target>Seitenzahl</target>
+            </trans-unit>
+            <trans-unit id="object.sourceRelation.elaborationType.paragraphNumber" resname="object.sourceRelation.elaborationType.paragraphNumber" approved="yes">
+                <source>Paragraph number</source>
+                <target>Absatznummer</target>
+            </trans-unit>
+            <trans-unit id="object.sourceRelation.elaborationType.columnNumber" resname="object.sourceRelation.elaborationType.columnNumber" approved="yes">
+                <source>Column number</source>
+                <target>Spaltenzahl</target>
+            </trans-unit>
+            <trans-unit id="object.sourceRelation.elaboration" resname="object.sourceRelation.elaboration" approved="yes">
+                <source>Elaboration</source>
+                <target>Stelle</target>
+            </trans-unit>
+            <trans-unit id="object.sourceRelation.elaboration.description" resname="object.sourceRelation.elaboration.description" approved="yes">
+                <source>Elaboration on this bibliographic entry to relate to</source>
+                <target>Stellenangabe in diesem Bibliografieeintrag, auf die verwiesen wird</target>
+            </trans-unit>
 
             <!-- Database: Tag -->
             <trans-unit id="database.tag" resname="database.tag" approved="yes">

@@ -22,6 +22,11 @@ return [
     Digicademy\CHFBase\Domain\Model\AbstractResource::class => [
         'subclasses' => [
             'bibliographicResource' => Digicademy\CHFBib\Domain\Model\BibliographicResource::class,
-        ]
+        ],
+    ],
+    Digicademy\CHFBase\Domain\Model\AbstractRelation::class => [
+        'subclasses' => [
+            'sourceRelation' => Digicademy\CHFBib\Domain\Model\SourceRelation::class,
+        ],
     ],
 ];
