@@ -31,12 +31,6 @@ defined('TYPO3') or die();
     ]
 );
 
-
-
-
-
-
-
 // Add columns 'bibliographicEntry', 'elaborationType', and 'elaboration'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_relation',
     [
@@ -114,12 +108,6 @@ defined('TYPO3') or die();
         ],
     ]
 );
-
-
-
-
-
-
 
 // Create palette 'elaborationTypeElaboration'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
