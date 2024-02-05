@@ -15,13 +15,11 @@ CHF Bib
 =======
 
 The extension provides a data model for bibliographic data, as part of the
-Cultural Heritage Framework (CHF). It is largely modelled after the
-``biblStruct`` `element in TEI XML
-<https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-biblStruct.html>`__
-as `produced by Zotero
-<https://github.com/zotero/translators/blob/master/TEI.js>`__. In addition,
-entries may carry descriptions, summaries, (cover) images, and other files to
-put together annotated bibliographies. The data can be listed as a full
+Cultural Heritage Framework (CHF). It is largely modelled after the ``biblStruct``
+`element in TEI XML <https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-biblStruct.html>`__
+as `produced by Zotero <https://github.com/zotero/translators/blob/master/TEI.js>`__.
+In addition, entries may carry descriptions, summaries, (cover) images, and other
+files to put together annotated bibliographies. The data can be listed as a full
 bibliography, but entries and contributors may also be grouped via labels, and
 other data models can reference and elaborate on individual entries using a
 ``Reference`` class. A ``SameAs`` class may be used to identify, for example,
