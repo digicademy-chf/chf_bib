@@ -1,11 +1,4 @@
 <?php
-defined('TYPO3') or die();
-
-# This file is part of the extension CHF Bib for TYPO3.
-#
-# For the full copyright and license information, please read the
-# LICENSE.txt file that was distributed with this source code.
-
 
 $EM_CONF[$_EXTKEY] = [
     'title'          => 'CHF Bib',
@@ -14,11 +7,12 @@ $EM_CONF[$_EXTKEY] = [
     'author'         => 'Jonatan Jalle Steller',
     'author_email'   => 'jonatan.steller@adwmainz.de',
     'author_company' => 'Academy of Sciences and Literature Mainz',
-    'state'          => 'beta',
+    'state'          => 'stable',
     'version'        => '0.6.0',
     'constraints'    => [
         'depends'   => [
-            'typo3' => '13.0.0-13.99.99'
+            'typo3'                => '13.0.0-13.99.99',
+            'fluid_styled_content' => '13.0.0-13.99.99'
         ],
         'conflicts' => [
         ],
