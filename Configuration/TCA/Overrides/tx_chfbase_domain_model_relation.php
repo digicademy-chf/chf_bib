@@ -1,11 +1,13 @@
 <?php
-defined('TYPO3') or die();
+declare(strict_types=1);
 
 # This file is part of the extension CHF Bib for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
+
+defined('TYPO3') or die();
 
 /**
  * SourceRelation and its properties
@@ -119,6 +121,6 @@ defined('TYPO3') or die();
 // Add type 'sourceRelation' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'tx_chfbase_domain_model_relation',
-   'hiddenParentResource,uuidType,record,bibliographicEntry,elaborationTypeElaboration,description,'
+   'hiddenParentResource,uuidType,record,bibliographicEntry,elaborationTypeElaboration,description,',
    'sourceRelation'
 );
