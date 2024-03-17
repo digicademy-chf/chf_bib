@@ -58,483 +58,254 @@
                 <target>Stelle</target>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaboration.description" resname="object.sourceRelation.elaboration.description" approved="yes">
-                <source>Detailed reference, e.g., a page number</source>
-                <target>Detaillierte Referenz, z.B. als Seitenzahl</target>
+                <source>Detailed reference, e.g., a page number without "p." or "pp."</source>
+                <target>Detaillierte Referenz, z.B. als Seitenzahl ohne "S."</target>
             </trans-unit>
-
-            <!-- Database: Scope -->
-            <trans-unit id="database.scope" resname="database.scope" approved="yes">
-                <source>Scope</source>
-                <target>Ausgabe</target>
-            </trans-unit>
-            <trans-unit id="database.scope.text" resname="database.scope.text" approved="yes">
-                <source>Text</source>
-                <target>Text</target>
-            </trans-unit>
-            <trans-unit id="database.scope.text.description" resname="database.scope.text.description" approved="yes">
-                <source>Specific notation, e.g., URL, ISSN, volume, issue, or another number</source>
-                <target>Genauere Bezeichnung, z.B. URL, ISSN, Band, Heftnummer oder andere Nummer</target>
-            </trans-unit>
-            <trans-unit id="database.scope.type" resname="database.scope.type" approved="yes">
+            <!-- Object: BibliographicEntry -->
+            <trans-unit id="object.bibliographicEntry.type" resname="object.bibliographicEntry.type" approved="yes">
                 <source>Type</source>
                 <target>Art</target>
             </trans-unit>
-            <trans-unit id="database.scope.type.description" resname="database.scope.type.description" approved="yes">
-                <source>Type of notation</source>
-                <target>Art der Bezeichnung</target>
+            <trans-unit id="object.bibliographicEntry.type.description" resname="object.bibliographicEntry.type.description" approved="yes">
+                <source>Approximate taxonomy of the bibliographic entry (may be relevant in some citation styles)</source>
+                <target>Grobe Klassifizierung des bibliografischen Eintrags (je nach Zitierstil ggf. relevant)</target>
             </trans-unit>
-            <trans-unit id="database.scope.type.urn" resname="database.scope.type.urn" approved="yes">
-                <source>URN (includes DOI and Handle)</source>
-                <target>URN (inklusive DOI und Handle)</target>
-            </trans-unit>
-            <trans-unit id="database.scope.type.url" resname="database.scope.type.url" approved="yes">
-                <source>URL (web address)</source>
-                <target>URL (Webadresse)</target>
-            </trans-unit>
-            <trans-unit id="database.scope.type.issn" resname="database.scope.type.issn" approved="yes">
-                <source>ISSN</source>
-                <target>ISSN</target>
-            </trans-unit>
-            <trans-unit id="database.scope.type.isbn" resname="database.scope.type.isbn" approved="yes">
-                <source>ISBN</source>
-                <target>ISBN</target>
-            </trans-unit>
-            <trans-unit id="database.scope.type.callNumber" resname="database.scope.type.callNumber" approved="yes">
-                <source>Call number</source>
-                <target>Signatur</target>
-            </trans-unit>
-            <trans-unit id="database.scope.type.volume" resname="database.scope.type.volume" approved="yes">
-                <source>Volume</source>
-                <target>Band</target>
-            </trans-unit>
-            <trans-unit id="database.scope.type.issue" resname="database.scope.type.issue" approved="yes">
-                <source>Issue</source>
-                <target>Heftnummer</target>
-            </trans-unit>
-            <trans-unit id="database.scope.type.edition" resname="database.scope.type.edition" approved="yes">
-                <source>Edition</source>
-                <target>Ausgabe</target>
-            </trans-unit>
-            <trans-unit id="database.scope.type.version" resname="database.scope.type.version" approved="yes">
-                <source>Version</source>
-                <target>Version</target>
-            </trans-unit>
-            <!-- Database: Entry -->
-            <trans-unit id="database.entry" resname="database.entry" approved="yes">
-                <source>Entry</source>
-                <target>Eintrag</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publication" resname="database.entry.publication" approved="yes">
-                <source>Publication</source>
-                <target>Publikation</target>
-            </trans-unit>
-            <trans-unit id="database.entry.contributors" resname="database.entry.contributors" approved="yes">
-                <source>Contributors</source>
-                <target>Beitragende</target>
-            </trans-unit>
-            <trans-unit id="database.entry.scopesAndExtent" resname="database.entry.scopesAndExtent" approved="yes">
-                <source>Scopes and extent</source>
-                <target>Ausgaben und Umfang</target>
-            </trans-unit>
-            <trans-unit id="database.entry.content" resname="database.entry.content" approved="yes">
-                <source>Content</source>
-                <target>Inhalt</target>
-            </trans-unit>
-            <trans-unit id="database.entry.original" resname="database.entry.original" approved="yes">
-                <source>Original</source>
-                <target>Original</target>
-            </trans-unit>
-            <trans-unit id="database.entry.referenced" resname="database.entry.referenced" approved="yes">
-                <source>Referenced</source>
-                <target>Referenziert</target>
-            </trans-unit>
-            <trans-unit id="database.entry.parent_id" resname="database.entry.parent_id" approved="yes">
-                <source>Bibliography</source>
-                <target>Bibliografie</target>
-            </trans-unit>
-            <trans-unit id="database.entry.parent_id.description" resname="database.entry.parent_id.description" approved="yes">
-                <source>Bibliography that this entry is attached to</source>
-                <target>Bibliografie, zu der dieser Eintrag gehört</target>
-            </trans-unit>
-            <trans-unit id="database.entry.uuid" resname="database.entry.uuid" approved="yes">
-                <source>UUID</source>
-                <target>UUID</target>
-            </trans-unit>
-            <trans-unit id="database.entry.uuid.description" resname="database.entry.uuid.description" approved="yes">
-                <source>Unique identifier of the entry</source>
-                <target>Einzigartiger Identifikator des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.type" resname="database.entry.type" approved="yes">
-                <source>Entry type</source>
-                <target>Eintragsart</target>
-            </trans-unit>
-            <trans-unit id="database.entry.type.description" resname="database.entry.type.description" approved="yes">
-                <source>Approximate taxonomy of the bibliographic entry</source>
-                <target>Grobe Klassifizierung des bibliografischen Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.type.artwork" resname="database.entry.type.artwork" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.artwork" resname="object.bibliographicEntry.type.artwork" approved="yes">
                 <source>Artwork</source>
                 <target>Kunstwerk</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.audioRecording" resname="database.entry.type.audioRecording" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.audioRecording" resname="object.bibliographicEntry.type.audioRecording" approved="yes">
                 <source>Audio recording</source>
                 <target>Tonaufnahme</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.bill" resname="database.entry.type.bill" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.bill" resname="object.bibliographicEntry.type.bill" approved="yes">
                 <source>Bill</source>
                 <target>Gesetzentwurf</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.blogPost" resname="database.entry.type.blogPost" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.blogPost" resname="object.bibliographicEntry.type.blogPost" approved="yes">
                 <source>Blog post</source>
                 <target>Blogbeitrag</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.book" resname="database.entry.type.book" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.book" resname="object.bibliographicEntry.type.book" approved="yes">
                 <source>Book</source>
                 <target>Buch</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.bookSection" resname="database.entry.type.bookSection" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.bookSection" resname="object.bibliographicEntry.type.bookSection" approved="yes">
                 <source>Book section</source>
                 <target>Buchkapitel</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.case" resname="database.entry.type.case" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.case" resname="object.bibliographicEntry.type.case" approved="yes">
                 <source>Case</source>
                 <target>Fall</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.computerProgram" resname="database.entry.type.computerProgram" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.computerProgram" resname="object.bibliographicEntry.type.computerProgram" approved="yes">
                 <source>Software</source>
                 <target>Software</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.conferencePaper" resname="database.entry.type.conferencePaper" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.conferencePaper" resname="object.bibliographicEntry.type.conferencePaper" approved="yes">
                 <source>Conference paper</source>
                 <target>Konferenzbeitrag</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.dataset" resname="database.entry.type.dataset" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.dataset" resname="object.bibliographicEntry.type.dataset" approved="yes">
                 <source>Dataset</source>
                 <target>Datensatz</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.dictionaryEntry" resname="database.entry.type.dictionaryEntry" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.dictionaryEntry" resname="object.bibliographicEntry.type.dictionaryEntry" approved="yes">
                 <source>Dictionary entry</source>
                 <target>Wörterbucheintrag</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.document" resname="database.entry.type.document" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.document" resname="object.bibliographicEntry.type.document" approved="yes">
                 <source>Document</source>
                 <target>Dokument</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.email" resname="database.entry.type.email" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.email" resname="object.bibliographicEntry.type.email" approved="yes">
                 <source>Email</source>
                 <target>E-Mail</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.encyclopediaArticle" resname="database.entry.type.encyclopediaArticle" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.encyclopediaArticle" resname="object.bibliographicEntry.type.encyclopediaArticle" approved="yes">
                 <source>Encyclopedia article</source>
                 <target>Lexikonartikel</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.film" resname="database.entry.type.film" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.film" resname="object.bibliographicEntry.type.film" approved="yes">
                 <source>Film</source>
                 <target>Film</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.forumPost" resname="database.entry.type.forumPost" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.forumPost" resname="object.bibliographicEntry.type.forumPost" approved="yes">
                 <source>Forum post</source>
                 <target>Forenbeitrag</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.hearing" resname="database.entry.type.hearing" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.hearing" resname="object.bibliographicEntry.type.hearing" approved="yes">
                 <source>Hearing</source>
                 <target>Anhörung</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.instantMessage" resname="database.entry.type.instantMessage" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.instantMessage" resname="object.bibliographicEntry.type.instantMessage" approved="yes">
                 <source>Instant message</source>
                 <target>Chatbeitrag</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.interview" resname="database.entry.type.interview" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.interview" resname="object.bibliographicEntry.type.interview" approved="yes">
                 <source>Interview</source>
                 <target>Interview</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.journalArticle" resname="database.entry.type.journalArticle" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.journalArticle" resname="object.bibliographicEntry.type.journalArticle" approved="yes">
                 <source>Journal article</source>
                 <target>Fachzeitschriftenbeitrag</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.letter" resname="database.entry.type.letter" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.letter" resname="object.bibliographicEntry.type.letter" approved="yes">
                 <source>Letter</source>
                 <target>Brief</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.magazineArticle" resname="database.entry.type.magazineArticle" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.magazineArticle" resname="object.bibliographicEntry.type.magazineArticle" approved="yes">
                 <source>Magazine article</source>
                 <target>Zeitschriftenartikel</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.manuscript" resname="database.entry.type.manuscript" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.manuscript" resname="object.bibliographicEntry.type.manuscript" approved="yes">
                 <source>Manuscript</source>
                 <target>Manuskript</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.map" resname="database.entry.type.map" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.map" resname="object.bibliographicEntry.type.map" approved="yes">
                 <source>Map</source>
                 <target>Landkarte</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.newspaperArticle" resname="database.entry.type.newspaperArticle" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.newspaperArticle" resname="object.bibliographicEntry.type.newspaperArticle" approved="yes">
                 <source>Newspaper article</source>
                 <target>Zeitungsartikel</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.patent" resname="database.entry.type.patent" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.patent" resname="object.bibliographicEntry.type.patent" approved="yes">
                 <source>Patent</source>
                 <target>Patent</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.podcast" resname="database.entry.type.podcast" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.podcast" resname="object.bibliographicEntry.type.podcast" approved="yes">
                 <source>Podcast</source>
                 <target>Podcast</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.preprint" resname="database.entry.type.preprint" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.preprint" resname="object.bibliographicEntry.type.preprint" approved="yes">
                 <source>Preprint</source>
                 <target>Preprint</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.presentation" resname="database.entry.type.presentation" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.presentation" resname="object.bibliographicEntry.type.presentation" approved="yes">
                 <source>Presentation</source>
                 <target>Vortrag</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.radioBroadcast" resname="database.entry.type.radioBroadcast" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.radioBroadcast" resname="object.bibliographicEntry.type.radioBroadcast" approved="yes">
                 <source>Radio broadcast</source>
                 <target>Radiobeitrag</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.report" resname="database.entry.type.report" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.report" resname="object.bibliographicEntry.type.report" approved="yes">
                 <source>Report</source>
                 <target>Bericht</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.standard" resname="database.entry.type.standard" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.standard" resname="object.bibliographicEntry.type.standard" approved="yes">
                 <source>Standard</source>
                 <target>Standard</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.statute" resname="database.entry.type.statute" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.statute" resname="object.bibliographicEntry.type.statute" approved="yes">
                 <source>Statute</source>
                 <target>Gesetz</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.thesis" resname="database.entry.type.thesis" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.thesis" resname="object.bibliographicEntry.type.thesis" approved="yes">
                 <source>Thesis</source>
                 <target>Universitäre Arbeit</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.tvBroadcast" resname="database.entry.type.tvBroadcast" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.tvBroadcast" resname="object.bibliographicEntry.type.tvBroadcast" approved="yes">
                 <source>TV broadcast</source>
                 <target>Fernsehsendung</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.videoRecording" resname="database.entry.type.videoRecording" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.videoRecording" resname="object.bibliographicEntry.type.videoRecording" approved="yes">
                 <source>Video recording</source>
                 <target>Videoaufnahme</target>
             </trans-unit>
-            <trans-unit id="database.entry.type.webpage" resname="database.entry.type.webpage" approved="yes">
+            <trans-unit id="object.bibliographicEntry.type.webpage" resname="object.bibliographicEntry.type.webpage" approved="yes">
                 <source>Web page</source>
                 <target>Webseite</target>
             </trans-unit>
-            <trans-unit id="database.entry.syncId" resname="database.entry.syncId" approved="yes">
-                <source>Zotero synchronisation URL</source>
-                <target>URL für die Zotero-Synchronisierung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.syncId.description" resname="database.entry.syncId.description" approved="yes">
-                <source>Web address of a Zotero entry to be set and used during automated imports via a TYPO3 task</source>
-                <target>Webadresse eines Zoteroeintrags, die bei automatisierten Imports per TYPO3-Aufgabe gesetzt und genutzt werden kann</target>
-            </trans-unit>
-            <trans-unit id="database.entry.label" resname="database.entry.label" approved="yes">
-                <source>Label</source>
-                <target>Label</target>
-            </trans-unit>
-            <trans-unit id="database.entry.label.description" resname="database.entry.label.description" approved="yes">
-                <source>Label to group the entry into</source>
-                <target>Label zum Gliedern von Einträgen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.sameAs" resname="database.entry.sameAs" approved="yes">
-                <source>Reference URI</source>
-                <target>Referenz-URI</target>
-            </trans-unit>
-            <trans-unit id="database.entry.sameAs.description" resname="database.entry.sameAs.description" approved="yes">
-                <source>External web address to identify the bibliographic entry across the web</source>
-                <target>Externe Webadresse zur Identifikation des bibliografischen Eintrags im Internet</target>
-            </trans-unit>
-            <trans-unit id="database.entry.itemTitle" resname="database.entry.itemTitle" approved="yes">
+            <trans-unit id="object.bibliographicEntry.itemTitle" resname="object.bibliographicEntry.itemTitle" approved="yes">
                 <source>Item title</source>
                 <target>Beitragstitel</target>
             </trans-unit>
-            <trans-unit id="database.entry.itemTitle.description" resname="database.entry.itemTitle.description" approved="yes">
-                <source>Title of the non-independent publication, e.g., a paper</source>
-                <target>Titel der nicht-selbständigen Veröffentlichung, z.B. eines Aufsatzes</target>
+            <trans-unit id="object.bibliographicEntry.itemTitle.description" resname="object.bibliographicEntry.itemTitle.description" approved="yes">
+                <source>Title of a non-independent publication, e.g., a paper</source>
+                <target>Titel einer nicht-selbständigen Veröffentlichung, z.B. eines Aufsatzes</target>
             </trans-unit>
-            <trans-unit id="database.entry.publicationTitle" resname="database.entry.publicationTitle" approved="yes">
-                <source>Publication title</source>
-                <target>Publikationstitel</target>
+            <trans-unit id="object.bibliographicEntry.standaloneTitle" resname="object.bibliographicEntry.standaloneTitle" approved="yes">
+                <source>Standalone title</source>
+                <target>Eigenständiger Titel</target>
             </trans-unit>
-            <trans-unit id="database.entry.publicationTitle.description" resname="database.entry.publicationTitle.description" approved="yes">
+            <trans-unit id="object.bibliographicEntry.standaloneTitle.description" resname="object.bibliographicEntry.standaloneTitle.description" approved="yes">
                 <source>Title of the independent publication, e.g., a monograph</source>
                 <target>Titel der eigenständigen Veröffentlichung, z.B. einer Monografie</target>
             </trans-unit>
-            <trans-unit id="database.entry.publicationPlace" resname="database.entry.publicationPlace" approved="yes">
-                <source>Publication place</source>
-                <target>Verlagsort</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationPlace.description" resname="database.entry.publicationPlace.description" approved="yes">
-                <source>City or town where the publication was produced</source>
-                <target>Stadt oder Ort, wo die Publikation produziert wurde</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationDateCirca" resname="database.entry.publicationDateCirca" approved="yes">
-                <source>Publication date</source>
-                <target>Veröffentlichungsdatum</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationDateCirca.description" resname="database.entry.publicationDateCirca.description" approved="yes">
-                <source>Approximate date when the publication was published, usually a year</source>
-                <target>Grobes Datum, an dem die Publikation veröffentlicht wurde, üblicherweise eine Jahr</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationDateStart" resname="database.entry.publicationDateStart" approved="yes">
-                <source>Start of the publication period</source>
-                <target>Beginn des Veröffentlichungszeitraums</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationDateStart.description" resname="database.entry.publicationDateStart.description" approved="yes">
-                <source>Exact onset of the known period the publication was published in</source>
-                <target>Genaues Anfangsdatum des bekannten Veröffentlichungszeitraums</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationDateEnd" resname="database.entry.publicationDateEnd" approved="yes">
-                <source>End of the publication period</source>
-                <target>Ende des Veröffentlichungszeitraums</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationDateEnd.description" resname="database.entry.publicationDateEnd.description" approved="yes">
-                <source>Exact end of the known period the publication was published in</source>
-                <target>Genaues Anfangsdatum des bekannten Veröffentlichungszeitraums</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publisher" resname="database.entry.publisher" approved="yes">
-                <source>Publisher</source>
-                <target>Verlag</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publisher.description" resname="database.entry.publisher.description" approved="yes">
-                <source>Name of the publisher</source>
-                <target>Name des Verlags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.author" resname="database.entry.author" approved="yes">
-                <source>Author</source>
-                <target>Autor:in</target>
-            </trans-unit>
-            <trans-unit id="database.entry.author.description" resname="database.entry.author.description" approved="yes">
-                <source>List all authors of the entry</source>
-                <target>Liste alle Autor:innen des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editor" resname="database.entry.editor" approved="yes">
-                <source>Editor</source>
-                <target>Herausgeber:in</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editor.description" resname="database.entry.editor.description" approved="yes">
-                <source>List all editors of the entry</source>
-                <target>Liste aller Herausgeber:innen des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.translator" resname="database.entry.translator" approved="yes">
-                <source>Translator</source>
-                <target>Übersetzende:r</target>
-            </trans-unit>
-            <trans-unit id="database.entry.translator.description" resname="database.entry.translator.description" approved="yes">
-                <source>List all translators of the entry</source>
-                <target>Liste aller Übersetzer:innen des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.genericContributor" resname="database.entry.genericContributor" approved="yes">
-                <source>Other contributor</source>
-                <target>Andere:r Beitragende:r</target>
-            </trans-unit>
-            <trans-unit id="database.entry.genericContributor.description" resname="database.entry.genericContributor.description" approved="yes">
-                <source>List all further contributors of the entry</source>
-                <target>Liste aller weiteren Beiteiligten des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.scope" resname="database.entry.scope" approved="yes">
-                <source>Scope</source>
-                <target>Ausgabe</target>
-            </trans-unit>
-            <trans-unit id="database.entry.scope.description" resname="database.entry.scope.description" approved="yes">
-                <source>Information on the specific edition of the publication</source>
-                <target>Informationen zur genauen Ausgabe der Publikation</target>
-            </trans-unit>
-            <trans-unit id="database.entry.extent" resname="database.entry.extent" approved="yes">
-                <source>Extent</source>
-                <target>Umfang</target>
-            </trans-unit>
-            <trans-unit id="database.entry.extent.description" resname="database.entry.extent.description" approved="yes">
-                <source>Extent of an item in the publication</source>
-                <target>Umfang eines Beitrags in der Publikation</target>
-            </trans-unit>
-            <trans-unit id="database.entry.extentType" resname="database.entry.extentType" approved="yes">
-                <source>Extent type</source>
-                <target>Umfangsart</target>
-            </trans-unit>
-            <trans-unit id="database.entry.extentType.description" resname="database.entry.extentType.description" approved="yes">
-                <source>Clarification of the type of extent, e.g., page numbers</source>
-                <target>Angabe der Art des angegebenen Umfangs, z.B. Seitenzahlen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.extentType.pageNumbers" resname="database.entry.extentType.pageNumbers" approved="yes">
-                <source>Page numbers</source>
-                <target>Seitenzahlen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.extentType.paragraphNumbers" resname="database.entry.extentType.paragraphNumbers" approved="yes">
-                <source>Paragraph numbers</source>
-                <target>Absatznummern</target>
-            </trans-unit>
-            <trans-unit id="database.entry.extentType.columnNumbers" resname="database.entry.extentType.columnNumbers" approved="yes">
-                <source>Column numbers</source>
-                <target>Spaltenzahlen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.extentType.chapterNumbers" resname="database.entry.extentType.chapterNumbers" approved="yes">
-                <source>Chapter numbers</source>
-                <target>Kapitelnummern</target>
-            </trans-unit>
-            <trans-unit id="database.entry.seriesTitle" resname="database.entry.seriesTitle" approved="yes">
-                <source>Title of the publication series</source>
-                <target>Titel der Publikationsreihe</target>
-            </trans-unit>
-            <trans-unit id="database.entry.seriesTitle.description" resname="database.entry.seriesTitle.description" approved="yes">
-                <source>Name of a series this publication is part of</source>
-                <target>Name einer Reihe, zu der die Publikation gehört</target>
-            </trans-unit>
-            <trans-unit id="database.entry.meetingTitle" resname="database.entry.meetingTitle" approved="yes">
+            <trans-unit id="object.bibliographicEntry.meetingTitle" resname="object.bibliographicEntry.meetingTitle" approved="yes">
                 <source>Meeting name</source>
                 <target>Veranstaltungstitel</target>
             </trans-unit>
-            <trans-unit id="database.entry.meetingTitle.description" resname="database.entry.meetingTitle.description" approved="yes">
+            <trans-unit id="object.bibliographicEntry.meetingTitle.description" resname="object.bibliographicEntry.meetingTitle.description" approved="yes">
                 <source>Name of the meeting the publication was presented at</source>
                 <target>Titel der Veranstaltung, bei der die Publikation vorgestellt wurde</target>
             </trans-unit>
-            <trans-unit id="database.entry.description" resname="database.entry.description" approved="yes">
-                <source>Description</source>
-                <target>Beschreibung</target>
+            <trans-unit id="object.bibliographicEntry.seriesTitle" resname="object.bibliographicEntry.seriesTitle" approved="yes">
+                <source>Title of the publication series</source>
+                <target>Titel der Publikationsreihe</target>
             </trans-unit>
-            <trans-unit id="database.entry.description.description" resname="database.entry.description.description" approved="yes">
-                <source>Brief information about the entry</source>
-                <target>Kurze Erläuterung des Eintrags</target>
+            <trans-unit id="object.bibliographicEntry.seriesTitle.description" resname="object.bibliographicEntry.seriesTitle.description" approved="yes">
+                <source>Name of a series this publication is part of</source>
+                <target>Name einer Reihe, zu der diese Publikation gehört</target>
             </trans-unit>
-            <trans-unit id="database.entry.summary" resname="database.entry.summary" approved="yes">
-                <source>Summary</source>
-                <target>Zusammenfassung</target>
+            <trans-unit id="object.bibliographicEntry.date" resname="object.bibliographicEntry.date" approved="yes">
+                <source>Date</source>
+                <target>Datum</target>
             </trans-unit>
-            <trans-unit id="database.entry.summary.description" resname="database.entry.summary.description" approved="yes">
-                <source>Brief summary of the entry</source>
-                <target>Kurze Zusammenfassung des Eintrags</target>
+            <trans-unit id="object.bibliographicEntry.date.description" resname="object.bibliographicEntry.date.description" approved="yes">
+                <source>Date when the publication was published, usually a year or a day</source>
+                <target>Datum, an dem die Publikation veröffentlicht wurde, üblicherweise ein Jahr oder ein Tag</target>
             </trans-unit>
-            <trans-unit id="database.entry.image" resname="database.entry.image" approved="yes">
-                <source>Image</source>
-                <target>Bild</target>
+            <trans-unit id="object.bibliographicEntry.lastChecked" resname="object.bibliographicEntry.lastChecked" approved="yes">
+                <source>Last checked</source>
+                <target>Zuletzt überprüft</target>
             </trans-unit>
-            <trans-unit id="database.entry.image.description" resname="database.entry.image.description" approved="yes">
-                <source>Images depicting the entry, such as a cover or a digitisation</source>
-                <target>Bilder, die den Eintrag darstellen, wie z.B. ein Cover oder ein Digitalisat</target>
+            <trans-unit id="object.bibliographicEntry.lastChecked.description" resname="object.bibliographicEntry.lastChecked.description" approved="yes">
+                <source>Date when the source was last checked (relevant for web publications in some citation styles)</source>
+                <target>Datum, an dem die Quelle zuletzt abgerufen wurde (je nach Zitierstil für Onlinepublikationen relevant)</target>
             </trans-unit>
-            <trans-unit id="database.entry.file" resname="database.entry.file" approved="yes">
-                <source>File</source>
-                <target>Datei</target>
+            <!-- Object: Extent -->
+            <trans-unit id="object.extent.type.url" resname="object.extent.type.url" approved="yes">
+                <source>URL (web address)</source>
+                <target>URL (Webadresse)</target>
             </trans-unit>
-            <trans-unit id="database.entry.file.description" resname="database.entry.file.description" approved="yes">
-                <source>Files that contains, for example, the content of the entry</source>
-                <target>Dateien, die beispielsweise den Inhalt des Eintrags enthalten</target>
+            <trans-unit id="object.extent.type.doi" resname="object.extent.type.doi" approved="yes">
+                <source>DOI</source>
+                <target>DOI</target>
             </trans-unit>
-            <trans-unit id="database.entry.import" resname="database.entry.import" approved="yes">
-                <source>Imported file</source>
-                <target>Importierte Datei</target>
+            <trans-unit id="object.extent.type.urn" resname="object.extent.type.urn" approved="yes">
+                <source>Further URN (includes Handle)</source>
+                <target>Andere URN (inklusive Handle)</target>
             </trans-unit>
-            <trans-unit id="database.entry.import.description" resname="database.entry.import.description" approved="yes">
-                <source>Content of the file used to populate this record</source>
-                <target>Inhalt der Datei, die zum Befüllen dieses Datensatzes genutzt wurde</target>
+            <trans-unit id="object.extent.type.edition" resname="object.extent.type.edition" approved="yes">
+                <source>Edition</source>
+                <target>Ausgabe</target>
             </trans-unit>
-            <trans-unit id="database.entry.asEntryOfReference" resname="database.entry.asEntryOfReference" approved="yes">
-                <source>As entry of a reference</source>
-                <target>Als Eintrag bei einer Referenz</target>
+            <trans-unit id="object.extent.type.version" resname="object.extent.type.version" approved="yes">
+                <source>Version</source>
+                <target>Version</target>
             </trans-unit>
-            <trans-unit id="database.entry.asEntryOfReference.description" resname="database.entry.asEntryOfReference.description" approved="yes">
-                <source>List of references that refer to this entry</source>
-                <target>Liste der Referenzen, die auf diesen Eintrag verweisen</target>
+            <trans-unit id="object.extent.type.volume" resname="object.extent.type.volume" approved="yes">
+                <source>Volume</source>
+                <target>Band</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.issue" resname="object.extent.type.issue" approved="yes">
+                <source>Issue</source>
+                <target>Heftnummer</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.issn" resname="object.extent.type.issn" approved="yes">
+                <source>ISSN</source>
+                <target>ISSN</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.isbn" resname="object.extent.type.isbn" approved="yes">
+                <source>ISBN</source>
+                <target>ISBN</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.callNumber" resname="object.extent.type.callNumber" approved="yes">
+                <source>Call number</source>
+                <target>Signatur</target>
             </trans-unit>
         </body>
     </file>
