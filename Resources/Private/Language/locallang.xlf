@@ -232,6 +232,13 @@
             <trans-unit id="object.extent.type.callNumber" resname="object.extent.type.callNumber">
                 <source>Call number</source>
             </trans-unit>
+            <!-- Object: LabelTag -->
+            <trans-unit id="object.labelTag.asLabelOfBibliographicEntry" resname="object.labelTag.asLabelOfBibliographicEntry">
+                <source>Usage as label of a bibliographic entry</source>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfBibliographicEntry.description" resname="object.labelTag.asLabelOfBibliographicEntry.description">
+                <source>List of bibliographic entries that use this tag as a label</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

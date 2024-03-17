@@ -307,6 +307,15 @@
                 <source>Call number</source>
                 <target>Signatur</target>
             </trans-unit>
+            <!-- Object: LabelTag -->
+            <trans-unit id="object.labelTag.asLabelOfBibliographicEntry" resname="object.labelTag.asLabelOfBibliographicEntry" approved="yes">
+                <source>Usage as label of a bibliographic entry</source>
+                <target>Verwendung als Label eines bibliografischen Eintrags</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfBibliographicEntry.description" resname="object.labelTag.asLabelOfBibliographicEntry.description" approved="yes">
+                <source>List of bibliographic entries that use this tag as a label</source>
+                <target>Liste der bibliografischen Einträge, die dieses Schlagwort als Label verwenden</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
