@@ -48,6 +48,9 @@
                 <source>Detailed reference, e.g., a page number without "p." or "pp."</source>
             </trans-unit>
             <!-- Object: BibliographicEntry -->
+            <trans-unit id="object.bibliographicEntry" resname="object.bibliographicEntry">
+                <source>Bibliographic entry</source>
+            </trans-unit>
             <trans-unit id="object.bibliographicEntry.type" resname="object.bibliographicEntry.type">
                 <source>Type</source>
             </trans-unit>

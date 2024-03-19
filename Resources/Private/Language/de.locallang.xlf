@@ -62,6 +62,10 @@
                 <target>Detaillierte Referenz, z.B. als Seitenzahl ohne "S."</target>
             </trans-unit>
             <!-- Object: BibliographicEntry -->
+            <trans-unit id="object.bibliographicEntry" resname="object.bibliographicEntry" approved="yes">
+                <source>Bibliographic entry</source>
+                <target>Bibliografischer Eintrag</target>
+            </trans-unit>
             <trans-unit id="object.bibliographicEntry.type" resname="object.bibliographicEntry.type" approved="yes">
                 <source>Type</source>
                 <target>Art</target>
