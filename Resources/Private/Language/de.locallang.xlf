@@ -320,6 +320,15 @@
                 <source>List of bibliographic entries that use this tag as a label</source>
                 <target>Liste der bibliografischen Einträge, die dieses Schlagwort als Label verwenden</target>
             </trans-unit>
+            <!-- Object: AbstractHeritage -->
+            <trans-unit id="object.abstractHeritage.sourceRelation" resname="object.abstractHeritage.sourceRelation" approved="yes">
+                <source>Source relation</source>
+                <target>Quellenrelation</target>
+            </trans-unit>
+            <trans-unit id="object.abstractHeritage.sourceRelation.description" resname="object.abstractHeritage.sourceRelation.description" approved="yes">
+                <source>Source of this database record described by a relation</source>
+                <target>Quelle dieses Datenbankeintrags beschrieben durch eine Relation</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
