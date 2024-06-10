@@ -1,5 +1,4 @@
 <?php
-defined('TYPO3') or die();
 declare(strict_types=1);
 
 # This file is part of the extension CHF Bib for TYPO3.
@@ -13,6 +12,8 @@ namespace Digicademy\CHFBib\Domain\Repository;
 use Digicademy\CHFBib\Domain\Model\BibliographicEntry;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
+
+defined('TYPO3') or die();
 
 /**
  * Repository for BibliographicEntry

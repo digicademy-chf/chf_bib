@@ -1,5 +1,4 @@
 <?php
-defined('TYPO3') or die();
 declare(strict_types=1);
 
 # This file is part of the extension CHF Bib for TYPO3.
@@ -13,6 +12,8 @@ namespace Digicademy\CHFBib\Domain\Model;
 use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
+defined('TYPO3') or die();
 
 /**
  * Model for scopes
