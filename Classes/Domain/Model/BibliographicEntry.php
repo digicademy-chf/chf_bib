@@ -12,6 +12,7 @@ namespace Digicademy\CHFBib\Domain\Model;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AbstractHeritage;
 use Digicademy\CHFBase\Domain\Model\Extent;
@@ -131,13 +132,13 @@ class BibliographicEntry extends AbstractHeritage
     /**
      * Date when the publication was published, usually a year or a day
      * 
-     * @var ?ObjectStorage<Period>
+     * @var Period|LazyLoadingProxy
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $date = null;
+    protected Period|LazyLoadingProxy $date;
 
     /**
      * Date when the source was last checked (relevant for web publications in some citation styles)
@@ -187,7 +188,7 @@ class BibliographicEntry extends AbstractHeritage
     public function initializeObject(): void
     {
         $this->extent ??= new ObjectStorage();
-        $this->date ??= new ObjectStorage();
+        $this->date = new LazyLoadingProxy();
         $this->locationRelation ??= new ObjectStorage();
         $this->asBibliographicEntryOfSourceRelation ??= new ObjectStorage();
     }
@@ -343,51 +344,25 @@ class BibliographicEntry extends AbstractHeritage
 
     /**
      * Get date
-     *
-     * @return ObjectStorage<Period>
+     * 
+     * @return Period
      */
-    public function getDate(): ?ObjectStorage
+    public function getDate(): Period
     {
+        if ($this->date instanceof LazyLoadingProxy) {
+            $this->date->_loadRealInstance();
+        }
         return $this->date;
     }
 
     /**
      * Set date
-     *
-     * @param ObjectStorage<Period> $date
+     * 
+     * @param Period
      */
-    public function setDate(ObjectStorage $date): void
+    public function setDate(Period $date): void
     {
         $this->date = $date;
-    }
-
-    /**
-     * Add date
-     *
-     * @param Period $date
-     */
-    public function addDate(Period $date): void
-    {
-        $this->date?->attach($date);
-    }
-
-    /**
-     * Remove date
-     *
-     * @param Period $date
-     */
-    public function removeDate(Period $date): void
-    {
-        $this->date?->detach($date);
-    }
-
-    /**
-     * Remove all dates
-     */
-    public function removeAllDate(): void
-    {
-        $date = clone $this->date;
-        $this->date->removeAll($date);
     }
 
     /**
