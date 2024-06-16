@@ -188,7 +188,6 @@ class BibliographicEntry extends AbstractHeritage
     public function initializeObject(): void
     {
         $this->extent ??= new ObjectStorage();
-        $this->date = new LazyLoadingProxy();
         $this->locationRelation ??= new ObjectStorage();
         $this->asBibliographicEntryOfSourceRelation ??= new ObjectStorage();
     }

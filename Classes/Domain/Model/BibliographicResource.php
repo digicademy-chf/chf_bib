@@ -62,7 +62,6 @@ class BibliographicResource extends AbstractResource
      */
     public function initializeObject(): void
     {
-        $this->glossary = new LazyLoadingProxy();
         $this->allBibliographicEntries ??= new ObjectStorage();
     }
 
