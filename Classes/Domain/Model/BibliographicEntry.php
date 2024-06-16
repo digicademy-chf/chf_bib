@@ -132,13 +132,13 @@ class BibliographicEntry extends AbstractHeritage
     /**
      * Date when the publication was published, usually a year or a day
      * 
-     * @var Period|LazyLoadingProxy
+     * @var Period|LazyLoadingProxy|null
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected Period|LazyLoadingProxy $date;
+    protected Period|LazyLoadingProxy|null $date = null;
 
     /**
      * Date when the source was last checked (relevant for web publications in some citation styles)
