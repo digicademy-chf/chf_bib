@@ -488,7 +488,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'authorshipRelation',
-                    'tablename' => 'tx_chfbib_domain_model_bibliographic_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -520,7 +519,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'licenceRelation',
-                    'tablename' => 'tx_chfbib_domain_model_bibliographic_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -639,7 +637,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'locationRelation',
-                    'tablename' => 'tx_chfbib_domain_model_bibliographic_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -735,7 +732,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'linkRelation',
-                    'tablename' => 'tx_chfbib_domain_model_bibliographic_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -767,7 +763,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'sourceRelation',
-                    'tablename' => 'tx_chfbib_domain_model_bibliographic_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -824,7 +819,6 @@ return [
                 'MM_opposite_field' => 'bibliographicEntry',
                 'MM_match_fields' => [
                     'fieldname' => 'asBibliographicEntryOfSourceRelation',
-                    'tablename' => 'tx_chfbib_domain_model_bibliographic_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,

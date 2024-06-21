@@ -36,7 +36,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'sourceRelation',
-                    'tablename' => 'tx_chflex_domain_model_frequency',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
