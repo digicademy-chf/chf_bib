@@ -159,7 +159,7 @@ class BibliographicEntry extends AbstractHeritage
     protected ?ObjectStorage $locationRelation = null;
 
     /**
-     * List of bibliographic entries that use this tag as a label
+     * List of source relations that use this bibliographic entry
      * 
      * @var ?ObjectStorage<SourceRelation>
      */

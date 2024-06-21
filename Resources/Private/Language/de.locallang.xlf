@@ -270,6 +270,14 @@
                 <source>Date when the source was last checked (relevant for web publications in some citation styles)</source>
                 <target>Datum, an dem die Quelle zuletzt abgerufen wurde (je nach Zitierstil für Onlinepublikationen relevant)</target>
             </trans-unit>
+            <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation" approved="yes">
+                <source>Usage as bibliographic entry of a source relation</source>
+                <target>Verwendung als bibliografischer Eintrag einer Quellenrelation</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description" approved="yes">
+                <source>List of source relations that use this bibliographic entry</source>
+                <target>Liste der Quellenrelationen, die diesen bibliografischen Eintrag verwenden</target>
+            </trans-unit>
             <!-- Object: Extent -->
             <trans-unit id="object.extent.type.url" resname="object.extent.type.url" approved="yes">
                 <source>URL (web address)</source>

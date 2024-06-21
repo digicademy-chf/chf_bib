@@ -46,8 +46,7 @@ defined('TYPO3') or die();
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_chfbib_domain_model_bibliographic_entry',
                 'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographic_entry}.{#pid}=###CURRENT_PID###',
-                'MM' => 'tx_chfbib_domain_model_relation_bibliographicentry_bibliographicentry_mm',
-                'MM_opposite_field' => 'asBibliographicEntryOfSourceRelation',
+                'MM' => 'tx_chfbase_domain_model_relation_bibliographic_entry_bibentry_mm',
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -121,6 +120,6 @@ defined('TYPO3') or die();
 // Add type 'sourceRelation' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'tx_chfbase_domain_model_relation',
-   'hiddenParentResource,uuidType,record,bibliographicEntry,elaborationTypeElaboration,description,',
+   'parentResource,--palette--;;uuidType,record,bibliographicEntry,--palette--;;elaborationTypeElaboration,description,',
    'sourceRelation'
 );

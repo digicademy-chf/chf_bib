@@ -204,6 +204,12 @@
             <trans-unit id="object.bibliographicEntry.lastChecked.description" resname="object.bibliographicEntry.lastChecked.description">
                 <source>Date when the source was last checked (relevant for web publications in some citation styles)</source>
             </trans-unit>
+            <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation">
+                <source>Usage as bibliographic entry of a source relation</source>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description">
+                <source>List of source relations that use this bibliographic entry</source>
+            </trans-unit>
             <!-- Object: Extent -->
             <trans-unit id="object.extent.type.url" resname="object.extent.type.url">
                 <source>URL (web address)</source>

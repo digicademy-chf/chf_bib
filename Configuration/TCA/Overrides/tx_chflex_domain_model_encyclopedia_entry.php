@@ -34,6 +34,10 @@ defined('TYPO3') or die();
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'sourceRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_opposite_field' => 'record',
+                'MM_match_fields' => [
+                    'fieldname' => 'sourceRelation',
+                    'tablename' => 'tx_chflex_domain_model_encyclopedia_entry',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [

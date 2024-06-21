@@ -33,6 +33,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographic_entry}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chfbib_domain_model_bibliographic_entry_tag_label_mm',
                 'MM_opposite_field' => 'label',
+                'MM_match_fields' => [
+                    'fieldname' => 'asLabelOfBibliographicEntry',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
