@@ -28,7 +28,7 @@ defined('TYPO3') or die();
 class BibliographicEntry extends AbstractHeritage
 {
     /**
-     * Approximate taxonomy of the bibliographic entry (may be relevant in some citation styles)
+     * Approximate taxonomy of the entry
      * 
      * @var string
      */
@@ -130,7 +130,7 @@ class BibliographicEntry extends AbstractHeritage
     protected ?ObjectStorage $extent = null;
 
     /**
-     * Date when the publication was published, usually a year or a day
+     * Date when the publication was published
      * 
      * @var Period|LazyLoadingProxy|null
      */
@@ -141,7 +141,7 @@ class BibliographicEntry extends AbstractHeritage
     protected Period|LazyLoadingProxy|null $date = null;
 
     /**
-     * Date when the source was last checked (relevant for web publications in some citation styles)
+     * Date when the source was last checked
      * 
      * @var ?\DateTime
      */

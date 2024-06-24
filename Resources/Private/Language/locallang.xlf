@@ -55,7 +55,7 @@
                 <source>Type</source>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.type.description" resname="object.bibliographicEntry.type.description">
-                <source>Approximate taxonomy of the bibliographic entry (may be relevant in some citation styles)</source>
+                <source>Approximate taxonomy of the entry</source>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.type.artwork" resname="object.bibliographicEntry.type.artwork">
                 <source>Artwork</source>
@@ -196,13 +196,13 @@
                 <source>Date</source>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.date.description" resname="object.bibliographicEntry.date.description">
-                <source>Date when the publication was published, usually a year or a day</source>
+                <source>Date when the publication was published</source>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.lastChecked" resname="object.bibliographicEntry.lastChecked">
                 <source>Last checked</source>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.lastChecked.description" resname="object.bibliographicEntry.lastChecked.description">
-                <source>Date when the source was last checked (relevant for web publications in some citation styles)</source>
+                <source>Date when the source was last checked</source>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation">
                 <source>Usage as bibliographic entry of a source relation</source>
@@ -218,7 +218,7 @@
                 <source>DOI</source>
             </trans-unit>
             <trans-unit id="object.extent.type.urn" resname="object.extent.type.urn">
-                <source>Further URN (includes Handle)</source>
+                <source>Further URN (incl. Handle)</source>
             </trans-unit>
             <trans-unit id="object.extent.type.edition" resname="object.extent.type.edition">
                 <source>Edition</source>
@@ -246,14 +246,14 @@
                 <source>Usage as label of a bibliographic entry</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfBibliographicEntry.description" resname="object.labelTag.asLabelOfBibliographicEntry.description">
-                <source>List of bibliographic entries that use this tag as a label</source>
+                <source>List of bibliographic entries that use this label</source>
             </trans-unit>
             <!-- Object: AbstractHeritage -->
             <trans-unit id="object.abstractHeritage.sourceRelation" resname="object.abstractHeritage.sourceRelation">
-                <source>Source relation</source>
+                <source>Source</source>
             </trans-unit>
             <trans-unit id="object.abstractHeritage.sourceRelation.description" resname="object.abstractHeritage.sourceRelation.description">
-                <source>Source of this database record described by a relation</source>
+                <source>Sources of this database record</source>
             </trans-unit>
         </body>
     </file>

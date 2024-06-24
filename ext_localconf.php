@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 defined('TYPO3') or die();
 
-// Backend customisation
-$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets'] = [
-    'chf_bib' => 'EXT:chf_bib/Configuration/RTE/CHFBib.yaml',
+// Customisations of the rich-text editor
+$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets'] += [
+    'chf_bib_title' => 'EXT:chf_bib/Configuration/RTE/CHFBibTitle.yaml',
 ];

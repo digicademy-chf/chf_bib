@@ -55,11 +55,9 @@ defined('TYPO3') or die();
 );
 
 // Add type 'bibliographicResource' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-   'tx_chfbase_domain_model_resource',
-   '--palette--;;typeUuid,--palette--;;titleLangCodeDescriptionGlossary,sameAs,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,authorshipRelation,licenceRelation,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['bibliographicResource' => [
+    'showitem' => '--palette--;;typeUuid,--palette--;;titleLangCodeDescriptionGlossary,sameAs,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;authorshipRelationLicenceRelation,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allAgents,allFileGroups,allLocations,allPeriods,allRelations,allTags,allBibliographicEntries,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,importOrigin,importState,',
-   'bibliographicResource'
-);
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImportState,',
+]];

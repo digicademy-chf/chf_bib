@@ -43,22 +43,12 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.bibliographicEntry.description',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
+                'renderType' => 'selectSingleBox',
                 'foreign_table' => 'tx_chfbib_domain_model_bibliographic_entry',
                 'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographic_entry}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chfbase_domain_model_relation_bibliographic_entry_bibentry_mm',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
+                'sortItems' => [
+                    'label' => 'asc',
                 ],
                 'required' => true,
             ],
@@ -66,26 +56,26 @@ defined('TYPO3') or die();
         'elaborationType' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.description',
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.description',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.pageNumber',
+                        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.pageNumbers',
                         'value' => 'pageNumbers',
                     ],
                     [
-                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.paragraphNumber',
+                        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.paragraphNumbers',
                         'value' => 'paragraphNumbers',
                     ],
                     [
-                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.columnNumber',
+                        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.columnNumbers',
                         'value' => 'columnNumbers',
                     ],
                     [
-                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.chapterNumbers',
+                        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.chapterNumbers',
                         'value' => 'chapterNumbers',
                     ],
                 ],
@@ -110,16 +100,14 @@ defined('TYPO3') or die();
     ]
 );
 
-// Create palette 'elaborationTypeElaboration'
+// Create palette 'elaborationElaborationType'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tx_chfbase_domain_model_relation',
-    'elaborationTypeElaboration',
-    'elaborationType,elaboration,'
+    'bibliographicEntryElaborationElaborationType',
+    'bibliographicEntry,--linebreak--,elaboration,elaborationType,'
 );
 
 // Add type 'sourceRelation' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-   'tx_chfbase_domain_model_relation',
-   'parentResource,--palette--;;uuidType,record,bibliographicEntry,--palette--;;elaborationTypeElaboration,description,',
-   'sourceRelation'
-);
+$GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['sourceRelation' => [
+    'showitem' => '--palette--;;typeUuid,record,--palette--;;bibliographicEntryElaborationElaborationType,--palette--;;parentResourceDescription,',
+]];

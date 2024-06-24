@@ -4,16 +4,18 @@ imports:
     - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
     - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
 
-# Limited bibliographic text-formatting configuration for the editor
+# Simple title configuration for the editor
 editor:
   config:
     toolbar:
       items:
-        - bold
         - italic
         - subscript
         - superscript
+        - softhyphen
         - '|'
+        - removeFormat
         - clipboard
-        - undo
-        - redo
+        - '|'
+        - specialCharacters
+        - sourceEditing

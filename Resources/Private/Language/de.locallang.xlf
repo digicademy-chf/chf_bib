@@ -71,8 +71,8 @@
                 <target>Art</target>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.type.description" resname="object.bibliographicEntry.type.description" approved="yes">
-                <source>Approximate taxonomy of the bibliographic entry (may be relevant in some citation styles)</source>
-                <target>Grobe Klassifizierung des bibliografischen Eintrags (je nach Zitierstil ggf. relevant)</target>
+                <source>Approximate taxonomy of the entry</source>
+                <target>Grobe Klassifizierung des Eintrags</target>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.type.artwork" resname="object.bibliographicEntry.type.artwork" approved="yes">
                 <source>Artwork</source>
@@ -259,16 +259,16 @@
                 <target>Datum</target>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.date.description" resname="object.bibliographicEntry.date.description" approved="yes">
-                <source>Date when the publication was published, usually a year or a day</source>
-                <target>Datum, an dem die Publikation veröffentlicht wurde, üblicherweise ein Jahr oder ein Tag</target>
+                <source>Date when the publication was published</source>
+                <target>Datum, an dem die Publikation veröffentlicht wurde</target>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.lastChecked" resname="object.bibliographicEntry.lastChecked" approved="yes">
                 <source>Last checked</source>
                 <target>Zuletzt überprüft</target>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.lastChecked.description" resname="object.bibliographicEntry.lastChecked.description" approved="yes">
-                <source>Date when the source was last checked (relevant for web publications in some citation styles)</source>
-                <target>Datum, an dem die Quelle zuletzt abgerufen wurde (je nach Zitierstil für Onlinepublikationen relevant)</target>
+                <source>Date when the source was last checked</source>
+                <target>Datum, an dem die Quelle zuletzt abgerufen wurde</target>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation" approved="yes">
                 <source>Usage as bibliographic entry of a source relation</source>
@@ -288,8 +288,8 @@
                 <target>DOI</target>
             </trans-unit>
             <trans-unit id="object.extent.type.urn" resname="object.extent.type.urn" approved="yes">
-                <source>Further URN (includes Handle)</source>
-                <target>Andere URN (inklusive Handle)</target>
+                <source>Further URN (incl. Handle)</source>
+                <target>Andere URN (inkl. Handle)</target>
             </trans-unit>
             <trans-unit id="object.extent.type.edition" resname="object.extent.type.edition" approved="yes">
                 <source>Edition</source>
@@ -325,17 +325,17 @@
                 <target>Verwendung als Label eines bibliografischen Eintrags</target>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfBibliographicEntry.description" resname="object.labelTag.asLabelOfBibliographicEntry.description" approved="yes">
-                <source>List of bibliographic entries that use this tag as a label</source>
-                <target>Liste der bibliografischen Einträge, die dieses Schlagwort als Label verwenden</target>
+                <source>List of bibliographic entries that use this label</source>
+                <target>Liste der bibliografischen Einträge, die dieses Label verwenden</target>
             </trans-unit>
             <!-- Object: AbstractHeritage -->
             <trans-unit id="object.abstractHeritage.sourceRelation" resname="object.abstractHeritage.sourceRelation" approved="yes">
-                <source>Source relation</source>
-                <target>Quellenrelation</target>
+                <source>Source</source>
+                <target>Quelle</target>
             </trans-unit>
             <trans-unit id="object.abstractHeritage.sourceRelation.description" resname="object.abstractHeritage.sourceRelation.description" approved="yes">
-                <source>Source of this database record described by a relation</source>
-                <target>Quelle dieses Datenbankeintrags beschrieben durch eine Relation</target>
+                <source>Sources of this database record</source>
+                <target>Quellen dieses Datenbankeintrags</target>
             </trans-unit>
         </body>
     </file>
