@@ -11,6 +11,7 @@ namespace Digicademy\CHFBib\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AbstractRelation;
 use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
@@ -25,10 +26,10 @@ class SourceRelation extends AbstractRelation
     /**
      * Record to connect a relation to
      * 
-     * @var ?ObjectStorage<object>
+     * @var object|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected ?ObjectStorage $record;
+    protected object|null $record = null;
 
     /**
      * Bibliographic entry to relate to the record
@@ -84,7 +85,7 @@ class SourceRelation extends AbstractRelation
         $this->initializeObject();
 
         $this->setType('sourceRelation');
-        $this->addRecord($record);
+        $this->setRecord($record);
         $this->addBibliographicEntry($bibliographicEntry);
     }
 
@@ -93,57 +94,30 @@ class SourceRelation extends AbstractRelation
      */
     public function initializeObject(): void
     {
-        $this->record ??= new ObjectStorage();
         $this->bibliographicEntry ??= new ObjectStorage();
     }
 
     /**
      * Get record
-     *
-     * @return ObjectStorage<object>
+     * 
+     * @return object
      */
-    public function getRecord(): ?ObjectStorage
+    public function getRecord(): object
     {
+        if ($this->record instanceof LazyLoadingProxy) {
+            $this->record->_loadRealInstance();
+        }
         return $this->record;
     }
 
     /**
      * Set record
-     *
-     * @param ObjectStorage<object> $record
+     * 
+     * @param object
      */
-    public function setRecord(ObjectStorage $record): void
+    public function setRecord(object $record): void
     {
         $this->record = $record;
-    }
-
-    /**
-     * Add record
-     *
-     * @param object $record
-     */
-    public function addRecord(object $record): void
-    {
-        $this->record?->attach($record);
-    }
-
-    /**
-     * Remove record
-     *
-     * @param object $record
-     */
-    public function removeRecord(object $record): void
-    {
-        $this->record?->detach($record);
-    }
-
-    /**
-     * Remove all records
-     */
-    public function removeAllRecord(): void
-    {
-        $record = clone $this->record;
-        $this->record->removeAll($record);
     }
 
     /**

@@ -29,9 +29,11 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'sourceRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'tx_chfobject_domain_model_object_group',
+                    'fieldname' => 'sourceRelation',
+                ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
                 'appearance' => [

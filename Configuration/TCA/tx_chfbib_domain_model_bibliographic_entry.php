@@ -23,6 +23,7 @@ return [
         'label'                    => 'itemTitle',
         'label_alt'                => 'standaloneTitle,meetingTitle,seriesTitle',
         'label_alt_force'          => true,
+        'descriptionColumn'        => 'editorialNote',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
@@ -528,9 +529,11 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'authorshipRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographic_entry',
+                    'fieldname' => 'authorshipRelation',
+                ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
                 'appearance' => [
@@ -562,9 +565,11 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'licenceRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographic_entry',
+                    'fieldname' => 'licenceRelation',
+                ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
                 'appearance' => [
@@ -584,6 +589,78 @@ return [
                                 'default' => 'licenceRelation',
                             ],
                         ],
+                    ],
+                ],
+            ],
+        ],
+        'editorialSteps' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.editorialSteps',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.editorialSteps.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectCheckBox',
+                'items' => [
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.editorialSteps.checkDatabase',
+                        'value' => 'checkDatabase',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.editorialSteps.checkStandard',
+                        'value' => 'checkStandard',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.editorialSteps.checkForeignLanguage',
+                        'value' => 'checkForeignLanguage',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.editorialSteps.checkPrevious',
+                        'value' => 'checkPrevious',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.editorialSteps.checkFurther',
+                        'value' => 'checkFurther',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.editorialSteps.checkAuthorityFiles',
+                        'value' => 'checkAuthorityFiles',
+                    ],
+                ],
+            ],
+        ],
+        'publicationSteps' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.publicationSteps',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.publicationSteps.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectCheckBox',
+                'items' => [
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.publicationSteps.started',
+                        'value' => 'started',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.publicationSteps.edited',
+                        'value' => 'edited',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.publicationSteps.checked',
+                        'value' => 'checked',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.publicationSteps.deferred',
+                        'value' => 'deferred',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.publicationSteps.revised',
+                        'value' => 'revised',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.publicationSteps.publicationReady',
+                        'value' => 'publicationReady',
                     ],
                 ],
             ],
@@ -608,9 +685,11 @@ return [
             'config' => [
                 'type' => 'number',
                 'size' => 13,
+                'default' => 1,
                 'range' => [
                     'lower' => 1,
                 ],
+                'required' => true,
             ],
         ],
         'revisionDate' => [
@@ -683,9 +762,11 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'locationRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographic_entry',
+                    'fieldname' => 'locationRelation',
+                ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
                 'appearance' => [
@@ -770,7 +851,6 @@ return [
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.file.description',
             'config' => [
                 'type' => 'file',
-                'allowed' => 'common-text-types',
             ],
         ],
         'linkRelation' => [
@@ -781,9 +861,11 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'linkRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographic_entry',
+                    'fieldname' => 'linkRelation',
+                ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
                 'appearance' => [
@@ -815,9 +897,11 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'sourceRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographic_entry',
+                    'fieldname' => 'sourceRelation',
+                ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
                 'appearance' => [
@@ -886,23 +970,14 @@ return [
         ],
     ],
     'palettes' => [
-        'typeUuidIsHighlightLastChecked' => [
-            'showitem' => 'type,uuid,--linebreak--,isHighlight,lastChecked,',
+        'typeLastChecked' => [
+            'showitem' => 'type,lastChecked,',
         ],
-        'itemTitleStandaloneTitleMeetingTitleSeriesTitleExtent' => [
-            'showitem' => 'itemTitle,standaloneTitle,--linebreak--,meetingTitle,seriesTitle,--linebreak--,extent,',
-        ],
-        'parentResourceLabel' => [
-            'showitem' => 'parentResource,label,',
+        'itemTitleStandaloneTitleMeetingTitleSeriesTitle' => [
+            'showitem' => 'itemTitle,standaloneTitle,--linebreak--,meetingTitle,seriesTitle,',
         ],
         'dateLocationRelation' => [
             'showitem' => 'date,--linebreak--,locationRelation,',
-        ],
-        'authorshipRelationLicenceRelation' => [
-            'showitem' => 'authorshipRelation,--linebreak--,licenceRelation,',
-        ],
-        'publicationDateRevisionDateRevisionNumberEditorialNote' => [
-            'showitem' => 'publicationDate,revisionDate,revisionNumber,--linebreak--,editorialNote,',
         ],
         'contentElementFootnote' => [
             'showitem' => 'contentElement,--linebreak--,footnote,',
@@ -910,16 +985,30 @@ return [
         'mediaFile' => [
             'showitem' => 'media,--linebreak--,file,',
         ],
+        'iriUuid' => [
+            'showitem' => 'iri,uuid,',
+        ],
+        'authorshipRelationLicenceRelation' => [
+            'showitem' => 'authorshipRelation,--linebreak--,licenceRelation,',
+        ],
+        'editorialStepsPublicationSteps' => [
+            'showitem' => 'editorialSteps,publicationSteps,',
+        ],
+        'publicationDateRevisionDateRevisionNumberEditorialNote' => [
+            'showitem' => 'publicationDate,revisionDate,revisionNumber,--linebreak--,editorialNote,',
+        ],
         'importOriginImport' => [
             'showitem' => 'importOrigin,--linebreak--,import,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;typeUuidIsHighlightLastChecked,--palette--;;itemTitleStandaloneTitleMeetingTitleSeriesTitleExtent,--palette--;;parentResourceLabel,sameAs,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;authorshipRelationLicenceRelation,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,--palette--;;dateLocationRelation,--palette--;;contentElementFootnote,--palette--;;mediaFile,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.relations,linkRelation,publicationRelation,sourceRelation,
+            'showitem' => '--palette--;;typeLastChecked,--palette--;;itemTitleStandaloneTitleMeetingTitleSeriesTitle,extent,label,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;dateLocationRelation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.unstructured,--palette--;;contentElementFootnote,--palette--;;mediaFile,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,linkRelation,publicationRelation,sourceRelation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,isHighlight,parentResource,sameAs,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;authorshipRelationLicenceRelation,--palette--;;editorialStepsPublicationSteps,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImport,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asBibliographicEntryOfSourceRelation,',
         ],

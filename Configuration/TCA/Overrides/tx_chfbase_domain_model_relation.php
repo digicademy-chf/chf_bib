@@ -43,11 +43,16 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.bibliographicEntry.description',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectSingleBox',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chfbib_domain_model_bibliographic_entry',
                 'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographic_entry}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chfbase_domain_model_relation_bibliographic_entry_bibentry_mm',
-                'multiple' => 1,
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -110,5 +115,6 @@ defined('TYPO3') or die();
 
 // Add type 'sourceRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['sourceRelation' => [
-    'showitem' => '--palette--;;typeUuid,record,--palette--;;bibliographicEntryElaborationElaborationType,--palette--;;parentResourceDescription,',
+    'showitem' => 'type,record,--palette--;;bibliographicEntryElaborationElaborationType,description,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,',
 ]];
