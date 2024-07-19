@@ -413,46 +413,56 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'items' => [
+                                'items' => [ // Please also add new items in this list to the overwrite of tx_chfbase_domain_model_extent
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.url',
                                         'value' => 'url',
+                                        'group' => 'chfBib',
                                     ],
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.doi',
                                         'value' => 'doi',
+                                        'group' => 'chfBib',
                                     ],
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.urn',
                                         'value' => 'urn',
+                                        'group' => 'chfBib',
                                     ],
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.edition',
                                         'value' => 'edition',
+                                        'group' => 'chfBib',
                                     ],
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.version',
                                         'value' => 'version',
+                                        'group' => 'chfBib',
                                     ],
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.volume',
                                         'value' => 'volume',
+                                        'group' => 'chfBib',
                                     ],
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.issue',
                                         'value' => 'issue',
+                                        'group' => 'chfBib',
                                     ],
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.issn',
                                         'value' => 'issn',
+                                        'group' => 'chfBib',
                                     ],
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.isbn',
                                         'value' => 'isbn',
+                                        'group' => 'chfBib',
                                     ],
                                     [
                                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.extent.type.callNumber',
                                         'value' => 'callNumber',
+                                        'group' => 'chfBib',
                                     ],
                                 ],
                             ],
@@ -551,6 +561,7 @@ return [
                         'type' => [
                             'config' => [
                                 'default' => 'authorshipRelation',
+                                'readOnly' => true,
                             ],
                         ],
                     ],
@@ -587,6 +598,7 @@ return [
                         'type' => [
                             'config' => [
                                 'default' => 'licenceRelation',
+                                'readOnly' => true,
                             ],
                         ],
                     ],
@@ -784,6 +796,7 @@ return [
                         'type' => [
                             'config' => [
                                 'default' => 'locationRelation',
+                                'readOnly' => true,
                             ],
                         ],
                     ],
@@ -883,6 +896,7 @@ return [
                         'type' => [
                             'config' => [
                                 'default' => 'linkRelation',
+                                'readOnly' => true,
                             ],
                         ],
                     ],
@@ -919,6 +933,7 @@ return [
                         'type' => [
                             'config' => [
                                 'default' => 'sourceRelation',
+                                'readOnly' => true,
                             ],
                         ],
                     ],
