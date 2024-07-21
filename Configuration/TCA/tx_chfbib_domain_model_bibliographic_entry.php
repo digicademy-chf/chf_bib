@@ -30,7 +30,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'isHighlight ASC,itemTitle ASC,standaloneTitle ASC,meetingTitle ASC,seriesTitle ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:chf_bib/Resources/Public/Icons/BibliographicEntry.svg',
+        'iconfile'                 => 'EXT:chf_bib/Resources/Public/Icons/TableBibliographicEntry.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',

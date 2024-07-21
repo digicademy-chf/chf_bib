@@ -255,6 +255,13 @@
             <trans-unit id="object.abstractHeritage.sourceRelation.description" resname="object.abstractHeritage.sourceRelation.description">
                 <source>Sources of this database record</source>
             </trans-unit>
+            <!-- Plugin: BibBibliography -->
+            <trans-unit id="plugin.bibBibliography" resname="plugin.bibBibliography">
+                <source>Bibliography</source>
+            </trans-unit>
+            <trans-unit id="plugin.bibBibliography.description" resname="plugin.bibBibliography.description">
+                <source>List and show bibliographic entries</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

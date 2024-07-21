@@ -337,6 +337,15 @@
                 <source>Sources of this database record</source>
                 <target>Quellen dieses Datenbankeintrags</target>
             </trans-unit>
+            <!-- Plugin: BibBibliography -->
+            <trans-unit id="plugin.bibBibliography" resname="plugin.bibBibliography" approved="yes">
+                <source>Bibliography</source>
+                <target>Bibliografie</target>
+            </trans-unit>
+            <trans-unit id="plugin.bibBibliography.description" resname="plugin.bibBibliography.description" approved="yes">
+                <source>List and show bibliographic entries</source>
+                <target>Bibliografische Einträge auflisten und anzeigen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
