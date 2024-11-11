@@ -7,6 +7,8 @@ declare(strict_types=1);
 # LICENSE.txt file that was distributed with this source code.
 
 
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') or die();
 
 /**
@@ -19,7 +21,7 @@ defined('TYPO3') or die();
  */
 
 // Add plugin 'BibBibliography'
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'CHFBib',
     'BibBibliography',
     'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:plugin.bibBibliography',
