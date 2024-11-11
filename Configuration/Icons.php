@@ -22,8 +22,8 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:chf_bib/Resources/Public/Icons/TableBibliographicEntry.svg',
     ],
-    'tx-chfbib-plugin-bib-bibliography' => [
+    'tx-chfbib-plugin-bibliography' => [
         'provider' => SvgIconProvider::class,
-        'source' => 'EXT:chf_bib/Resources/Public/Icons/PluginBibBibliography.svg',
+        'source' => 'EXT:chf_bib/Resources/Public/Icons/PluginBibliography.svg',
     ],
 ];

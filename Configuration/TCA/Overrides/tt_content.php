@@ -20,12 +20,12 @@ defined('TYPO3') or die();
  * https://docs.typo3.org/m/typo3/reference-tca/main/en-us/.
  */
 
-// Add plugin 'BibBibliography'
+// Add plugin 'Bibliography'
 ExtensionUtility::registerPlugin(
     'CHFBib',
-    'BibBibliography',
-    'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:plugin.bibBibliography',
-    'tx-chfbib-plugin-bib-bibliography',
+    'Bibliography',
+    'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:plugin.bibliography',
+    'tx-chfbib-plugin-bibliography',
     'heritage',
-    'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:plugin.bibBibliography.description',
+    'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:plugin.bibliography.description',
 );

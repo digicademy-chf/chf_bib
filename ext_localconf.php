@@ -12,10 +12,10 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
 
-// Register 'BibBibliography' content element
+// Register 'Bibliography' content element
 ExtensionUtility::configurePlugin(
     'CHFBib',
-    'BibBibliography',
+    'Bibliography',
     [
         AbstractResourceController::class => 'index',
         AbstractResourceController::class => 'show',
