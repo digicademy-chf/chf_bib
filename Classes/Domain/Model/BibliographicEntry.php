@@ -79,12 +79,22 @@ class BibliographicEntry extends AbstractHeritage
     protected string $type = 'book';
 
     /**
+     * Date when the source was last checked
+     * 
+     * @var ?\DateTime
+     */
+    protected ?\DateTime $lastChecked = null;
+
+    /**
      * Title of a non-independent publication, e.g., a paper
      * 
      * @var string
      */
     #[Validate([
-        'validator' => 'String',
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
     ])]
     protected string $itemTitle = '';
 
@@ -94,7 +104,10 @@ class BibliographicEntry extends AbstractHeritage
      * @var string
      */
     #[Validate([
-        'validator' => 'String',
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
     ])]
     protected string $standaloneTitle = '';
 
@@ -104,7 +117,10 @@ class BibliographicEntry extends AbstractHeritage
      * @var string
      */
     #[Validate([
-        'validator' => 'String',
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
     ])]
     protected string $meetingTitle = '';
 
@@ -114,12 +130,15 @@ class BibliographicEntry extends AbstractHeritage
      * @var string
      */
     #[Validate([
-        'validator' => 'String',
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
     ])]
     protected string $seriesTitle = '';
 
     /**
-     * List of extents and identifiers relevant to this entry
+     * List of extents relevant to this entry<
      * 
      * @var ?ObjectStorage<Extent>
      */
@@ -141,14 +160,7 @@ class BibliographicEntry extends AbstractHeritage
     protected Period|LazyLoadingProxy|null $date = null;
 
     /**
-     * Date when the source was last checked
-     * 
-     * @var ?\DateTime
-     */
-    protected ?\DateTime $lastChecked = null;
-
-    /**
-     * Location of this database record described by a relation
+     * Location related to this record
      * 
      * @var ?ObjectStorage<LocationRelation>
      */
@@ -171,15 +183,12 @@ class BibliographicEntry extends AbstractHeritage
      *
      * @param object $parentResource
      * @param string $uuid
-     * @param string $type
      * @return BibliographicEntry
      */
-    public function __construct(object $parentResource, string $uuid, string $type)
+    public function __construct(object $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();
-
-        $this->setType($type);
     }
 
     /**
@@ -210,6 +219,26 @@ class BibliographicEntry extends AbstractHeritage
     public function setType(string $type): void
     {
         $this->type = $type;
+    }
+
+    /**
+     * Get last checked
+     *
+     * @return ?\DateTime
+     */
+    public function getLastChecked(): ?\DateTime
+    {
+        return $this->lastChecked;
+    }
+
+    /**
+     * Set last checked
+     *
+     * @param \DateTime $lastChecked
+     */
+    public function setLastChecked(\DateTime $lastChecked): void
+    {
+        $this->lastChecked = $lastChecked;
     }
 
     /**
@@ -362,26 +391,6 @@ class BibliographicEntry extends AbstractHeritage
     public function setDate(Period $date): void
     {
         $this->date = $date;
-    }
-
-    /**
-     * Get last checked
-     *
-     * @return ?\DateTime
-     */
-    public function getLastChecked(): ?\DateTime
-    {
-        return $this->lastChecked;
-    }
-
-    /**
-     * Set last checked
-     *
-     * @param \DateTime $lastChecked
-     */
-    public function setLastChecked(\DateTime $lastChecked): void
-    {
-        $this->lastChecked = $lastChecked;
     }
 
     /**

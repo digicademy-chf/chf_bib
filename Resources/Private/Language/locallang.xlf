@@ -210,37 +210,6 @@
             <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description">
                 <source>List of source relations that use this bibliographic entry</source>
             </trans-unit>
-            <!-- Object: Extent -->
-            <trans-unit id="object.extent.type.url" resname="object.extent.type.url">
-                <source>URL (web address)</source>
-            </trans-unit>
-            <trans-unit id="object.extent.type.doi" resname="object.extent.type.doi">
-                <source>DOI</source>
-            </trans-unit>
-            <trans-unit id="object.extent.type.urn" resname="object.extent.type.urn">
-                <source>Further URN (incl. Handle)</source>
-            </trans-unit>
-            <trans-unit id="object.extent.type.edition" resname="object.extent.type.edition">
-                <source>Edition</source>
-            </trans-unit>
-            <trans-unit id="object.extent.type.version" resname="object.extent.type.version">
-                <source>Version</source>
-            </trans-unit>
-            <trans-unit id="object.extent.type.volume" resname="object.extent.type.volume">
-                <source>Volume</source>
-            </trans-unit>
-            <trans-unit id="object.extent.type.issue" resname="object.extent.type.issue">
-                <source>Issue</source>
-            </trans-unit>
-            <trans-unit id="object.extent.type.issn" resname="object.extent.type.issn">
-                <source>ISSN</source>
-            </trans-unit>
-            <trans-unit id="object.extent.type.isbn" resname="object.extent.type.isbn">
-                <source>ISBN</source>
-            </trans-unit>
-            <trans-unit id="object.extent.type.callNumber" resname="object.extent.type.callNumber">
-                <source>Call number</source>
-            </trans-unit>
             <!-- Object: LabelTag -->
             <trans-unit id="object.labelTag.asLabelOfBibliographicEntry" resname="object.labelTag.asLabelOfBibliographicEntry">
                 <source>Usage as label of a bibliographic entry</source>

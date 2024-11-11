@@ -59,6 +59,21 @@ defined('TYPO3') or die();
                 'required' => true,
             ],
         ],
+        'elaboration' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaboration',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaboration.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+                'required' => true,
+            ],
+        ],
         'elaborationType' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -85,21 +100,7 @@ defined('TYPO3') or die();
                         'value' => 'chapterNumbers',
                     ],
                 ],
-                'required' => true,
-            ],
-        ],
-        'elaboration' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaboration',
-            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaboration.description',
-            'config' => [
-                'type' => 'input',
-                'size' => 40,
-                'max' => 255,
-                'eval' => 'trim',
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
-                ],
+                'default' => 'pageNumbers',
                 'required' => true,
             ],
         ],
@@ -116,5 +117,5 @@ defined('TYPO3') or die();
 // Add type 'sourceRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['sourceRelation' => [
     'showitem' => 'type,record,--palette--;;bibliographicEntryElaborationElaborationType,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuid,',
 ]];

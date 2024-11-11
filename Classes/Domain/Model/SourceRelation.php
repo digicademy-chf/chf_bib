@@ -40,6 +40,19 @@ class SourceRelation extends AbstractRelation
     protected ?ObjectStorage $bibliographicEntry;
 
     /**
+     * Detailed reference, e.g., a page number without "p." or "pp."
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $elaboration = '';
+
+    /**
      * Type of detailed reference
      * 
      * @var string
@@ -58,28 +71,15 @@ class SourceRelation extends AbstractRelation
     protected string $elaborationType = 'pageNumbers';
 
     /**
-     * Detailed reference, e.g., a page number without "p." or "pp."
-     * 
-     * @var string
-     */
-    #[Validate([
-        'validator' => 'StringLength',
-        'options' => [
-            'maximum' => 255,
-        ],
-    ])]
-    protected string $elaboration = '';
-
-    /**
      * Construct object
      *
-     * @param object $parentResource
-     * @param string $uuid
      * @param object $record
      * @param BibliographicEntry $bibliographicEntry
+     * @param object $parentResource
+     * @param string $uuid
      * @return SourceRelation
      */
-    public function __construct(object $parentResource, string $uuid, object $record, BibliographicEntry $bibliographicEntry)
+    public function __construct(object $record, BibliographicEntry $bibliographicEntry, object $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();
@@ -170,26 +170,6 @@ class SourceRelation extends AbstractRelation
     }
 
     /**
-     * Get elaboration type
-     *
-     * @return string
-     */
-    public function getElaborationType(): string
-    {
-        return $this->elaborationType;
-    }
-
-    /**
-     * Set elaboration type
-     *
-     * @param string $elaborationType
-     */
-    public function setElaborationType(string $elaborationType): void
-    {
-        $this->elaborationType = $elaborationType;
-    }
-
-    /**
      * Get elaboration
      *
      * @return string
@@ -207,5 +187,25 @@ class SourceRelation extends AbstractRelation
     public function setElaboration(string $elaboration): void
     {
         $this->elaboration = $elaboration;
+    }
+
+    /**
+     * Get elaboration type
+     *
+     * @return string
+     */
+    public function getElaborationType(): string
+    {
+        return $this->elaborationType;
+    }
+
+    /**
+     * Set elaboration type
+     *
+     * @param string $elaborationType
+     */
+    public function setElaborationType(string $elaborationType): void
+    {
+        $this->elaborationType = $elaborationType;
     }
 }

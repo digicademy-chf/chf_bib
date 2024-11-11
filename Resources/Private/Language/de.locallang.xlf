@@ -64,7 +64,7 @@
             <!-- Object: BibliographicEntry -->
             <trans-unit id="object.bibliographicEntry" resname="object.bibliographicEntry" approved="yes">
                 <source>Bibliographic entry</source>
-                <target>Bibliografischer Eintrag</target>
+                <target>Bibliografieeintrag</target>
             </trans-unit>
             <trans-unit id="object.bibliographicEntry.type" resname="object.bibliographicEntry.type" approved="yes">
                 <source>Type</source>
@@ -277,47 +277,6 @@
             <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description" approved="yes">
                 <source>List of source relations that use this bibliographic entry</source>
                 <target>Liste der Quellenrelationen, die diesen bibliografischen Eintrag verwenden</target>
-            </trans-unit>
-            <!-- Object: Extent -->
-            <trans-unit id="object.extent.type.url" resname="object.extent.type.url" approved="yes">
-                <source>URL (web address)</source>
-                <target>URL (Webadresse)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.doi" resname="object.extent.type.doi" approved="yes">
-                <source>DOI</source>
-                <target>DOI</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.urn" resname="object.extent.type.urn" approved="yes">
-                <source>Further URN (incl. Handle)</source>
-                <target>Andere URN (inkl. Handle)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.edition" resname="object.extent.type.edition" approved="yes">
-                <source>Edition</source>
-                <target>Ausgabe</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.version" resname="object.extent.type.version" approved="yes">
-                <source>Version</source>
-                <target>Version</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.volume" resname="object.extent.type.volume" approved="yes">
-                <source>Volume</source>
-                <target>Band</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.issue" resname="object.extent.type.issue" approved="yes">
-                <source>Issue</source>
-                <target>Heftnummer</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.issn" resname="object.extent.type.issn" approved="yes">
-                <source>ISSN</source>
-                <target>ISSN</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.isbn" resname="object.extent.type.isbn" approved="yes">
-                <source>ISBN</source>
-                <target>ISBN</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.callNumber" resname="object.extent.type.callNumber" approved="yes">
-                <source>Call number</source>
-                <target>Signatur</target>
             </trans-unit>
             <!-- Object: LabelTag -->
             <trans-unit id="object.labelTag.asLabelOfBibliographicEntry" resname="object.labelTag.asLabelOfBibliographicEntry" approved="yes">
