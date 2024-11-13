@@ -26,10 +26,10 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add column 'allBibliographicEntries'
+// Add column 'all_bibliographic_entries'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_resource',
     [
-        'allBibliographicEntries' => [
+        'all_bibliographic_entries' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicResource.allBibliographicEntries',
@@ -37,7 +37,7 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbib_domain_model_bibliographic_entry',
-                'foreign_field' => 'parentResource',
+                'foreign_field' => 'parent_resource',
                 'foreign_sortby' => 'sorting',
                 'appearance' => [
                     'collapseAll' => true,
@@ -57,7 +57,7 @@ defined('TYPO3') or die();
 // Add type 'bibliographicResource' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['bibliographicResource' => [
     'showitem' => 'type,--palette--;;titleLangCodeDescriptionGlossary,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,allBibliographicEntries,allAgents,allLocations,allPeriods,allTags,allKeywords,allRelations,allFileGroups,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,all_bibliographic_entries,all_agents,all_locations,all_periods,all_tags,all_keywords,all_relations,all_file_groups,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuidSameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImportState,',

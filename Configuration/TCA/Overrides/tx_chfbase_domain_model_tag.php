@@ -18,10 +18,10 @@ defined('TYPO3') or die();
  * https://docs.typo3.org/m/typo3/reference-tca/main/en-us/.
  */
 
-// Add column 'asLabelOfBibliographicEntry'
+// Add column 'as_label_of_bibliographic_entry'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_tag',
     [
-        'asLabelOfBibliographicEntry' => [
+        'as_label_of_bibliographic_entry' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfBibliographicEntry',

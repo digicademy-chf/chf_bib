@@ -18,10 +18,10 @@ defined('TYPO3') or die();
  * https://docs.typo3.org/m/typo3/reference-tca/main/en-us/.
  */
 
-// Add column 'sourceRelation'
+// Add column 'source_relation'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfobject_domain_model_single_object',
     [
-        'sourceRelation' => [
+        'source_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.abstractHeritage.sourceRelation',
@@ -32,7 +32,7 @@ defined('TYPO3') or die();
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chfobject_domain_model_single_object',
-                    'fieldname' => 'sourceRelation',
+                    'fieldname' => 'source_relation',
                 ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,

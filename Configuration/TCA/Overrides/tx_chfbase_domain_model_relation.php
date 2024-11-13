@@ -33,10 +33,10 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add columns 'bibliographicEntry', 'elaborationType', and 'elaboration'
+// Add columns 'bibliographic_entry', 'elaboration_type', and 'elaboration'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_relation',
     [
-        'bibliographicEntry' => [
+        'bibliographic_entry' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.bibliographicEntry',
@@ -75,7 +75,7 @@ defined('TYPO3') or die();
                 'required' => true,
             ],
         ],
-        'elaborationType' => [
+        'elaboration_type' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType',
@@ -112,11 +112,11 @@ defined('TYPO3') or die();
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tx_chfbase_domain_model_relation',
     'bibliographicEntryElaborationElaborationType',
-    'bibliographicEntry,--linebreak--,elaboration,elaborationType,'
+    'bibliographic_entry,--linebreak--,elaboration,elaboration_type,'
 );
 
 // Add type 'sourceRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['sourceRelation' => [
     'showitem' => 'type,record,--palette--;;bibliographicEntryElaborationElaborationType,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuid,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,',
 ]];
