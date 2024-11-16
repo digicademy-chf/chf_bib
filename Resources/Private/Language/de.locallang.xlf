@@ -262,6 +262,22 @@
                 <source>Date when the publication was published</source>
                 <target>Datum, an dem die Publikation veröffentlicht wurde</target>
             </trans-unit>
+            <trans-unit id="object.bibliographicEntry.dateText" resname="object.bibliographicEntry.dateText" approved="yes">
+                <source>Date (text)</source>
+                <target>Datum (Text)</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.dateText.description" resname="object.bibliographicEntry.dateText.description" approved="yes">
+                <source>Non-standard publication date</source>
+                <target>Nicht standardiesiertes Veröffentlichungsdatum</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.place" resname="object.bibliographicEntry.place" approved="yes">
+                <source>Place</source>
+                <target>Ortsangabe</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.place.description" resname="object.bibliographicEntry.place.description" approved="yes">
+                <source>Publication location</source>
+                <target>Angabe des Veröffentlichungsorts</target>
+            </trans-unit>
             <trans-unit id="object.bibliographicEntry.lastChecked" resname="object.bibliographicEntry.lastChecked" approved="yes">
                 <source>Last checked</source>
                 <target>Zuletzt überprüft</target>

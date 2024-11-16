@@ -72,7 +72,6 @@ defined('TYPO3') or die();
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
-                'required' => true,
             ],
         ],
         'elaboration_type' => [
@@ -84,6 +83,10 @@ defined('TYPO3') or die();
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
                     [
                         'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.sourceRelation.elaborationType.pageNumbers',
                         'value' => 'pageNumbers',
@@ -101,8 +104,7 @@ defined('TYPO3') or die();
                         'value' => 'chapterNumbers',
                     ],
                 ],
-                'default' => 'pageNumbers',
-                'required' => true,
+                'default' => 0,
             ],
         ],
     ]

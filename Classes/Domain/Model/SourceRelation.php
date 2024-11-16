@@ -68,7 +68,7 @@ class SourceRelation extends AbstractRelation
             ],
         ],
     ])]
-    protected string $elaborationType = 'pageNumbers';
+    protected string|null $elaborationType = null;
 
     /**
      * Construct object

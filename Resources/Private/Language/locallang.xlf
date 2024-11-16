@@ -198,6 +198,18 @@
             <trans-unit id="object.bibliographicEntry.date.description" resname="object.bibliographicEntry.date.description">
                 <source>Date when the publication was published</source>
             </trans-unit>
+            <trans-unit id="object.bibliographicEntry.dateText" resname="object.bibliographicEntry.dateText">
+                <source>Date (text)</source>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.dateText.description" resname="object.bibliographicEntry.dateText.description">
+                <source>Non-standard publication date</source>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.place" resname="object.bibliographicEntry.place">
+                <source>Place</source>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.place.description" resname="object.bibliographicEntry.place.description">
+                <source>Publication location</source>
+            </trans-unit>
             <trans-unit id="object.bibliographicEntry.lastChecked" resname="object.bibliographicEntry.lastChecked">
                 <source>Last checked</source>
             </trans-unit>

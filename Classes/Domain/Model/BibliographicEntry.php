@@ -12,12 +12,9 @@ namespace Digicademy\CHFBib\Domain\Model;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AbstractHeritage;
 use Digicademy\CHFBase\Domain\Model\Extent;
-use Digicademy\CHFBase\Domain\Model\LocationRelation;
-use Digicademy\CHFBase\Domain\Model\Period;
 use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 
 defined('TYPO3') or die();
@@ -138,6 +135,39 @@ class BibliographicEntry extends AbstractHeritage
     protected string $seriesTitle = '';
 
     /**
+     * Date when the publication was published
+     * 
+     * @var ?\DateTime
+     */
+    protected ?\DateTime $date = null;
+
+    /**
+     * Non-standard publication date
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $dateText = '';
+
+    /**
+     * Publication location
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $place = '';
+
+    /**
      * List of extents relevant to this entry<
      * 
      * @var ?ObjectStorage<Extent>
@@ -147,28 +177,6 @@ class BibliographicEntry extends AbstractHeritage
         'value' => 'remove',
     ])]
     protected ?ObjectStorage $extent = null;
-
-    /**
-     * Date when the publication was published
-     * 
-     * @var Period|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected Period|LazyLoadingProxy|null $date = null;
-
-    /**
-     * Location related to this record
-     * 
-     * @var ?ObjectStorage<LocationRelation>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $locationRelation = null;
 
     /**
      * List of source relations that use this bibliographic entry
@@ -322,6 +330,66 @@ class BibliographicEntry extends AbstractHeritage
     }
 
     /**
+     * Get date
+     *
+     * @return ?\DateTime
+     */
+    public function getDate(): ?\DateTime
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     */
+    public function setDate(\DateTime $date): void
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * Get date text
+     *
+     * @return string
+     */
+    public function getDateText(): string
+    {
+        return $this->dateText;
+    }
+
+    /**
+     * Set date text
+     *
+     * @param string $dateText
+     */
+    public function setDateText(string $dateText): void
+    {
+        $this->dateText = $dateText;
+    }
+
+    /**
+     * Get place
+     *
+     * @return string
+     */
+    public function getPlace(): string
+    {
+        return $this->place;
+    }
+
+    /**
+     * Set place
+     *
+     * @param string $place
+     */
+    public function setPlace(string $place): void
+    {
+        $this->place = $place;
+    }
+
+    /**
      * Get extent
      *
      * @return ObjectStorage<Extent>
@@ -368,78 +436,6 @@ class BibliographicEntry extends AbstractHeritage
     {
         $extent = clone $this->extent;
         $this->extent->removeAll($extent);
-    }
-
-    /**
-     * Get date
-     * 
-     * @return Period
-     */
-    public function getDate(): Period
-    {
-        if ($this->date instanceof LazyLoadingProxy) {
-            $this->date->_loadRealInstance();
-        }
-        return $this->date;
-    }
-
-    /**
-     * Set date
-     * 
-     * @param Period
-     */
-    public function setDate(Period $date): void
-    {
-        $this->date = $date;
-    }
-
-    /**
-     * Get location relation
-     *
-     * @return ObjectStorage<LocationRelation>
-     */
-    public function getLocationRelation(): ?ObjectStorage
-    {
-        return $this->locationRelation;
-    }
-
-    /**
-     * Set location relation
-     *
-     * @param ObjectStorage<LocationRelation> $locationRelation
-     */
-    public function setLocationRelation(ObjectStorage $locationRelation): void
-    {
-        $this->locationRelation = $locationRelation;
-    }
-
-    /**
-     * Add location relation
-     *
-     * @param LocationRelation $locationRelation
-     */
-    public function addLocationRelation(LocationRelation $locationRelation): void
-    {
-        $this->locationRelation?->attach($locationRelation);
-    }
-
-    /**
-     * Remove location relation
-     *
-     * @param LocationRelation $locationRelation
-     */
-    public function removeLocationRelation(LocationRelation $locationRelation): void
-    {
-        $this->locationRelation?->detach($locationRelation);
-    }
-
-    /**
-     * Remove all location relations
-     */
-    public function removeAllLocationRelation(): void
-    {
-        $locationRelation = clone $this->locationRelation;
-        $this->locationRelation->removeAll($locationRelation);
     }
 
     /**
