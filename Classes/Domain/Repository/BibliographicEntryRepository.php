@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFBib\Domain\Repository;
 
+use Digicademy\CHFBase\Domain\Repository\Traits\StoragePageAgnosticTrait;
 use Digicademy\CHFBib\Domain\Model\BibliographicEntry;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
@@ -22,6 +23,8 @@ defined('TYPO3') or die();
  */
 class BibliographicEntryRepository extends Repository
 {
+    use StoragePageAgnosticTrait;
+
     protected $defaultOrderings = [
         'sorting'         => QueryInterface::ORDER_ASCENDING,
         'isHighlight'     => QueryInterface::ORDER_ASCENDING,
