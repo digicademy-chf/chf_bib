@@ -93,9 +93,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_chfbib_domain_model_bibliographic_entry',
-                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographic_entry}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbib_domain_model_bibliographic_entry}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_chfbib_domain_model_bibliographicentry',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographicentry}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbib_domain_model_bibliographicentry}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
             ],
         ],
@@ -443,7 +443,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
-                'MM' => 'tx_chfbib_domain_model_bibliographic_entry_tag_label_mm',
+                'MM' => 'tx_chfbib_domain_model_bibliographicentry_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
                     'parentField' => 'parent_label_tag',
@@ -528,7 +528,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chfbib_domain_model_bibliographic_entry',
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
                     'fieldname' => 'source_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -565,7 +565,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chfbib_domain_model_bibliographic_entry',
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
                     'fieldname' => 'link_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -657,7 +657,7 @@ return [
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.sameAs.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chfbase_domain_model_same_as',
+                'foreign_table' => 'tx_chfbase_domain_model_sameas',
                 'foreign_field' => 'parent',
                 'foreign_table_field' => 'parent_table',
                 'appearance' => [
@@ -734,7 +734,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chfbib_domain_model_bibliographic_entry',
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
                     'fieldname' => 'authorship_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -776,7 +776,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chfbib_domain_model_bibliographic_entry',
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
                     'fieldname' => 'licence_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -916,7 +916,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'sourceRelation\'',
-                'MM' => 'tx_chfbase_domain_model_relation_bibliographic_entry_bibentry_mm',
+                'MM' => 'tx_chfbase_domain_model_relation_bibliographicentry_bibentry_mm',
                 'MM_opposite_field' => 'bibliographic_entry',
                 'multiple' => 1,
                 'size' => 5,

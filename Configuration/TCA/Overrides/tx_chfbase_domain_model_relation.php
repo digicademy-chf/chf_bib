@@ -50,9 +50,9 @@ defined('TYPO3') or die();
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_chfbib_domain_model_bibliographic_entry',
-                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographic_entry}.{#pid}=###CURRENT_PID###',
-                'MM' => 'tx_chfbase_domain_model_relation_bibliographic_entry_bibentry_mm',
+                'foreign_table' => 'tx_chfbib_domain_model_bibliographicentry',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographicentry}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chfbase_domain_model_relation_bibliographicentry_bibentry_mm',
                 'multiple' => 1,
                 'sortItems' => [
                     'label' => 'asc',

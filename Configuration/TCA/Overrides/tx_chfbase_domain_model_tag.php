@@ -29,9 +29,9 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chfbib_domain_model_bibliographic_entry',
-                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographic_entry}.{#pid}=###CURRENT_PID###',
-                'MM' => 'tx_chfbib_domain_model_bibliographic_entry_tag_label_mm',
+                'foreign_table' => 'tx_chfbib_domain_model_bibliographicentry',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographicentry}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chfbib_domain_model_bibliographicentry_tag_label_mm',
                 'MM_opposite_field' => 'label',
                 'multiple' => 1,
                 'size' => 5,

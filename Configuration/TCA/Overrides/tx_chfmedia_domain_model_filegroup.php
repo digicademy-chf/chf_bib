@@ -19,7 +19,7 @@ defined('TYPO3') or die();
  */
 
 // Add column 'source_relation'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfmedia_domain_model_file_group',
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfmedia_domain_model_filegroup',
     [
         'source_relation' => [
             'exclude' => true,
@@ -31,7 +31,7 @@ defined('TYPO3') or die();
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chfmedia_domain_model_file_group',
+                    'tablenames' => 'tx_chfmedia_domain_model_filegroup',
                     'fieldname' => 'source_relation',
                 ],
                 'MM_opposite_field' => 'record',

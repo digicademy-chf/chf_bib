@@ -25,9 +25,17 @@ return [
             'bibliographicResource' => Digicademy\CHFBib\Domain\Model\BibliographicResource::class,
         ],
     ],
+    Digicademy\CHFBib\Domain\Model\BibliographicResource::class => [
+        'tableName' => 'tx_chfbase_domain_model_resource',
+        'recordType' => 'bibliographicResource',
+    ],
     Digicademy\CHFBase\Domain\Model\AbstractRelation::class => [
         'subclasses' => [
             'sourceRelation' => Digicademy\CHFBib\Domain\Model\SourceRelation::class,
         ],
+    ],
+    Digicademy\CHFBib\Domain\Model\SourceRelation::class => [
+        'tableName' => 'tx_chfbase_domain_model_relation',
+        'recordType' => 'sourceRelation',
     ],
 ];

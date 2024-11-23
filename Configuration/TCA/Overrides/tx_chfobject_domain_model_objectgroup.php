@@ -10,7 +10,7 @@ declare(strict_types=1);
 defined('TYPO3') or die();
 
 /**
- * EncyclopediaEntry and its properties
+ * ObjectGroup and its properties
  * 
  * Extension of a database table and its editing interface in the
  * TYPO3 backend. This also serves as the basis for the Extbase
@@ -19,7 +19,7 @@ defined('TYPO3') or die();
  */
 
 // Add column 'source_relation'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chflex_domain_model_encyclopedia_entry',
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfobject_domain_model_objectgroup',
     [
         'source_relation' => [
             'exclude' => true,
@@ -31,7 +31,7 @@ defined('TYPO3') or die();
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_encyclopedia_entry',
+                    'tablenames' => 'tx_chfobject_domain_model_objectgroup',
                     'fieldname' => 'source_relation',
                 ],
                 'MM_opposite_field' => 'record',

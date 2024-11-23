@@ -36,7 +36,7 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicResource.allBibliographicEntries.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chfbib_domain_model_bibliographic_entry',
+                'foreign_table' => 'tx_chfbib_domain_model_bibliographicentry',
                 'foreign_field' => 'parent_resource',
                 'foreign_sortby' => 'sorting',
                 'appearance' => [
