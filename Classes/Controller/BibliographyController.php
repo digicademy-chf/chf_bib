@@ -9,28 +9,28 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFBib\Controller;
 
-use Psr\Http\Message\ResponseInterface;
+use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
 use Digicademy\CHFBib\Domain\Model\BibliographicEntry;
-use Digicademy\CHFBib\Domain\Repository\BibliographicEntryRepository;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 defined('TYPO3') or die();
 
 /**
- * Controller for BibliographicEntry
+ * Controller for Bibliography
  */
-class BibliographicEntryController extends ActionController
+class BibliographyController extends ActionController
 {
-    private BibliographicEntryRepository $bibliographicEntryRepository;
+    private AbstractResourceRepository $abstractResourceRepository;
 
-    public function injectBibliographicEntryRepository(BibliographicEntryRepository $bibliographicEntryRepository): void
+    public function injectAbstractResourceRepository(AbstractResourceRepository $abstractResourceRepository): void
     {
-        $this->bibliographicEntryRepository = $bibliographicEntryRepository;
+        $this->abstractResourceRepository = $abstractResourceRepository;
     }
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('bibliographicEntries', $this->bibliographicEntryRepository->findAll());
+        $this->view->assign('resource', $this->abstractResourceRepository->findOneBy(['type' => 'bibliographicResource']));
         return $this->htmlResponse();
     }
 

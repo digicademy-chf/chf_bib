@@ -7,7 +7,7 @@ declare(strict_types=1);
 # LICENSE.txt file that was distributed with this source code.
 
 
-use Digicademy\CHFBase\Controller\AbstractResourceController;
+use Digicademy\CHFBib\Controller\BibliographyController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
@@ -17,7 +17,7 @@ ExtensionUtility::configurePlugin(
     'CHFBib',
     'Bibliography',
     [
-        AbstractResourceController::class => 'index, show',
+        BibliographyController::class => 'index, show',
     ],
     [], // None of the actions are non-cacheable
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
