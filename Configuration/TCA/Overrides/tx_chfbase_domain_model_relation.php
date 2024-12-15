@@ -111,8 +111,7 @@ defined('TYPO3') or die();
 );
 
 // Create palette 'elaborationElaborationType'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-    'tx_chfbase_domain_model_relation',
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_chfbase_domain_model_relation',
     'bibliographicEntryElaborationElaborationType',
     'bibliographic_entry,--linebreak--,elaboration,elaboration_type,'
 );
