@@ -10,7 +10,7 @@ declare(strict_types=1);
 defined('TYPO3') or die();
 
 /**
- * AbstractFeature and its properties
+ * Feature and its properties
  * 
  * Extension of a database table and its editing interface in the
  * TYPO3 backend. This also serves as the basis for the Extbase

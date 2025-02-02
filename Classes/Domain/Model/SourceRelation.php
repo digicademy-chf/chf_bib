@@ -26,7 +26,6 @@ use Digicademy\CHFLex\Domain\Model\Example;
 use Digicademy\CHFLex\Domain\Model\Frequency;
 use Digicademy\CHFLex\Domain\Model\LexicographicResource;
 use Digicademy\CHFMap\Domain\Model\Feature;
-use Digicademy\CHFMap\Domain\Model\FeatureCollection;
 use Digicademy\CHFMap\Domain\Model\MapResource;
 use Digicademy\CHFMedia\Domain\Model\FileGroup;
 use Digicademy\CHFObject\Domain\Model\ObjectGroup;
@@ -46,10 +45,10 @@ class SourceRelation extends AbstractRelation
     /**
      * Record to connect a relation to
      * 
-     * @var Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FeatureCollection|FileGroup|SingleObject|ObjectGroup|Essay|Volume|LazyLoadingProxy|null
+     * @var Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FeatureCollection|FileGroup|SingleObject|ObjectGroup|Essay|Volume|null $record = null;
+    protected Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume|null $record = null;
 
     /**
      * Bibliographic entry to relate to the record
@@ -93,13 +92,13 @@ class SourceRelation extends AbstractRelation
     /**
      * Construct object
      *
-     * @param Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FeatureCollection|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record
+     * @param Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record
      * @param BibliographicEntry $bibliographicEntry
      * @param BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource
      * @param string $uuid
      * @return SourceRelation
      */
-    public function __construct(Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FeatureCollection|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record, BibliographicEntry $bibliographicEntry, BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource, string $uuid)
+    public function __construct(Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record, BibliographicEntry $bibliographicEntry, BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();
@@ -120,9 +119,9 @@ class SourceRelation extends AbstractRelation
     /**
      * Get record
      * 
-     * @return Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FeatureCollection|FileGroup|SingleObject|ObjectGroup|Essay|Volume
+     * @return Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume
      */
-    public function getRecord(): Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FeatureCollection|FileGroup|SingleObject|ObjectGroup|Essay|Volume
+    public function getRecord(): Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume
     {
         if ($this->record instanceof LazyLoadingProxy) {
             $this->record->_loadRealInstance();
@@ -133,9 +132,9 @@ class SourceRelation extends AbstractRelation
     /**
      * Set record
      * 
-     * @param Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FeatureCollection|FileGroup|SingleObject|ObjectGroup|Essay|Volume
+     * @param Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume
      */
-    public function setRecord(Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FeatureCollection|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record): void
+    public function setRecord(Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record): void
     {
         $this->record = $record;
     }
