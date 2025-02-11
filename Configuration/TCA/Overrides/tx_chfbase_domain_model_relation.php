@@ -51,7 +51,6 @@ defined('TYPO3') or die();
                     ],
                 ],
                 'foreign_table' => 'tx_chfbib_domain_model_bibliographicentry',
-                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographicentry}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chfbase_domain_model_relation_bibliographicentry_bibentry_mm',
                 'multiple' => 1,
                 'sortItems' => [
