@@ -190,12 +190,13 @@ class BibliographicEntry extends AbstractHeritage
      * Construct object
      *
      * @param BibliographicResource $parentResource
+     * @param string $iri
      * @param string $uuid
      * @return BibliographicEntry
      */
-    public function __construct(BibliographicResource $parentResource, string $uuid)
+    public function __construct(BibliographicResource $parentResource, string $iri, string $uuid)
     {
-        parent::__construct($parentResource, $uuid);
+        parent::__construct($parentResource, $iri, $uuid);
         $this->initializeObject();
     }
 

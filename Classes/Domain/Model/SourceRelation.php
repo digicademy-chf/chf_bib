@@ -95,12 +95,13 @@ class SourceRelation extends AbstractRelation
      * @param Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record
      * @param BibliographicEntry $bibliographicEntry
      * @param BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource
+     * @param string $iri
      * @param string $uuid
      * @return SourceRelation
      */
-    public function __construct(Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record, BibliographicEntry $bibliographicEntry, BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource, string $uuid)
+    public function __construct(Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record, BibliographicEntry $bibliographicEntry, BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource, string $iri, string $uuid)
     {
-        parent::__construct($parentResource, $uuid);
+        parent::__construct($parentResource, $iri, $uuid);
         $this->initializeObject();
 
         $this->setType('sourceRelation');
