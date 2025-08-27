@@ -29,13 +29,10 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
-                'MM_match_fields' => [
-                    'tablenames' => 'tx_chfpub_domain_model_essay',
-                    'fieldname' => 'source_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'sourceRelation'
                 ],
-                'MM_opposite_field' => 'record',
-                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -50,7 +47,6 @@ defined('TYPO3') or die();
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'default' => 'sourceRelation',
                                 'readOnly' => true,
                             ],
                         ],

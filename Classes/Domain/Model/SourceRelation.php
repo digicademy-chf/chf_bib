@@ -9,31 +9,13 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFBib\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\AbstractBase;
+use Digicademy\CHFBase\Domain\Model\AbstractRelation;
+use Digicademy\CHFBase\Domain\Model\Traits\RecordTrait;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Model\AbstractRelation;
-use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
-
-use Digicademy\CHFBase\Domain\Model\Agent;
-use Digicademy\CHFBase\Domain\Model\Location;
-use Digicademy\CHFBase\Domain\Model\Period;
-use Digicademy\CHFGloss\Domain\Model\GlossaryResource;
-use Digicademy\CHFLex\Domain\Model\DictionaryEntry;
-use Digicademy\CHFLex\Domain\Model\EncyclopediaEntry;
-use Digicademy\CHFLex\Domain\Model\Example;
-use Digicademy\CHFLex\Domain\Model\Frequency;
-use Digicademy\CHFLex\Domain\Model\LexicographicResource;
-use Digicademy\CHFMap\Domain\Model\Feature;
-use Digicademy\CHFMap\Domain\Model\MapResource;
-use Digicademy\CHFMedia\Domain\Model\FileGroup;
-use Digicademy\CHFObject\Domain\Model\ObjectGroup;
-use Digicademy\CHFObject\Domain\Model\ObjectResource;
-use Digicademy\CHFObject\Domain\Model\SingleObject;
-use Digicademy\CHFPub\Domain\Model\Essay;
-use Digicademy\CHFPub\Domain\Model\PublicationResource;
-use Digicademy\CHFPub\Domain\Model\Volume;
 
 defined('TYPO3') or die();
 
@@ -42,13 +24,7 @@ defined('TYPO3') or die();
  */
 class SourceRelation extends AbstractRelation
 {
-    /**
-     * Record to connect a relation to
-     * 
-     * @var Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume|null $record = null;
+    use RecordTrait;
 
     /**
      * Bibliographic entry to relate to the record
@@ -92,14 +68,13 @@ class SourceRelation extends AbstractRelation
     /**
      * Construct object
      *
-     * @param Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record
+     * @param AbstractBase $record
      * @param BibliographicEntry $bibliographicEntry
-     * @param BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource
      * @return SourceRelation
      */
-    public function __construct(Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record, BibliographicEntry $bibliographicEntry, BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource)
+    public function __construct(AbstractBase $record, BibliographicEntry $bibliographicEntry)
     {
-        parent::__construct($parentResource);
+        parent::__construct();
         $this->initializeObject();
 
         $this->setType('sourceRelation');
@@ -113,29 +88,6 @@ class SourceRelation extends AbstractRelation
     public function initializeObject(): void
     {
         $this->bibliographicEntry ??= new ObjectStorage();
-    }
-
-    /**
-     * Get record
-     * 
-     * @return Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume
-     */
-    public function getRecord(): Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume
-    {
-        if ($this->record instanceof LazyLoadingProxy) {
-            $this->record->_loadRealInstance();
-        }
-        return $this->record;
-    }
-
-    /**
-     * Set record
-     * 
-     * @param Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume
-     */
-    public function setRecord(Agent|Location|Period|BibliographicEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record): void
-    {
-        $this->record = $record;
     }
 
     /**

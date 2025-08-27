@@ -1,5 +1,6 @@
 {
     "name": "digicademy/chf_bib",
+    "version": "2.0.0",
     "type": "typo3-cms-extension",
     "description": "Generic or annotated bibliographies in TYPO3 as part of the CHF",
     "authors": [
@@ -32,8 +33,15 @@
     ],
     "require": {
         "typo3/cms-core": "^13",
+        "typo3/cms-extbase": "^13",
+        "typo3/cms-fluid": "^13",
         "typo3/cms-fluid-styled-content": "^13",
-        "digicademy/chf_base": "@dev"
+        "typo3/cms-rte-ckeditor": "^13",
+        "digicademy/chf_base": "^2"
+    },
+    "suggest": {
+        "digicademy/chf_gloss": "Provides a glossary component",
+        "digicademy/chf_pub": "Provides publication relations"
     },
     "autoload": {
         "psr-4": {

@@ -51,8 +51,7 @@ defined('TYPO3') or die();
                     ],
                 ],
                 'foreign_table' => 'tx_chfbib_domain_model_bibliographicentry',
-                'MM' => 'tx_chfbase_domain_model_relation_bibliographicentry_bibentry_mm',
-                'multiple' => 1,
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#sys_language_uid} IN (-1, 0)',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -118,5 +117,5 @@ defined('TYPO3') or die();
 // Add type 'sourceRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['sourceRelation' => [
     'showitem' => 'type,record,--palette--;;bibliographicEntryElaborationElaborationType,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,parent_resource,--palette--;;iriUuid,',
 ]];

@@ -9,13 +9,14 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFBib\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\Agent;
+use Digicademy\CHFBase\Domain\Model\AbstractHeritage;
+use Digicademy\CHFBase\Domain\Model\Traits\ExtentTrait;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Model\AbstractHeritage;
-use Digicademy\CHFBase\Domain\Model\Extent;
-use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 defined('TYPO3') or die();
 
@@ -24,6 +25,8 @@ defined('TYPO3') or die();
  */
 class BibliographicEntry extends AbstractHeritage
 {
+    use ExtentTrait;
+
     /**
      * Approximate taxonomy of the entry
      * 
@@ -135,6 +138,38 @@ class BibliographicEntry extends AbstractHeritage
     protected string $seriesTitle = '';
 
     /**
+     * Author of the publication
+     * 
+     * @var ?ObjectStorage<Agent>
+     */
+    #[Lazy()]
+    protected ?ObjectStorage $author;
+
+    /**
+     * Editor of the publication
+     * 
+     * @var ?ObjectStorage<Agent>
+     */
+    #[Lazy()]
+    protected ?ObjectStorage $editor;
+
+    /**
+     * Translator of the publication
+     * 
+     * @var ?ObjectStorage<Agent>
+     */
+    #[Lazy()]
+    protected ?ObjectStorage $translator;
+
+    /**
+     * Further contributor of the publication
+     * 
+     * @var ?ObjectStorage<Agent>
+     */
+    #[Lazy()]
+    protected ?ObjectStorage $contributor;
+
+    /**
      * Date when the publication was published
      * 
      * @var ?\DateTime
@@ -155,6 +190,22 @@ class BibliographicEntry extends AbstractHeritage
     protected string $dateText = '';
 
     /**
+     * Name of the publisher of this publication
+     * 
+     * @var ?ObjectStorage<Agent>
+     */
+    #[Lazy()]
+    protected ?ObjectStorage $publisher;
+
+    /**
+     * Name of the library, archive, muesum, or gallery
+     * 
+     * @var Agent|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    protected Agent|LazyLoadingProxy|null $holdingOrg = null;
+
+    /**
      * Publication location
      * 
      * @var string
@@ -168,34 +219,39 @@ class BibliographicEntry extends AbstractHeritage
     protected string $place = '';
 
     /**
-     * List of extents relevant to this entry<
+     * Identifier assigned by the holding organisation
      * 
-     * @var ?ObjectStorage<Extent>
+     * @var string
      */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
+    #[Validate([
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
     ])]
-    protected ?ObjectStorage $extent = null;
+    protected string $callNumber = '';
 
     /**
-     * List of source relations that use this bibliographic entry
+     * Full citation in case all structured fields need to remain empty
      * 
-     * @var ?ObjectStorage<SourceRelation>
+     * @var string
      */
-    #[Lazy()]
-    protected ?ObjectStorage $asBibliographicEntryOfSourceRelation = null;
+    #[Validate([
+        'validator' => 'String',
+    ])]
+    protected string $fallback = '';
 
     /**
      * Construct object
      *
-     * @param BibliographicResource $parentResource
      * @return BibliographicEntry
      */
-    public function __construct(BibliographicResource $parentResource)
+    public function __construct()
     {
-        parent::__construct($parentResource);
+        parent::__construct();
         $this->initializeObject();
+
+        $this->setIri('be');
     }
 
     /**
@@ -203,8 +259,12 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function initializeObject(): void
     {
+        $this->author ??= new ObjectStorage();
+        $this->editor ??= new ObjectStorage();
+        $this->translator ??= new ObjectStorage();
+        $this->contributor ??= new ObjectStorage();
+        $this->publisher ??= new ObjectStorage();
         $this->extent ??= new ObjectStorage();
-        $this->asBibliographicEntryOfSourceRelation ??= new ObjectStorage();
     }
 
     /**
@@ -328,6 +388,202 @@ class BibliographicEntry extends AbstractHeritage
     }
 
     /**
+     * Get author
+     *
+     * @return ObjectStorage<Agent>
+     */
+    public function getAuthor(): ?ObjectStorage
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set author
+     *
+     * @param ObjectStorage<Agent> $author
+     */
+    public function setAuthor(ObjectStorage $author): void
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * Add author
+     *
+     * @param Agent $author
+     */
+    public function addAuthor(Agent $author): void
+    {
+        $this->author?->attach($author);
+    }
+
+    /**
+     * Remove author
+     *
+     * @param Agent $author
+     */
+    public function removeAuthor(Agent $author): void
+    {
+        $this->author?->detach($author);
+    }
+
+    /**
+     * Remove all authors
+     */
+    public function removeAllAuthor(): void
+    {
+        $author = clone $this->author;
+        $this->author->removeAll($author);
+    }
+
+    /**
+     * Get editor
+     *
+     * @return ObjectStorage<Agent>
+     */
+    public function getEditor(): ?ObjectStorage
+    {
+        return $this->editor;
+    }
+
+    /**
+     * Set editor
+     *
+     * @param ObjectStorage<Agent> $editor
+     */
+    public function setEditor(ObjectStorage $editor): void
+    {
+        $this->editor = $editor;
+    }
+
+    /**
+     * Add editor
+     *
+     * @param Agent $editor
+     */
+    public function addEditor(Agent $editor): void
+    {
+        $this->editor?->attach($editor);
+    }
+
+    /**
+     * Remove editor
+     *
+     * @param Agent $editor
+     */
+    public function removeEditor(Agent $editor): void
+    {
+        $this->editor?->detach($editor);
+    }
+
+    /**
+     * Remove all editors
+     */
+    public function removeAllEditor(): void
+    {
+        $editor = clone $this->editor;
+        $this->editor->removeAll($editor);
+    }
+
+    /**
+     * Get translator
+     *
+     * @return ObjectStorage<Agent>
+     */
+    public function getTranslator(): ?ObjectStorage
+    {
+        return $this->translator;
+    }
+
+    /**
+     * Set translator
+     *
+     * @param ObjectStorage<Agent> $translator
+     */
+    public function setTranslator(ObjectStorage $translator): void
+    {
+        $this->translator = $translator;
+    }
+
+    /**
+     * Add translator
+     *
+     * @param Agent $translator
+     */
+    public function addTranslator(Agent $translator): void
+    {
+        $this->translator?->attach($translator);
+    }
+
+    /**
+     * Remove translator
+     *
+     * @param Agent $translator
+     */
+    public function removeTranslator(Agent $translator): void
+    {
+        $this->translator?->detach($translator);
+    }
+
+    /**
+     * Remove all translators
+     */
+    public function removeAllTranslator(): void
+    {
+        $translator = clone $this->translator;
+        $this->translator->removeAll($translator);
+    }
+
+    /**
+     * Get contributor
+     *
+     * @return ObjectStorage<Agent>
+     */
+    public function getContributor(): ?ObjectStorage
+    {
+        return $this->contributor;
+    }
+
+    /**
+     * Set contributor
+     *
+     * @param ObjectStorage<Agent> $contributor
+     */
+    public function setContributor(ObjectStorage $contributor): void
+    {
+        $this->contributor = $contributor;
+    }
+
+    /**
+     * Add contributor
+     *
+     * @param Agent $contributor
+     */
+    public function addContributor(Agent $contributor): void
+    {
+        $this->contributor?->attach($contributor);
+    }
+
+    /**
+     * Remove contributor
+     *
+     * @param Agent $contributor
+     */
+    public function removeContributor(Agent $contributor): void
+    {
+        $this->contributor?->detach($contributor);
+    }
+
+    /**
+     * Remove all contributors
+     */
+    public function removeAllContributor(): void
+    {
+        $contributor = clone $this->contributor;
+        $this->contributor->removeAll($contributor);
+    }
+
+    /**
      * Get date
      *
      * @return ?\DateTime
@@ -368,6 +624,78 @@ class BibliographicEntry extends AbstractHeritage
     }
 
     /**
+     * Get publisher
+     *
+     * @return ObjectStorage<Agent>
+     */
+    public function getPublisher(): ?ObjectStorage
+    {
+        return $this->publisher;
+    }
+
+    /**
+     * Set publisher
+     *
+     * @param ObjectStorage<Agent> $publisher
+     */
+    public function setPublisher(ObjectStorage $publisher): void
+    {
+        $this->publisher = $publisher;
+    }
+
+    /**
+     * Add publisher
+     *
+     * @param Agent $publisher
+     */
+    public function addPublisher(Agent $publisher): void
+    {
+        $this->publisher?->attach($publisher);
+    }
+
+    /**
+     * Remove publisher
+     *
+     * @param Agent $publisher
+     */
+    public function removePublisher(Agent $publisher): void
+    {
+        $this->publisher?->detach($publisher);
+    }
+
+    /**
+     * Remove all publishers
+     */
+    public function removeAllPublisher(): void
+    {
+        $publisher = clone $this->publisher;
+        $this->publisher->removeAll($publisher);
+    }
+
+    /**
+     * Get holding organisation
+     * 
+     * @return Agent
+     */
+    public function getHoldingOrg(): Agent
+    {
+        if ($this->holdingOrg instanceof LazyLoadingProxy) {
+            $this->holdingOrg->_loadRealInstance();
+        }
+        return $this->holdingOrg;
+    }
+
+    /**
+     * Set holding organisation
+     * 
+     * @param Agent
+     */
+    public function setHoldingOrg(Agent $holdingOrg): void
+    {
+        $this->holdingOrg = $holdingOrg;
+    }
+
+    /**
      * Get place
      *
      * @return string
@@ -388,100 +716,42 @@ class BibliographicEntry extends AbstractHeritage
     }
 
     /**
-     * Get extent
+     * Get call number
      *
-     * @return ObjectStorage<Extent>
+     * @return string
      */
-    public function getExtent(): ?ObjectStorage
+    public function getCallNumber(): string
     {
-        return $this->extent;
+        return $this->callNumber;
     }
 
     /**
-     * Set extent
+     * Set call number
      *
-     * @param ObjectStorage<Extent> $extent
+     * @param string $callNumber
      */
-    public function setExtent(ObjectStorage $extent): void
+    public function setCallNumber(string $callNumber): void
     {
-        $this->extent = $extent;
+        $this->callNumber = $callNumber;
     }
 
     /**
-     * Add extent
+     * Get fallback
      *
-     * @param Extent $extent
+     * @return string
      */
-    public function addExtent(Extent $extent): void
+    public function getFallback(): string
     {
-        $this->extent?->attach($extent);
+        return $this->fallback;
     }
 
     /**
-     * Remove extent
+     * Set fallback
      *
-     * @param Extent $extent
+     * @param string $fallback
      */
-    public function removeExtent(Extent $extent): void
+    public function setFallback(string $fallback): void
     {
-        $this->extent?->detach($extent);
-    }
-
-    /**
-     * Remove all extents
-     */
-    public function removeAllExtent(): void
-    {
-        $extent = clone $this->extent;
-        $this->extent->removeAll($extent);
-    }
-
-    /**
-     * Get as bibliographic entry of source relation
-     *
-     * @return ObjectStorage<SourceRelation>
-     */
-    public function getAsBibliographicEntryOfSourceRelation(): ?ObjectStorage
-    {
-        return $this->asBibliographicEntryOfSourceRelation;
-    }
-
-    /**
-     * Set as bibliographic entry of source relation
-     *
-     * @param ObjectStorage<SourceRelation> $asBibliographicEntryOfSourceRelation
-     */
-    public function setAsBibliographicEntryOfSourceRelation(ObjectStorage $asBibliographicEntryOfSourceRelation): void
-    {
-        $this->asBibliographicEntryOfSourceRelation = $asBibliographicEntryOfSourceRelation;
-    }
-
-    /**
-     * Add as bibliographic entry of source relation
-     *
-     * @param SourceRelation $asBibliographicEntryOfSourceRelation
-     */
-    public function addAsBibliographicEntryOfSourceRelation(SourceRelation $asBibliographicEntryOfSourceRelation): void
-    {
-        $this->asBibliographicEntryOfSourceRelation?->attach($asBibliographicEntryOfSourceRelation);
-    }
-
-    /**
-     * Remove as bibliographic entry of source relation
-     *
-     * @param SourceRelation $asBibliographicEntryOfSourceRelation
-     */
-    public function removeAsBibliographicEntryOfSourceRelation(SourceRelation $asBibliographicEntryOfSourceRelation): void
-    {
-        $this->asBibliographicEntryOfSourceRelation?->detach($asBibliographicEntryOfSourceRelation);
-    }
-
-    /**
-     * Remove all as bibliographic entry of source relations
-     */
-    public function removeAllAsBibliographicEntryOfSourceRelation(): void
-    {
-        $asBibliographicEntryOfSourceRelation = clone $this->asBibliographicEntryOfSourceRelation;
-        $this->asBibliographicEntryOfSourceRelation->removeAll($asBibliographicEntryOfSourceRelation);
+        $this->fallback = $fallback;
     }
 }

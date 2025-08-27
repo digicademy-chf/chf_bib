@@ -21,14 +21,14 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry',
         'label'                    => 'item_title',
-        'label_alt'                => 'standalone_title,meeting_title,series_title',
+        'label_alt'                => 'standalone_title,meeting_title,series_title,callNumber,fallback',
         'label_alt_force'          => true,
         'descriptionColumn'        => 'editorial_note',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'is_highlight ASC,item_title ASC,standalone_title ASC,meeting_title ASC,series_title ASC',
+        'default_sortby'           => 'is_highlight ASC,item_title ASC,standalone_title ASC,meeting_title ASC,series_title ASC,callNumber ASC,fallback ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:chf_bib/Resources/Public/Icons/TableBibliographicEntry.svg',
         'origUid'                  => 't3_origuid',
@@ -37,7 +37,7 @@ return [
         'transOrigPointerField'    => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'type,last_checked,item_title,standalone_title,meeting_title,series_title,iri,uuid,publication_date,revision_date,revision_number,editorial_note,import_origin,import',
+        'searchFields'             => 'type,last_checked,item_title,standalone_title,meeting_title,series_title,callNumber,fallback,iri,uuid,publication_date,revision_date,revision_number,editorial_note,import_origin,import',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -46,113 +46,6 @@ return [
         ],
     ],
     'columns' => [
-        'fe_group' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
-                    [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
-                        'value' => -1,
-                    ],
-                    [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.any_login',
-                        'value' => -2,
-                    ],
-                    [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.usergroups',
-                        'value' => '--div--',
-                    ],
-                ],
-                'exclusiveKeys' => '-1,-2',
-                'foreign_table' => 'fe_groups',
-                'foreign_table_where' => 'ORDER BY fe_groups.title',
-            ],
-        ],
-        'sys_language_uid' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => [
-                'type' => 'language',
-            ],
-        ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l10n_parent',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'value' => 0,
-                    ],
-                ],
-                'foreign_table' => 'tx_chfbib_domain_model_bibliographicentry',
-                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_bibliographicentry}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbib_domain_model_bibliographicentry}.{#sys_language_uid} IN (-1,0)',
-                'default' => 0,
-            ],
-        ],
-        'l10n_source' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
-        'l10n_diffsource' => [
-            'config' => [
-                'type' => 'passthrough',
-                'default' => '',
-            ],
-        ],
-        'hidden' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.hidden.description',
-            'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'invertStateDisplay' => true,
-                    ]
-                ],
-            ]
-        ],
-        'starttime' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.starttime.description',
-            'config' => [
-                'type' => 'datetime',
-                'format' => 'datetime',
-                'eval' => 'int',
-                'default' => 0,
-            ],
-        ],
-        'endtime' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.endtime.description',
-            'config' => [
-                'type' => 'datetime',
-                'format' => 'datetime',
-                'eval' => 'int',
-                'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2106),
-                ],
-            ],
-        ],
         'type' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -377,6 +270,94 @@ return [
                 'eval' => 'trim',
             ],
         ],
+        'author' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.author',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.author.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'tx_chfbase_domain_model_agent',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_agent}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_agent}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND NOT {#tx_chfbase_domain_model_agent}.{#type}=\'contributor\'',
+                'treeConfig' => [
+                    'parentField' => 'parent_agent',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
+                    ],
+                ],
+                'size' => 8,
+            ],
+        ],
+        'editor' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.editor',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.editor.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'tx_chfbase_domain_model_agent',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_agent}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_agent}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND NOT {#tx_chfbase_domain_model_agent}.{#type}=\'contributor\'',
+                'treeConfig' => [
+                    'parentField' => 'parent_agent',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
+                    ],
+                ],
+                'size' => 8,
+            ],
+        ],
+        'translator' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.translator',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.translator.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'tx_chfbase_domain_model_agent',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_agent}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_agent}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND NOT {#tx_chfbase_domain_model_agent}.{#type}=\'contributor\'',
+                'treeConfig' => [
+                    'parentField' => 'parent_agent',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
+                    ],
+                ],
+                'size' => 8,
+            ],
+        ],
+        'contributor' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.contributor',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.contributor.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'tx_chfbase_domain_model_agent',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_agent}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_agent}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND NOT {#tx_chfbase_domain_model_agent}.{#type}=\'contributor\'',
+                'treeConfig' => [
+                    'parentField' => 'parent_agent',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
+                    ],
+                ],
+                'size' => 8,
+            ],
+        ],
         'date' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -397,12 +378,75 @@ return [
                 'size' => 40,
                 'max' => 255,
                 'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ],
+        ],
+        'publisher' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.publisher',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.publisher.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'tx_chfbase_domain_model_agent',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_agent}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_agent}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND NOT {#tx_chfbase_domain_model_agent}.{#type}=\'contributor\'',
+                'treeConfig' => [
+                    'parentField' => 'parent_agent',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
+                    ],
+                ],
+                'size' => 8,
+            ],
+        ],
+        'holdingOrg' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.holdingOrg',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.holdingOrg.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'tx_chfbase_domain_model_agent',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_agent}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_agent}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND NOT {#tx_chfbase_domain_model_agent}.{#type}=\'contributor\'',
+                'treeConfig' => [
+                    'parentField' => 'parent_agent',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
+                    ],
+                ],
+                'maxitems' => 1,
+                'size' => 8,
             ],
         ],
         'place' => [
             'exclude' => true,
             'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.place',
             'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.place.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ],
+        ],
+        'callNumber' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.callNumber',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.callNumber.description',
             'config' => [
                 'type' => 'input',
                 'size' => 40,
@@ -432,6 +476,20 @@ return [
                 ],
             ],
         ],
+        'fallback' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.fallback',
+            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.fallback.description',
+            'config' => [
+                'type' => 'text',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'chf_base_simple',
+                'softref' => 'typolink_tag,url',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ],
+        ],
         'label' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -441,9 +499,15 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
-                'MM' => 'tx_chfbib_domain_model_bibliographicentry_tag_label_mm',
-                'multiple' => 1,
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
+                'MM' => 'tx_chfbase_domain_model_tag_record_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'label',
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
+                ],
+                'MM_opposite_field' => 'items',
                 'treeConfig' => [
                     'parentField' => 'parent_label_tag',
                     'appearance' => [
@@ -525,13 +589,10 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
-                'MM_match_fields' => [
-                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
-                    'fieldname' => 'source_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'sourceRelation'
                 ],
-                'MM_opposite_field' => 'record',
-                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -546,7 +607,6 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'default' => 'sourceRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -562,13 +622,10 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
-                'MM_match_fields' => [
-                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
-                    'fieldname' => 'link_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'linkRelation'
                 ],
-                'MM_opposite_field' => 'record',
-                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -583,7 +640,6 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'default' => 'linkRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -626,15 +682,22 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.parentResource',
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.parentResource.description',
+            'onChange' => 'reload',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingleBox',
                 'foreign_table' => 'tx_chfbase_domain_model_resource',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#type}=\'bibliographicResource\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_resource}.{#type}=\'bibliographicResource\'',
+                'MM' => 'tx_chfbase_domain_model_resource_record_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'parent_resource',
+                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
+                ],
+                'MM_opposite_field' => 'items',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
-                'required' => true,
             ],
         ],
         'iri' => [
@@ -650,17 +713,15 @@ return [
                 ],
                 'prependSlash' => false,
                 'generatorOptions' => [
-                    'fields' => [
-                        'uid',
-                    ],
-                    'fieldSeparator' => '/',
                     'prefixParentPageSlug' => false,
                     'replacements' => [
                         '/' => '',
                     ],
                 ],
+                'default' => 'be',
                 'eval' => 'uniqueInSite',
                 'fallbackCharacter' => '',
+                'required' => true,
             ],
         ],
         'uuid' => [
@@ -756,13 +817,10 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
-                'MM_match_fields' => [
-                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
-                    'fieldname' => 'authorship_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'authorshipRelation'
                 ],
-                'MM_opposite_field' => 'record',
-                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -777,7 +835,6 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'default' => 'authorshipRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -798,13 +855,10 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
-                'MM_match_fields' => [
-                    'tablenames' => 'tx_chfbib_domain_model_bibliographicentry',
-                    'fieldname' => 'licence_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'licenceRelation'
                 ],
-                'MM_opposite_field' => 'record',
-                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -819,7 +873,6 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'default' => 'licenceRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -929,23 +982,6 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'as_bibliographic_entry_of_source_relation' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.asBibliographicEntryOfSourceRelation',
-            'description' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#type}=\'sourceRelation\'',
-                'MM' => 'tx_chfbase_domain_model_relation_bibliographicentry_bibentry_mm',
-                'MM_opposite_field' => 'bibliographic_entry',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
     ],
     'palettes' => [
         'typeLastChecked' => [
@@ -954,8 +990,14 @@ return [
         'itemTitleStandaloneTitleMeetingTitleSeriesTitle' => [
             'showitem' => 'item_title,standalone_title,--linebreak--,meeting_title,series_title,',
         ],
+        'authorEditorTranslatorContributor' => [
+            'showitem' => 'author,editor,--linebreak--,translator,contributor,',
+        ],
         'dateDateText' => [
             'showitem' => 'date,date_text,',
+        ],
+        'publisherholdingOrgPlaceCallNumber' => [
+            'showitem' => 'publisher,holdingOrg,--linebreak--,place,callNumber,',
         ],
         'isTeaserIsHighlight' => [
             'showitem' => 'is_teaser,is_highlight,',
@@ -972,13 +1014,12 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;typeLastChecked,--palette--;;itemTitleStandaloneTitleMeetingTitleSeriesTitle,--palette--;;dateDateText,place,extent,label,
+            'showitem' => '--palette--;;typeLastChecked,--palette--;;itemTitleStandaloneTitleMeetingTitleSeriesTitle,--palette--;;authorEditorTranslatorContributor,--palette--;;dateDateText,--palette--;;publisherholdingOrgPlaceCallNumber,extent,fallback,label,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.unstructured,content_element,footnote,media,file,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;isTeaserIsHighlight,parent_resource,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;isTeaserIsHighlight,parent_resource,--palette--;;iriUuid,same_as,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,editorial_note,authorship_relation,licence_relation,--palette--;;editorialStepsPublicationSteps,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_bibliographic_entry_of_source_relation,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,',
         ],
     ],
 ];

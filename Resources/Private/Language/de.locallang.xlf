@@ -8,14 +8,6 @@
                 <source>Bibliography</source>
                 <target>Bibliografie</target>
             </trans-unit>
-            <trans-unit id="object.bibliographicResource.allBibliographicEntries" resname="object.bibliographicResource.allBibliographicEntries" approved="yes">
-                <source>All bibliographic entries</source>
-                <target>Alle bibliografischen Einträge</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicResource.allBibliographicEntries.description" resname="object.bibliographicResource.allBibliographicEntries.description" approved="yes">
-                <source>List of all bibliographic entries compiled in this resource</source>
-                <target>Liste aller bibliografischen Einträge, die in dieser Ressource verzeichnet sind</target>
-            </trans-unit>
             <!-- Object: SourceRelation -->
             <trans-unit id="object.sourceRelation.type.sourceRelation" resname="object.sourceRelation.type.sourceRelation" approved="yes">
                 <source>Source relation</source>
@@ -254,6 +246,38 @@
                 <source>Name of a series this publication is part of</source>
                 <target>Name einer Reihe, zu der diese Publikation gehört</target>
             </trans-unit>
+            <trans-unit id="object.bibliographicEntry.author" resname="object.bibliographicEntry.author" approved="yes">
+                <source>Author</source>
+                <target>Autor:in</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.author.description" resname="object.bibliographicEntry.author.description" approved="yes">
+                <source>Author of the publication</source>
+                <target>Autor:in dieser Publikation</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.editor" resname="object.bibliographicEntry.editor" approved="yes">
+                <source>Editor</source>
+                <target>Redaktion</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.editor.description" resname="object.bibliographicEntry.editor.description" approved="yes">
+                <source>Editor of the publication</source>
+                <target>Herausgeber:in dieser Publikation</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.translator" resname="object.bibliographicEntry.translator" approved="yes">
+                <source>Translator</source>
+                <target>Übersetzung</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.translator.description" resname="object.bibliographicEntry.translator.description" approved="yes">
+                <source>Translator of the publication</source>
+                <target>Übersetzer:in dieser Publikation</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.contributor" resname="object.bibliographicEntry.contributor" approved="yes">
+                <source>Contributor</source>
+                <target>Beitragende:r</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.contributor.description" resname="object.bibliographicEntry.contributor.description" approved="yes">
+                <source>Further contributor of the publication</source>
+                <target>Weitere:r Beitragende:r dieser Publikation</target>
+            </trans-unit>
             <trans-unit id="object.bibliographicEntry.date" resname="object.bibliographicEntry.date" approved="yes">
                 <source>Date</source>
                 <target>Datum</target>
@@ -270,6 +294,22 @@
                 <source>Non-standard publication date</source>
                 <target>Nicht standardiesiertes Veröffentlichungsdatum</target>
             </trans-unit>
+            <trans-unit id="object.bibliographicEntry.publisher" resname="object.bibliographicEntry.publisher" approved="yes">
+                <source>Publisher</source>
+                <target>Verlag</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.publisher.description" resname="object.bibliographicEntry.publisher.description" approved="yes">
+                <source>Name of the publisher of this publication</source>
+                <target>Angabe des Verlags der Publikation</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.holdingOrg" resname="object.bibliographicEntry.holdingOrg" approved="yes">
+                <source>Holding organisation</source>
+                <target>Sammelnde Einrichtung</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.holdingOrg.description" resname="object.bibliographicEntry.holdingOrg.description" approved="yes">
+                <source>Name of the library, archive, muesum, or gallery</source>
+                <target>Angabe von Bibliothek, Archivs, Museum oder Gallerie</target>
+            </trans-unit>
             <trans-unit id="object.bibliographicEntry.place" resname="object.bibliographicEntry.place" approved="yes">
                 <source>Place</source>
                 <target>Ortsangabe</target>
@@ -278,6 +318,22 @@
                 <source>Publication location</source>
                 <target>Angabe des Veröffentlichungsorts</target>
             </trans-unit>
+            <trans-unit id="object.bibliographicEntry.callNumber" resname="object.bibliographicEntry.callNumber" approved="yes">
+                <source>Call number</source>
+                <target>Signatur</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.callNumber.description" resname="object.bibliographicEntry.callNumber.description" approved="yes">
+                <source>Identifier assigned by the holding organisation</source>
+                <target>Von der sammelnden Einrichtung vergebener Identifikator</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.fallback" resname="object.bibliographicEntry.fallback" approved="yes">
+                <source>Fallback citation</source>
+                <target>Reservezitation</target>
+            </trans-unit>
+            <trans-unit id="object.bibliographicEntry.fallback.description" resname="object.bibliographicEntry.fallback.description" approved="yes">
+                <source>Full citation in case all structured fields need to remain empty</source>
+                <target>Vollzitation falls alle strukturierten Felder leer bleiben müssen</target>
+            </trans-unit>
             <trans-unit id="object.bibliographicEntry.lastChecked" resname="object.bibliographicEntry.lastChecked" approved="yes">
                 <source>Last checked</source>
                 <target>Zuletzt überprüft</target>
@@ -285,23 +341,6 @@
             <trans-unit id="object.bibliographicEntry.lastChecked.description" resname="object.bibliographicEntry.lastChecked.description" approved="yes">
                 <source>Date when the source was last checked</source>
                 <target>Datum, an dem die Quelle zuletzt abgerufen wurde</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation" approved="yes">
-                <source>Usage as bibliographic entry of a source relation</source>
-                <target>Verwendung als bibliografischer Eintrag einer Quellenrelation</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description" resname="object.bibliographicEntry.asBibliographicEntryOfSourceRelation.description" approved="yes">
-                <source>List of source relations that use this bibliographic entry</source>
-                <target>Liste der Quellenrelationen, die diesen bibliografischen Eintrag verwenden</target>
-            </trans-unit>
-            <!-- Object: LabelTag -->
-            <trans-unit id="object.labelTag.asLabelOfBibliographicEntry" resname="object.labelTag.asLabelOfBibliographicEntry" approved="yes">
-                <source>Usage as label of a bibliographic entry</source>
-                <target>Verwendung als Label eines bibliografischen Eintrags</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfBibliographicEntry.description" resname="object.labelTag.asLabelOfBibliographicEntry.description" approved="yes">
-                <source>List of bibliographic entries that use this label</source>
-                <target>Liste der bibliografischen Einträge, die dieses Label verwenden</target>
             </trans-unit>
             <!-- Object: AbstractHeritage -->
             <trans-unit id="object.abstractHeritage.sourceRelation" resname="object.abstractHeritage.sourceRelation" approved="yes">
@@ -318,8 +357,8 @@
                 <target>Bibliografie</target>
             </trans-unit>
             <trans-unit id="plugin.bibliography.description" resname="plugin.bibliography.description" approved="yes">
-                <source>List and show bibliographic entries</source>
-                <target>Bibliografische Einträge auflisten und anzeigen</target>
+                <source>List bibliographic entries</source>
+                <target>Bibliografische Einträge auflisten</target>
             </trans-unit>
         </body>
     </file>

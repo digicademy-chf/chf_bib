@@ -9,39 +9,17 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFBib\Domain\Model;
 
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AbstractResource;
-use Digicademy\CHFGloss\Domain\Model\GlossaryResource;
+use Digicademy\CHFGloss\Domain\Model\Traits\GlossaryTrait;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
 
 /**
- * Model for BibliographicResource
+ * Model for AbstractBibliographicResource
  */
-class BibliographicResource extends AbstractResource
+class AbstractBibliographicResource extends AbstractResource
 {
-    /**
-     * Glossary of this resource
-     * 
-     * @var GlossaryResource|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected GlossaryResource|LazyLoadingProxy|null $glossary = null;
-
-    /**
-     * List of all bibliographic entries compiled in this resource
-     * 
-     * @var ?ObjectStorage<BibliographicEntry>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $allBibliographicEntries = null;
-
     /**
      * Construct object
      *
@@ -51,88 +29,28 @@ class BibliographicResource extends AbstractResource
     public function __construct(string $langCode)
     {
         parent::__construct($langCode);
-        $this->initializeObject();
 
         $this->setType('bibliographicResource');
     }
+}
+
+# If CHF Gloss is available
+if (ExtensionManagementUtility::isLoaded('chf_gloss')) {
 
     /**
-     * Initialize object
+     * Model for BibliographicResource (with glossary property)
      */
-    public function initializeObject(): void
+    class BibliographicResource extends AbstractBibliographicResource
     {
-        $this->allBibliographicEntries ??= new ObjectStorage();
+        use GlossaryTrait;
     }
 
-    /**
-     * Get glossary
-     * 
-     * @return GlossaryResource
-     */
-    public function getGlossary(): GlossaryResource
-    {
-        if ($this->glossary instanceof LazyLoadingProxy) {
-            $this->glossary->_loadRealInstance();
-        }
-        return $this->glossary;
-    }
+# If no relevant extensions are available
+} else {
 
     /**
-     * Set glossary
-     * 
-     * @param GlossaryResource
+     * Model for BibliographicResource
      */
-    public function setGlossary(GlossaryResource $glossary): void
-    {
-        $this->glossary = $glossary;
-    }
-
-    /**
-     * Get all bibliographic entries
-     *
-     * @return ObjectStorage<BibliographicEntry>
-     */
-    public function getAllBibliographicEntries(): ?ObjectStorage
-    {
-        return $this->allBibliographicEntries;
-    }
-
-    /**
-     * Set all bibliographic entries
-     *
-     * @param ObjectStorage<BibliographicEntry> $allBibliographicEntries
-     */
-    public function setAllBibliographicEntries(ObjectStorage $allBibliographicEntries): void
-    {
-        $this->allBibliographicEntries = $allBibliographicEntries;
-    }
-
-    /**
-     * Add all bibliographic entries
-     *
-     * @param BibliographicEntry $allBibliographicEntries
-     */
-    public function addAllBibliographicEntries(BibliographicEntry $allBibliographicEntries): void
-    {
-        $this->allBibliographicEntries?->attach($allBibliographicEntries);
-    }
-
-    /**
-     * Remove all bibliographic entries
-     *
-     * @param BibliographicEntry $allBibliographicEntries
-     */
-    public function removeAllBibliographicEntries(BibliographicEntry $allBibliographicEntries): void
-    {
-        $this->allBibliographicEntries?->detach($allBibliographicEntries);
-    }
-
-    /**
-     * Remove all all bibliographic entries
-     */
-    public function removeAllAllBibliographicEntries(): void
-    {
-        $allBibliographicEntries = clone $this->allBibliographicEntries;
-        $this->allBibliographicEntries->removeAll($allBibliographicEntries);
-    }
+    class BibliographicResource extends AbstractBibliographicResource
+    {}
 }

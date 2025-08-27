@@ -32,5 +32,7 @@ class BibliographicEntryRepository extends Repository
         'standaloneTitle' => QueryInterface::ORDER_ASCENDING,
         'meetingTitle'    => QueryInterface::ORDER_ASCENDING,
         'seriesTitle'     => QueryInterface::ORDER_ASCENDING,
+        'callNumber'      => QueryInterface::ORDER_ASCENDING,
+        'fallback'      => QueryInterface::ORDER_ASCENDING,
     ];
 }
