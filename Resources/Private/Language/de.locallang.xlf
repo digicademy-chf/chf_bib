@@ -357,8 +357,8 @@
                 <target>Bibliografie</target>
             </trans-unit>
             <trans-unit id="plugin.bibliography.description" resname="plugin.bibliography.description" approved="yes">
-                <source>List bibliographic entries</source>
-                <target>Bibliografische Einträge auflisten</target>
+                <source>List and show bibliographic entries</source>
+                <target>Bibliografische Einträge auflisten und anzeigen</target>
             </trans-unit>
         </body>
     </file>

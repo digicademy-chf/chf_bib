@@ -140,34 +140,34 @@ class BibliographicEntry extends AbstractHeritage
     /**
      * Author of the publication
      * 
-     * @var ?ObjectStorage<Agent>
+     * @var ObjectStorage<Agent>
      */
     #[Lazy()]
-    protected ?ObjectStorage $author;
+    protected ObjectStorage $author;
 
     /**
      * Editor of the publication
      * 
-     * @var ?ObjectStorage<Agent>
+     * @var ObjectStorage<Agent>
      */
     #[Lazy()]
-    protected ?ObjectStorage $editor;
+    protected ObjectStorage $editor;
 
     /**
      * Translator of the publication
      * 
-     * @var ?ObjectStorage<Agent>
+     * @var ObjectStorage<Agent>
      */
     #[Lazy()]
-    protected ?ObjectStorage $translator;
+    protected ObjectStorage $translator;
 
     /**
      * Further contributor of the publication
      * 
-     * @var ?ObjectStorage<Agent>
+     * @var ObjectStorage<Agent>
      */
     #[Lazy()]
-    protected ?ObjectStorage $contributor;
+    protected ObjectStorage $contributor;
 
     /**
      * Date when the publication was published
@@ -192,10 +192,10 @@ class BibliographicEntry extends AbstractHeritage
     /**
      * Name of the publisher of this publication
      * 
-     * @var ?ObjectStorage<Agent>
+     * @var ObjectStorage<Agent>
      */
     #[Lazy()]
-    protected ?ObjectStorage $publisher;
+    protected ObjectStorage $publisher;
 
     /**
      * Name of the library, archive, muesum, or gallery
@@ -259,12 +259,12 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function initializeObject(): void
     {
-        $this->author ??= new ObjectStorage();
-        $this->editor ??= new ObjectStorage();
-        $this->translator ??= new ObjectStorage();
-        $this->contributor ??= new ObjectStorage();
-        $this->publisher ??= new ObjectStorage();
-        $this->extent ??= new ObjectStorage();
+        $this->author = new ObjectStorage();
+        $this->editor = new ObjectStorage();
+        $this->translator = new ObjectStorage();
+        $this->contributor = new ObjectStorage();
+        $this->publisher = new ObjectStorage();
+        $this->extent = new ObjectStorage();
     }
 
     /**
@@ -392,7 +392,7 @@ class BibliographicEntry extends AbstractHeritage
      *
      * @return ObjectStorage<Agent>
      */
-    public function getAuthor(): ?ObjectStorage
+    public function getAuthor(): ObjectStorage
     {
         return $this->author;
     }
@@ -414,7 +414,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function addAuthor(Agent $author): void
     {
-        $this->author?->attach($author);
+        $this->author->attach($author);
     }
 
     /**
@@ -424,7 +424,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function removeAuthor(Agent $author): void
     {
-        $this->author?->detach($author);
+        $this->author->detach($author);
     }
 
     /**
@@ -441,7 +441,7 @@ class BibliographicEntry extends AbstractHeritage
      *
      * @return ObjectStorage<Agent>
      */
-    public function getEditor(): ?ObjectStorage
+    public function getEditor(): ObjectStorage
     {
         return $this->editor;
     }
@@ -463,7 +463,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function addEditor(Agent $editor): void
     {
-        $this->editor?->attach($editor);
+        $this->editor->attach($editor);
     }
 
     /**
@@ -473,7 +473,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function removeEditor(Agent $editor): void
     {
-        $this->editor?->detach($editor);
+        $this->editor->detach($editor);
     }
 
     /**
@@ -490,7 +490,7 @@ class BibliographicEntry extends AbstractHeritage
      *
      * @return ObjectStorage<Agent>
      */
-    public function getTranslator(): ?ObjectStorage
+    public function getTranslator(): ObjectStorage
     {
         return $this->translator;
     }
@@ -512,7 +512,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function addTranslator(Agent $translator): void
     {
-        $this->translator?->attach($translator);
+        $this->translator->attach($translator);
     }
 
     /**
@@ -522,7 +522,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function removeTranslator(Agent $translator): void
     {
-        $this->translator?->detach($translator);
+        $this->translator->detach($translator);
     }
 
     /**
@@ -539,7 +539,7 @@ class BibliographicEntry extends AbstractHeritage
      *
      * @return ObjectStorage<Agent>
      */
-    public function getContributor(): ?ObjectStorage
+    public function getContributor(): ObjectStorage
     {
         return $this->contributor;
     }
@@ -561,7 +561,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function addContributor(Agent $contributor): void
     {
-        $this->contributor?->attach($contributor);
+        $this->contributor->attach($contributor);
     }
 
     /**
@@ -571,7 +571,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function removeContributor(Agent $contributor): void
     {
-        $this->contributor?->detach($contributor);
+        $this->contributor->detach($contributor);
     }
 
     /**
@@ -628,7 +628,7 @@ class BibliographicEntry extends AbstractHeritage
      *
      * @return ObjectStorage<Agent>
      */
-    public function getPublisher(): ?ObjectStorage
+    public function getPublisher(): ObjectStorage
     {
         return $this->publisher;
     }
@@ -650,7 +650,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function addPublisher(Agent $publisher): void
     {
-        $this->publisher?->attach($publisher);
+        $this->publisher->attach($publisher);
     }
 
     /**
@@ -660,7 +660,7 @@ class BibliographicEntry extends AbstractHeritage
      */
     public function removePublisher(Agent $publisher): void
     {
-        $this->publisher?->detach($publisher);
+        $this->publisher->detach($publisher);
     }
 
     /**

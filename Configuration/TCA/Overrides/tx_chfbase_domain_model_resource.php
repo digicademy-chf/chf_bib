@@ -36,4 +36,5 @@ $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['bibliographicR
 ]];
 
 // Add opposite usage info to 'items' column
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['allowed'] .= ',tx_chfbib_domain_model_bibliographicentry';
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chfbib_domain_model_bibliographicentry'] = ['parent_resource'];

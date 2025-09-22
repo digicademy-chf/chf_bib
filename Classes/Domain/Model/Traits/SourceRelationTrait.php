@@ -24,20 +24,20 @@ trait SourceRelationTrait
     /**
      * Sources of this database record
      * 
-     * @var ?ObjectStorage<SourceRelation>
+     * @var ObjectStorage<SourceRelation>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $sourceRelation = null;
+    protected ObjectStorage $sourceRelation;
 
     /**
      * Get source relation
      *
      * @return ObjectStorage<SourceRelation>
      */
-    public function getSourceRelation(): ?ObjectStorage
+    public function getSourceRelation(): ObjectStorage
     {
         return $this->sourceRelation;
     }
@@ -59,7 +59,7 @@ trait SourceRelationTrait
      */
     public function addSourceRelation(SourceRelation $sourceRelation): void
     {
-        $this->sourceRelation?->attach($sourceRelation);
+        $this->sourceRelation->attach($sourceRelation);
     }
 
     /**
@@ -69,7 +69,7 @@ trait SourceRelationTrait
      */
     public function removeSourceRelation(SourceRelation $sourceRelation): void
     {
-        $this->sourceRelation?->detach($sourceRelation);
+        $this->sourceRelation->detach($sourceRelation);
     }
 
     /**

@@ -17,7 +17,7 @@ ExtensionUtility::configurePlugin(
     'CHFBib',
     'Bibliography',
     [
-        BibliographyController::class => 'index',
+        BibliographyController::class => 'index, show',
     ],
     [], // None of the actions are non-cacheable
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT

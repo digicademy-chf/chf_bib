@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace Digicademy\CHFBib\Controller;
 
 use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
+use Digicademy\CHFBib\Domain\Model\BibliographicEntry;
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Core\Cache\CacheTag;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 defined('TYPO3') or die();
@@ -21,12 +21,12 @@ defined('TYPO3') or die();
  */
 class BibliographyController extends ActionController
 {
-    private AbstractResourceRepository $abstractResourceRepository;
-
-    public function injectAbstractResourceRepository(AbstractResourceRepository $abstractResourceRepository): void
-    {
-        $this->abstractResourceRepository = $abstractResourceRepository;
-    }
+    /**
+     * Constructor takes care of dependency injection
+     */
+    public function __construct(
+        protected readonly AbstractResourceRepository $abstractResourceRepository,
+    ) {}
 
     /**
      * Show bibliographic entry list
@@ -39,11 +39,20 @@ class BibliographyController extends ActionController
         $resourceIdentifier = $this->settings['resource'];
         $this->view->assign('resource', $this->abstractResourceRepository->findByIdentifier($resourceIdentifier));
 
-        // Set cache tag
-        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
-        $cacheDataCollector->addCacheTags(
-            new CacheTag('chf')
-        );
+        // Create response
+        return $this->htmlResponse();
+    }
+
+    /**
+     * Show single bibliographic entry
+     *
+     * @param BibliographicEntry $bibliographicEntry
+     * @return ResponseInterface
+     */
+    public function showAction(BibliographicEntry $bibliographicEntry): ResponseInterface
+    {
+        // Get bibliographic entry
+        $this->view->assign('bibliographicEntry', $bibliographicEntry);
 
         // Create response
         return $this->htmlResponse();

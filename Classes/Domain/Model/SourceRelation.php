@@ -29,10 +29,10 @@ class SourceRelation extends AbstractRelation
     /**
      * Bibliographic entry to relate to the record
      * 
-     * @var ?ObjectStorage<BibliographicEntry>
+     * @var ObjectStorage<BibliographicEntry>
      */
     #[Lazy()]
-    protected ?ObjectStorage $bibliographicEntry;
+    protected ObjectStorage $bibliographicEntry;
 
     /**
      * Detailed reference, e.g., a page number without "p." or "pp."
@@ -63,7 +63,7 @@ class SourceRelation extends AbstractRelation
             ],
         ],
     ])]
-    protected string|null $elaborationType = null;
+    protected ?string $elaborationType = null;
 
     /**
      * Construct object
@@ -87,7 +87,7 @@ class SourceRelation extends AbstractRelation
      */
     public function initializeObject(): void
     {
-        $this->bibliographicEntry ??= new ObjectStorage();
+        $this->bibliographicEntry = new ObjectStorage();
     }
 
     /**
@@ -95,7 +95,7 @@ class SourceRelation extends AbstractRelation
      *
      * @return ObjectStorage<BibliographicEntry>
      */
-    public function getBibliographicEntry(): ?ObjectStorage
+    public function getBibliographicEntry(): ObjectStorage
     {
         return $this->bibliographicEntry;
     }
@@ -117,7 +117,7 @@ class SourceRelation extends AbstractRelation
      */
     public function addBibliographicEntry(BibliographicEntry $bibliographicEntry): void
     {
-        $this->bibliographicEntry?->attach($bibliographicEntry);
+        $this->bibliographicEntry->attach($bibliographicEntry);
     }
 
     /**
@@ -127,7 +127,7 @@ class SourceRelation extends AbstractRelation
      */
     public function removeBibliographicEntry(BibliographicEntry $bibliographicEntry): void
     {
-        $this->bibliographicEntry?->detach($bibliographicEntry);
+        $this->bibliographicEntry->detach($bibliographicEntry);
     }
 
     /**
