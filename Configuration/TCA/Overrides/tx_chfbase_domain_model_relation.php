@@ -108,6 +108,9 @@ defined('TYPO3') or die();
     ]
 );
 
+// Add tables to allow list of 'record' column
+$GLOBALS['TCA']['tx_chfbase_domain_model_relation']['columns']['record']['config']['allowed'] .= ',tx_chfbib_domain_model_bibliographicentry';
+
 // Create palette 'elaborationElaborationType'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_chfbase_domain_model_relation',
     'bibliographicEntryElaborationElaborationType',
