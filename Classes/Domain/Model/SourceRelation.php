@@ -9,10 +9,23 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFBib\Domain\Model;
 
-use Digicademy\CHFBase\Domain\Model\AbstractBase;
 use Digicademy\CHFBase\Domain\Model\AbstractRelation;
+use Digicademy\CHFBase\Domain\Model\Agent;
+use Digicademy\CHFBase\Domain\Model\Location;
+use Digicademy\CHFBase\Domain\Model\Period;
 use Digicademy\CHFBase\Domain\Model\Traits\RecordTrait;
 use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
+use Digicademy\CHFGloss\Domain\Model\GlossaryEntry;
+use Digicademy\CHFLex\Domain\Model\DictionaryEntry;
+use Digicademy\CHFLex\Domain\Model\EncyclopediaEntry;
+use Digicademy\CHFLex\Domain\Model\Example;
+use Digicademy\CHFLex\Domain\Model\Frequency;
+use Digicademy\CHFMap\Domain\Model\Feature;
+use Digicademy\CHFMedia\Domain\Model\FileGroup;
+use Digicademy\CHFObject\Domain\Model\SingleObject;
+use Digicademy\CHFObject\Domain\Model\ObjectGroup;
+use Digicademy\CHFPub\Domain\Model\Essay;
+use Digicademy\CHFPub\Domain\Model\Volume;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -68,11 +81,11 @@ class SourceRelation extends AbstractRelation
     /**
      * Construct object
      *
-     * @param AbstractBase $record
+     * @param Agent|Location|Period|BibliographicEntry|GlossaryEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record
      * @param BibliographicEntry $bibliographicEntry
      * @return SourceRelation
      */
-    public function __construct(AbstractBase $record, BibliographicEntry $bibliographicEntry)
+    public function __construct(Agent|Location|Period|BibliographicEntry|GlossaryEntry|DictionaryEntry|EncyclopediaEntry|Example|Frequency|Feature|FileGroup|SingleObject|ObjectGroup|Essay|Volume $record, BibliographicEntry $bibliographicEntry)
     {
         parent::__construct();
         $this->initializeObject();

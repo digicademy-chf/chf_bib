@@ -47,6 +47,7 @@ defined('TYPO3') or die();
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'sourceRelation',
                                 'readOnly' => true,
                             ],
                         ],
