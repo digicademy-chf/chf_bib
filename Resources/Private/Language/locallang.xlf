@@ -24,16 +24,16 @@
                 <source>Type of detailed reference</source>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaborationType.pageNumbers" resname="object.sourceRelation.elaborationType.pageNumbers">
-                <source>Page numbers</source>
+                <source>Page numbers (p.)</source>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaborationType.paragraphNumbers" resname="object.sourceRelation.elaborationType.paragraphNumbers">
-                <source>Paragraph numbers</source>
+                <source>Paragraph numbers (par.)</source>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaborationType.columnNumbers" resname="object.sourceRelation.elaborationType.columnNumbers">
-                <source>Column numbers</source>
+                <source>Column numbers (col.)</source>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaborationType.chapterNumbers" resname="object.sourceRelation.elaborationType.chapterNumbers">
-                <source>Chapter numbers</source>
+                <source>Chapter numbers (ch.)</source>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaboration" resname="object.sourceRelation.elaboration">
                 <source>Elaboration</source>
@@ -264,6 +264,46 @@
             </trans-unit>
             <trans-unit id="object.abstractHeritage.sourceRelation.description" resname="object.abstractHeritage.sourceRelation.description">
                 <source>Sources of this database record</source>
+            </trans-unit>
+            <!-- Object: Extent -->
+            <trans-unit id="object.extent.type.sourceUrl" resname="object.extent.type.sourceUrl">
+                <source>Source URL (web address)</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceDoi" resname="object.extent.type.sourceDoi">
+                <source>Source DOI</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceUrn" resname="object.extent.type.sourceUrn">
+                <source>Further source URN/PID (incl. Handle)</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceIssn" resname="object.extent.type.sourceIssn">
+                <source>Source ISSN</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceIsbn" resname="object.extent.type.sourceIsbn">
+                <source>Source ISBN</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceEdition" resname="object.extent.type.sourceEdition">
+                <source>Source edition (ed.)</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceVersion" resname="object.extent.type.sourceVersion">
+                <source>Source version (ver.)</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceVolume" resname="object.extent.type.sourceVolume">
+                <source>Source volume (vol.)</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceIssue" resname="object.extent.type.sourceIssue">
+                <source>Source issue (no.)</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourcePageNumbers" resname="object.extent.type.sourcePageNumbers">
+                <source>Source page numbers (p.)</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceParagraphNumbers" resname="object.extent.type.sourceParagraphNumbers">
+                <source>Source paragraph numbers (par.)</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceColumnNumbers" resname="object.extent.type.sourceColumnNumbers">
+                <source>Source column numbers (col.)</source>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceChapterNumbers" resname="object.extent.type.sourceChapterNumbers">
+                <source>Source chapter numbers (ch.)</source>
             </trans-unit>
             <!-- Plugin: Bibliography -->
             <trans-unit id="plugin.bibliography" resname="plugin.bibliography">

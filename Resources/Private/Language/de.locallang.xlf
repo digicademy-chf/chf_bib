@@ -30,20 +30,20 @@
                 <target>Art der detaillierten Referenz</target>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaborationType.pageNumbers" resname="object.sourceRelation.elaborationType.pageNumbers" approved="yes">
-                <source>Page numbers</source>
-                <target>Seitenzahlen</target>
+                <source>Page numbers (p.)</source>
+                <target>Seitenzahlen (S.)</target>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaborationType.paragraphNumbers" resname="object.sourceRelation.elaborationType.paragraphNumbers" approved="yes">
-                <source>Paragraph numbers</source>
-                <target>Absatznummern</target>
+                <source>Paragraph numbers (par.)</source>
+                <target>Absatznummern (Abs.)</target>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaborationType.columnNumbers" resname="object.sourceRelation.elaborationType.columnNumbers" approved="yes">
-                <source>Column numbers</source>
-                <target>Spaltenzahlen</target>
+                <source>Column numbers (col.)</source>
+                <target>Spaltenzahlen (Sp.)</target>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaborationType.chapterNumbers" resname="object.sourceRelation.elaborationType.chapterNumbers" approved="yes">
-                <source>Chapter numbers</source>
-                <target>Kapitelnummern</target>
+                <source>Chapter numbers (ch.)</source>
+                <target>Kapitelnummern (Kap.)</target>
             </trans-unit>
             <trans-unit id="object.sourceRelation.elaboration" resname="object.sourceRelation.elaboration" approved="yes">
                 <source>Elaboration</source>
@@ -350,6 +350,59 @@
             <trans-unit id="object.abstractHeritage.sourceRelation.description" resname="object.abstractHeritage.sourceRelation.description" approved="yes">
                 <source>Sources of this database record</source>
                 <target>Quellen dieses Datenbankeintrags</target>
+            </trans-unit>
+            <!-- Object: Extent -->
+            <trans-unit id="object.extent.type.sourceUrl" resname="object.extent.type.sourceUrl" approved="yes">
+                <source>Source URL (web address)</source>
+                <target>URL der Quelle (Webadresse)</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceDoi" resname="object.extent.type.sourceDoi" approved="yes">
+                <source>Source DOI</source>
+                <target>DOI der Quelle</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceUrn" resname="object.extent.type.sourceUrn" approved="yes">
+                <source>Further source URN/PID (incl. Handle)</source>
+                <target>Andere URN/PID der Quelle (inkl. Handle)</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceIssn" resname="object.extent.type.sourceIssn" approved="yes">
+                <source>Source ISSN</source>
+                <target>ISSN der Quelle</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceIsbn" resname="object.extent.type.sourceIsbn" approved="yes">
+                <source>Source ISBN</source>
+                <target>ISBN der Quelle</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceEdition" resname="object.extent.type.sourceEdition" approved="yes">
+                <source>Source edition (ed.)</source>
+                <target>Ausgabe der Quelle (Ausg.)</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceVersion" resname="object.extent.type.sourceVersion" approved="yes">
+                <source>Source version (ver.)</source>
+                <target>Version der Quelle (Ver.)</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceVolume" resname="object.extent.type.sourceVolume" approved="yes">
+                <source>Source volume (vol.)</source>
+                <target>Band der Quelle (Bd.)</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceIssue" resname="object.extent.type.sourceIssue" approved="yes">
+                <source>Source issue (no.)</source>
+                <target>Heftnummer der Quelle (Nr.)</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourcePageNumbers" resname="object.extent.type.sourcePageNumbers" approved="yes">
+                <source>Source page numbers (p.)</source>
+                <target>Seitenzahlen der Quelle (S.)</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceParagraphNumbers" resname="object.extent.type.sourceParagraphNumbers" approved="yes">
+                <source>Source paragraph numbers (par.)</source>
+                <target>Absatznummern der Quelle (Abs.)</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceColumnNumbers" resname="object.extent.type.sourceColumnNumbers" approved="yes">
+                <source>Source column numbers (col.)</source>
+                <target>Spaltenzahlen der Quelle (Sp.)</target>
+            </trans-unit>
+            <trans-unit id="object.extent.type.sourceChapterNumbers" resname="object.extent.type.sourceChapterNumbers" approved="yes">
+                <source>Source chapter numbers (ch.)</source>
+                <target>Kapitelnummern der Quelle (Kap.)</target>
             </trans-unit>
             <!-- Plugin: Bibliography -->
             <trans-unit id="plugin.bibliography" resname="plugin.bibliography" approved="yes">
