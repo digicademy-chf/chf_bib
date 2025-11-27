@@ -13,8 +13,8 @@ use Digicademy\CHFBase\Domain\Model\Agent;
 use Digicademy\CHFBase\Domain\Model\AbstractHeritage;
 use Digicademy\CHFBase\Domain\Model\Traits\ExtentTrait;
 use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
+use TYPO3\CMS\Extbase\Attribute\Validate;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 

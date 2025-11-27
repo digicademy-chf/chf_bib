@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace Digicademy\CHFBib\Domain\Model\Traits;
 
 use Digicademy\CHFBib\Domain\Model\SourceRelation;
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
+use TYPO3\CMS\Extbase\Attribute\ORM\Cascade;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 defined('TYPO3') or die();
