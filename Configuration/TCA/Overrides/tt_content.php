@@ -29,6 +29,7 @@ ExtensionUtility::registerPlugin(
     'tx-chfbib-plugin-bibliography',
     'heritage',
     'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:plugin.bibliography.description',
+    'FILE:EXT:chf_bib/Configuration/FlexForms/PluginData.xml',
 );
 
 // Add data tab to plugin form
@@ -37,11 +38,4 @@ ExtensionManagementUtility::addToAllTCAtypes(
     '--div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:plugin.generic.data,pi_flexform',
     'chfbib_bibliography',
     'after:subheader',
-);
-
-// Add form for plugin 'Bibliography'
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:chf_bib/Configuration/FlexForms/PluginData.xml',
-    'chfbib_bibliography',
 );
