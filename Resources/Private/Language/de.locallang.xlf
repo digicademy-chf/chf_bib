@@ -1,418 +1,617 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" target-language="de" datatype="plaintext" original="EXT:chf_bib/Resources/Private/Language/locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_bib">
-        <header/>
-        <body>
-            <!-- Object: BibliographicResource -->
-            <trans-unit id="object.bibliographicResource.type.bibliographicResource" resname="object.bibliographicResource.type.bibliographicResource" approved="yes">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+    <file id="chf_bib">
+        <!-- Object: BibliographicResource -->
+        <unit id="object.bibliographicResource.type.bibliographicResource">
+            <segment state="final">
                 <source>Bibliography</source>
                 <target>Bibliografie</target>
-            </trans-unit>
-            <!-- Object: SourceRelation -->
-            <trans-unit id="object.sourceRelation.type.sourceRelation" resname="object.sourceRelation.type.sourceRelation" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: SourceRelation -->
+        <unit id="object.sourceRelation.type.sourceRelation">
+            <segment state="final">
                 <source>Source relation</source>
                 <target>Quellenrelation</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.bibliographicEntry" resname="object.sourceRelation.bibliographicEntry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.bibliographicEntry">
+            <segment state="final">
                 <source>Bibliographic entry</source>
                 <target>Bibliografieeintrag</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.bibliographicEntry.description" resname="object.sourceRelation.bibliographicEntry.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.bibliographicEntry.description">
+            <segment state="final">
                 <source>Bibliographic entry to relate to the record</source>
                 <target>Bibliografieeintrag, der mit dem Eintrag verknüpft werden soll</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.elaborationType" resname="object.sourceRelation.elaborationType" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.elaborationType">
+            <segment state="final">
                 <source>Elaboration type</source>
                 <target>Art der Stelle</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.elaborationType.description" resname="object.sourceRelation.elaborationType.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.elaborationType.description">
+            <segment state="final">
                 <source>Type of detailed reference</source>
                 <target>Art der detaillierten Referenz</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.elaborationType.pageNumbers" resname="object.sourceRelation.elaborationType.pageNumbers" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.elaborationType.pageNumbers">
+            <segment state="final">
                 <source>Page numbers (p.)</source>
                 <target>Seitenzahlen (S.)</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.elaborationType.paragraphNumbers" resname="object.sourceRelation.elaborationType.paragraphNumbers" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.elaborationType.paragraphNumbers">
+            <segment state="final">
                 <source>Paragraph numbers (par.)</source>
                 <target>Absatznummern (Abs.)</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.elaborationType.columnNumbers" resname="object.sourceRelation.elaborationType.columnNumbers" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.elaborationType.columnNumbers">
+            <segment state="final">
                 <source>Column numbers (col.)</source>
                 <target>Spaltenzahlen (Sp.)</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.elaborationType.chapterNumbers" resname="object.sourceRelation.elaborationType.chapterNumbers" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.elaborationType.chapterNumbers">
+            <segment state="final">
                 <source>Chapter numbers (ch.)</source>
                 <target>Kapitelnummern (Kap.)</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.elaboration" resname="object.sourceRelation.elaboration" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.elaboration">
+            <segment state="final">
                 <source>Elaboration</source>
                 <target>Stelle</target>
-            </trans-unit>
-            <trans-unit id="object.sourceRelation.elaboration.description" resname="object.sourceRelation.elaboration.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sourceRelation.elaboration.description">
+            <segment state="final">
                 <source>Detailed reference, e.g., a page number without "p." or "pp."</source>
                 <target>Detaillierte Referenz, z.B. als Seitenzahl ohne "S."</target>
-            </trans-unit>
-            <!-- Object: BibliographicEntry -->
-            <trans-unit id="object.bibliographicEntry" resname="object.bibliographicEntry" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: BibliographicEntry -->
+        <unit id="object.bibliographicEntry">
+            <segment state="final">
                 <source>Bibliographic entry</source>
                 <target>Bibliografieeintrag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type" resname="object.bibliographicEntry.type" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type">
+            <segment state="final">
                 <source>Type</source>
                 <target>Art</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.description" resname="object.bibliographicEntry.type.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.description">
+            <segment state="final">
                 <source>Approximate taxonomy of the entry</source>
                 <target>Grobe Klassifizierung des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.artwork" resname="object.bibliographicEntry.type.artwork" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.artwork">
+            <segment state="final">
                 <source>Artwork</source>
                 <target>Kunstwerk</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.audioRecording" resname="object.bibliographicEntry.type.audioRecording" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.audioRecording">
+            <segment state="final">
                 <source>Audio recording</source>
                 <target>Tonaufnahme</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.bill" resname="object.bibliographicEntry.type.bill" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.bill">
+            <segment state="final">
                 <source>Bill</source>
                 <target>Gesetzentwurf</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.blogPost" resname="object.bibliographicEntry.type.blogPost" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.blogPost">
+            <segment state="final">
                 <source>Blog post</source>
                 <target>Blogbeitrag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.book" resname="object.bibliographicEntry.type.book" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.book">
+            <segment state="final">
                 <source>Book</source>
                 <target>Buch</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.bookSection" resname="object.bibliographicEntry.type.bookSection" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.bookSection">
+            <segment state="final">
                 <source>Book section</source>
                 <target>Buchkapitel</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.case" resname="object.bibliographicEntry.type.case" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.case">
+            <segment state="final">
                 <source>Case</source>
                 <target>Fall</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.computerProgram" resname="object.bibliographicEntry.type.computerProgram" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.computerProgram">
+            <segment state="final">
                 <source>Software</source>
                 <target>Software</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.conferencePaper" resname="object.bibliographicEntry.type.conferencePaper" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.conferencePaper">
+            <segment state="final">
                 <source>Conference paper</source>
                 <target>Konferenzbeitrag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.dataset" resname="object.bibliographicEntry.type.dataset" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.dataset">
+            <segment state="final">
                 <source>Dataset</source>
                 <target>Datensatz</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.dictionaryEntry" resname="object.bibliographicEntry.type.dictionaryEntry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.dictionaryEntry">
+            <segment state="final">
                 <source>Dictionary entry</source>
                 <target>Wörterbucheintrag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.document" resname="object.bibliographicEntry.type.document" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.document">
+            <segment state="final">
                 <source>Document</source>
                 <target>Dokument</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.email" resname="object.bibliographicEntry.type.email" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.email">
+            <segment state="final">
                 <source>Email</source>
                 <target>E-Mail</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.encyclopediaArticle" resname="object.bibliographicEntry.type.encyclopediaArticle" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.encyclopediaArticle">
+            <segment state="final">
                 <source>Encyclopedia article</source>
                 <target>Lexikonartikel</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.film" resname="object.bibliographicEntry.type.film" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.film">
+            <segment state="final">
                 <source>Film</source>
                 <target>Film</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.forumPost" resname="object.bibliographicEntry.type.forumPost" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.forumPost">
+            <segment state="final">
                 <source>Forum post</source>
                 <target>Forenbeitrag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.hearing" resname="object.bibliographicEntry.type.hearing" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.hearing">
+            <segment state="final">
                 <source>Hearing</source>
                 <target>Anhörung</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.instantMessage" resname="object.bibliographicEntry.type.instantMessage" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.instantMessage">
+            <segment state="final">
                 <source>Instant message</source>
                 <target>Chatbeitrag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.interview" resname="object.bibliographicEntry.type.interview" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.interview">
+            <segment state="final">
                 <source>Interview</source>
                 <target>Interview</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.journalArticle" resname="object.bibliographicEntry.type.journalArticle" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.journalArticle">
+            <segment state="final">
                 <source>Journal article</source>
                 <target>Fachzeitschriftenbeitrag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.letter" resname="object.bibliographicEntry.type.letter" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.letter">
+            <segment state="final">
                 <source>Letter</source>
                 <target>Brief</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.magazineArticle" resname="object.bibliographicEntry.type.magazineArticle" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.magazineArticle">
+            <segment state="final">
                 <source>Magazine article</source>
                 <target>Zeitschriftenartikel</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.manuscript" resname="object.bibliographicEntry.type.manuscript" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.manuscript">
+            <segment state="final">
                 <source>Manuscript</source>
                 <target>Manuskript</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.map" resname="object.bibliographicEntry.type.map" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.map">
+            <segment state="final">
                 <source>Map</source>
                 <target>Landkarte</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.newspaperArticle" resname="object.bibliographicEntry.type.newspaperArticle" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.newspaperArticle">
+            <segment state="final">
                 <source>Newspaper article</source>
                 <target>Zeitungsartikel</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.patent" resname="object.bibliographicEntry.type.patent" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.patent">
+            <segment state="final">
                 <source>Patent</source>
                 <target>Patent</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.podcast" resname="object.bibliographicEntry.type.podcast" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.podcast">
+            <segment state="final">
                 <source>Podcast</source>
                 <target>Podcast</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.preprint" resname="object.bibliographicEntry.type.preprint" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.preprint">
+            <segment state="final">
                 <source>Preprint</source>
                 <target>Preprint</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.presentation" resname="object.bibliographicEntry.type.presentation" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.presentation">
+            <segment state="final">
                 <source>Presentation</source>
                 <target>Vortrag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.radioBroadcast" resname="object.bibliographicEntry.type.radioBroadcast" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.radioBroadcast">
+            <segment state="final">
                 <source>Radio broadcast</source>
                 <target>Radiobeitrag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.report" resname="object.bibliographicEntry.type.report" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.report">
+            <segment state="final">
                 <source>Report</source>
                 <target>Bericht</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.standard" resname="object.bibliographicEntry.type.standard" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.standard">
+            <segment state="final">
                 <source>Standard</source>
                 <target>Standard</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.statute" resname="object.bibliographicEntry.type.statute" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.statute">
+            <segment state="final">
                 <source>Statute</source>
                 <target>Gesetz</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.thesis" resname="object.bibliographicEntry.type.thesis" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.thesis">
+            <segment state="final">
                 <source>Thesis</source>
                 <target>Universitäre Arbeit</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.tvBroadcast" resname="object.bibliographicEntry.type.tvBroadcast" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.tvBroadcast">
+            <segment state="final">
                 <source>TV broadcast</source>
                 <target>Fernsehsendung</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.videoRecording" resname="object.bibliographicEntry.type.videoRecording" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.videoRecording">
+            <segment state="final">
                 <source>Video recording</source>
                 <target>Videoaufnahme</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.type.webpage" resname="object.bibliographicEntry.type.webpage" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.type.webpage">
+            <segment state="final">
                 <source>Web page</source>
                 <target>Webseite</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.itemTitle" resname="object.bibliographicEntry.itemTitle" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.itemTitle">
+            <segment state="final">
                 <source>Item title</source>
                 <target>Beitragstitel</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.itemTitle.description" resname="object.bibliographicEntry.itemTitle.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.itemTitle.description">
+            <segment state="final">
                 <source>Title of a non-independent publication, e.g., a paper</source>
                 <target>Titel einer nicht-selbständigen Veröffentlichung, z.B. eines Aufsatzes</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.standaloneTitle" resname="object.bibliographicEntry.standaloneTitle" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.standaloneTitle">
+            <segment state="final">
                 <source>Standalone title</source>
                 <target>Eigenständiger Titel</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.standaloneTitle.description" resname="object.bibliographicEntry.standaloneTitle.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.standaloneTitle.description">
+            <segment state="final">
                 <source>Title of the independent publication, e.g., a monograph</source>
                 <target>Titel der eigenständigen Veröffentlichung, z.B. einer Monografie</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.meetingTitle" resname="object.bibliographicEntry.meetingTitle" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.meetingTitle">
+            <segment state="final">
                 <source>Meeting name</source>
                 <target>Veranstaltungstitel</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.meetingTitle.description" resname="object.bibliographicEntry.meetingTitle.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.meetingTitle.description">
+            <segment state="final">
                 <source>Name of the meeting the publication was presented at</source>
                 <target>Titel der Veranstaltung, bei der die Publikation vorgestellt wurde</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.seriesTitle" resname="object.bibliographicEntry.seriesTitle" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.seriesTitle">
+            <segment state="final">
                 <source>Title of the publication series</source>
                 <target>Titel der Publikationsreihe</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.seriesTitle.description" resname="object.bibliographicEntry.seriesTitle.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.seriesTitle.description">
+            <segment state="final">
                 <source>Name of a series this publication is part of</source>
                 <target>Name einer Reihe, zu der diese Publikation gehört</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.author" resname="object.bibliographicEntry.author" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.author">
+            <segment state="final">
                 <source>Author</source>
                 <target>Autor:in</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.author.description" resname="object.bibliographicEntry.author.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.author.description">
+            <segment state="final">
                 <source>Author of the publication</source>
                 <target>Autor:in dieser Publikation</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.editor" resname="object.bibliographicEntry.editor" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.editor">
+            <segment state="final">
                 <source>Editor</source>
                 <target>Redaktion</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.editor.description" resname="object.bibliographicEntry.editor.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.editor.description">
+            <segment state="final">
                 <source>Editor of the publication</source>
                 <target>Herausgeber:in dieser Publikation</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.translator" resname="object.bibliographicEntry.translator" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.translator">
+            <segment state="final">
                 <source>Translator</source>
                 <target>Übersetzung</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.translator.description" resname="object.bibliographicEntry.translator.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.translator.description">
+            <segment state="final">
                 <source>Translator of the publication</source>
                 <target>Übersetzer:in dieser Publikation</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.contributor" resname="object.bibliographicEntry.contributor" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.contributor">
+            <segment state="final">
                 <source>Contributor</source>
                 <target>Beitragende:r</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.contributor.description" resname="object.bibliographicEntry.contributor.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.contributor.description">
+            <segment state="final">
                 <source>Further contributor of the publication</source>
                 <target>Weitere:r Beitragende:r dieser Publikation</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.date" resname="object.bibliographicEntry.date" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.date">
+            <segment state="final">
                 <source>Date</source>
                 <target>Datum</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.date.description" resname="object.bibliographicEntry.date.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.date.description">
+            <segment state="final">
                 <source>Date when the publication was published</source>
                 <target>Datum, an dem die Publikation veröffentlicht wurde</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.dateText" resname="object.bibliographicEntry.dateText" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.dateText">
+            <segment state="final">
                 <source>Date (text)</source>
                 <target>Datum (Text)</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.dateText.description" resname="object.bibliographicEntry.dateText.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.dateText.description">
+            <segment state="final">
                 <source>Non-standard publication date</source>
                 <target>Nicht standardiesiertes Veröffentlichungsdatum</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.publisher" resname="object.bibliographicEntry.publisher" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.publisher">
+            <segment state="final">
                 <source>Publisher</source>
                 <target>Verlag</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.publisher.description" resname="object.bibliographicEntry.publisher.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.publisher.description">
+            <segment state="final">
                 <source>Name of the publisher of this publication</source>
                 <target>Angabe des Verlags der Publikation</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.holdingOrg" resname="object.bibliographicEntry.holdingOrg" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.holdingOrg">
+            <segment state="final">
                 <source>Holding organisation</source>
                 <target>Sammelnde Einrichtung</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.holdingOrg.description" resname="object.bibliographicEntry.holdingOrg.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.holdingOrg.description">
+            <segment state="final">
                 <source>Name of the library, archive, muesum, or gallery</source>
                 <target>Angabe von Bibliothek, Archivs, Museum oder Gallerie</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.place" resname="object.bibliographicEntry.place" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.place">
+            <segment state="final">
                 <source>Place</source>
                 <target>Ortsangabe</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.place.description" resname="object.bibliographicEntry.place.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.place.description">
+            <segment state="final">
                 <source>Publication location</source>
                 <target>Angabe des Veröffentlichungsorts</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.callNumber" resname="object.bibliographicEntry.callNumber" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.callNumber">
+            <segment state="final">
                 <source>Call number</source>
                 <target>Signatur</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.callNumber.description" resname="object.bibliographicEntry.callNumber.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.callNumber.description">
+            <segment state="final">
                 <source>Identifier assigned by the holding organisation</source>
                 <target>Von der sammelnden Einrichtung vergebener Identifikator</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.fallback" resname="object.bibliographicEntry.fallback" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.fallback">
+            <segment state="final">
                 <source>Fallback citation</source>
                 <target>Reservezitation</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.fallback.description" resname="object.bibliographicEntry.fallback.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.fallback.description">
+            <segment state="final">
                 <source>Full citation in case all structured fields need to remain empty</source>
                 <target>Vollzitation falls alle strukturierten Felder leer bleiben müssen</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.lastChecked" resname="object.bibliographicEntry.lastChecked" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.lastChecked">
+            <segment state="final">
                 <source>Last checked</source>
                 <target>Zuletzt überprüft</target>
-            </trans-unit>
-            <trans-unit id="object.bibliographicEntry.lastChecked.description" resname="object.bibliographicEntry.lastChecked.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.bibliographicEntry.lastChecked.description">
+            <segment state="final">
                 <source>Date when the source was last checked</source>
                 <target>Datum, an dem die Quelle zuletzt abgerufen wurde</target>
-            </trans-unit>
-            <!-- Object: AbstractHeritage -->
-            <trans-unit id="object.abstractHeritage.sourceRelation" resname="object.abstractHeritage.sourceRelation" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: AbstractHeritage -->
+        <unit id="object.abstractHeritage.sourceRelation">
+            <segment state="final">
                 <source>Source</source>
                 <target>Quelle</target>
-            </trans-unit>
-            <trans-unit id="object.abstractHeritage.sourceRelation.description" resname="object.abstractHeritage.sourceRelation.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.abstractHeritage.sourceRelation.description">
+            <segment state="final">
                 <source>Sources of this database record</source>
                 <target>Quellen dieses Datenbankeintrags</target>
-            </trans-unit>
-            <!-- Object: Extent -->
-            <trans-unit id="object.extent.type.sourceUrl" resname="object.extent.type.sourceUrl" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: Extent -->
+        <unit id="object.extent.type.sourceUrl">
+            <segment state="final">
                 <source>Source URL (web address)</source>
                 <target>URL der Quelle (Webadresse)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceDoi" resname="object.extent.type.sourceDoi" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceDoi">
+            <segment state="final">
                 <source>Source DOI</source>
                 <target>DOI der Quelle</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceUrn" resname="object.extent.type.sourceUrn" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceUrn">
+            <segment state="final">
                 <source>Further source URN/PID (incl. Handle)</source>
                 <target>Andere URN/PID der Quelle (inkl. Handle)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceIssn" resname="object.extent.type.sourceIssn" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceIssn">
+            <segment state="final">
                 <source>Source ISSN</source>
                 <target>ISSN der Quelle</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceIsbn" resname="object.extent.type.sourceIsbn" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceIsbn">
+            <segment state="final">
                 <source>Source ISBN</source>
                 <target>ISBN der Quelle</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceEdition" resname="object.extent.type.sourceEdition" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceEdition">
+            <segment state="final">
                 <source>Source edition (ed.)</source>
                 <target>Ausgabe der Quelle (Ausg.)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceVersion" resname="object.extent.type.sourceVersion" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceVersion">
+            <segment state="final">
                 <source>Source version (ver.)</source>
                 <target>Version der Quelle (Ver.)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceVolume" resname="object.extent.type.sourceVolume" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceVolume">
+            <segment state="final">
                 <source>Source volume (vol.)</source>
                 <target>Band der Quelle (Bd.)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceIssue" resname="object.extent.type.sourceIssue" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceIssue">
+            <segment state="final">
                 <source>Source issue (no.)</source>
                 <target>Heftnummer der Quelle (Nr.)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourcePageNumbers" resname="object.extent.type.sourcePageNumbers" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourcePageNumbers">
+            <segment state="final">
                 <source>Source page numbers (p.)</source>
                 <target>Seitenzahlen der Quelle (S.)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceParagraphNumbers" resname="object.extent.type.sourceParagraphNumbers" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceParagraphNumbers">
+            <segment state="final">
                 <source>Source paragraph numbers (par.)</source>
                 <target>Absatznummern der Quelle (Abs.)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceColumnNumbers" resname="object.extent.type.sourceColumnNumbers" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceColumnNumbers">
+            <segment state="final">
                 <source>Source column numbers (col.)</source>
                 <target>Spaltenzahlen der Quelle (Sp.)</target>
-            </trans-unit>
-            <trans-unit id="object.extent.type.sourceChapterNumbers" resname="object.extent.type.sourceChapterNumbers" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.extent.type.sourceChapterNumbers">
+            <segment state="final">
                 <source>Source chapter numbers (ch.)</source>
                 <target>Kapitelnummern der Quelle (Kap.)</target>
-            </trans-unit>
-            <!-- Plugin: Bibliography -->
-            <trans-unit id="plugin.bibliography" resname="plugin.bibliography" approved="yes">
+            </segment>
+        </unit>
+        <!-- Plugin: Bibliography -->
+        <unit id="plugin.bibliography">
+            <segment state="final">
                 <source>Bibliography</source>
                 <target>Bibliografie</target>
-            </trans-unit>
-            <trans-unit id="plugin.bibliography.description" resname="plugin.bibliography.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="plugin.bibliography.description">
+            <segment state="final">
                 <source>List and show bibliographic entries</source>
                 <target>Bibliografische Einträge auflisten und anzeigen</target>
-            </trans-unit>
-        </body>
+            </segment>
+        </unit>
     </file>
 </xliff>
